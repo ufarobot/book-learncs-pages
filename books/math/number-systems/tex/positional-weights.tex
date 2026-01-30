@@ -1,0 +1,27 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+\tikzset{
+  box/.style={draw=darkgray, fill=lightgray, line width=0.8pt, minimum width=1.2cm, minimum height=0.8cm},
+  lab/.style={font=\Large}
+}
+
+\node[box] (d3) at (0,0) {$a_3$};
+\node[box] (d2) at (1.4,0) {$a_2$};
+\node[box] (d1) at (2.8,0) {$a_1$};
+\node[box] (d0) at (4.2,0) {$a_0$};
+
+\node[lab] at (2.1,1.1) {$(a_3 a_2 a_1 a_0)_b$};
+
+\node at (0,-0.9) {$b^3$};
+\node at (1.4,-0.9) {$b^2$};
+\node at (2.8,-0.9) {$b^1$};
+\node at (4.2,-0.9) {$b^0$};
+
+\end{tikzpicture}
+\end{document}

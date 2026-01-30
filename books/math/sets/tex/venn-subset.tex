@@ -1,0 +1,34 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{learncs/tikz-style}
+
+\begin{document}
+  \begin{tikzpicture}[line cap=round,line join=round]
+
+% --- geometry (tuned to match the reference) ---
+    \def\RA{2.45}                 % radius of A (big circle)
+    \def\RB{1.25}                 % radius of B (small circle)
+    \coordinate (A) at (0,0);        % big circle center (center of rectangle)
+    \coordinate (B) at (-0.85,0.70); % small circle center (inside A)
+
+% universe rectangle
+    \draw[line width=1.0pt] (-5.5,-2.95) rectangle (5.5,2.95);
+
+% set A (big circle)
+    \draw[line width=1.0pt] (A) circle (\RA);
+
+% set B (filled small circle)
+    \fill[vennfill] (B) circle (\RB);
+    \draw[line width=1.0pt] (B) circle (\RB);
+
+% labels
+    \node[lab] at ($ (A) + (2.35,-1.55) $) {$A$};
+    \node[lab] at ($ (A) + (0.55,-0.05) $) {$B$};
+
+% caption below (centered under the rectangle)
+    \node[lab] at (0,-3.55) {$B\subseteq A$};
+
+% universe label U (outside bottom-left of the rectangle)
+    \node[lab, anchor=north east] at (-5.5,-2.35) {$U$};
+
+  \end{tikzpicture}
+\end{document}

@@ -1,0 +1,411 @@
+/* Ограничение ширины страницы (без поломки шапки/сайдбаров Material) */
+.md-grid {
+    max-width: 1200px !important;
+}
+
+/* 1) Фон верхней панели */
+.md-header {
+    background-color: #000000 !important;
+}
+
+/* 1b) Фон панели вкладок (tabs) */
+.md-tabs {
+    background-color: #2b2b2b !important;
+}
+
+/* На случай, если активность помечается на элементе списка */
+.md-tabs__item--active > .md-tabs__link {
+    font-weight: 700 !important;
+}
+
+.md-tabs__link {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.md-tabs__link--active {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* 2) Цвет текста site_name */
+.md-header .md-header__title {
+    color: #ffffff !important;
+}
+
+/* 3) При наведении на ссылку меню слева — подсветка */
+.md-nav__link:hover {
+    background-color: rgba(0, 0, 0, 0.44) !important;
+    color: #ffffff !important;
+}
+
+/* 3b) Активный пункт бокового меню — жирным и чёрным */
+.md-nav__link--active,
+.md-nav__link[aria-current="page"] {
+    font-weight: 700 !important;
+    color: #000000 !important;
+}
+
+/* Убираем заголовок текущей вкладки в левом меню (он дублирует вкладку сверху) */
+.md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav__link,
+.md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link {
+    display: none !important;
+}
+
+/* 4) Убираем «серые плашки» у встроенного кода и делаем его чуть более «текстовым» */
+.md-typeset :not(pre) > code {
+    background-color: transparent !important; /* без серого фона */
+    box-shadow: none !important;
+    padding: 0 0.05em !important;
+    border-radius: 0 !important;
+    color: #1565c0 !important; /* мягкий синий цвет для команд и литералов */
+    font-weight: 500;
+    font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+/* Фон для блоков кода */
+.md-typeset pre,
+.md-typeset pre > code {
+    background-color: rgba(227, 242, 253, 0.21) !important; /* светло-голубой фон */
+}
+
+/* 5) Лёгкая подсветка строк таблиц для лучшего чтения */
+.md-typeset table:not([class]) tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.015);
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    padding: 0.35rem 0.6rem;
+}
+
+/* Общий светло‑серый фон для страницы и боковых панелей */
+body {
+    background-color: #e5e5e5;
+}
+
+.md-sidebar,
+.md-sidebar--primary,
+.md-sidebar--secondary {
+    background-color: #e5e5e5;
+}
+
+/* Белый фон только у основного контента */
+.md-main__inner {
+    background: none;
+}
+
+.md-content {
+    background-color: #ffffff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.10);
+    border-radius: 4px;
+}
+
+/* Размер основного текста: лучше через переменную Material */
+:root {
+    --md-typeset-font-size: 0.68rem;
+}
+
+.md-typeset {
+    font-size: var(--md-typeset-font-size);
+    line-height: 1.55;
+}
+
+/* Заголовки первого уровня в стиле Open edX (как бывший h2) */
+.md-typeset h1 {
+    padding-bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 4px;
+
+    /* Настройки шрифта (без смены семейства) */
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -0.6px;
+    color: black;
+}
+
+
+/* Заголовки второго уровня в стиле Open edX (как бывший h3) */
+.md-typeset h2 {
+    /*border-bottom: 1px solid rgb(0, 0, 0); !* как var(--color-heading-border) *!*/
+    padding-bottom: 0;
+    margin-top: 45px;
+    margin-bottom: 4px;
+
+    /* Настройки шрифта (без смены семейства) */
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: -0.6px;
+    color: rgb(0, 0, 0);
+}
+
+/* Заголовки третьего уровня: просто жирный текст, без линий */
+.md-typeset h3 {
+    font-weight: 400;
+    border-bottom: none;
+}
+
+.md-footer-meta {
+    display: none;
+}
+
+
+
+
+/*СТИЛИ из OpenedX*/
+
+/* ===== Переменные цветов (как в Open edX styles.css) ===== */
+:root {
+    --color-def-header: #8D23C3;
+    --color-def-bg: rgba(141, 35, 195, 0.1);
+
+    --color-code-header: #1565C0;
+    --color-code-bg: #E3F2FD;
+
+    --color-comments-header: #555555;
+    --color-comments-bg: rgba(85, 85, 85, 0.1);
+
+    --color-question-header: rgba(253, 155, 0, 0.15);
+    --color-question-bg: rgba(255, 238, 181, 0.15);
+
+    --color-solution-header: #388E3C;
+    --color-solution-bg: rgba(208, 245, 211, 0.3);
+
+    --color-problems-header: #5BC3B9;
+    --color-problems-bg: #D0EBF9;
+
+    --color-column-side-bg: #e1e4e4;
+    --color-column-side-border: #B0BEC5;
+}
+
+/* ===== Admonition как на Open edX: светлая шапка + тело, без иконок ===== */
+
+/* Заголовок-плашка (типографика — почти нативная, но заголовок жирнее) */
+.md-typeset .admonition-title,
+.md-typeset summary {
+/*    margin: 0 !important; - нельзя ставить ноль, иначе ломаются отсупы!!!! */
+    padding: 4px 14px !important;
+    /*font-size: 1.0rem;*/
+    font-weight: 600 !important;
+
+}
+
+/* Убираем иконки полностью (включая нативные Material) */
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+    display: none !important;
+}
+
+/* Текст внутри блоков — такой же, как вне блока */
+.md-typeset .admonition,
+.md-typeset details {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.md-typeset .admonition > :not(.admonition-title),
+.md-typeset details > :not(summary) {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+
+/* ===== Inline blocks (Material): !!! ... inline / inline end ===== */
+.md-typeset .admonition.inline,
+.md-typeset details.inline {
+    width: 16rem;
+    margin: 0.2rem 0 1rem 1rem !important;
+}
+
+.md-typeset .admonition.inline {
+    float: left;
+}
+
+.md-typeset .admonition.inline.end,
+.md-typeset details.inline.end {
+    float: right;
+    margin: 0.2rem 0 1rem 1rem !important;
+}
+
+/* ===== Типы блоков (используются так: !!! definition "..." и т.п.) ===== */
+
+/* Определение */
+.md-typeset .admonition.definition,
+.md-typeset details.definition {
+    background: var(--color-def-bg) !important;
+    border: none !important;
+}
+.md-typeset .definition > .admonition-title,
+.md-typeset details.definition > summary {
+    background: var(--color-def-header) !important;
+    color: #ffffff !important;
+}
+
+/* Код/заметка по коду */
+.md-typeset .admonition.code-note,
+.md-typeset details.code-note {
+    background: var(--color-code-bg) !important;
+    border: none !important;
+}
+.md-typeset .code-note > .admonition-title,
+.md-typeset details.code-note > summary {
+    background: var(--color-code-header) !important;
+    color: #ffffff !important;
+}
+
+/* Комментарий */
+.md-typeset .admonition.comment,
+.md-typeset details.comment {
+    background: var(--color-comments-bg) !important;
+    border: none !important;
+}
+.md-typeset .comment > .admonition-title,
+.md-typeset details.comment > summary {
+    background: var(--color-comments-header) !important;
+    color: #ffffff !important;
+}
+
+/* Вопрос / Подумайте */
+.md-typeset .admonition.question-block,
+.md-typeset details.question-block {
+    background: var(--color-question-bg) !important;
+    border: none !important;
+}
+.md-typeset .question-block > .admonition-title,
+.md-typeset details.question-block > summary {
+    background: var(--color-question-header) !important;
+    color: rgba(0, 0, 0, 0.75) !important;
+}
+/* Выравниваем стрелку раскрытия по центру строки заголовка */
+.md-typeset details.question-block > summary::after {
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+}
+.md-typeset details.question-block[open] > summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Разбор */
+.md-typeset .admonition.solution,
+.md-typeset details.solution {
+    background: var(--color-solution-bg) !important;
+    border: none !important;
+}
+.md-typeset .solution > .admonition-title,
+.md-typeset details.solution > summary {
+    background: var(--color-solution-header) !important;
+    color: #ffffff !important;
+}
+
+/* Задание */
+.md-typeset .admonition.task,
+.md-typeset details.task {
+    background: var(--color-problems-bg) !important;
+    border: none !important;
+}
+.md-typeset .task > .admonition-title,
+.md-typeset details.task > summary {
+    background: var(--color-problems-header) !important;
+    color: #000000 !important;
+}
+
+/* ===== Таблицы внутри контентных блоков (admonitions) =====
+   Убираем белый фон таблиц/ячеек, чтобы фон соответствовал фону блока.
+*/
+.md-typeset .admonition table:not([class]),
+.md-typeset details table:not([class]) {
+    background-color: transparent !important;
+}
+
+.md-typeset .admonition table:not([class]) th,
+.md-typeset .admonition table:not([class]) td,
+.md-typeset details table:not([class]) th,
+.md-typeset details table:not([class]) td {
+    background-color: transparent !important;
+}
+
+/* Отключаем «зебру» и hover внутри блоков, чтобы не появлялись чужие подложки */
+.md-typeset .admonition table:not([class]) tbody tr:nth-child(odd),
+.md-typeset details table:not([class]) tbody tr:nth-child(odd) {
+    background-color: transparent !important;
+}
+
+.md-typeset .admonition table:not([class]) tbody tr:hover td,
+.md-typeset details table:not([class]) tbody tr:hover td {
+    background-color: transparent !important;
+}
+
+.md-typeset table.noheader thead {
+    display: none !important;
+}
+
+/* Убираем правую колонку (оглавление / TOC) полностью, без пустого места */
+@media (min-width: 60em) {
+    .md-sidebar--secondary {
+        display: none !important;
+        width: 0 !important;
+        max-width: 0 !important;
+        flex: 0 0 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .md-main__inner {
+        grid-template-columns: auto minmax(0, 100%) !important;
+    }
+}
+
+.md-typeset details.answer {
+    margin: 0 0 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.md-typeset details.answer > summary {
+    cursor: pointer;
+    list-style: none;
+    background: transparent;
+    position: relative;
+    padding-right: 2.2em !important;
+    text-align: right;
+    display: block;
+}
+
+.md-typeset details.answer[open] > summary {
+    background: transparent;
+
+}
+
+.md-typeset details.answer > summary::-webkit-details-marker { display: none; }
+
+.md-typeset details.answer > summary::after {
+    content: "▸";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+}
+.md-typeset details.answer[open] > summary::after {
+    content: "▾";
+}
+
+/* Убираем серую рамку/обводку при фокусе у collapsible (details/summary) */
+.md-typeset details > summary:focus,
+.md-typeset details > summary:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.md-typeset details:focus,
+.md-typeset details:focus-visible,
+.md-typeset details:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Float image style for intro sections */
+.md-typeset img.img-float-right {
+    float: right;
+    width: 35%;
+    margin: 0.2rem 0 1rem 1rem;
+    border-radius: 10px;
+}

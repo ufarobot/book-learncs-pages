@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+\tikzset{
+  box/.style={draw=darkgray, fill=lightgray, line width=0.8pt, minimum width=2.2cm, minimum height=0.8cm},
+  lab/.style={font=\large}
+}
+
+\node[box] (f0) at (0,0) {$f$};
+\node[box] (mul) at (3,0) {$f \cdot b$};
+\node[box] (split) at (6,0) {$k + f'$};
+
+\node[box] (digit) at (6,-1.6) {digit k};
+\node[box] (f1) at (3,-1.6) {$f'$};
+
+\draw[->, line width=0.8pt] (f0) -- (mul);
+\draw[->, line width=0.8pt] (mul) -- (split);
+\draw[->, line width=0.8pt] (split) -- (digit);
+\draw[->, line width=0.8pt] (split) -- (f1);
+\draw[->, line width=0.8pt] (f1) -- (f0);
+
+\node[lab] at (3,-2.5) {repeat};
+
+\end{tikzpicture}
+\end{document}

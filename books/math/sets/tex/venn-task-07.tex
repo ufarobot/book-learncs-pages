@@ -1,0 +1,35 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+  \begin{tikzpicture}[line cap=round,line join=round]
+
+% --- geometry ---
+    \def\RA{2.15}                       % radius of A (big circle)
+    \def\RB{1.05}                       % radius of B (small circle)
+    \coordinate (A) at ( 0.00,0.20);     % big circle center (centered)
+    \coordinate (B) at (-0.75,0.95);     % small circle center (inside A)
+
+% universe rectangle
+    \draw[line width=1.0pt] (-5.5,-2.95) rectangle (5.5,2.95);
+
+% circles
+    \draw[line width=1.0pt] (A) circle (\RA);
+    \draw[line width=1.0pt] (B) circle (\RB);
+
+% labels
+    \node[lab] at ($ (A) + (1.55,-1.85) $) {$A$};
+    \node[lab] at ($ (A) + (0.20,-0.20) $) {$B$};
+
+% numbers
+    \node[lab] at ($ (A) + (1.35, 1.10) $) {(9)};
+    \node[lab] at ($ (B) + ( 0.05, 0.15) $) {(4)};
+    \node[lab] at ( 4.70,-1.35) {(3)};
+
+% universe label
+    \node[lab, anchor=north east] at (-5.5,-2.35) {$U$};
+
+  \end{tikzpicture}
+\end{document}

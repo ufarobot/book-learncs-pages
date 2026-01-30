@@ -1,0 +1,40 @@
+\documentclass[tikz,border=8pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,line cap=round,line join=round]
+
+% main number line
+\draw[line width=1.0pt, <->, >=Stealth] (-7,0) -- (7,0);
+
+% integer ticks, labels, and colored points
+\foreach \x in {-6,-5,...,6} {
+  \draw[line width=1.0pt] (\x,0.12) -- (\x,-0.12);
+  \node[font=\Large] at (\x,-0.55) {$\x$};
+
+  \ifnum\x<0
+    \fill[darkblue] (\x,0) circle (3.2pt);
+  \else\ifnum\x>0
+    \fill[darkred] (\x,0) circle (3.2pt);
+  \else
+    \fill[darkgray] (\x,0) circle (3.2pt);
+  \fi\fi
+}
+
+% labels for Z-, Z0, Z+
+\draw[darkblue, line width=1.2pt, -{Stealth[length=3.2mm]}] (-1.2,0.85) -- (-6.7,0.85);
+\node[font=\Large, text=darkblue] at (-3.9,1.2) {$\mathbb{Z}_{-}$};
+
+\draw[darkred, line width=1.2pt, -{Stealth[length=3.2mm]}] (1.2,0.85) -- (6.7,0.85);
+\node[font=\Large, text=darkred] at (3.9,1.2) {$\mathbb{Z}_{+}$};
+
+\draw[darkgray, line width=1.2pt, -{Stealth[length=3.0mm]}] (0,0.35) -- (0,0.75);
+\node[font=\Large, text=darkgray] at (0,1.2) {$\mathbb{Z}_{0}$};
+
+\end{tikzpicture}
+\end{document}
