@@ -1,0 +1,39 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+  \begin{tikzpicture}[line cap=round,line join=round]
+
+% --- geometry ---
+    \def\R{2.15}                    % circle radius
+    \coordinate (L)   at (-1.30,0.20); % left circle center
+    \coordinate (Rgt) at ( 1.30,0.20); % right circle center
+
+% universe rectangle
+    \draw[line width=1.0pt] (-5.5,-2.95) rectangle (5.5,2.95);
+
+% shaded difference (A \setminus B)
+    \fill[vennfill] (L) circle (\R);
+    \begin{scope}
+      \clip (Rgt) circle (\R);
+      \fill[white] (L) circle (\R);
+    \end{scope}
+
+% circles
+    \draw[line width=1.0pt] (L) circle (\R);
+    \draw[line width=1.0pt] (Rgt) circle (\R);
+
+% labels
+    \node[lab] at ($ (L) + (-2.05,1.55) $) {$A$};
+    \node[lab] at ($ (Rgt) + ( 2.05,1.55) $) {$B$};
+
+% universe label (outside bottom-left of the rectangle)
+    \node[lab, anchor=north east] at (-5.5,-2.35) {$U$};
+
+% caption below (centered under the rectangle)
+    \node[lab] at (0,-3.55) {$A\setminus B$};
+
+  \end{tikzpicture}
+\end{document}

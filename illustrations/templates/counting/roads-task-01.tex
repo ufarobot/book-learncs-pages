@@ -1,0 +1,39 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+\tikzset{
+  main/.style={draw=black, line width=0.85pt},
+  vtx/.style={circle, draw=darkgray, fill=vtxfill, line width=0.85pt, minimum size=10pt, inner sep=0pt},
+  vlab/.style={font=\Large},
+}
+
+\coordinate (P) at (0,0);
+\coordinate (A) at (2.8,0);
+\coordinate (Q) at (5.6,0);
+
+% edges P-A (2) — 90° separation
+\draw[main] (P) to[out=45,in=135] (A);
+\draw[main] (P) to[out=-45,in=225] (A);
+
+% edges A-Q (3) — extremes 90° apart + middle straight
+\draw[main] (A) to[out=45,in=135] (Q);
+\draw[main] (A) -- (Q);
+\draw[main] (A) to[out=-45,in=225] (Q);
+
+% vertices
+\node[vtx] at (P) {};
+\node[vtx] at (A) {};
+\node[vtx] at (Q) {};
+
+% labels
+\node[vlab, below=4pt] at (P) {P};
+\node[vlab, below=4pt] at (A) {A};
+\node[vlab, below=4pt] at (Q) {Q};
+
+\end{tikzpicture}
+\end{document}

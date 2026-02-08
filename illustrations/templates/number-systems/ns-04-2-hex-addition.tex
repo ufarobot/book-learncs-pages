@@ -1,0 +1,25 @@
+\documentclass[tikz,border=3mm]{standalone}
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+\usetikzlibrary{matrix,positioning}
+
+\begin{document}
+\begin{tikzpicture}[font=\rmfamily\Large]
+\matrix (m) [
+matrix of nodes,
+column sep=0.6mm,
+row sep=0.8mm,
+nodes={anchor=base, inner sep=0pt},
+column 1/.style={nodes={anchor=east, font=\rmfamily}},
+anchor=west
+] {
+ & {\scriptsize\textcolor{red}{\ttfamily 1}} & {} & {\scriptsize\textcolor{red}{\ttfamily 1}} & {} \\
+ & {} & {\ttfamily A} & {\ttfamily 5} & {\ttfamily B} \\
+{\rmfamily +} & {} & {\ttfamily C} & {\ttfamily 7} & {\ttfamily E} \\
+ & {\ttfamily 1} & {\ttfamily 6} & {\ttfamily D} & {\ttfamily 9} \\
+};
+
+\draw ([xshift=-2mm,yshift=-0.8ex]m-3-2.west |- m-3-2.south)
+  -- ([xshift=2mm,yshift=-0.8ex]m-3-5.east |- m-3-2.south);
+\end{tikzpicture}
+\end{document}

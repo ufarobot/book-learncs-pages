@@ -1,0 +1,81 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+\tikzset{
+  main/.style={draw=black, line width=0.85pt},
+  vtx/.style={circle, draw=darkgray, fill=vtxfill, line width=0.85pt, minimum size=10pt, inner sep=0pt},
+  vlab/.style={font=\Large},
+}
+
+\coordinate (A) at (0,0);
+\coordinate (U1) at (2.4,2.4);
+\coordinate (U2) at (5.2,2.4);
+\coordinate (S1) at (2.4,0.9);
+\coordinate (S2) at (4.2,0.9);
+\coordinate (S3) at (6.0,0.9);
+\coordinate (T1) at (2.6,-0.7);
+\coordinate (T2) at (6.0,-0.7);
+\coordinate (L1) at (2.4,-2.3);
+\coordinate (L2) at (4.8,-2.3);
+\coordinate (L3) at (6.8,-2.3);
+\coordinate (B) at (9.0,0);
+
+% edges A -> four corridors
+\draw[main] (A) to[out=45,in=195] (U1);
+\draw[main] (A) to[out=15,in=185] (S1);
+\draw[main] (A) to[out=-15,in=175] (T1);
+\draw[main] (A) to[out=-45,in=165] (L1);
+
+% верхний коридор (2 параллельные дуги)
+\draw[main] (U1) to[out=45,in=135] (U2);
+\draw[main] (U1) to[out=-45,in=-135] (U2);
+
+% второй коридор (2 x 2)
+\draw[main] (S1) to[out=45,in=135] (S2);
+\draw[main] (S1) to[out=-45,in=-135] (S2);
+
+\draw[main] (S2) to[out=45,in=135] (S3);
+\draw[main] (S2) to[out=-45,in=-135] (S3);
+
+% третий коридор (2 параллельные дуги)
+\draw[main] (T1) to[out=45,in=135] (T2);
+\draw[main] (T1) to[out=-45,in=-135] (T2);
+
+% нижний коридор (2 x 2)
+\draw[main] (L1) to[out=45,in=135] (L2);
+\draw[main] (L1) to[out=-45,in=-135] (L2);
+
+\draw[main] (L2) to[out=45,in=135] (L3);
+\draw[main] (L2) to[out=-45,in=-135] (L3);
+
+% to B
+\draw[main] (U2) to[out=0,in=150] (B);
+\draw[main] (S3) to[out=0,in=170] (B);
+\draw[main] (T2) to[out=0,in=-170] (B);
+\draw[main] (L3) to[out=0,in=-150] (B);
+
+% vertices
+\node[vtx] at (A) {};
+\node[vtx] at (U1) {};
+\node[vtx] at (U2) {};
+\node[vtx] at (S1) {};
+\node[vtx] at (S2) {};
+\node[vtx] at (S3) {};
+\node[vtx] at (T1) {};
+\node[vtx] at (T2) {};
+\node[vtx] at (L1) {};
+\node[vtx] at (L2) {};
+\node[vtx] at (L3) {};
+\node[vtx] at (B) {};
+
+% labels
+\node[vlab, left=8pt] at (A) {A};
+\node[vlab, right=6pt] at (B) {B};
+
+\end{tikzpicture}
+\end{document}

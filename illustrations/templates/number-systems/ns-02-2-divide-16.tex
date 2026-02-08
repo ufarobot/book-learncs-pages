@@ -1,0 +1,58 @@
+% Source - https://tex.stackexchange.com/a/749831
+% Posted by Mico, modified by community. See post 'Timeline' for change history
+% Retrieved 2026-02-05, License - CC BY-SA 4.0
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{array} % for 'w' column type
+\usepackage{calc}  % for '\widthof' macro
+\usepackage{xcolor}
+\usepackage{tikz}
+\newcommand\ttnum[1]{\texttt{#1}}
+\newlength\digitw
+\newlength\arrowgap
+\newlength\redarrowdrop
+\newcommand\mr[1]{\multicolumn{1}{r|}{\ttnum{#1}}}
+\newcommand\mc[1]{\multicolumn{1}{wr{\widthof{\ttnum{-432}}}}{\ttnum{#1}}}
+\newcommand\red[1]{\multicolumn{1}{r}{\textcolor{red}{\ttnum{#1}}}}
+\newcommand\marknode[2]{\tikz[baseline,remember picture]\node[inner sep=0pt] (#1) {#2};}
+\newcommand\markrem[2]{\multicolumn{1}{r}{\marknode{#1}{\textcolor{red}{\ttnum{#2}}}}}
+\newcommand\markhex[2]{\multicolumn{1}{r}{\marknode{#1}{\ttnum{#2}}}}
+
+\begin{document}
+\pagestyle{empty}
+\Large
+\setlength\digitw{\widthof{\ttnum{0}}}
+\setlength\arrowgap{1.0ex}
+\setlength\redarrowdrop{1.0ex}
+\setlength\arraycolsep{1pt} % default: 5pt
+\[
+\begin{array}{@{} *{12}{r} @{}}
+\mr{444} & \mc{16} \\
+\cline{2-2}
+\mr{-432} & \mr{27} & \mc{16} \\
+\cline{1-1} \cline{3-3}
+\markrem{r12}{12} & \mr{-16} & \mr{1} & \mc{16} \\
+\cline{2-2} \cline{4-4}
+& \markrem{r11}{11} & \mr{0} & \mc{0} \\
+\cline{3-3}
+& & \markrem{r1}{1} \\
+\multicolumn{12}{c}{\strut} \\
+\markhex{hC}{C} & \markhex{hB}{B} & \markhex{h1}{1} & & & & & & & & & \\
+\end{array}
+\]
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[->, line width=0.6pt]
+    ([xshift=-0.5\digitw,yshift=-\arrowgap]r12.south east)
+    -- ([xshift=-0.5\digitw,yshift=\arrowgap]hC.north east);
+  \draw[->, line width=0.6pt]
+    ([xshift=-0.5\digitw,yshift=-\arrowgap]r11.south east)
+    -- ([xshift=-0.5\digitw,yshift=\arrowgap]hB.north east);
+  \draw[->, line width=0.6pt]
+    ([xshift=-0.5\digitw,yshift=-\arrowgap]r1.south east)
+    -- ([xshift=-0.5\digitw,yshift=\arrowgap]h1.north east);
+  \draw[->, line width=0.8pt, red]
+    ([xshift=-0.5\digitw,yshift=-\redarrowdrop]h1.south east)
+    -- ([xshift=-0.5\digitw,yshift=-\redarrowdrop]hC.south east);
+\end{tikzpicture}
+\end{document}

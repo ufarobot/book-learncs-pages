@@ -1,0 +1,60 @@
+\documentclass[tikz,border=8pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+% local fallback: tikz-style defines darkred/darkgreen, but darkblue may be absent
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\begin{document}
+\begin{tikzpicture}[
+  line cap=round,
+  line join=round,
+  scale=0.85,
+  transform shape,
+  grow=down,
+  level distance=13mm,
+  edge from parent/.style={draw=black, -{Stealth[length=2.2mm]}, line width=0.8pt, shorten >=2.0pt, shorten <=2.0pt},
+  every node/.style={font=\bfseries\Large, align=center},
+  every leaf/.style={font=\bfseries\Large},
+  level 1/.style={sibling distance=60mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=13mm},
+  level 4/.style={sibling distance=13mm, level distance=13mm}
+]
+
+% ---------- node styles ----------
+\tikzset{
+  labelNode/.style={font=\bfseries\Large, text=black},
+  numNode/.style={font=\bfseries\Large, text=black},
+  word/.style={font=\bfseries\Large, text=black, draw=black, rounded corners=2pt, inner xsep=8pt, inner ysep=6pt}
+}
+
+% ---------- hanging tree (black) ----------
+\node[coordinate] {}
+  child { node[labelNode] {a}
+    child { node[numNode] {1}
+      child { node[word] {a1} }
+    }
+    child { node[numNode] {2}
+      child { node[word] {a2} }
+    }
+    child { node[numNode] {3}
+      child { node[word] {a3} }
+    }
+  }
+  child { node[labelNode] {b}
+    child { node[numNode] {1}
+      child { node[word] {b1} }
+    }
+    child { node[numNode] {2}
+      child { node[word] {b2} }
+    }
+    child { node[numNode] {3}
+      child { node[word] {b3} }
+    }
+  };
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[tikz,border=8pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,line cap=round,line join=round]
+
+% main number line
+\draw[line width=1.0pt, <->, >=Stealth] (-7,0) -- (7,0);
+
+% integer ticks and labels; natural numbers are red dots
+\foreach \x in {-6,-5,...,6} {
+  % tick for every integer
+  \draw[line width=1.0pt] (\x,0.12) -- (\x,-0.12);
+
+  % red dot only for natural numbers (1,2,3,...)
+  \ifnum\x>0
+    \fill[darkred] (\x,0) circle (3.2pt);
+  \fi
+
+  % label for every integer
+  \node[font=\Large] at (\x,-0.55) {$\x$};
+}
+
+% red direction arrows above
+\draw[darkred, line width=1.2pt, -{Stealth[length=3.2mm]}] ( 3.3,0.85) -- ( 6.7,0.85);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[tikz,border=3mm]{standalone}
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+\usetikzlibrary{matrix,positioning}
+
+\newdimen\digitwidth
+\newcommand{\setdigitwidth}{%
+  \begingroup
+\setbox0=\hbox{\Large\ttfamily 0}%
+  \global\digitwidth=\wd0
+  \endgroup
+}
+\setdigitwidth
+
+\begin{document}
+\begin{tikzpicture}[font=\rmfamily\Large]
+\matrix (m) [
+matrix of nodes,
+nodes in empty cells,
+column sep=0.6mm,
+row sep=0pt,
+nodes={anchor=center, inner sep=0pt, execute at begin node=\strut},
+digit/.style={font=\ttfamily, text width=\digitwidth, align=center},
+column 1/.style={nodes={anchor=east, font=\rmfamily}},
+column 2/.style={nodes={digit}},
+column 3/.style={nodes={digit}},
+column 4/.style={nodes={digit}},
+column 5/.style={nodes={digit}},
+column 6/.style={nodes={digit}},
+column 7/.style={nodes={digit}},
+column 8/.style={nodes={digit}},
+column 9/.style={nodes={digit}},
+column 10/.style={nodes={anchor=west, font=\scriptsize\itshape}, column sep=6mm},
+anchor=west
+] {
+ & {} & {} & 1 & 0 & 1 & 0 & 1 & {} & 21 в десятичной системе \\
+{\rmfamily $\times$} & {} & {} & {} & {} & 1 & 0 & 1 & {} & 5 в десятичной системе \\
+{\rmfamily +} & {} & {} & 1 & 0 & 1 & 0 & 1 & {} & $10101\times 1$ \\
+{\rmfamily +} & 1 & 0 & 1 & 0 & 1 & 0 & 0 & {} & $10101\times 1$, сдвиг на 2 позиции \\
+ & 1 & 1 & 0 & 1 & 0 & 0 & 1 & {} & 105 в десятичной системе \\
+};
+
+\draw (m-2-2.south west) -- (m-2-8.south east);
+\draw (m-4-2.south west) -- (m-4-8.south east);
+\end{tikzpicture}
+\end{document}

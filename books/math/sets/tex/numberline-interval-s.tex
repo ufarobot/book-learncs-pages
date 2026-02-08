@@ -1,0 +1,31 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}[x=0.8cm,y=1cm, line cap=round, line join=round]
+
+\draw[->, line width=0.9pt] (-0.5,0) -- (8.8,0);
+
+\foreach \x in {0,...,8} {
+  \draw (\x,0.12) -- (\x,-0.12);
+  \node at (\x,-0.6) {\x};
+}
+
+\def\yS{0.50}
+\def\labelscale{0.80}
+\pgfmathsetlengthmacro{\labelgap}{1.2ex}
+
+% S: (2, 7]
+\draw[line width=2.2pt, color=midblue] (2,\yS) -- (7,\yS);
+\draw[midblue, line width=0.9pt, fill=white] (2,\yS) circle (2.2pt);
+\fill[midblue] (7,\yS) circle (2.2pt);
+
+\node[color=midblue, font=\normalsize, scale=\labelscale] at ($(4.5,\yS)+(0,\labelgap)$) {S};
+
+\end{tikzpicture}
+\end{document}

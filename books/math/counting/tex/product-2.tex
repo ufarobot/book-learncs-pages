@@ -1,0 +1,52 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\definecolor{vtxfill}{RGB}{86,193,255} % #56C1FF
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+% vertex + edge styles (match the book template)
+\tikzset{
+  main/.style={draw=black, line width=0.85pt},
+  vtx/.style={circle, draw=darkgray, fill=vtxfill, line width=0.85pt, minimum size=10pt, inner sep=0pt},
+  vlab/.style={font=\Large},
+}
+
+  % nodes
+  \coordinate (P) at (0,0);
+  \coordinate (Q) at (4,0);
+  \coordinate (R) at (8,0);
+  \coordinate (S) at (12,0);
+
+  % edges P--Q (top arc + straight + bottom arc)
+  \draw[main] (P) to[out=40,in=140] (Q);
+  \draw[main] (P) -- (Q);
+  \draw[main] (P) to[out=-40,in=-140] (Q);
+
+  % edges Q--R (four arcs, pulled toward center)
+  \draw[main] (Q) to[out=60,in=120] (R);
+  \draw[main] (Q) to[out=20,in=160] (R);
+  \draw[main] (Q) to[out=-20,in=-160] (R);
+  \draw[main] (Q) to[out=-60,in=-120] (R);
+
+  % edges R--S (two arcs)
+  \draw[main] (R) to[out=40,in=140] (S);
+  \draw[main] (R) to[out=-40,in=-140] (S);
+
+  % vertices
+  \node[vtx] at (P) {};
+  \node[vtx] at (Q) {};
+  \node[vtx] at (R) {};
+  \node[vtx] at (S) {};
+
+  % labels
+  \node[vlab, below=8pt] at (P) {P};
+  \node[vlab, below=8pt] at (Q) {Q};
+  \node[vlab, below=8pt] at (R) {R};
+  \node[vlab, below=8pt] at (S) {S};
+
+\end{tikzpicture}
+\end{document}
