@@ -1,0 +1,42 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{colortbl}
+
+\definecolor{tbl-dark}{HTML}{666666}
+\definecolor{tbl-light}{HTML}{FFFFFF}
+\definecolor{tbl-border}{HTML}{AEB5BD}
+
+\arrayrulecolor{tbl-border}
+\setlength{\arrayrulewidth}{0.35pt}
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.45}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcommand{\bc}[1]{\cellcolor{tbl-light}#1}
+
+\begin{document}
+{\sffamily\large
+\begin{tabular}{|L{4.4cm}|C{2.1cm}|L{10.8cm}|}
+\hline
+\rowcolor{tbl-dark}
+\textcolor{white}{\bfseries Название системы}
+& \textcolor{white}{\bfseries Основание}
+& \textcolor{white}{\bfseries Используемые цифры} \\
+\hline
+\bc{Десятичная} & \bc{\texttt{10}} & \bc{\texttt{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}} \\
+\hline
+\bc{Двоичная} & \bc{\texttt{2}} & \bc{\texttt{0, 1}} \\
+\hline
+\bc{Восьмеричная} & \bc{\texttt{8}} & \bc{\texttt{0, 1, 2, 3, 4, 5, 6, 7}} \\
+\hline
+\bc{Шестнадцатеричная} & \bc{\texttt{16}} & \bc{\mbox{\texttt{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F}}} \\
+\hline
+\end{tabular}
+}
+\end{document}

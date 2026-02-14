@@ -1,0 +1,75 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+
+\begin{document}
+  \begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+% background
+
+\tikzset{
+  main/.style={draw=black, line width=0.85pt},
+  vtx/.style={circle, draw=darkgray, fill=vtxfill, line width=0.85pt, minimum size=10pt, inner sep=0pt},
+  vlab/.style={font=\Large},
+}
+
+% nodes
+\coordinate (P) at (0,0);
+\coordinate (Q) at (13.2,0);
+
+\coordinate (A) at (3.6,2.2);
+\coordinate (B) at (8.2,2.2);
+
+\coordinate (C) at (3.6,0);
+\coordinate (D) at (8.2,0);
+
+\coordinate (E) at (3.6,-2.2);
+\coordinate (F) at (8.2,-2.2);
+
+% top lane: P--A--B--Q
+\draw[main] (P) to[out=25,in=180] (A);
+\draw[main] (A) to[out=15,in=165] (B);
+\draw[main] (A) to[out=-15,in=-165] (B);
+\draw[main] (B) to[out=0,in=155] (Q);
+
+% middle lane: P--C--D--Q
+\draw[main] (P) -- (C);
+\draw[main] (C) to[out=15,in=165] (D);
+\draw[main] (C) to[out=-15,in=-165] (D);
+\draw[main] (D) to[out=20,in=160] (Q);
+\draw[main] (D) to[out=-20,in=-160] (Q);
+
+% bottom lane: P--E--F--Q
+\draw[main] (P) to[out=-25,in=180] (E);
+\draw[main] (E) to[out=15,in=165] (F);
+\draw[main] (E) -- (F);
+\draw[main] (E) to[out=-15,in=-165] (F);
+\draw[main] (F) to[out=0,in=-155] (Q);
+
+% vertices
+\node[vtx] at (P) {};
+\node[vtx] at (A) {};
+\node[vtx] at (B) {};
+\node[vtx] at (C) {};
+\node[vtx] at (D) {};
+\node[vtx] at (E) {};
+\node[vtx] at (F) {};
+\node[vtx] at (Q) {};
+
+% labels
+\node[vlab, left=10pt]  at (P) {P};
+\node[vlab, right=10pt] at (Q) {Q};
+
+\node[vlab, above=10pt] at (A) {A};
+\node[vlab, above=10pt] at (B) {B};
+
+\node[vlab, above=10pt] at (C) {C};
+\node[vlab, above=10pt] at (D) {D};
+
+\node[vlab, above=10pt] at (E) {E};
+\node[vlab, above=10pt] at (F) {F};
+
+  \end{tikzpicture}
+\end{document}

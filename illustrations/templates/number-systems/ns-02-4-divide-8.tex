@@ -1,0 +1,42 @@
+% Source - https://tex.stackexchange.com/a/749831
+% Posted by Mico, modified by community. See post 'Timeline' for change history
+% Retrieved 2026-02-05, License - CC BY-SA 4.0
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{array} % for 'w' column type
+\usepackage{calc}  % for '\widthof' macro
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\newcommand\ttnum[1]{\ensuremath{\mathtt{#1}}}
+\newcommand\mr[1]{\multicolumn{1}{r|}{\ttnum{#1}}}
+\newcommand\mc[1]{\multicolumn{1}{wr{\widthof{$\mathtt{-1000}$}}}{\ttnum{#1}}}
+\newcommand\blue[1]{\multicolumn{1}{r}{\textcolor{blue}{\ttnum{#1}}}}
+\newcommand\marknode[2]{\tikz[baseline,remember picture]\node[inner sep=0pt] (#1) {#2};}
+
+\begin{document}
+\pagestyle{empty}
+\Large
+\setlength\arraycolsep{1pt} % default: 5pt
+\[
+\begin{array}{@{} *{12}{r} @{}}
+\mr{1006}  & \mc{8} \\
+\cline{2-2}
+\mr{-1000} & \mr{125} & \mc{8} \\
+\cline{1-1} \cline{3-3}
+\blue{6} & \mr{-120} & \mr{15} & \mc{8} \\
+\cline{2-2} \cline{4-4}
+\marknode{arrowEnd}{\phantom{\ttnum{0}}} & \blue{5} & \mr{-8} & \mr{1} & \mc{8} \\
+\cline{3-3} \cline{5-5}
+& & \blue{7} & \mr{0} & \mc{0} \\
+\cline{4-4}
+& & & \blue{1} \\
+& & & \marknode{arrowStart}{\phantom{\ttnum{0}}}
+\end{array}
+\]
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[-{Latex[length=3mm,width=2mm]}, line width=0.8pt, red]
+    (arrowStart.center) -- (arrowEnd.center);
+\end{tikzpicture}
+\end{document}

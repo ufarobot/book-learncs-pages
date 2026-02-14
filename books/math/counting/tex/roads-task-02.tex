@@ -1,0 +1,46 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+\tikzset{
+  main/.style={draw=black, line width=0.85pt},
+  vtx/.style={circle, draw=darkgray, fill=vtxfill, line width=0.85pt, minimum size=10pt, inner sep=0pt},
+  vlab/.style={font=\Large},
+}
+
+\coordinate (P) at (0,0);
+\coordinate (A) at (2.2,2.2);
+\coordinate (B) at (2.2,-2.2);
+\coordinate (Q) at (6.2,0);
+
+% edges from P (curved)
+\draw[main] (P) to[out=60,in=210,looseness=1.2] (A);
+\draw[main] (P) to[out=-60,in=150,looseness=1.2] (B);
+
+% edges A-Q (2) — upper and middle
+\draw[main] (A) to[out=30,in=150,looseness=1.2] (Q);
+\draw[main] (A) to[out=-5,in=170,looseness=0.95] (Q);
+
+% edges B-Q (3) — middle, lower, outer bottom
+\draw[main] (B) to[out=5,in=-170,looseness=0.95] (Q);
+\draw[main] (B) to[out=-35,in=-150,looseness=1.05] (Q);
+\draw[main] (B) to[out=-80,in=-120,looseness=1.2] (Q);
+
+% vertices
+\node[vtx] at (P) {};
+\node[vtx] at (A) {};
+\node[vtx] at (B) {};
+\node[vtx] at (Q) {};
+
+% labels
+\node[vlab, left=4pt] at (P) {P};
+\node[vlab, above=4pt] at (A) {A};
+\node[vlab, below=4pt] at (B) {B};
+\node[vlab, right=4pt] at (Q) {Q};
+
+\end{tikzpicture}
+\end{document}

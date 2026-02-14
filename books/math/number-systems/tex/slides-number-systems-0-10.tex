@@ -1,0 +1,1764 @@
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+\input{tikz-style.tex}
+\usetikzlibrary{matrix}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\definecolor{tbl-dark}{HTML}{6A6A6A}
+\definecolor{tbl-border}{HTML}{DADADA}
+\definecolor{tbl-blue}{HTML}{2D6FB7}
+\definecolor{tbl-red}{HTML}{B2433B}
+
+\tikzset{
+  tblcell/.style={
+    draw=tbl-border,
+    line width=0.4pt,
+    minimum height=6.8mm,
+    text height=1.45ex,
+    text depth=0.25ex,
+    align=center,
+    font=\sffamily\small,
+    inner xsep=2.6pt,
+    inner ysep=1.2pt
+  },
+  namecell/.style={
+    tblcell,
+    fill=tbl-dark,
+    text=white,
+    font=\sffamily\bfseries\small,
+    text width=6.8cm,
+    align=left,
+    inner xsep=4pt
+  },
+  numvalue/.style={
+    tblcell,
+    text width=2.9cm,
+    align=right,
+    font=\ttfamily\bfseries\normalsize
+  }
+}
+
+\begin{document}
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 0 \\
+      |[namecell]| Троичная & |[numvalue]| 0 \\
+      |[namecell]| Пятеричная & |[numvalue]| 0 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 0 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 0 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 0 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{0}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1 \\
+      |[namecell]| Троичная & |[numvalue]| 1 \\
+      |[namecell]| Пятеричная & |[numvalue]| 1 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 1 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 1 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 1 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{1}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10 \\
+      |[namecell]| Троичная & |[numvalue]| 2 \\
+      |[namecell]| Пятеричная & |[numvalue]| 2 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 2 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 2 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 2 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{2}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11 \\
+      |[namecell]| Троичная & |[numvalue]| 10 \\
+      |[namecell]| Пятеричная & |[numvalue]| 3 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 3 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 3 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 3 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{3}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100 \\
+      |[namecell]| Троичная & |[numvalue]| 11 \\
+      |[namecell]| Пятеричная & |[numvalue]| 4 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 4 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 4 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 4 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{4}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101 \\
+      |[namecell]| Троичная & |[numvalue]| 12 \\
+      |[namecell]| Пятеричная & |[numvalue]| 10 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 5 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 5 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 5 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{5}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110 \\
+      |[namecell]| Троичная & |[numvalue]| 20 \\
+      |[namecell]| Пятеричная & |[numvalue]| 11 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 6 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 6 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 6 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{6}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111 \\
+      |[namecell]| Троичная & |[numvalue]| 21 \\
+      |[namecell]| Пятеричная & |[numvalue]| 12 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 7 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 7 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 7 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{7}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000 \\
+      |[namecell]| Троичная & |[numvalue]| 22 \\
+      |[namecell]| Пятеричная & |[numvalue]| 13 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 10 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 8 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 8 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{8}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001 \\
+      |[namecell]| Троичная & |[numvalue]| 100 \\
+      |[namecell]| Пятеричная & |[numvalue]| 14 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 11 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 9 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 9 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{9}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010 \\
+      |[namecell]| Троичная & |[numvalue]| 101 \\
+      |[namecell]| Пятеричная & |[numvalue]| 20 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 12 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 10 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| A \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{10}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011 \\
+      |[namecell]| Троичная & |[numvalue]| 102 \\
+      |[namecell]| Пятеричная & |[numvalue]| 21 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 13 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 11 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| B \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{11}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1100 \\
+      |[namecell]| Троичная & |[numvalue]| 110 \\
+      |[namecell]| Пятеричная & |[numvalue]| 22 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 14 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 12 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| C \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{12}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1101 \\
+      |[namecell]| Троичная & |[numvalue]| 111 \\
+      |[namecell]| Пятеричная & |[numvalue]| 23 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 15 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 13 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| D \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{13}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1110 \\
+      |[namecell]| Троичная & |[numvalue]| 112 \\
+      |[namecell]| Пятеричная & |[numvalue]| 24 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 16 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 14 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| E \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{14}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1111 \\
+      |[namecell]| Троичная & |[numvalue]| 120 \\
+      |[namecell]| Пятеричная & |[numvalue]| 30 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 17 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 15 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| F \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{15}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10000 \\
+      |[namecell]| Троичная & |[numvalue]| 121 \\
+      |[namecell]| Пятеричная & |[numvalue]| 31 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 20 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 16 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 10 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{16}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10001 \\
+      |[namecell]| Троичная & |[numvalue]| 122 \\
+      |[namecell]| Пятеричная & |[numvalue]| 32 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 21 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 17 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 11 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{17}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10010 \\
+      |[namecell]| Троичная & |[numvalue]| 200 \\
+      |[namecell]| Пятеричная & |[numvalue]| 33 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 22 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 18 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 12 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{18}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10011 \\
+      |[namecell]| Троичная & |[numvalue]| 201 \\
+      |[namecell]| Пятеричная & |[numvalue]| 34 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 23 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 19 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 13 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{19}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10100 \\
+      |[namecell]| Троичная & |[numvalue]| 202 \\
+      |[namecell]| Пятеричная & |[numvalue]| 40 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 24 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 20 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 14 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{20}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10101 \\
+      |[namecell]| Троичная & |[numvalue]| 210 \\
+      |[namecell]| Пятеричная & |[numvalue]| 41 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 25 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 21 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 15 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{21}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10110 \\
+      |[namecell]| Троичная & |[numvalue]| 211 \\
+      |[namecell]| Пятеричная & |[numvalue]| 42 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 26 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 22 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 16 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{22}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 10111 \\
+      |[namecell]| Троичная & |[numvalue]| 212 \\
+      |[namecell]| Пятеричная & |[numvalue]| 43 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 27 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 23 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 17 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{23}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11000 \\
+      |[namecell]| Троичная & |[numvalue]| 220 \\
+      |[namecell]| Пятеричная & |[numvalue]| 44 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 30 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 24 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 18 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{24}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11001 \\
+      |[namecell]| Троичная & |[numvalue]| 221 \\
+      |[namecell]| Пятеричная & |[numvalue]| 100 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 31 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 25 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 19 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{25}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11010 \\
+      |[namecell]| Троичная & |[numvalue]| 222 \\
+      |[namecell]| Пятеричная & |[numvalue]| 101 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 32 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 26 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 1A \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{26}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11011 \\
+      |[namecell]| Троичная & |[numvalue]| 1000 \\
+      |[namecell]| Пятеричная & |[numvalue]| 102 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 33 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 27 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 1B \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{27}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11100 \\
+      |[namecell]| Троичная & |[numvalue]| 1001 \\
+      |[namecell]| Пятеричная & |[numvalue]| 103 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 34 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 28 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 1C \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{28}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11101 \\
+      |[namecell]| Троичная & |[numvalue]| 1002 \\
+      |[namecell]| Пятеричная & |[numvalue]| 104 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 35 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 29 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 1D \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{29}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11110 \\
+      |[namecell]| Троичная & |[numvalue]| 1010 \\
+      |[namecell]| Пятеричная & |[numvalue]| 110 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 36 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 30 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 1E \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{30}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 11111 \\
+      |[namecell]| Троичная & |[numvalue]| 1011 \\
+      |[namecell]| Пятеричная & |[numvalue]| 111 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 37 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 31 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 1F \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{31}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100000 \\
+      |[namecell]| Троичная & |[numvalue]| 1012 \\
+      |[namecell]| Пятеричная & |[numvalue]| 112 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 40 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 32 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 20 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{32}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100001 \\
+      |[namecell]| Троичная & |[numvalue]| 1020 \\
+      |[namecell]| Пятеричная & |[numvalue]| 113 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 41 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 33 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 21 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{33}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100010 \\
+      |[namecell]| Троичная & |[numvalue]| 1021 \\
+      |[namecell]| Пятеричная & |[numvalue]| 114 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 42 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 34 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 22 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{34}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100011 \\
+      |[namecell]| Троичная & |[numvalue]| 1022 \\
+      |[namecell]| Пятеричная & |[numvalue]| 120 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 43 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 35 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 23 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{35}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100100 \\
+      |[namecell]| Троичная & |[numvalue]| 1100 \\
+      |[namecell]| Пятеричная & |[numvalue]| 121 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 44 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 36 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 24 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{36}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100101 \\
+      |[namecell]| Троичная & |[numvalue]| 1101 \\
+      |[namecell]| Пятеричная & |[numvalue]| 122 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 45 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 37 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 25 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{37}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100110 \\
+      |[namecell]| Троичная & |[numvalue]| 1102 \\
+      |[namecell]| Пятеричная & |[numvalue]| 123 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 46 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 38 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 26 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{38}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 100111 \\
+      |[namecell]| Троичная & |[numvalue]| 1110 \\
+      |[namecell]| Пятеричная & |[numvalue]| 124 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 47 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 39 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 27 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{39}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101000 \\
+      |[namecell]| Троичная & |[numvalue]| 1111 \\
+      |[namecell]| Пятеричная & |[numvalue]| 130 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 50 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 40 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 28 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{40}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101001 \\
+      |[namecell]| Троичная & |[numvalue]| 1112 \\
+      |[namecell]| Пятеричная & |[numvalue]| 131 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 51 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 41 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 29 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{41}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101010 \\
+      |[namecell]| Троичная & |[numvalue]| 1120 \\
+      |[namecell]| Пятеричная & |[numvalue]| 132 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 52 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 42 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 2A \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{42}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101011 \\
+      |[namecell]| Троичная & |[numvalue]| 1121 \\
+      |[namecell]| Пятеричная & |[numvalue]| 133 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 53 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 43 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 2B \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{43}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101100 \\
+      |[namecell]| Троичная & |[numvalue]| 1122 \\
+      |[namecell]| Пятеричная & |[numvalue]| 134 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 54 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 44 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 2C \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{44}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101101 \\
+      |[namecell]| Троичная & |[numvalue]| 1200 \\
+      |[namecell]| Пятеричная & |[numvalue]| 140 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 55 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 45 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 2D \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{45}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101110 \\
+      |[namecell]| Троичная & |[numvalue]| 1201 \\
+      |[namecell]| Пятеричная & |[numvalue]| 141 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 56 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 46 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 2E \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{46}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 101111 \\
+      |[namecell]| Троичная & |[numvalue]| 1202 \\
+      |[namecell]| Пятеричная & |[numvalue]| 142 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 57 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 47 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 2F \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{47}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110000 \\
+      |[namecell]| Троичная & |[numvalue]| 1210 \\
+      |[namecell]| Пятеричная & |[numvalue]| 143 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 60 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 48 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 30 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{48}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110001 \\
+      |[namecell]| Троичная & |[numvalue]| 1211 \\
+      |[namecell]| Пятеричная & |[numvalue]| 144 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 61 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 49 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 31 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{49}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110010 \\
+      |[namecell]| Троичная & |[numvalue]| 1212 \\
+      |[namecell]| Пятеричная & |[numvalue]| 200 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 62 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 50 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 32 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{50}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110011 \\
+      |[namecell]| Троичная & |[numvalue]| 1220 \\
+      |[namecell]| Пятеричная & |[numvalue]| 201 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 63 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 51 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 33 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{51}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110100 \\
+      |[namecell]| Троичная & |[numvalue]| 1221 \\
+      |[namecell]| Пятеричная & |[numvalue]| 202 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 64 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 52 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 34 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{52}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110101 \\
+      |[namecell]| Троичная & |[numvalue]| 1222 \\
+      |[namecell]| Пятеричная & |[numvalue]| 203 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 65 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 53 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 35 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{53}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110110 \\
+      |[namecell]| Троичная & |[numvalue]| 2000 \\
+      |[namecell]| Пятеричная & |[numvalue]| 204 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 66 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 54 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 36 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{54}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 110111 \\
+      |[namecell]| Троичная & |[numvalue]| 2001 \\
+      |[namecell]| Пятеричная & |[numvalue]| 210 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 67 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 55 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 37 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{55}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111000 \\
+      |[namecell]| Троичная & |[numvalue]| 2002 \\
+      |[namecell]| Пятеричная & |[numvalue]| 211 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 70 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 56 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 38 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{56}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111001 \\
+      |[namecell]| Троичная & |[numvalue]| 2010 \\
+      |[namecell]| Пятеричная & |[numvalue]| 212 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 71 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 57 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 39 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{57}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111010 \\
+      |[namecell]| Троичная & |[numvalue]| 2011 \\
+      |[namecell]| Пятеричная & |[numvalue]| 213 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 72 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 58 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 3A \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{58}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111011 \\
+      |[namecell]| Троичная & |[numvalue]| 2012 \\
+      |[namecell]| Пятеричная & |[numvalue]| 214 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 73 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 59 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 3B \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{59}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111100 \\
+      |[namecell]| Троичная & |[numvalue]| 2020 \\
+      |[namecell]| Пятеричная & |[numvalue]| 220 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 74 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 60 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 3C \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{60}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111101 \\
+      |[namecell]| Троичная & |[numvalue]| 2021 \\
+      |[namecell]| Пятеричная & |[numvalue]| 221 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 75 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 61 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 3D \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{61}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111110 \\
+      |[namecell]| Троичная & |[numvalue]| 2022 \\
+      |[namecell]| Пятеричная & |[numvalue]| 222 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 76 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 62 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 3E \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{62}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 111111 \\
+      |[namecell]| Троичная & |[numvalue]| 2100 \\
+      |[namecell]| Пятеричная & |[numvalue]| 223 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 77 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 63 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 3F \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{63}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000000 \\
+      |[namecell]| Троичная & |[numvalue]| 2101 \\
+      |[namecell]| Пятеричная & |[numvalue]| 224 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 100 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 64 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 40 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{64}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000001 \\
+      |[namecell]| Троичная & |[numvalue]| 2102 \\
+      |[namecell]| Пятеричная & |[numvalue]| 230 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 101 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 65 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 41 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{65}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000010 \\
+      |[namecell]| Троичная & |[numvalue]| 2110 \\
+      |[namecell]| Пятеричная & |[numvalue]| 231 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 102 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 66 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 42 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{66}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000011 \\
+      |[namecell]| Троичная & |[numvalue]| 2111 \\
+      |[namecell]| Пятеричная & |[numvalue]| 232 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 103 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 67 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 43 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{67}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000100 \\
+      |[namecell]| Троичная & |[numvalue]| 2112 \\
+      |[namecell]| Пятеричная & |[numvalue]| 233 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 104 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 68 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 44 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{68}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000101 \\
+      |[namecell]| Троичная & |[numvalue]| 2120 \\
+      |[namecell]| Пятеричная & |[numvalue]| 234 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 105 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 69 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 45 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{69}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000110 \\
+      |[namecell]| Троичная & |[numvalue]| 2121 \\
+      |[namecell]| Пятеричная & |[numvalue]| 240 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 106 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 70 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 46 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{70}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1000111 \\
+      |[namecell]| Троичная & |[numvalue]| 2122 \\
+      |[namecell]| Пятеричная & |[numvalue]| 241 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 107 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 71 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 47 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{71}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001000 \\
+      |[namecell]| Троичная & |[numvalue]| 2200 \\
+      |[namecell]| Пятеричная & |[numvalue]| 242 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 110 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 72 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 48 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{72}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001001 \\
+      |[namecell]| Троичная & |[numvalue]| 2201 \\
+      |[namecell]| Пятеричная & |[numvalue]| 243 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 111 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 73 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 49 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{73}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001010 \\
+      |[namecell]| Троичная & |[numvalue]| 2202 \\
+      |[namecell]| Пятеричная & |[numvalue]| 244 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 112 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 74 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 4A \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{74}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001011 \\
+      |[namecell]| Троичная & |[numvalue]| 2210 \\
+      |[namecell]| Пятеричная & |[numvalue]| 300 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 113 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 75 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 4B \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{75}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001100 \\
+      |[namecell]| Троичная & |[numvalue]| 2211 \\
+      |[namecell]| Пятеричная & |[numvalue]| 301 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 114 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 76 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 4C \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{76}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001101 \\
+      |[namecell]| Троичная & |[numvalue]| 2212 \\
+      |[namecell]| Пятеричная & |[numvalue]| 302 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 115 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 77 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 4D \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{77}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001110 \\
+      |[namecell]| Троичная & |[numvalue]| 2220 \\
+      |[namecell]| Пятеричная & |[numvalue]| 303 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 116 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 78 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 4E \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{78}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1001111 \\
+      |[namecell]| Троичная & |[numvalue]| 2221 \\
+      |[namecell]| Пятеричная & |[numvalue]| 304 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 117 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 79 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 4F \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{79}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010000 \\
+      |[namecell]| Троичная & |[numvalue]| 2222 \\
+      |[namecell]| Пятеричная & |[numvalue]| 310 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 120 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 80 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 50 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{80}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010001 \\
+      |[namecell]| Троичная & |[numvalue]| 10000 \\
+      |[namecell]| Пятеричная & |[numvalue]| 311 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 121 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 81 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 51 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{81}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010010 \\
+      |[namecell]| Троичная & |[numvalue]| 10001 \\
+      |[namecell]| Пятеричная & |[numvalue]| 312 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 122 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 82 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 52 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{82}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010011 \\
+      |[namecell]| Троичная & |[numvalue]| 10002 \\
+      |[namecell]| Пятеричная & |[numvalue]| 313 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 123 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 83 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 53 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{83}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010100 \\
+      |[namecell]| Троичная & |[numvalue]| 10010 \\
+      |[namecell]| Пятеричная & |[numvalue]| 314 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 124 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 84 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 54 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{84}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010101 \\
+      |[namecell]| Троичная & |[numvalue]| 10011 \\
+      |[namecell]| Пятеричная & |[numvalue]| 320 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 125 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 85 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 55 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{85}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010110 \\
+      |[namecell]| Троичная & |[numvalue]| 10012 \\
+      |[namecell]| Пятеричная & |[numvalue]| 321 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 126 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 86 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 56 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{86}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1010111 \\
+      |[namecell]| Троичная & |[numvalue]| 10020 \\
+      |[namecell]| Пятеричная & |[numvalue]| 322 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 127 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 87 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 57 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{87}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011000 \\
+      |[namecell]| Троичная & |[numvalue]| 10021 \\
+      |[namecell]| Пятеричная & |[numvalue]| 323 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 130 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 88 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 58 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{88}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011001 \\
+      |[namecell]| Троичная & |[numvalue]| 10022 \\
+      |[namecell]| Пятеричная & |[numvalue]| 324 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 131 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 89 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 59 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{89}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011010 \\
+      |[namecell]| Троичная & |[numvalue]| 10100 \\
+      |[namecell]| Пятеричная & |[numvalue]| 330 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 132 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 90 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 5A \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{90}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011011 \\
+      |[namecell]| Троичная & |[numvalue]| 10101 \\
+      |[namecell]| Пятеричная & |[numvalue]| 331 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 133 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 91 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 5B \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{91}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011100 \\
+      |[namecell]| Троичная & |[numvalue]| 10102 \\
+      |[namecell]| Пятеричная & |[numvalue]| 332 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 134 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 92 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 5C \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{92}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011101 \\
+      |[namecell]| Троичная & |[numvalue]| 10110 \\
+      |[namecell]| Пятеричная & |[numvalue]| 333 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 135 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 93 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 5D \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{93}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011110 \\
+      |[namecell]| Троичная & |[numvalue]| 10111 \\
+      |[namecell]| Пятеричная & |[numvalue]| 334 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 136 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 94 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 5E \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{94}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1011111 \\
+      |[namecell]| Троичная & |[numvalue]| 10112 \\
+      |[namecell]| Пятеричная & |[numvalue]| 340 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 137 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 95 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 5F \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{95}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1100000 \\
+      |[namecell]| Троичная & |[numvalue]| 10120 \\
+      |[namecell]| Пятеричная & |[numvalue]| 341 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 140 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 96 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 60 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{96}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1100001 \\
+      |[namecell]| Троичная & |[numvalue]| 10121 \\
+      |[namecell]| Пятеричная & |[numvalue]| 342 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 141 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 97 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 61 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{97}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1100010 \\
+      |[namecell]| Троичная & |[numvalue]| 10122 \\
+      |[namecell]| Пятеричная & |[numvalue]| 343 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 142 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 98 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 62 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{98}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1100011 \\
+      |[namecell]| Троичная & |[numvalue]| 10200 \\
+      |[namecell]| Пятеричная & |[numvalue]| 344 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 143 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 99 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 63 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{99}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1100100 \\
+      |[namecell]| Троичная & |[numvalue]| 10201 \\
+      |[namecell]| Пятеричная & |[numvalue]| 400 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 144 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 100 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 64 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{100}};
+  \end{tikzpicture}
+\end{frame}
+
+\end{document}

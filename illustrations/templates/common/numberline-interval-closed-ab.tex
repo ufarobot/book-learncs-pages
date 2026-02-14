@@ -1,0 +1,39 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[x=0.8cm,y=1cm, line cap=round, line join=round]
+
+\draw[->, line width=0.9pt] (-0.5,0) -- (8.8,0);
+
+\foreach \x in {0,...,8} {
+  \draw (\x,0.12) -- (\x,-0.12);
+  \node at (\x,-0.6) {\x};
+}
+
+\def\yA{0.35}
+\def\yB{0.70}
+\def\labelfont{\normalsize}
+\def\labelscale{0.80}
+\pgfmathsetlengthmacro{\labelgap}{1.2ex}
+
+% interval A (above the line)
+\draw[line width=2.2pt, color=midblue] (2,\yA) -- (7,\yA);
+\fill[midblue] (2,\yA) circle (2.2pt);
+\fill[midblue] (7,\yA) circle (2.2pt);
+
+% interval B (also above the line, on a higher track)
+\draw[line width=2.2pt, color=midred] (5,\yB) -- (8,\yB);
+\fill[midred] (5,\yB) circle (2.2pt);
+\fill[midred] (8,\yB) circle (2.2pt);
+
+\coordinate (Acenter) at (4.5,\yA);
+\coordinate (Bcenter) at (6.5,\yB);
+
+\node[color=midblue, font=\labelfont, scale=\labelscale] at ($(Acenter)+(0,\labelgap)$) {A};
+\node[color=midred, font=\labelfont, scale=\labelscale] at ($(Bcenter)+(0,\labelgap)$) {B};
+
+\end{tikzpicture}
+\end{document}

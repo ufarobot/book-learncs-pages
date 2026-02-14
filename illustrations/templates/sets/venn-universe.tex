@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{learncs/tikz-style}
+
+\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round]
+
+% --- geometry (tuned to match the reference) ---
+    \def\R{2.15}                 % circle radius
+    \coordinate (C) at (0,0.20); % circle center
+
+% shaded universe rectangle (filled)
+    \fill[vennfill] (-5.5,-2.95) rectangle (5.5,2.95);
+    \draw[line width=1.0pt] (-5.5,-2.95) rectangle (5.5,2.95);
+
+% set A (white circle on top of the fill)
+    \fill[white] (C) circle (\R);
+    \draw[line width=1.0pt] (C) circle (\R);
+
+% label A inside the circle (top-left)
+    \node[lab] at ($ (C) + (-0.95,1.05) $) {$A$};
+
+% caption below (centered under the rectangle)
+    \node[lab] at (0,-3.55) {$\overline{A}$};
+% universe label U (outside bottom-left of the rectangle)
+    \node[lab, anchor=north east] at (-5.5,-2.35) {$U$};
+
+  \end{tikzpicture}
+\end{document}

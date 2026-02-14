@@ -1,0 +1,64 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{colortbl}
+
+\definecolor{tbl-dark}{HTML}{666666}
+\definecolor{tbl-light}{HTML}{FFFFFF}
+\definecolor{tbl-border}{HTML}{AEB5BD}
+
+\arrayrulecolor{tbl-border}
+\setlength{\arrayrulewidth}{0.35pt}
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.45}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcommand{\bc}[1]{\cellcolor{tbl-light}#1}
+
+\begin{document}
+{\sffamily\large
+\begin{tabular}{|C{4.2cm}|C{4.2cm}|}
+\hline
+\rowcolor{tbl-dark}
+\textcolor{white}{\bfseries Двоичное}
+& \textcolor{white}{\bfseries \mbox{Шестнадцатеричное}} \\
+\hline
+\bc{\texttt{0000}} & \bc{\texttt{0}} \\
+\hline
+\bc{\texttt{0001}} & \bc{\texttt{1}} \\
+\hline
+\bc{\texttt{0010}} & \bc{\texttt{2}} \\
+\hline
+\bc{\texttt{0011}} & \bc{\texttt{3}} \\
+\hline
+\bc{\texttt{0100}} & \bc{\texttt{4}} \\
+\hline
+\bc{\texttt{0101}} & \bc{\texttt{5}} \\
+\hline
+\bc{\texttt{0110}} & \bc{\texttt{6}} \\
+\hline
+\bc{\texttt{0111}} & \bc{\texttt{7}} \\
+\hline
+\bc{\texttt{1000}} & \bc{\texttt{8}} \\
+\hline
+\bc{\texttt{1001}} & \bc{\texttt{9}} \\
+\hline
+\bc{\texttt{1010}} & \bc{\texttt{A}} \\
+\hline
+\bc{\texttt{1011}} & \bc{\texttt{B}} \\
+\hline
+\bc{\texttt{1100}} & \bc{\texttt{C}} \\
+\hline
+\bc{\texttt{1101}} & \bc{\texttt{D}} \\
+\hline
+\bc{\texttt{1110}} & \bc{\texttt{E}} \\
+\hline
+\bc{\texttt{1111}} & \bc{\texttt{F}} \\
+\hline
+\end{tabular}
+}
+\end{document}

@@ -1,0 +1,23 @@
+\documentclass[tikz,border=3mm]{standalone}
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+\usetikzlibrary{matrix,decorations.pathreplacing,positioning}
+\newcommand{\digitfont}{\ttfamily\Large}
+
+\begin{document}
+\begin{tikzpicture}[font=\rmfamily\Large]
+\node (left) {{\digitfont 9B\textsubscript{\textcolor{blue}{\scriptsize\ttfamily 16}}}};
+\node[right=4mm of left] (eq) {$=$};
+\matrix (m) [matrix of nodes, nodes={font=\digitfont, anchor=base, inner sep=0pt}, column sep=2mm, right=4mm of eq] {
+1001 & 1011\textsubscript{\textcolor{blue}{\scriptsize\ttfamily 2}}\\
+};
+
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, blue]
+(m-1-1.south west) -- (m-1-1.south east);
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, blue]
+(m-1-2.south west) -- (m-1-2.south east);
+
+\node[below=6pt of m-1-1] {{\digitfont 9\textsubscript{\textcolor{blue}{\scriptsize\ttfamily 16}}}};
+\node[below=6pt of m-1-2] {{\digitfont B\textsubscript{\textcolor{blue}{\scriptsize\ttfamily 16}}}};
+\end{tikzpicture}
+\end{document}

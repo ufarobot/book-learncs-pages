@@ -1,0 +1,26 @@
+\documentclass[tikz,border=3mm]{standalone}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta,matrix}
+
+\newcommand{\num}[1]{\mathtt{#1}}
+\newcommand{\res}[1]{\textcolor{blue}{\num{#1}}}
+
+\begin{document}
+\begin{tikzpicture}[font=\rmfamily\Large]
+\node[anchor=west, inner sep=0pt] (eq) {$
+\begin{aligned}
+\num{1006}:\num{8} &= \num{125}\ \text{остаток}\ \res{6} \\
+\num{125}:\num{8} &= \num{15}\ \text{остаток}\ \res{5} \\
+\num{15}:\num{8} &= \num{1}\ \text{остаток}\ \res{7} \\
+\num{1}:\num{8} &= \num{0}\ \text{остаток}\ \res{1}
+\end{aligned}
+$};
+
+\draw[-{Latex[length=3mm,width=2mm]}, red, line width=0.8pt]
+  ([xshift=6mm]eq.south east) -- ([xshift=6mm]eq.north east);
+\end{tikzpicture}
+\end{document}

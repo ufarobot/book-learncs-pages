@@ -1,0 +1,36 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}[x=0.8cm,y=1cm, line cap=round, line join=round]
+
+\draw[->, line width=0.9pt] (-1.2,0) -- (5.2,0);
+
+\foreach \x in {0,3,4} {
+  \draw (\x,0.12) -- (\x,-0.12);
+  \node at (\x,-0.6) {\x};
+}
+
+\def\yB{0.35}
+\def\yA{0.70}
+\def\labelscale{0.80}
+\pgfmathsetlengthmacro{\labelgap}{1.1ex}
+
+% A: (-inf, 3)
+\draw[line width=2.0pt, color=midblue, -{Stealth[length=2.4mm]}] (3,\yA) -- (-1.1,\yA);
+\draw[midblue, line width=0.9pt, fill=white] (3,\yA) circle (2.0pt);
+
+% B: (-inf, 4]
+\draw[line width=2.0pt, color=midred, -{Stealth[length=2.4mm]}] (4,\yB) -- (-1.1,\yB);
+\fill[midred] (4,\yB) circle (2.0pt);
+
+\node[color=midblue, font=\normalsize, scale=\labelscale] at ($(1.5,\yA)+(0,\labelgap)$) {A};
+\node[color=midred, font=\normalsize, scale=\labelscale] at ($(1.5,\yB)+(0,\labelgap)$) {B};
+
+\end{tikzpicture}
+\end{document}

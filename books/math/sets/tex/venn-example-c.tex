@@ -1,0 +1,43 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+  \begin{tikzpicture}[line cap=round,line join=round]
+
+% --- geometry ---
+    \def\R{2.05}                     % circle radius
+    \coordinate (L)   at (-2.25,0.20); % left circle center (A)
+    \coordinate (Rgt) at ( 2.25,0.20); % right circle center (B)
+
+% universe rectangle
+    \draw[line width=1.0pt] (-5.5,-2.95) rectangle (5.5,2.95);
+
+% circles
+    \draw[line width=1.0pt] (L) circle (\R);
+    \draw[line width=1.0pt] (Rgt) circle (\R);
+
+% labels
+    \node[lab] at ($ (L) + (-1.95,1.60) $) {$A$};
+    \node[lab] at ($ (Rgt) + ( 1.95,1.60) $) {$B$};
+
+% numbers in A
+    \node[lab] at ($ (L) + (-0.05,0.55) $) {2};
+    \node[lab] at ($ (L) + (-0.10,-0.55) $) {4};
+    \node[lab] at ($ (L) + ( 0.75,0.00) $) {8};
+
+% numbers in B
+    \node[lab] at ($ (Rgt) + (-0.20,0.70) $) {1};
+    \node[lab] at ($ (Rgt) + (-0.10,-0.35) $) {3};
+    \node[lab] at ($ (Rgt) + ( 0.75,0.10) $) {5};
+
+% numbers outside circles (but inside U)
+    \node[lab] at (0, 2.05) {7};
+    \node[lab] at (0,-2.05) {6};
+
+% universe label (outside bottom-left of the rectangle)
+    \node[lab, anchor=north east] at (-5.5,-2.35) {$U$};
+
+  \end{tikzpicture}
+\end{document}

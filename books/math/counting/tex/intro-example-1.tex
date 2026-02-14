@@ -1,0 +1,39 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+  \begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+    \tikzset{
+      main/.style={draw=black, line width=0.85pt},
+      vtx/.style={circle, draw=darkgray, fill=vtxfill, line width=0.85pt, minimum size=10pt, inner sep=0pt},
+      vlab/.style={font=\Large},
+    }
+
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (8,0);
+
+% parallel edges A--B
+    \draw[main] (A) to[out=45,in=135] (B);
+    \draw[main] (A) to[out=-45,in=-135] (B);
+
+% parallel edges B--C (upper + lower + straight)
+    \draw[main] (B) to[out=45,in=135] (C);
+    \draw[main] (B) to[out=-45,in=-135] (C);
+    \draw[main] (B) -- (C);
+
+% vertices
+    \node[vtx] at (A) {};
+    \node[vtx] at (B) {};
+    \node[vtx] at (C) {};
+
+% vertex labels
+    \node[vlab, anchor=north] at ($(A)+(0,-0.35)$) {A};
+    \node[vlab, anchor=north] at ($(B)+(0,-0.35)$) {B};
+    \node[vlab, anchor=north] at ($(C)+(0,-0.35)$) {C};
+
+  \end{tikzpicture}
+\end{document}

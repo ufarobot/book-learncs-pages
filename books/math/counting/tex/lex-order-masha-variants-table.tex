@@ -1,0 +1,64 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{colortbl}
+
+\definecolor{tbl-dark}{HTML}{666666}
+\definecolor{tbl-light}{HTML}{FFFFFF}
+\definecolor{tbl-border}{HTML}{AEB5BD}
+
+\arrayrulecolor{tbl-border}
+\setlength{\arrayrulewidth}{0.35pt}
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.35}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcommand{\bc}[1]{\cellcolor{tbl-light}#1}
+
+\begin{document}
+{\sffamily\large
+\begin{tabular}{c@{\hspace{2.0cm}}c}
+\begin{tabular}{|L{4.6cm}|}
+\hline
+\rowcolor{tbl-dark}
+\textcolor{white}{\bfseries Неупорядоченные варианты} \\
+\hline
+\bc{\texttt{СЯМ}} \\
+\hline
+\bc{\texttt{МСЯ}} \\
+\hline
+\bc{\texttt{ЯМС}} \\
+\hline
+\bc{\texttt{СМЯ}} \\
+\hline
+\bc{\texttt{ЯСМ}} \\
+\hline
+\bc{\texttt{МЯС}} \\
+\hline
+\end{tabular}
+&
+\begin{tabular}{|L{4.6cm}|}
+\hline
+\rowcolor{tbl-dark}
+\textcolor{white}{\bfseries Лексикографический порядок} \\
+\hline
+\bc{\texttt{МСЯ}} \\
+\hline
+\bc{\texttt{МЯС}} \\
+\hline
+\bc{\texttt{СМЯ}} \\
+\hline
+\bc{\texttt{СЯМ}} \\
+\hline
+\bc{\texttt{ЯМС}} \\
+\hline
+\bc{\texttt{ЯСМ}} \\
+\hline
+\end{tabular}
+\end{tabular}
+}
+\end{document}

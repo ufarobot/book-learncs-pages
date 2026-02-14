@@ -1,0 +1,34 @@
+\documentclass[tikz,border=2mm]{standalone}
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+\usetikzlibrary{matrix}
+
+\newdimen\digitwidth
+\newcommand{\setdigitwidth}{%
+  \begingroup
+  \setbox0=\hbox{$\Large 0$}%
+  \global\digitwidth=\wd0
+  \endgroup
+}
+\setdigitwidth
+
+\begin{document}
+\begin{tikzpicture}[font=\rmfamily\Large]
+\matrix (m) [
+matrix of nodes,
+nodes in empty cells,
+column sep=0pt,
+row sep=0pt,
+nodes={anchor=center, inner sep=0pt, execute at begin node=\strut},
+spacer/.style={text width=\digitwidth},
+row 1/.style={nodes={font=\scriptsize}},
+column 1/.style={nodes={anchor=east, font=\scriptsize\itshape}},
+column 6/.style={nodes={spacer}},
+column 7/.style={nodes={anchor=west}},
+anchor=west
+] at (0,0) {
+{разряды $\to$} & {\textcolor{red}{$3$}} & {\textcolor{red}{$2$}} & {\textcolor{red}{$1$}} & {\textcolor{red}{$0$}} & {} & {} \\
+{} & {$a_3$} & {$a_2$} & {$a_1$} & {$a_0$} & {} & {$= a_3\cdot p^{\textcolor{red}{3}} + a_2\cdot p^{\textcolor{red}{2}} + a_1\cdot p^{\textcolor{red}{1}} + a_0\cdot p^{\textcolor{red}{0}}$} \\
+};
+\end{tikzpicture}
+\end{document}

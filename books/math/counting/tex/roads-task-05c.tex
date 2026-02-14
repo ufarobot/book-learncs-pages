@@ -1,0 +1,67 @@
+\documentclass[tikz,border=6pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm, line cap=round, line join=round]
+
+\tikzset{
+  main/.style={draw=black, line width=0.85pt},
+  vtx/.style={circle, draw=darkgray, fill=vtxfill, line width=0.85pt, minimum size=10pt, inner sep=0pt},
+  vlab/.style={font=\Large},
+}
+
+\coordinate (A) at (0,0);
+\coordinate (U1) at (2.4,2.2);
+\coordinate (U2) at (5.2,2.2);
+\coordinate (M1) at (3.2,0);
+\coordinate (M2) at (6.0,0);
+\coordinate (L1) at (2.4,-2.2);
+\coordinate (L2) at (4.6,-2.2);
+\coordinate (L3) at (6.8,-2.2);
+\coordinate (B) at (9.0,0);
+
+% edges A -> upper/middle/lower
+\draw[main] (A) to[out=30,in=190] (U1);
+\draw[main] (A) -- (M1);
+\draw[main] (A) to[out=-30,in=170] (L1);
+
+% upper corridor (3 parallel edges)
+\draw[main] (U1) to[out=45,in=135] (U2);
+\draw[main] (U1) -- (U2);
+\draw[main] (U1) to[out=-45,in=-135] (U2);
+
+% middle corridor (2 parallel edges)
+\draw[main] (M1) to[out=45,in=135] (M2);
+\draw[main] (M1) to[out=-45,in=-135] (M2);
+
+% lower corridor (2 x 2)
+\draw[main] (L1) to[out=45,in=135] (L2);
+\draw[main] (L1) to[out=-45,in=-135] (L2);
+
+\draw[main] (L2) to[out=45,in=135] (L3);
+\draw[main] (L2) to[out=-45,in=-135] (L3);
+
+% to B
+\draw[main] (U2) to[out=0,in=150] (B);
+\draw[main] (M2) -- (B);
+\draw[main] (L3) to[out=0,in=-150] (B);
+
+% vertices
+\node[vtx] at (A) {};
+\node[vtx] at (U1) {};
+\node[vtx] at (U2) {};
+\node[vtx] at (M1) {};
+\node[vtx] at (M2) {};
+\node[vtx] at (L1) {};
+\node[vtx] at (L2) {};
+\node[vtx] at (L3) {};
+\node[vtx] at (B) {};
+
+% labels
+\node[vlab, left=8pt] at (A) {A};
+\node[vlab, right=6pt] at (B) {B};
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,64 @@
+% -----------------------------------------------------------------------------
+% DEMO (скопируй в отдельный файл demo-tikz-style.tex и собери pdflatex)
+% -----------------------------------------------------------------------------
+\documentclass[tikz,border=6pt]{standalone}
+\input{tikz-style.tex}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \tikzset{lab/.append style={font=\fontsize{28}{34}\selectfont}}
+  % заголовок
+  \node[lab, anchor=west] at (0,5.8) {tikz-style.tex: demo};
+
+  % пример текста/узлов с lab
+  \node[lab, anchor=west] at (0,4.9) {Стиль lab: \; A, B, C};
+  \node[anchor=west] at (0,4.2) {Кириллица: пример текста — Ёж, щука, №7};
+  \node[anchor=west] at (0,3.6) {Математика: \(1+2=3\;\; 10^{3}\;\; \frac{7}{12}\;\; |A|=5\)};
+  \node[circle, fill=darkred,   minimum size=10mm, inner sep=0pt, text=white, font=\bfseries\Large] at (3.0,6.9) {A};
+  \node[circle, fill=darkgreen, minimum size=10mm, inner sep=0pt, text=white, font=\bfseries\Large] at (4.3,6.9) {B};
+  \node[circle, fill=darkblue,  minimum size=10mm, inner sep=0pt, text=white, font=\bfseries\Large] at (5.6,6.9) {C};
+
+  % палитра: (имя, цвет)
+  \def\sw#1#2#3{%
+    \fill[#2] (0,#1) rectangle (1.2,#1+0.6);
+    \draw[black] (0,#1) rectangle (1.2,#1+0.6);
+    \node[anchor=west] at (1.5,#1+0.3) {#3};
+  }
+
+  % зелёные
+  \node[anchor=west, font=\bfseries] at (0,2.9) {Greens};
+  \sw{2.0}{lightgreen}{lightgreen}
+  \sw{1.2}{palegreen}{palegreen}
+  \sw{0.4}{midgreen}{midgreen}
+  \sw{-0.4}{darkgreen}{darkgreen}
+  \sw{-1.2}{olivegreen}{olivegreen}
+
+  % красные
+  \node[anchor=west, font=\bfseries] at (5.0,2.9) {Reds};
+  \fill[lightred] (5.0,2.0) rectangle (6.2,2.6); \draw[black] (5.0,2.0) rectangle (6.2,2.6);
+  \node[anchor=west] at (6.5,2.3) {lightred};
+  \fill[midred] (5.0,1.2) rectangle (6.2,1.8); \draw[black] (5.0,1.2) rectangle (6.2,1.8);
+  \node[anchor=west] at (6.5,1.5) {midred};
+  \fill[darkred] (5.0,0.4) rectangle (6.2,1.0); \draw[black] (5.0,0.4) rectangle (6.2,1.0);
+  \node[anchor=west] at (6.5,0.7) {darkred};
+  \fill[darkred2] (5.0,-0.4) rectangle (6.2,0.2); \draw[black] (5.0,-0.4) rectangle (6.2,0.2);
+  \node[anchor=west] at (6.5,-0.1) {darkred2};
+
+  % синие
+  \node[anchor=west, font=\bfseries] at (0, -2.1) {Blues};
+  \fill[lightblue] (0,-3.0) rectangle (1.2,-2.4); \draw[black] (0,-3.0) rectangle (1.2,-2.4);
+  \node[anchor=west] at (1.5,-2.7) {lightblue};
+  \fill[midblue] (0,-3.8) rectangle (1.2,-3.2); \draw[black] (0,-3.8) rectangle (1.2,-3.2);
+  \node[anchor=west] at (1.5,-3.5) {midblue};
+  \fill[darkblue] (0,-4.6) rectangle (1.2,-4.0); \draw[black] (0,-4.6) rectangle (1.2,-4.0);
+  \node[anchor=west] at (1.5,-4.3) {darkblue};
+
+  % серые
+  \node[anchor=west, font=\bfseries] at (5.0, -2.1) {Grays};
+  \fill[lightgray] (5.0,-3.0) rectangle (6.2,-2.4); \draw[black] (5.0,-3.0) rectangle (6.2,-2.4);
+  \node[anchor=west] at (6.5,-2.7) {lightgray};
+  \fill[midgray] (5.0,-3.8) rectangle (6.2,-3.2); \draw[black] (5.0,-3.8) rectangle (6.2,-3.2);
+  \node[anchor=west] at (6.5,-3.5) {midgray};
+  \fill[darkgray] (5.0,-4.6) rectangle (6.2,-4.0); \draw[black] (5.0,-4.6) rectangle (6.2,-4.0);
+  \node[anchor=west] at (6.5,-4.3) {darkgray};
+\end{tikzpicture}
+\end{document}

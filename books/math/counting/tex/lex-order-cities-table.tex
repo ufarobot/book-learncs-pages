@@ -1,0 +1,81 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{colortbl}
+
+\definecolor{tbl-dark}{HTML}{666666}
+\definecolor{tbl-light}{HTML}{FFFFFF}
+\definecolor{tbl-border}{HTML}{AEB5BD}
+
+\arrayrulecolor{tbl-border}
+\setlength{\arrayrulewidth}{0.35pt}
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.35}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcommand{\bc}[1]{\cellcolor{tbl-light}#1}
+
+\begin{document}
+{\sffamily\large
+\begin{tabular}{c@{\hspace{2.0cm}}c}
+\begin{tabular}{|L{4.7cm}|}
+\hline
+\rowcolor{tbl-dark}
+\textcolor{white}{\bfseries Неупорядоченный список} \\
+\hline
+\bc{\texttt{Мессина}} \\
+\hline
+\bc{\texttt{Мерсин}} \\
+\hline
+\bc{\texttt{Мехико}} \\
+\hline
+\bc{\texttt{Москва}} \\
+\hline
+\bc{\texttt{Мемфис}} \\
+\hline
+\bc{\texttt{Мерида}} \\
+\hline
+\bc{\texttt{Мендоса}} \\
+\hline
+\bc{\texttt{Метц}} \\
+\hline
+\bc{\texttt{Мельбурн}} \\
+\hline
+\bc{\texttt{Мелитополь}} \\
+\hline
+\end{tabular}
+&
+\begin{tabular}{|L{4.7cm}|}
+\hline
+\rowcolor{tbl-dark}
+\textcolor{white}{\bfseries Лексикографический порядок} \\
+\hline
+\bc{\texttt{Мелитополь}} \\
+\hline
+\bc{\texttt{Мельбурн}} \\
+\hline
+\bc{\texttt{Мемфис}} \\
+\hline
+\bc{\texttt{Мендоса}} \\
+\hline
+\bc{\texttt{Мерида}} \\
+\hline
+\bc{\texttt{Мерсин}} \\
+\hline
+\bc{\texttt{Мессина}} \\
+\hline
+\bc{\texttt{Метц}} \\
+\hline
+\bc{\texttt{Мехико}} \\
+\hline
+\bc{\texttt{Москва}} \\
+\hline
+\end{tabular}
+\end{tabular}
+}
+\end{document}

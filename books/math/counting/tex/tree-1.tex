@@ -1,0 +1,83 @@
+\documentclass[tikz,border=8pt]{standalone}
+
+% общий стиль (подключается через TEXINPUTS)
+\input{tikz-style.tex}
+% local fallback: tikz-style defines darkred/darkgreen, but darkblue may be absent
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\begin{document}
+\begin{tikzpicture}[
+  line cap=round,
+  line join=round,
+  grow=down,
+  level distance=13mm,
+  edge from parent/.style={draw=darkgray, -{Stealth[length=2.2mm]}, line width=0.6pt, shorten >=2.0pt, shorten <=2.0pt},
+  every node/.style={font=\bfseries\Large, align=center},
+  every leaf/.style={font=\bfseries\Large},
+  level 1/.style={sibling distance=52mm},
+  level 2/.style={sibling distance=26mm},
+  level 3/.style={sibling distance=13mm},
+  level 4/.style={sibling distance=13mm, level distance=13mm}
+]
+
+% ---------- node styles ----------
+\tikzset{
+  letterBase/.style={circle, minimum size=9mm, inner sep=0pt, text=white},
+  Aletter/.style={letterBase, fill=darkred},
+  Bletter/.style={letterBase, fill=darkgreen},
+  Cletter/.style={letterBase, fill=darkblue},
+  word/.style={font=\bfseries\Large, text=black, draw=darkgray, rounded corners=2pt, inner xsep=2pt, inner ysep=6pt}
+}
+
+% ---------- hanging permutation tree ----------
+\node[coordinate] {}
+  child { node[Aletter] {М}
+    child { node[Bletter] {С}
+      child { node[Cletter] {Я}
+        child { node[word] {\Large МСЯ} }
+      }
+    }
+    child { node[Cletter] {Я}
+      child { node[Bletter] {С}
+        child { node[word] {\Large МЯС} }
+      }
+    }
+  }
+  child { node[Bletter] {С}
+    child { node[Aletter] {М}
+      child { node[Cletter] {Я}
+        child { node[word] {\Large СМЯ} }
+      }
+    }
+    child { node[Cletter] {Я}
+      child { node[Aletter] {М}
+        child { node[word] {\Large СЯМ} }
+      }
+    }
+  }
+  child { node[Cletter] {Я}
+    child { node[Aletter] {М}
+      child { node[Bletter] {С}
+        child { node[word] {\Large ЯМС} }
+      }
+    }
+    child { node[Bletter] {С}
+      child { node[Aletter] {М}
+        child { node[word] {\Large ЯСМ} }
+      }
+    }
+  };
+
+% ---------- horizontal level labels (left side) ----------
+\path (current bounding box.north west) coordinate (bbNW)
+      (current bounding box.north east) coordinate (bbNE);
+
+% Y positions are derived from level distances: 13mm, 13mm, 13mm, then 16mm
+\node[font=\bfseries\large, anchor=east] at ($(bbNW)+(-4mm,-13mm)$) {1-й};
+\node[font=\bfseries\large, anchor=east] at ($(bbNW)+(-4mm,-26mm)$) {2-й};
+\node[font=\bfseries\large, anchor=east] at ($(bbNW)+(-4mm,-39mm)$) {3-й};
+
+\end{tikzpicture}
+\end{document}
