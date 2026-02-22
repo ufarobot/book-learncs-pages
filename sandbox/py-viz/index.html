@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Функции в Python — теория и визуализация</title>
+
+  <script>
+    (function patchRunPyFetch() {
+      const runPyUrl = "https://livinnector.github.io/live-py-tutor/run.py";
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = function (input, init) {
+        if (typeof input === "string" && input === "run.py") {
+          return originalFetch(runPyUrl, init);
+        }
+        return originalFetch(input, init);
+      };
+    })();
+
+    (function enableRunButtonMode() {
+      function patchDoTimeout() {
+        const $ = window.jQuery;
+        if (!$ || !$.doTimeout || window.__pyVizRunModePatched) {
+          return false;
+        }
+
+        const originalDoTimeout = $.doTimeout;
+        $.doTimeout = function (id) {
+          if (id === "pyInputAceEditorChange") {
+            return;
+          }
+          return originalDoTimeout.apply(this, arguments);
+        };
+
+        window.__pyVizRunModePatched = true;
+        return true;
+      }
+
+      if (!patchDoTimeout()) {
+        const timer = window.setInterval(function () {
+          if (patchDoTimeout()) {
+            window.clearInterval(timer);
+          }
+        }, 50);
+      }
+    })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+  <script src="https://livinnector.github.io/live-py-tutor/opt-live.bundle.js"></script>
+
+  <style>
+    :root {
+      --bg-start: #f0f6ff;
+      --bg-end: #edf5ef;
+      --panel: #ffffff;
+      --panel-soft: #f7fafc;
+      --line: #d6dfeb;
+      --text: #132238;
+      --muted: #5f6e85;
+      --brand: #0e6f68;
+      --brand-strong: #0b5f58;
+      --radius: 16px;
+      --shadow: 0 16px 34px rgba(28, 46, 72, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% -5%, #ffffff 0%, rgba(255, 255, 255, 0) 48%),
+        linear-gradient(140deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    }
+
+    .page {
+      max-width: 1580px;
+      margin: 0 auto;
+      padding: 14px 14px 24px;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+
+    .crumbs {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 920px;
+      line-height: 1.45;
+    }
+
+    .layout {
+      display: block;
+    }
+
+    .lesson {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .card p {
+      margin: 0 0 8px;
+      line-height: 1.48;
+    }
+
+    .theory-points {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .theory-points li {
+      margin-bottom: 6px;
+      line-height: 1.42;
+    }
+
+    .example {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-soft);
+      overflow: hidden;
+    }
+
+    .example-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f2f6fa 100%);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .example-meta {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .load-example {
+      border: 0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--brand);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .load-example:hover {
+      background: var(--brand-strong);
+    }
+
+    .example pre {
+      margin: 0;
+      padding: 12px;
+      background: #0f1724;
+      color: #dce8ff;
+      overflow: auto;
+      font-size: 14px;
+      line-height: 1.42;
+      font-family: "Consolas", "Menlo", monospace;
+    }
+
+    .example-note {
+      margin: 0;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .tasks ol {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .tasks li {
+      margin-bottom: 8px;
+      line-height: 1.42;
+    }
+
+    .tasks details {
+      margin-top: 10px;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #fbfdff;
+    }
+
+    .tasks summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: #304764;
+    }
+
+    .tasks details pre {
+      margin-top: 8px;
+    }
+
+    .viz-wrap {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .viz-main {
+      display: grid;
+      grid-template-columns: minmax(380px, 0.9fr) minmax(500px, 1.1fr);
+      align-items: stretch;
+    }
+
+    .viz-main #pyInputPane,
+    .viz-main #codeInputPane {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: none !important;
+    }
+
+    .viz-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fbfcff 0%, #f4f8fd 100%);
+    }
+
+    .viz-head h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .viz-sub {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    #executeBtn {
+      border: 0;
+      border-radius: 9px;
+      padding: 10px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      background: var(--brand);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    #executeBtn:hover {
+      background: var(--brand-strong);
+    }
+
+    #pyInputPane {
+      padding: 12px;
+      border-right: 1px solid var(--line);
+      background: #fff;
+    }
+
+    #codeInputWarnings {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    #liveModeExtraWarning {
+      float: none !important;
+    }
+
+    #codeInputPane {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--panel-soft);
+    }
+
+    #legendDiv {
+      margin-top: 8px;
+      min-height: 34px;
+    }
+
+    #executionSlider {
+      margin-top: 12px;
+    }
+
+    #vcrControls {
+      margin-top: 10px;
+      margin-bottom: 8px;
+      text-align: center;
+      display: none;
+    }
+
+    #vcrControls button {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      margin: 2px;
+    }
+
+    #curInstr {
+      min-height: 1.2em;
+      margin-bottom: 8px;
+      color: var(--muted);
+      text-align: center;
+      display: none;
+    }
+
+    #frontendErrorOutput {
+      min-height: 1.2em;
+      color: #b73135;
+      font-weight: 600;
+    }
+
+    #rawUserInputDiv {
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel-soft);
+      padding: 8px 10px;
+    }
+
+    #rawUserInputDiv summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    #raw_input_textbox {
+      margin-top: 8px;
+      width: 100%;
+      min-height: 96px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      font-family: "Consolas", "Menlo", monospace;
+      font-size: 13px;
+      padding: 8px;
+      resize: vertical;
+      background: #fff;
+    }
+
+    #optionsPane {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    #optionsPane select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 7px;
+    }
+
+    #pyOutputPane {
+      min-height: 660px;
+      overflow: auto;
+      padding: 8px;
+      background: #fff;
+    }
+
+    .viz-footer {
+      border-top: 1px solid var(--line);
+      padding: 10px 12px 12px;
+      background: #f9fbfd;
+    }
+
+    .share-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    #genUrlBtn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    #urlOutput {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .credits {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .credits a {
+      color: var(--brand);
+    }
+
+    @media (max-width: 1260px) {
+      .viz-main {
+        grid-template-columns: 1fr;
+      }
+
+      #pyInputPane,
+      #codeInputPane {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+      }
+
+      #pyInputPane {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      #pyOutputPane {
+        min-height: 540px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="crumbs">Sandbox / Python / Functions</div>
+      <h1>Функции в Python</h1>
+      <p>
+        Страница сделана в формате урока как в Snakify: короткая теория, готовые примеры и интерактивный
+        визуализатор в основной колонке. Внутри виджета: код слева, визуализация справа.
+      </p>
+    </header>
+
+    <div class="layout">
+      <main class="lesson">
+        <section class="card">
+          <h2>1. Что такое функция</h2>
+          <p>
+            Функция — это именованный блок кода. Вы пишете его один раз и вызываете столько раз, сколько нужно.
+            Это делает программу короче, понятнее и удобнее для отладки.
+          </p>
+          <ul class="theory-points">
+            <li><b>def</b> объявляет функцию.</li>
+            <li><b>параметры</b> принимают входные данные.</li>
+            <li><b>return</b> возвращает результат.</li>
+            <li>Без <b>return</b> функция возвращает <b>None</b>.</li>
+          </ul>
+
+          <div class="example">
+            <div class="example-head">
+              <span>Пример: объявление и вызов</span>
+              <button class="load-example" data-example-id="hello">Открыть в виджете</button>
+            </div>
+            <pre><code>def greet(name):
+    print("Привет,", name + "!")
+
+greet("Аня")
+greet("Борис")</code></pre>
+            <p class="example-note">Каждый вызов запускает тело функции заново со своими аргументами.</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>2. Параметры и return</h2>
+          <p>
+            Хорошая практика: функция должна делать одно понятное действие и возвращать значение,
+            а не печатать результат внутри себя (если это не отдельная задача на вывод).
+          </p>
+
+          <div class="example">
+            <div class="example-head">
+              <span>Пример: функция вычисления</span>
+              <button class="load-example" data-example-id="power_sum">Открыть в виджете</button>
+            </div>
+            <pre><code>def power_sum(a, b):
+    return a * a + b * b
+
+x = 3
+y = 4
+result = power_sum(x, y)
+print(result)</code></pre>
+            <p class="example-note">Функция возвращает число, а выводом занимается внешний код.</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>3. Область видимости</h2>
+          <p>
+            Переменные, созданные внутри функции, локальны: снаружи они не существуют.
+            Это защищает программу от случайного переопределения данных.
+          </p>
+
+          <div class="example">
+            <div class="example-head">
+              <span>Пример: local vs global</span>
+              <button class="load-example" data-example-id="scope">Открыть в виджете</button>
+            </div>
+            <pre><code>x = 100
+
+def demo():
+    x = 7
+    print("inside:", x)
+
+demo()
+print("outside:", x)</code></pre>
+            <p class="example-note">В стеке видно, что внутри demo создается свой x, независимый от глобального.</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>4. Функция с вводом</h2>
+          <p>
+            На практике функции часто работают с несколькими числами. Удобно разделять задачу:
+            функция считает, основной код читает вход и печатает ответ.
+          </p>
+
+          <div class="example">
+            <div class="example-head">
+              <span>Пример: максимум из трех</span>
+              <button class="load-example" data-example-id="max3">Открыть в виджете</button>
+            </div>
+            <pre><code>def max3(a, b, c):
+    return max(a, max(b, c))
+
+a = int(input())
+b = int(input())
+c = int(input())
+
+print(max3(a, b, c))</code></pre>
+            <p class="example-note">Для примера stdin: <code>17 3 17</code> (каждое число с новой строки).</p>
+          </div>
+        </section>
+
+        <section class="card tasks">
+          <h2>5. Мини‑задачи</h2>
+          <p>Сделай функцию и проверь шаги выполнения справа в визуализаторе.</p>
+          <ol>
+            <li>Напиши функцию <b>is_even(n)</b>, которая возвращает <b>True</b>, если число четное.</li>
+            <li>Напиши функцию <b>cube(x)</b>, которая возвращает куб числа.</li>
+            <li>Напиши функцию <b>distance2d(x1, y1, x2, y2)</b>, которая возвращает квадрат расстояния между точками.</li>
+          </ol>
+
+          <details>
+            <summary>Показать пример решения задачи 1</summary>
+            <pre><code>def is_even(n):
+    return n % 2 == 0
+
+print(is_even(12))
+print(is_even(7))</code></pre>
+          </details>
+
+          <details>
+            <summary>Показать пример решения задачи 2</summary>
+            <pre><code>def cube(x):
+    return x ** 3
+
+print(cube(4))</code></pre>
+          </details>
+        </section>
+
+        <section class="viz-wrap">
+          <div class="viz-head">
+            <div>
+              <h2>Визуализатор</h2>
+              <div class="viz-sub">Run + step-by-step + stdin + output + stack</div>
+            </div>
+            <button id="executeBtn" type="button">Run</button>
+          </div>
+
+          <div class="viz-main">
+            <div id="pyInputPane">
+              <div id="codeInputWarnings">
+                <select id="pythonVersionSelector" hidden>
+                  <option value="2">Python 2.7</option>
+                  <option value="3" selected>Python 3.6</option>
+                  <option value="js">JavaScript ES6</option>
+                </select>
+                <span id="liveModeExtraWarning">(редактор можно растягивать за правый нижний угол)</span>
+              </div>
+
+              <div id="someoneIsTypingDiv" style="display: none;">Someone is typing ...</div>
+              <div id="codeInputPane"></div>
+              <div id="legendDiv"></div>
+              <div id="executionSlider"></div>
+
+              <div id="vcrControls">
+                <button id="jmpFirstInstr" type="button">&lt;&lt; First</button>
+                <button id="jmpStepBack" type="button">&lt; Prev</button>
+                <button id="jmpStepFwd" type="button">Next &gt;</button>
+                <button id="jmpLastInstr" type="button">Last &gt;&gt;</button>
+              </div>
+
+              <div id="curInstr"></div>
+              <div id="frontendErrorOutput"></div>
+
+              <details id="rawUserInputDiv" open>
+                <summary><b>stdin</b></summary>
+                <textarea id="raw_input_textbox" rows="8" cols="65"></textarea>
+              </details>
+
+              <div id="optionsPane">
+                <select id="cumulativeModeSelector">
+                  <option value="false">hide exited frames [default]</option>
+                  <option value="true">show exited frames (Python)</option>
+                </select>
+                <select id="heapPrimitivesSelector">
+                  <option value="false">inline primitives and try to nest objects</option>
+                  <option value="nevernest" selected>inline primitives but don't nest objects [default]</option>
+                  <option value="true">render all objects on the heap (Python)</option>
+                </select>
+                <select id="textualMemoryLabelsSelector">
+                  <option value="false">draw pointers as arrows [default]</option>
+                  <option value="true">use text labels for pointers</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="pyOutputPane"></div>
+          </div>
+
+          <div class="viz-footer">
+            <div class="share-row">
+              <button id="genUrlBtn" class="smallBtn" type="button">Generate permanent link</button>
+              <input type="text" id="urlOutput" size="65">
+            </div>
+            <p class="credits">
+              Based on
+              <a href="https://github.com/livinNector/live-py-tutor" target="_blank" rel="noopener noreferrer">live-py-tutor</a>
+              and
+              <a href="https://pythontutor.com/" target="_blank" rel="noopener noreferrer">Python Tutor</a>.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const EXAMPLES = {
+      hello: {
+        code: [
+          "def greet(name):",
+          "    print(\"Привет,\", name + \"!\")",
+          "",
+          "greet(\"Аня\")",
+          "greet(\"Борис\")"
+        ].join("\n"),
+        stdin: ""
+      },
+      power_sum: {
+        code: [
+          "def power_sum(a, b):",
+          "    return a * a + b * b",
+          "",
+          "x = 3",
+          "y = 4",
+          "result = power_sum(x, y)",
+          "print(result)"
+        ].join("\n"),
+        stdin: ""
+      },
+      scope: {
+        code: [
+          "x = 100",
+          "",
+          "def demo():",
+          "    x = 7",
+          "    print(\"inside:\", x)",
+          "",
+          "demo()",
+          "print(\"outside:\", x)"
+        ].join("\n"),
+        stdin: ""
+      },
+      max3: {
+        code: [
+          "def max3(a, b, c):",
+          "    return max(a, max(b, c))",
+          "",
+          "a = int(input())",
+          "b = int(input())",
+          "c = int(input())",
+          "",
+          "print(max3(a, b, c))"
+        ].join("\n"),
+        stdin: "17\n3\n17\n"
+      }
+    };
+
+    function getEditor() {
+      if (!window.ace) {
+        return null;
+      }
+
+      try {
+        return window.ace.edit("codeInputPane");
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function setExample(exampleId) {
+      const example = EXAMPLES[exampleId];
+      if (!example) {
+        return;
+      }
+
+      const editor = getEditor();
+      if (!editor) {
+        return;
+      }
+
+      editor.setValue(example.code, -1);
+      editor.clearSelection();
+
+      const inputBox = document.getElementById("raw_input_textbox");
+      if (inputBox) {
+        inputBox.value = example.stdin || "";
+        inputBox.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    }
+
+    function bindExampleButtons() {
+      const buttons = document.querySelectorAll(".load-example");
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const exampleId = btn.getAttribute("data-example-id");
+          setExample(exampleId);
+          const viz = document.querySelector(".viz-wrap");
+          if (viz) {
+            viz.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    }
+
+    function initStarterExample() {
+      let tries = 0;
+      const timer = window.setInterval(function () {
+        const editor = getEditor();
+        tries += 1;
+
+        if (editor) {
+          setExample("hello");
+          window.clearInterval(timer);
+          return;
+        }
+
+        if (tries > 120) {
+          window.clearInterval(timer);
+        }
+      }, 100);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      bindExampleButtons();
+      initStarterExample();
+    });
+  </script>
+</body>
+</html>

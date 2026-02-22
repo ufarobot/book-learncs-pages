@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Visualizer (iframe) — урок и примеры</title>
+
+  <style>
+    :root {
+      --bg-start: #eef4ff;
+      --bg-end: #eff6f0;
+      --panel: #ffffff;
+      --panel-soft: #f8fbff;
+      --line: #d6dfeb;
+      --text: #132238;
+      --muted: #607087;
+      --brand: #0f6d63;
+      --brand-strong: #0b5d55;
+      --radius: 16px;
+      --shadow: 0 16px 34px rgba(28, 46, 72, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% -5%, #ffffff 0%, rgba(255, 255, 255, 0) 48%),
+        linear-gradient(140deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    }
+
+    .page {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 14px 14px 24px;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+
+    .crumbs {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 980px;
+      line-height: 1.45;
+    }
+
+    .lesson {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .card p {
+      margin: 0 0 8px;
+      line-height: 1.48;
+    }
+
+    .points {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .points li {
+      margin-bottom: 6px;
+      line-height: 1.42;
+    }
+
+    .example {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-soft);
+      overflow: hidden;
+    }
+
+    .example-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f2f6fa 100%);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .open-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .open-tab:hover {
+      border-color: #b8c9df;
+    }
+
+    .example pre {
+      margin: 0;
+      padding: 12px;
+      background: #0f1724;
+      color: #dce8ff;
+      overflow: auto;
+      font-size: 14px;
+      line-height: 1.42;
+      font-family: "Consolas", "Menlo", monospace;
+    }
+
+    .example-note {
+      margin: 0;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .example-viz {
+      border-top: 1px solid var(--line);
+      padding: 10px;
+      background: #fff;
+    }
+
+    .example-viz-frame {
+      width: 100%;
+      height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      display: block;
+    }
+
+    .tasks ol {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .tasks li {
+      margin-bottom: 8px;
+      line-height: 1.42;
+    }
+
+    .tasks details {
+      margin-top: 10px;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #fbfdff;
+    }
+
+    .tasks summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: #304764;
+    }
+
+    .tasks details pre {
+      margin-top: 8px;
+    }
+
+    .credits {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .credits a {
+      color: var(--brand);
+    }
+
+    @media (max-width: 900px) {
+      .example-viz-frame {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="crumbs">Sandbox / Java / Visualizer</div>
+      <h1>Методы в Java</h1>
+      <p>
+        Урок в стиле Snakify: короткая теория, примеры и встроенная визуализация под каждым примером.
+        Отдельного редактора и нижнего блока визуализатора нет.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>Источник визуализации</h2>
+      <p>
+        Эта страница использует iframe-режим
+        <a href="https://pythontutor.com" target="_blank" rel="noopener noreferrer">pythontutor.com</a>
+        для пошагового исполнения Java-кода.
+      </p>
+      <p class="credits">
+        Ограничение сервиса: в iframe-режиме для Java лучше избегать <code>Scanner/System.in</code>
+        и задавать входные значения прямо в коде.
+      </p>
+    </section>
+
+    <main class="lesson">
+      <section class="card">
+        <h2>1. Точка входа и структура программы</h2>
+        <p>В консольном приложении Java выполнение начинается в методе <code>main</code>.</p>
+        <ul class="points">
+          <li>Класс объявляется через <code>class</code>.</li>
+          <li>Точка входа: <code>public static void main(String[] args)</code>.</li>
+          <li>Команда вывода: <code>System.out.println(...)</code>.</li>
+        </ul>
+
+        <div class="example" data-example-viz="hello">
+          <div class="example-head">
+            <span>Пример: Hello, World</span>
+            <a class="open-tab" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+          </div>
+          <pre><code>public class MainClass {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}</code></pre>
+          <p class="example-note">Самый простой исполняемый шаблон Java-программы.</p>
+          <div class="example-viz">
+            <iframe class="example-viz-frame" title="Java Visualizer: Hello"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2. Свои методы и return</h2>
+        <p>Методы помогают переиспользовать логику: один раз написали, много раз вызвали.</p>
+
+        <div class="example" data-example-viz="square_sum">
+          <div class="example-head">
+            <span>Пример: метод вычисления</span>
+            <a class="open-tab" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+          </div>
+          <pre><code>public class MainClass {
+  static int squareSum(int a, int b) {
+    return a * a + b * b;
+  }
+
+  public static void main(String[] args) {
+    int x = 3;
+    int y = 4;
+    int result = squareSum(x, y);
+    System.out.println(result);
+  }
+}</code></pre>
+          <p class="example-note">Метод возвращает значение типа <code>int</code>, а печать делается в <code>main</code>.</p>
+          <div class="example-viz">
+            <iframe class="example-viz-frame" title="Java Visualizer: squareSum"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>3. Параметры и локальные переменные</h2>
+        <p>У каждого вызова метода свой собственный набор локальных переменных в стеке.</p>
+
+        <div class="example" data-example-viz="max3">
+          <div class="example-head">
+            <span>Пример: max из трех</span>
+            <a class="open-tab" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+          </div>
+          <pre><code>public class MainClass {
+  static int max3(int a, int b, int c) {
+    return Math.max(a, Math.max(b, c));
+  }
+
+  public static void main(String[] args) {
+    int a = 17;
+    int b = 3;
+    int c = 17;
+    System.out.println(max3(a, b, c));
+  }
+}</code></pre>
+          <p class="example-note">В iframe-версии используем константы вместо <code>Scanner</code>, чтобы избежать ограничений сервиса.</p>
+          <div class="example-viz">
+            <iframe class="example-viz-frame" title="Java Visualizer: max3"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="card tasks">
+        <h2>4. Мини‑задачи</h2>
+        <ol>
+          <li>Напиши метод <code>isEven(int n)</code>, который возвращает <code>true</code>, если число чётное.</li>
+          <li>Напиши метод <code>cube(int x)</code>, который возвращает куб числа.</li>
+          <li>Напиши метод <code>distance2(int x1, int y1, int x2, int y2)</code>, который возвращает квадрат расстояния.</li>
+        </ol>
+
+        <details>
+          <summary>Показать пример решения задачи 1</summary>
+          <pre><code>public class MainClass {
+  static boolean isEven(int n) {
+    return n % 2 == 0;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(isEven(12));
+    System.out.println(isEven(7));
+  }
+}</code></pre>
+        </details>
+      </section>
+
+      <section class="card">
+        <p class="credits">
+          Powered by <a href="https://pythontutor.com" target="_blank" rel="noopener noreferrer">Python Tutor</a>.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const EXAMPLES = {
+      hello: {
+        code: [
+          "public class MainClass {",
+          "  public static void main(String[] args) {",
+          "    System.out.println(\"Hello, World!\");",
+          "  }",
+          "}"
+        ].join("\n")
+      },
+      square_sum: {
+        code: [
+          "public class MainClass {",
+          "  static int squareSum(int a, int b) {",
+          "    return a * a + b * b;",
+          "  }",
+          "",
+          "  public static void main(String[] args) {",
+          "    int x = 3;",
+          "    int y = 4;",
+          "    int result = squareSum(x, y);",
+          "    System.out.println(result);",
+          "  }",
+          "}"
+        ].join("\n")
+      },
+      max3: {
+        code: [
+          "public class MainClass {",
+          "  static int max3(int a, int b, int c) {",
+          "    return Math.max(a, Math.max(b, c));",
+          "  }",
+          "",
+          "  public static void main(String[] args) {",
+          "    int a = 17;",
+          "    int b = 3;",
+          "    int c = 17;",
+          "    System.out.println(max3(a, b, c));",
+          "  }",
+          "}"
+        ].join("\n")
+      }
+    };
+
+    function buildIframeUrl(code, nonce) {
+      const base = "https://pythontutor.com/iframe-embed.html";
+      const params = [
+        ["code", code],
+        ["codeDivHeight", "400"],
+        ["codeDivWidth", "350"],
+        ["cumulative", "false"],
+        ["curInstr", "0"],
+        ["heapPrimitives", "nevernest"],
+        ["origin", "opt-frontend.js"],
+        ["py", "java"],
+        ["textReferences", "false"]
+      ];
+
+      const hash = params
+        .map(function (pair) {
+          return pair[0] + "=" + encodeURIComponent(pair[1]);
+        })
+        .join("&");
+
+      return base + "?run=" + encodeURIComponent(String(nonce)) + "#" + hash;
+    }
+
+    function mountExampleVisualizers() {
+      const blocks = document.querySelectorAll("[data-example-viz]");
+      blocks.forEach(function (block, index) {
+        const key = block.getAttribute("data-example-viz");
+        const ex = EXAMPLES[key];
+        if (!ex) {
+          return;
+        }
+
+        const url = buildIframeUrl(ex.code, Date.now() + "-" + index);
+        const frame = block.querySelector("iframe");
+        const openTab = block.querySelector(".open-tab");
+
+        if (frame) {
+          frame.src = url;
+        }
+        if (openTab) {
+          openTab.href = url;
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", mountExampleVisualizers);
+  </script>
+</body>
+</html>
