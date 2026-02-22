@@ -1,0 +1,14 @@
+\begin{tikzpicture}[remember picture,overlay]
+    \matrix (tbl) [matrix of nodes, nodes in empty cells,
+      row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+      anchor=center] at (current page.center) {
+      |[namecell]| Двоичная & |[numvalue, text=tbl-blue]| 1100100 \\
+      |[namecell]| Троичная & |[numvalue]| 10201 \\
+      |[namecell]| Пятеричная & |[numvalue]| 400 \\
+      |[namecell]| Восьмеричная & |[numvalue, text=tbl-blue]| 144 \\
+      |[namecell]| Десятичная & |[numvalue, text=tbl-red]| 100 \\
+      |[namecell]| Шестнадцатеричная & |[numvalue, text=tbl-blue]| 64 \\
+    };
+    \node[font=\sffamily\bfseries\Large] at ([yshift=8mm]tbl.north)
+      {Текущее число (десятичное): \textcolor{tbl-red}{100}};
+  \end{tikzpicture}

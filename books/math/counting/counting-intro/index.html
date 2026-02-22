@@ -1,0 +1,2072 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../sets/number-sets/">
+      
+      
+        <link rel="next" href="../product-sum/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Комбинаторика - Учебник (в разработке)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--definition:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20.71%207.04c.39-.39.39-1.04%200-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41%200l-1.84%201.83%203.75%203.75M3%2017.25V21h3.75L17.81%209.93l-3.75-3.75z%22/%3E%3C/svg%3E');--md-admonition-icon--comment:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9%2022a1%201%200%200%201-1-1v-3H4a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h16a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202h-6.1l-3.7%203.71c-.2.19-.45.29-.7.29zm1-6v3.08L13.08%2016H20V4H4v12zM6%207h12v2H6zm0%204h9v2H6z%22/%3E%3C/svg%3E');--md-admonition-icon--question-block:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2018h2v-2h-2zm1-16A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m0-14a4%204%200%200%200-4%204h2a2%202%200%200%201%202-2%202%202%200%200%201%202%202c0%202-3%201.75-3%205h2c0-2.25%203-2.5%203-5a4%204%200%200%200-4-4%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m4.59-12.42L10%2014.17l-2.59-2.58L6%2013l4%204%208-8z%22/%3E%3C/svg%3E');--md-admonition-icon--task:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%203h-4.18C14.4%201.84%2013.3%201%2012%201s-2.4.84-2.82%202H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V5a2%202%200%200%200-2-2m-7%200a1%201%200%200%201%201%201%201%201%200%200%201-1%201%201%201%200%200%201-1-1%201%201%200%200%201%201-1M7%207h10V5h2v14H5V5h2zm.5%206.5L9%2012l2%202%204.5-4.5L17%2011l-6%206z%22/%3E%3C/svg%3E');--md-admonition-icon--code-note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m14.6%2016.6%204.6-4.6-4.6-4.6L16%206l6%206-6%206zm-5.2%200L4.8%2012l4.6-4.6L8%206l-6%206%206%206z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/slides-panel.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-header__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Учебник (в разработке)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Комбинаторика
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../sets/sets-intro/" class="md-tabs__link">
+          
+  
+  
+  Информатика+
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../programming/concepts/simple-program/" class="md-tabs__link">
+          
+  
+  
+  Программирование
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-nav__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Учебник (в разработке)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Информатика+
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Информатика+
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Множества
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sets/sets-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sets/euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Диаграммы Эйлера-Венна
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sets/number-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Числовые множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Комбинаторика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../product-sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правило произведения и суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../factorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Факториал
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../counting-variants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Коды
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Представление и кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Представление и кодирование информации
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../number-systems/number-systems-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Системы счисления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Программирование
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Программирование
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/simple-program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Простейшая программа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Переменные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Целые числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/doubles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дробные числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/booleans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические значения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/chars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Символы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/type-conversion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Преобразование типов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ввод и вывод
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ветвления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Циклы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/arrays-1d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/arrays-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Многомерные массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Функции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/scanner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scanner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/system-out/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System.out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/printwriter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PrintWriter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/stringbuilder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StringBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java проекты
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java проекты
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-projects/create-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создание проекта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Комбинаторика</h1>
+<figure class="img-float-right">
+  <img src="../images/counting-intro-inline.png" alt="Варианты выбора и порядка">
+  <figcaption>Из нескольких лего-кубиков можно построить большое количество различных комбинаций</figcaption>
+</figure>
+
+<p>В информатике и математике часто приходится отвечать на вопрос: «Сколько существует вариантов?»</p>
+<p>Сколько маршрутов ведёт из одного пункта в другой?  </p>
+<p>Сколькими способами можно выбрать команду? </p>
+<p>Сколько способов выбрать призёров турнира?</p>
+<p>Сколько разных расписаний можно составить из заданных уроков?</p>
+<p>Это задачи комбинаторики.</p>
+<div class="admonition definition">
+<p><strong>Комбинаторика</strong> изучает, как по заданным правилам:</p>
+<ul>
+<li>перечислять все возможные варианты;</li>
+<li>находить их количество, не выписывая каждый вариант.</li>
+</ul>
+</div>
+<div style="clear: both"></div>
+
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Маша собирается съесть яблоко, сливу и мандарин, но пока не решила, в какой последовательности.
+Сколькими способами это можно сделать?</p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Обозначим:</p>
+<p><span style="display: inline-grid; grid-template-columns: repeat(3, max-content); column-gap: 1.25rem; margin: 0.25rem 0 0.5rem;">
+  <span>• Я - яблоко</span>
+  <span>• С - слива</span>
+  <span>• М - мандарин</span>
+</span></p>
+<p>Тогда СМЯ - это вариант, где сначала съедают сливу, потом мандарин, потом яблоко.</p>
+<p>Выпишем все варианты в лексикографическом порядке:</p>
+<div class="arithmatex">\[
+\text{МСЯ},\ \text{МЯС},\ \text{СМЯ},\ \text{СЯМ},\ \text{ЯМС},\ \text{ЯСМ}
+\]</div>
+<p>Итого 6 вариантов.</p>
+</div>
+<p>В простых случаях варианты можно выписать вручную. Но если перечислять их бессистемно, легко пропустить часть случаев или посчитать один и тот же вариант дважды.</p>
+<p>Чтобы перебор был корректным, сразу фиксируем порядок записи и придерживаемся его до конца. Для чисел используем порядок по <strong>возрастанию</strong>, а для слов - <strong>лексикографический</strong>.</p>
+<div class="admonition definition">
+<p><strong>Лексикографический порядок</strong> - способ сравнения слов «как в словаре»: сначала сравниваем первую букву; при равенстве - вторую; затем третью и так далее.</p>
+</div>
+<p>В примере выше мы могли выписывать варианты в произвольном порядке, например: <code>СЯМ, МСЯ, ЯМС, СМЯ, ЯСМ, МЯС</code>.</p>
+<p>Но в лексикографическом порядке ориентироваться и перечислять варианты гораздо проще, потому что сразу понятно, какой вариант будет следующим.
+Сначала идут варианты на <code>М...</code>, затем на <code>С...</code>, затем на <code>Я...</code>.</p>
+<p>Ниже для сравнения даны списки в произвольном и лексикографическом порядке.</p>
+<p><img alt="" src="../images/lex-order-masha-variants-table.svg" style="display:block; margin:0.5rem auto; max-width:526px; width:100%; height:auto;" /></p>
+<h2 id="_2">Цепочки</h2>
+<p>Часто один вариант удобно записывать как <strong>цепочку</strong>.  </p>
+<div class="admonition definition">
+<p>В <strong>цепочке</strong> порядок элементов важен.</p>
+</div>
+<p>Цепочку можно записывать:
+- в круглых скобках: <span class="arithmatex">\((\text{М},\ \text{С},\ \text{Я})\)</span>
+- слитно, если элементы односимвольные: <span class="arithmatex">\(\text{МСЯ}\)</span></p>
+<p>Множество и цепочка - это разные объекты.</p>
+<ul>
+<li><span class="arithmatex">\(\{\text{М},\ \text{С},\ \text{Я}\}\)</span> = <span class="arithmatex">\(\{\text{Я},\ \text{М},\ \text{С}\}\)</span></li>
+<li><span class="arithmatex">\((\text{М},\ \text{С},\ \text{Я})\)</span> <span class="arithmatex">\(\neq\)</span> <span class="arithmatex">\((\text{Я},\ \text{М},\ \text{С})\)</span></li>
+</ul>
+<div class="admonition definition">
+<p>Множество отвечает на вопрос "какие элементы выбрали", а цепочка - "в каком порядке выбрали".</p>
+</div>
+<h2 id="_3">Дерево вариантов</h2>
+<p>Если вариант строится по шагам, удобно использовать дерево вариантов.</p>
+<div class="admonition definition">
+<p><strong>Дерево вариантов</strong> - схема пошагового выбора.</p>
+<ul>
+<li>каждая развилка показывает выбор на очередном шаге;</li>
+<li>каждый путь от начала до конца задает один вариант;</li>
+<li>все конечные пути дают полный список вариантов.</li>
+</ul>
+</div>
+<p><img alt="" src="../images/tree-1.svg" style="display:block; margin:0.5rem auto;" /></p>
+<div class="pdf-slides-card">
+  <button id="pdfToggle_1" class="pdf-slides-toggle" type="button" aria-label="Слайды: Дерево вариантов по шагам" title="Открыть слайды" aria-expanded="false">
+    <span aria-hidden="true" class="pdf-slides-toggle__icon">🖥️</span>
+    <span>Слайды: Дерево вариантов по шагам</span>
+  </button>
+
+  <div id="pdfViewer_1" class="pdf-slides-viewer" style="display:none;">
+    <div class="pdf-slides-nav">
+      <button id="pdfPrev_1" class="pdf-slides-nav__btn" type="button">←</button>
+      <span id="pdfInfo_1" class="pdf-slides-nav__info">1 / 1</span>
+      <button id="pdfNext_1" class="pdf-slides-nav__btn" type="button">→</button>
+    </div>
+
+    <div class="pdf-slides-canvas-wrap">
+      <canvas id="pdfCanvas_1" class="pdf-slides-canvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  const btnToggle = document.getElementById("pdfToggle_1");
+  const viewer = document.getElementById("pdfViewer_1");
+
+  const canvas = document.getElementById("pdfCanvas_1");
+  const ctx = canvas.getContext("2d");
+  const btnPrev = document.getElementById("pdfPrev_1");
+  const btnNext = document.getElementById("pdfNext_1");
+  const info = document.getElementById("pdfInfo_1");
+
+  let inited = false;
+  let pdfjsLib = null;
+
+  let pdfDoc = null;
+  let pageNum = 1;
+  let totalPages = 1;
+  let rendering = false;
+  let pendingPage = null;
+
+  function updateUI() {
+    info.textContent = `${pageNum} / ${totalPages}`;
+    btnPrev.disabled = pageNum <= 1;
+    btnNext.disabled = pageNum >= totalPages;
+  }
+
+  async function renderPage(num) {
+    rendering = true;
+    const page = await pdfDoc.getPage(num);
+
+    // Scale to container width
+    const container = canvas.parentElement;
+    const containerWidth = Math.max(320, container.clientWidth - 2);
+    const vp0 = page.getViewport({ scale: 1 });
+    const scale = containerWidth / vp0.width;
+    const viewport = page.getViewport({ scale });
+
+    canvas.width = Math.floor(viewport.width);
+    canvas.height = Math.floor(viewport.height);
+
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    rendering = false;
+    if (pendingPage !== null) {
+      const next = pendingPage;
+      pendingPage = null;
+      renderPage(next);
+    }
+  }
+
+  function queueRender(num) {
+    if (rendering) pendingPage = num;
+    else renderPage(num);
+  }
+
+  function goPrev() {
+    if (pageNum <= 1) return;
+    pageNum -= 1;
+    updateUI();
+    queueRender(pageNum);
+  }
+
+  function goNext() {
+    if (pageNum >= totalPages) return;
+    pageNum += 1;
+    updateUI();
+    queueRender(pageNum);
+  }
+
+  btnPrev.addEventListener("click", goPrev);
+  btnNext.addEventListener("click", goNext);
+
+  document.addEventListener("keydown", (e) => {
+    if (viewer.style.display === "none") return;
+    if (e.key === "ArrowLeft") goPrev();
+    if (e.key === "ArrowRight") goNext();
+  });
+
+  async function initIfNeeded() {
+    if (inited) return;
+    inited = true;
+
+    // ESM pdf.js (лежит в /assets/pdfjs/pdf.js и /assets/pdfjs/pdf.worker.js)
+    pdfjsLib = await import("/assets/pdfjs/pdf.js");
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "/assets/pdfjs/pdf.worker.js";
+
+    const url = "../slides/slides-tree-1.pdf";
+
+    const pdf = await pdfjsLib.getDocument(url).promise;
+    pdfDoc = pdf;
+    totalPages = pdf.numPages;
+    pageNum = 1;
+    updateUI();
+    await renderPage(pageNum);
+  }
+
+  btnToggle.addEventListener("click", async () => {
+    const isHidden = viewer.style.display === "none";
+
+    if (isHidden) {
+      viewer.style.display = "block";
+      btnToggle.setAttribute("aria-expanded", "true");
+      btnToggle.title = "Скрыть слайды";
+      btnToggle.setAttribute("aria-label", "Скрыть слайды: Дерево вариантов по шагам");
+      await initIfNeeded();
+    } else {
+      viewer.style.display = "none";
+      btnToggle.setAttribute("aria-expanded", "false");
+      btnToggle.title = "Открыть слайды";
+      btnToggle.setAttribute("aria-label", "Открыть слайды: Дерево вариантов по шагам");
+    }
+  });
+</script>
+
+<p>Если обходить дерево слева направо и располагать ветви в алфавитном порядке, цепочки автоматически выписываются в лексикографическом порядке.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p><img align="right" alt="" src="../images/intro-example-1.svg" width="40%" /></p>
+<p>На рисунке показаны дороги между пунктами <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span>, <span class="arithmatex">\(C\)</span>
+Из <span class="arithmatex">\(A\)</span> в <span class="arithmatex">\(B\)</span> можно попасть двумя способами, а из <span class="arithmatex">\(B\)</span> в <span class="arithmatex">\(C\)</span> - тремя</p>
+<p>Сколькими способами можно попасть из <span class="arithmatex">\(A\)</span> в <span class="arithmatex">\(C\)</span> за два перехода?</p>
+<p><div style="clear: both"></div></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p><img align="right" alt="" src="../images/intro-example-2.svg" width="40%" /></p>
+<p>Обозначим дороги из <span class="arithmatex">\(A\)</span> в <span class="arithmatex">\(B\)</span>: <span class="arithmatex">\(a, b\)</span></p>
+<p>Обозначим дороги из <span class="arithmatex">\(B\)</span> в <span class="arithmatex">\(C\)</span>: <span class="arithmatex">\(1, 2, 3\)</span></p>
+<p>Тогда каждый маршрут задается цепочкой из двух шагов:
+сначала выбираем букву (<span class="arithmatex">\(a\)</span> или <span class="arithmatex">\(b\)</span>), затем число (<span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span> или <span class="arithmatex">\(3\)</span>)</p>
+<p>Построим дерево вариантов. Каждый путь от начала до конца - это один маршрут</p>
+<p><img alt="" src="../images/tree-example-1.svg" style="display:block; margin:0.5rem auto;" width="40%" /></p>
+<p>Выпишем маршруты в лексикографическом порядке:</p>
+<div class="arithmatex">\[
+a1,\ a2,\ a3,\ b1,\ b2,\ b3
+\]</div>
+<p>Итого 6 способов</p>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Из букв <span class="arithmatex">\(A, B, C\)</span> составьте все цепочки длины 2 без повторений в лексикографическом порядке и укажите их количество</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(AB, AC, BA, BC, CA, CB\)</span>. Всего <span class="arithmatex">\(6\)</span></p>
+</details>
+<hr />
+<p><strong>2.</strong> Из пункта <span class="arithmatex">\(X\)</span> в <span class="arithmatex">\(Y\)</span> есть 3 дороги (<span class="arithmatex">\(a, b, c\)</span>), а из <span class="arithmatex">\(Y\)</span> в <span class="arithmatex">\(Z\)</span> есть 2 дороги (<span class="arithmatex">\(1, 2\)</span>).
+Выпишите все маршруты из <span class="arithmatex">\(X\)</span> в <span class="arithmatex">\(Z\)</span> за два перехода и найдите их число</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(a1, a2, b1, b2, c1, c2\)</span>. Всего <span class="arithmatex">\(6\)</span></p>
+</details>
+<hr />
+<p><strong>3.</strong> Какие утверждения верны?</p>
+<p>i) <span class="arithmatex">\(\{A, B, C\} = \{C, B, A\}\)</span></p>
+<p>ii) <span class="arithmatex">\((A, B, C) = (C, B, A)\)</span></p>
+<p>iii) Если обходить дерево вариантов слева направо, можно получить лексикографический порядок</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Верны i) и iii)
+Утверждение ii) неверно, потому что в цепочке порядок важен</p>
+</details>
+<hr />
+<p><strong>4.</strong> Упорядочите слова в лексикографическом порядке:</p>
+<div class="arithmatex">\[
+\text{Мехико},\ \text{Мемфис},\ \text{Мельбурн},\ \text{Мессина}.
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+\text{Мельбурн},\ \text{Мемфис},\ \text{Мессина},\ \text{Мехико}.
+\]</div>
+<p>Сначала сравниваем первые буквы (они одинаковые), затем вторые (тоже одинаковые), потом третьи:
+<span class="arithmatex">\(\text{л} &lt; \text{м} &lt; \text{с} &lt; \text{х}\)</span>.</p>
+</details>
+</details>
+<hr />
+<p><small><em>По материалам:</em><br>
+1. И. В. Яковлев. Материалы по математике: подготовка к олимпиадам и ЕГЭ. mathus.ru<br>
+2. IBDP Mathematics - Core Topics HL 1</small></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../../sets/number-sets/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Числовые множества">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Числовые множества
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../product-sum/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Правило произведения и суммы">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Правило произведения и суммы
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "content.code.copy", "content.tabs.link", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax-config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2451 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../euler/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Множества - Учебник (в разработке)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--definition:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20.71%207.04c.39-.39.39-1.04%200-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41%200l-1.84%201.83%203.75%203.75M3%2017.25V21h3.75L17.81%209.93l-3.75-3.75z%22/%3E%3C/svg%3E');--md-admonition-icon--comment:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9%2022a1%201%200%200%201-1-1v-3H4a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h16a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202h-6.1l-3.7%203.71c-.2.19-.45.29-.7.29zm1-6v3.08L13.08%2016H20V4H4v12zM6%207h12v2H6zm0%204h9v2H6z%22/%3E%3C/svg%3E');--md-admonition-icon--question-block:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2018h2v-2h-2zm1-16A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m0-14a4%204%200%200%200-4%204h2a2%202%200%200%201%202-2%202%202%200%200%201%202%202c0%202-3%201.75-3%205h2c0-2.25%203-2.5%203-5a4%204%200%200%200-4-4%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m4.59-12.42L10%2014.17l-2.59-2.58L6%2013l4%204%208-8z%22/%3E%3C/svg%3E');--md-admonition-icon--task:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%203h-4.18C14.4%201.84%2013.3%201%2012%201s-2.4.84-2.82%202H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V5a2%202%200%200%200-2-2m-7%200a1%201%200%200%201%201%201%201%201%200%200%201-1%201%201%201%200%200%201-1-1%201%201%200%200%201%201-1M7%207h10V5h2v14H5V5h2zm.5%206.5L9%2012l2%202%204.5-4.5L17%2011l-6%206z%22/%3E%3C/svg%3E');--md-admonition-icon--code-note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m14.6%2016.6%204.6-4.6-4.6-4.6L16%206l6%206-6%206zm-5.2%200L4.8%2012l4.6-4.6L8%206l-6%206%206%206z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/slides-panel.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-header__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Учебник (в разработке)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Множества
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Информатика+
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../programming/concepts/simple-program/" class="md-tabs__link">
+          
+  
+  
+  Программирование
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-nav__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Учебник (в разработке)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Информатика+
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Информатика+
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Множества
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Диаграммы Эйлера-Венна
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Числовые множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Комбинаторика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/counting-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/product-sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правило произведения и суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/factorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Факториал
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/counting-variants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Коды
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Представление и кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Представление и кодирование информации
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../number-systems/number-systems-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Системы счисления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Программирование
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Программирование
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/simple-program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Простейшая программа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Переменные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Целые числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/doubles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дробные числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/booleans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические значения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/chars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Символы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/type-conversion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Преобразование типов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ввод и вывод
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ветвления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Циклы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/arrays-1d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/arrays-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Многомерные массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Функции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/scanner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scanner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/system-out/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System.out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/printwriter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PrintWriter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/stringbuilder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StringBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java проекты
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java проекты
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-projects/create-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создание проекта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Множества</h1>
+<figure class="img-float-right">
+  <img src="../images/sets-intro-inline.png" alt="Множество как группа объектов">
+  <figcaption>Девочка играет с множеством фигурок</figcaption>
+</figure>
+
+<p>В информатике и математике часто бывает удобно говорить о группе чисел или о группе объектов. Такие группы мы называем <strong>множествами</strong>.</p>
+<div class="admonition definition">
+<p><strong>Множество</strong> – это набор чётко определённых объектов.</p>
+<p>Объекты, входящие в множество, называют <strong>элементами</strong>.</p>
+</div>
+<p>Мы используем заглавную букву, например <span class="arithmatex">\(A\)</span>, чтобы обозначить множество.</p>
+<p>Когда мы перечисляем элементы множества, мы записываем их в фигурных скобках.</p>
+<h2 id="_2">Примеры множеств</h2>
+<ul>
+<li><span class="arithmatex">\(A = \{2, 3, 5, 7, 11\}\)</span> – множество простых чисел, которые меньше 13.</li>
+<li><span class="arithmatex">\(B = \{a, e, i, o, u\}\)</span> – множество всех гласных английского алфавита.</li>
+<li><span class="arithmatex">\(C = \{\text{голубой}, \text{серый}, \text{карий}, \text{коричневый}, \text{зелёный}\}\)</span> – множество цветов глаз учеников в классе.</li>
+</ul>
+<div style="clear: both"></div>
+<p>Мы также можем использовать слова, чтобы описать множество.</p>
+<p>Например, множество всех кратных трём, которые меньше 13, можно записать так:</p>
+<div class="arithmatex">\[
+M = \{\text{кратные } 3, \text{ меньшие } 13\}
+\;\text{или}\;
+M = \{3, 6, 9, 12\}.
+\]</div>
+<div class="admonition definition">
+<ul>
+<li><span class="arithmatex">\(a \in A\)</span> означает: элемент <span class="arithmatex">\(a\)</span> <strong>принадлежит</strong> множеству <span class="arithmatex">\(A\)</span>.</li>
+<li><span class="arithmatex">\(a \notin A\)</span> означает: элемент <span class="arithmatex">\(a\)</span> <strong>не принадлежит</strong> множеству <span class="arithmatex">\(A\)</span>.</li>
+<li><span class="arithmatex">\(|A|\)</span> – <strong>мощность</strong> множества <span class="arithmatex">\(A\)</span>, то есть число его элементов.</li>
+</ul>
+</div>
+<p>Например, если <span class="arithmatex">\(A = \{2, 3, 5, 7, 11\}\)</span>, тогда:</p>
+<div class="arithmatex">\[
+5 \in A,\qquad 8 \notin A,\qquad |A| = 5.
+\]</div>
+<div style="clear: both"></div>
+
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p><span class="arithmatex">\(
+P \text{ – множество букв в слове AMATEUR},
+\qquad
+Q \text{ – множество букв в слове TEAM}.
+\)</span></p>
+<p>a) Перечислите элементы <span class="arithmatex">\(P\)</span> и <span class="arithmatex">\(Q\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(|P|\)</span> и <span class="arithmatex">\(|Q|\)</span>.</p>
+<p>c) Определите, верно или ложно каждое из следующих утверждений:</p>
+<p>i) <span class="arithmatex">\(U \in Q\)</span><span class="arithmatex">\(\qquad\qquad\)</span>ii) <span class="arithmatex">\(R \notin Q\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>a) <span class="arithmatex">\(P = \{A, M, T, E, U, R\}\)</span>,<span class="arithmatex">\(\qquad\)</span> <span class="arithmatex">\(Q = \{T, E, A, M\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(|P| = 6\)</span>,<span class="arithmatex">\(\qquad\)</span> <span class="arithmatex">\(|Q| = 4\)</span>.</p>
+<p>c)</p>
+<p>i) Буква <span class="arithmatex">\(U\)</span> отсутствует в слове TEAM, значит <span class="arithmatex">\(U \in Q\)</span> – ложное утверждение.</p>
+<p>ii) Буква <span class="arithmatex">\(R\)</span> отсутствует в слове TEAM, значит <span class="arithmatex">\(R \notin Q\)</span> – истинное утверждение.</p>
+</div>
+<div class="admonition definition">
+<p>Два множества <strong>равны</strong>, если они содержат в точности одни и те же элементы.</p>
+<p>Элементы множества не обязательно указывать в каком-либо определённом порядке.</p>
+<p>Например, если <span class="arithmatex">\(A = \{2, 3, 8\}\)</span> и <span class="arithmatex">\(B = \{3, 8, 2\}\)</span>, то <span class="arithmatex">\(A = B\)</span>.</p>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Перечислите элементы множества:</p>
+<p>a) положительные чётные числа меньше <span class="arithmatex">\(14\)</span></p>
+<p>b) месяцы года</p>
+<p>c) положительные нечётные числа между <span class="arithmatex">\(15\)</span> и <span class="arithmatex">\(30\)</span></p>
+<p>d) простые числа меньше <span class="arithmatex">\(23\)</span></p>
+<p>e) цвета медалей на Олимпийских играх</p>
+<p>f) делители числа <span class="arithmatex">\(12\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\{2, 4, 6, 8, 10, 12\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\{\text{январь}, \text{февраль}, \text{март}, \text{апрель}, \text{май}, \text{июнь}, \text{июль}, \text{август}, \text{сентябрь}, \text{октябрь}, \text{ноябрь}, \text{декабрь}\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(\{17, 19, 21, 23, 25, 27, 29\}\)</span>.</p>
+<p>d) <span class="arithmatex">\(\{2, 3, 5, 7, 11, 13, 17, 19\}\)</span>.</p>
+<p>e) <span class="arithmatex">\(\{\text{золото}, \text{серебро}, \text{бронза}\}\)</span>.</p>
+<p>f) <span class="arithmatex">\(\{1, 2, 3, 4, 6, 12\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Для каждого множества <span class="arithmatex">\(A\)</span>:</p>
+<p>i) перечислите элементы <span class="arithmatex">\(A\)</span></p>
+<p>ii) найдите <span class="arithmatex">\(|A|\)</span>.</p>
+<p>a) <span class="arithmatex">\(A = \{\text{составные числа меньше } 18\}\)</span></p>
+<p>b) <span class="arithmatex">\(A = \{\text{буквы между G и T в английском алфавите}\}\)</span></p>
+<p>c) <span class="arithmatex">\(A = \{\text{кратные } 7 \text{ между } 20 \text{ и } 60\}\)</span></p>
+<p>d) <span class="arithmatex">\(A = \{\text{делители числа } 32\}\)</span></p>
+<p>e) <span class="arithmatex">\(A = \{\text{квадраты чисел между } 5 \text{ и } 50\}\)</span></p>
+<p>f) <span class="arithmatex">\(A = \{\text{простые числа, делящиеся на } 6\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(A = \{4, 6, 8, 9, 10, 12, 14, 15, 16\}\)</span>, <span class="arithmatex">\(|A| = 9\)</span>.</p>
+<p>b) <span class="arithmatex">\(A = \{H, I, J, K, L, M, N, O, P, Q, R, S\}\)</span>, <span class="arithmatex">\(|A| = 12\)</span>.</p>
+<p>c) <span class="arithmatex">\(A = \{21, 28, 35, 42, 49, 56\}\)</span>, <span class="arithmatex">\(|A| = 6\)</span>.</p>
+<p>d) <span class="arithmatex">\(A = \{1, 2, 4, 8, 16, 32\}\)</span>, <span class="arithmatex">\(|A| = 6\)</span>.</p>
+<p>e) <span class="arithmatex">\(A = \{9, 16, 25, 36, 49\}\)</span>, <span class="arithmatex">\(|A| = 5\)</span>.</p>
+<p>f) Таких простых чисел нет, поэтому <span class="arithmatex">\(A = \varnothing\)</span>, <span class="arithmatex">\(|A| = 0\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Пусть <span class="arithmatex">\(F\)</span> – множество делителей числа <span class="arithmatex">\(28\)</span>, а <span class="arithmatex">\(M\)</span> – множество кратных <span class="arithmatex">\(6\)</span>, которые меньше <span class="arithmatex">\(50\)</span>.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(F\)</span> и <span class="arithmatex">\(M\)</span>.</p>
+<p>b) Верно ли, что <span class="arithmatex">\(8 \in F\)</span>?
+Верно ли, что <span class="arithmatex">\(24 \in M\)</span>?</p>
+<p>c) Найдите <span class="arithmatex">\(|F|\)</span> и <span class="arithmatex">\(|M|\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(F = \{1, 2, 4, 7, 14, 28\}\)</span>, <span class="arithmatex">\(|F| = 6\)</span>.
+<span class="arithmatex">\(M = \{6, 12, 18, 24, 30, 36, 42, 48\}\)</span>, <span class="arithmatex">\(|M| = 8\)</span>.</p>
+<p>b) <span class="arithmatex">\(8 \notin F\)</span>.
+<span class="arithmatex">\(24 \in M\)</span>.</p>
+<p>c) <span class="arithmatex">\(|F| = 6\)</span>, <span class="arithmatex">\(|M| = 8\)</span>.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Пусть <span class="arithmatex">\(P\)</span> – множество простых чисел между <span class="arithmatex">\(0\)</span> и <span class="arithmatex">\(15\)</span>, а <span class="arithmatex">\(Q\)</span> – множество делителей числа <span class="arithmatex">\(27\)</span>.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(P\)</span> и <span class="arithmatex">\(Q\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(|P|\)</span>.</p>
+<p>c) Верно ли, что <span class="arithmatex">\(12 \in Q\)</span>?</p>
+<p>d) Найдите число, которое является элементом обоих множеств.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(P = \{2, 3, 5, 7, 11, 13\}\)</span>.\;\; <span class="arithmatex">\(Q = \{1, 3, 9, 27\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(|P| = 6\)</span>.</p>
+<p>c) <span class="arithmatex">\(12 \notin Q\)</span>.</p>
+<p>d) Общее число: <span class="arithmatex">\(3\)</span>.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Какие два множества равны?</p>
+<p><span class="arithmatex">\(A = \{\text{red}, \text{white}, \text{yellow}, \text{green}\}\)</span></p>
+<p><span class="arithmatex">\(B = \{\text{white}, \text{green}, \text{blue}, \text{red}\}\)</span></p>
+<p><span class="arithmatex">\(C = \{\text{green}, \text{red}, \text{white}\}\)</span></p>
+<p><span class="arithmatex">\(D = \{\text{blue}, \text{white}, \text{red}, \text{black}, \text{green}\}\)</span></p>
+<p><span class="arithmatex">\(E = \{\text{blue}, \text{white}, \text{red}, \text{green}\}\)</span></p>
+<p><span class="arithmatex">\(F = \{\text{yellow}, \text{red}, \text{white}, \text{blue}\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Равны множества <span class="arithmatex">\(B\)</span> и <span class="arithmatex">\(E\)</span>.</p>
+</details>
+<hr />
+<p><strong>6.</strong> Пусть <span class="arithmatex">\(A = \{3, 5, 1, 4\}\)</span> и <span class="arithmatex">\(B = \{1, 3, 4, \square\}\)</span> – равные множества. Найдите <span class="arithmatex">\(\square\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(\square = 5\)</span>.</p>
+</details>
+<hr />
+<p><strong>7.</strong> Пусть <span class="arithmatex">\(P = \{\text{чётные числа между } 10 \text{ и } 20\}\)</span> и <span class="arithmatex">\(Q = \{\text{кратные } 2 \text{ между } 11 \text{ и } 19\}\)</span>. Равны ли множества <span class="arithmatex">\(P\)</span> и <span class="arithmatex">\(Q\)</span>?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Да, равны: <span class="arithmatex">\(P = Q = \{12, 14, 16, 18\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>8.</strong> Верно или ложно?</p>
+<p>a) Если <span class="arithmatex">\(A = B\)</span>, то <span class="arithmatex">\(|A| = |B|\)</span>.</p>
+<p>b) Если <span class="arithmatex">\(|A| = |B|\)</span>, то <span class="arithmatex">\(A = B\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Верно.</p>
+<p>b) Ложно.</p>
+</details>
+</details>
+<h1 id="_3">Подмножества</h1>
+<p>Рассмотрим множества <span class="arithmatex">\(M = \{2, 7, 8\}\)</span> и <span class="arithmatex">\(N = \{1, 2, 3, 5, 7, 8, 11\}\)</span>.</p>
+<p>Заметьте, что каждый элемент <span class="arithmatex">\(M\)</span> также является элементом <span class="arithmatex">\(N\)</span>.</p>
+<p>Говорят, что <span class="arithmatex">\(M\)</span> – это <strong>подмножество</strong> <span class="arithmatex">\(N\)</span>.</p>
+<div class="admonition definition">
+<p><span class="arithmatex">\(A\)</span> является <strong>подмножеством</strong> <span class="arithmatex">\(B\)</span>, если каждый элемент <span class="arithmatex">\(A\)</span> также является элементом <span class="arithmatex">\(B\)</span>.</p>
+<p>Если <span class="arithmatex">\(A\)</span> – подмножество <span class="arithmatex">\(B\)</span>, то мы пишем <span class="arithmatex">\(A \subseteq B\)</span>.</p>
+</div>
+<div class="admonition definition">
+<p>Множество <span class="arithmatex">\(A\)</span> называют <strong>строгим подмножеством</strong> множества <span class="arithmatex">\(B\)</span>, если <span class="arithmatex">\(A\subseteq B\)</span>, но <span class="arithmatex">\(A \ne B\)</span>.</p>
+<p>В этом случае пишут <span class="arithmatex">\(A \subset B\)</span>.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Пусть <span class="arithmatex">\(A = \{2, 5\}\)</span>, <span class="arithmatex">\(B = \{2, 5, 7\}\)</span>, <span class="arithmatex">\(C = \{5, 2\}\)</span>.</p>
+<p>Определите, верны ли утверждения:</p>
+<p>a) <span class="arithmatex">\(A \subseteq B\)</span></p>
+<p>b) <span class="arithmatex">\(A \subset B\)</span></p>
+<p>c) <span class="arithmatex">\(A = C\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>a) Каждый элемент <span class="arithmatex">\(A\)</span> входит в <span class="arithmatex">\(B\)</span>, значит <span class="arithmatex">\(A \subseteq B\)</span> – верно.</p>
+<p>b) <span class="arithmatex">\(A \ne B\)</span> и при этом <span class="arithmatex">\(A \subseteq B\)</span>, значит <span class="arithmatex">\(A \subset B\)</span> – верно.</p>
+<p>c) Множества равны, если содержат одни и те же элементы. Порядок перечисления элементов не важен, значит <span class="arithmatex">\(A = C\)</span> – верно.</p>
+</div>
+<div class="admonition definition">
+<p><strong>Пустое множество</strong> – это множество, которое не содержит ни одного элемента.</p>
+<p>Символ <span class="arithmatex">\(\varnothing\)</span> используют для обозначения пустого множества.</p>
+</div>
+<p>Множество всех простых чисел между 8 и 10 – это пример пустого множества.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Перечислите все подмножества <span class="arithmatex">\(\{1,2,3\}\)</span>.</p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Для множества <span class="arithmatex">\(\{1,2,3\}\)</span> подмножествами являются:</p>
+<ul>
+<li><span class="arithmatex">\(\varnothing\)</span> – пустое множество.</li>
+<li><span class="arithmatex">\(\{1\}\)</span>, <span class="arithmatex">\(\{2\}\)</span>, <span class="arithmatex">\(\{3\}\)</span> – подмножества, содержащие один элемент.</li>
+<li><span class="arithmatex">\(\{1,2\}\)</span>, <span class="arithmatex">\(\{1,3\}\)</span>, <span class="arithmatex">\(\{2,3\}\)</span> – подмножества, содержащие два элемента.</li>
+<li><span class="arithmatex">\(\{1,2,3\}\)</span> – само множество.</li>
+</ul>
+<p>Всего <span class="arithmatex">\(8\)</span> подмножеств.</p>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Верно или ложно?</p>
+<p>a) <span class="arithmatex">\(\{1,2,3,4\} \subseteq \{1,2,3,4,5,6\}\)</span></p>
+<p>b) <span class="arithmatex">\(\{1,2,3,4\} \subseteq \{4,3,2,1\}\)</span></p>
+<p>c) <span class="arithmatex">\(\{1,2,3,4\} \subseteq \{2,3,4\}\)</span></p>
+<p>d) <span class="arithmatex">\(\{2,4,6\} \subseteq \{\text{чётные числа}\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Верно.</p>
+<p>b) Верно.</p>
+<p>c) Ложно.</p>
+<p>d) Верно.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Перечислите все подмножества множества <span class="arithmatex">\(\{\heartsuit, \spadesuit, \clubsuit, \diamondsuit\}\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(\varnothing\)</span>,
+<span class="arithmatex">\(\{\heartsuit\}\)</span>, <span class="arithmatex">\(\{\spadesuit\}\)</span>, <span class="arithmatex">\(\{\clubsuit\}\)</span>, <span class="arithmatex">\(\{\diamondsuit\}\)</span>,
+<span class="arithmatex">\(\{\heartsuit,\spadesuit\}\)</span>, <span class="arithmatex">\(\{\heartsuit,\clubsuit\}\)</span>, <span class="arithmatex">\(\{\heartsuit,\diamondsuit\}\)</span>,
+<span class="arithmatex">\(\{\spadesuit,\clubsuit\}\)</span>, <span class="arithmatex">\(\{\spadesuit,\diamondsuit\}\)</span>, <span class="arithmatex">\(\{\clubsuit,\diamondsuit\}\)</span>,
+<span class="arithmatex">\(\{\heartsuit,\spadesuit,\clubsuit\}\)</span>, <span class="arithmatex">\(\{\heartsuit,\spadesuit,\diamondsuit\}\)</span>, <span class="arithmatex">\(\{\heartsuit,\clubsuit,\diamondsuit\}\)</span>, <span class="arithmatex">\(\{\spadesuit,\clubsuit,\diamondsuit\}\)</span>,
+<span class="arithmatex">\(\{\heartsuit,\spadesuit,\clubsuit,\diamondsuit\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Пусть <span class="arithmatex">\(M = \{3,4,5\}\)</span>. Перечислите подмножества множества <span class="arithmatex">\(M\)</span>, которые содержат ровно:</p>
+<p>a) один элемент</p>
+<p>b) два элемента</p>
+<p>c) три элемента</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\{3\}\)</span>, <span class="arithmatex">\(\{4\}\)</span>, <span class="arithmatex">\(\{5\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\{3,4\}\)</span>, <span class="arithmatex">\(\{3,5\}\)</span>, <span class="arithmatex">\(\{4,5\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(\{3,4,5\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Пусть <span class="arithmatex">\(N = \{1,2,3,4\}\)</span>. Перечислите подмножества множества <span class="arithmatex">\(N\)</span>, которые содержат ровно:</p>
+<p>a) два элемента</p>
+<p>b) три элемента</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\{1,2\}\)</span>, <span class="arithmatex">\(\{1,3\}\)</span>, <span class="arithmatex">\(\{1,4\}\)</span>, <span class="arithmatex">\(\{2,3\}\)</span>, <span class="arithmatex">\(\{2,4\}\)</span>, <span class="arithmatex">\(\{3,4\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\{1,2,3\}\)</span>, <span class="arithmatex">\(\{1,2,4\}\)</span>, <span class="arithmatex">\(\{1,3,4\}\)</span>, <span class="arithmatex">\(\{2,3,4\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Пусть <span class="arithmatex">\(P = \{\text{квадраты чисел между } 0 \text{ и } 10\}\)</span>, а <span class="arithmatex">\(Q = \{\text{делители числа } 36\}\)</span>. Докажите, что <span class="arithmatex">\(P \subseteq Q\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(P = \{1,4,9\}\)</span>.</p>
+<p><span class="arithmatex">\(Q = \{1,2,3,4,6,9,12,18,36\}\)</span>.</p>
+<p>Каждый элемент <span class="arithmatex">\(P\)</span> входит в <span class="arithmatex">\(Q\)</span>, значит <span class="arithmatex">\(P \subseteq Q\)</span>.</p>
+</details>
+<hr />
+<p><strong>6.</strong> Пусть <span class="arithmatex">\(A\)</span> – множество всех учеников в вашем классе, а <span class="arithmatex">\(B\)</span> – множество всех учеников в вашей школе. Объясните, почему <span class="arithmatex">\(A \subseteq B\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Каждый ученик класса является учеником школы, значит каждый элемент множества <span class="arithmatex">\(A\)</span> принадлежит множеству <span class="arithmatex">\(B\)</span>. Поэтому <span class="arithmatex">\(A \subseteq B\)</span>.</p>
+</details>
+</details>
+<h1 id="_4">Пересечение и объединение множеств</h1>
+<div class="admonition definition">
+<p><strong>Пересечением</strong> двух множеств <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> называется множество элементов, которые принадлежат одновременно и множеству <span class="arithmatex">\(A\)</span>, и множеству <span class="arithmatex">\(B\)</span>.</p>
+<p>Пересечение множеств <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> записывается как <span class="arithmatex">\(A \cap B\)</span>.</p>
+</div>
+<div class="admonition definition">
+<p>Два множества <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> называются <strong>непересекающимися</strong>, если у них нет общих элементов. В этом случае <span class="arithmatex">\(A \cap B = \varnothing\)</span>.</p>
+</div>
+<div class="admonition definition">
+<p><strong>Объединением</strong> двух множеств <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> называется множество элементов, которые принадлежат множеству <span class="arithmatex">\(A\)</span> или множеству <span class="arithmatex">\(B\)</span>.</p>
+<p>Объединение множеств <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> записывается как <span class="arithmatex">\(A \cup B\)</span>.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Даны множества</p>
+<p><span class="arithmatex">\(M = \{2, 3, 5, 7, 8, 9\}\)</span><span class="arithmatex">\(\qquad\)</span>и<span class="arithmatex">\(\qquad\)</span><span class="arithmatex">\(N = \{3, 4, 6, 9, 10\}\)</span>.</p>
+<p>Перечислите множества:</p>
+<p>a) <span class="arithmatex">\(M \cap N\)</span></p>
+<p>b) <span class="arithmatex">\(M \cup N\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>a) </p>
+<p><span class="arithmatex">\(M \cap N = \{3, 9\}\)</span></p>
+<p>так как 3 и 9 являются элементами обоих множеств.</p>
+<p>b) </p>
+<p>Каждый элемент, который принадлежит <span class="arithmatex">\(M\)</span> или <span class="arithmatex">\(N\)</span>, входит в объединение этих множеств.</p>
+<p>Следовательно</p>
+<p><span class="arithmatex">\(M \cup N = \{2, 3, 4, 5, 6, 7, 8, 9, 10\}\)</span>.</p>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Найдите <span class="arithmatex">\(A \cap B\)</span> для:</p>
+<p>a) <span class="arithmatex">\(A = \{a, e, i, o, u\}\)</span>, <span class="arithmatex">\(B = \{a, r, e, s, t\}\)</span></p>
+<p>b) <span class="arithmatex">\(A = \{5, 6, 8, 10, 12\}\)</span>, <span class="arithmatex">\(B = \{3, 6, 9, 10\}\)</span></p>
+<p>c) <span class="arithmatex">\(A = \{\div, \times, \triangleright, \#, +, \%\}\)</span>, <span class="arithmatex">\(B = \{-, @, +, \bullet\}\)</span></p>
+<p>d) <span class="arithmatex">\(A = \{7, 13, 23, 28, 42, 56, 64, 75\}\)</span>, <span class="arithmatex">\(B = \{12, 23, 29, 37, 42, 51, 67, 75, 83\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(A \cap B = \{a\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(A \cap B = \{6, 10\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(A \cap B = \{+\}\)</span>.</p>
+<p>d) <span class="arithmatex">\(A \cap B = \{23, 42, 75\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Пусть <span class="arithmatex">\(M\)</span> – множество букв в слове APARTMENT, а <span class="arithmatex">\(N\)</span> – множество букв в слове PROSPECTOR.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(M\)</span> и <span class="arithmatex">\(N\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(M \cap N\)</span>.</p>
+<p>c) Что означает множество <span class="arithmatex">\(M \cap N\)</span>?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(M = \{A, P, R, T, M, E, N\}\)</span>.</p>
+<p><span class="arithmatex">\(N = \{P, R, O, S, E, C, T\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(M \cap N = \{P, R, T, E\}\)</span>.</p>
+<p>c) Это множество букв, которые встречаются в обоих словах.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Пусть <span class="arithmatex">\(P\)</span> – множество простых чисел меньше <span class="arithmatex">\(18\)</span>, а <span class="arithmatex">\(Q\)</span> – множество нечётных чисел между <span class="arithmatex">\(0\)</span> и <span class="arithmatex">\(18\)</span>.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(P\)</span> и <span class="arithmatex">\(Q\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(P \cap Q\)</span>.</p>
+<p>c) Найдите <span class="arithmatex">\(|P \cap Q|\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(P = \{2, 3, 5, 7, 11, 13, 17\}\)</span>.</p>
+<p><span class="arithmatex">\(Q = \{1, 3, 5, 7, 9, 11, 13, 15, 17\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(P \cap Q = \{3, 5, 7, 11, 13, 17\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(|P \cap Q| = 6\)</span>.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Пусть <span class="arithmatex">\(F\)</span> – множество делителей числа <span class="arithmatex">\(60\)</span>, а <span class="arithmatex">\(G\)</span> – множество делителей числа <span class="arithmatex">\(80\)</span>.</p>
+<p>a) Найдите <span class="arithmatex">\(F \cap G\)</span>.</p>
+<p>b) Что означает множество <span class="arithmatex">\(F \cap G\)</span>?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(F \cap G = \{1, 2, 4, 5, 10, 20\}\)</span>.</p>
+<p>b) Это множество общих делителей чисел <span class="arithmatex">\(60\)</span> и <span class="arithmatex">\(80\)</span>.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Найдите <span class="arithmatex">\(A \cup B\)</span> для:</p>
+<p>a) <span class="arithmatex">\(A = \{1, 2, 3, 4\}\)</span>, <span class="arithmatex">\(B = \{4, 5, 6, 7, 8\}\)</span></p>
+<p>b) <span class="arithmatex">\(A = \{a, c, d, f, m\}\)</span>, <span class="arithmatex">\(B = \{b, c, e, f, g\}\)</span></p>
+<p>c) <span class="arithmatex">\(A = \{2, 4, 6, 8\}\)</span>, <span class="arithmatex">\(B = \{1, 3, 5, 7, 9\}\)</span></p>
+<p>d) <span class="arithmatex">\(A = \{*, \#, !, \times\}\)</span>, <span class="arithmatex">\(B = \{\#, \div, 5, \times, +\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(A \cup B = \{1, 2, 3, 4, 5, 6, 7, 8\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(A \cup B = \{a, b, c, d, e, f, g, m\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(A \cup B = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span>.</p>
+<p>d) <span class="arithmatex">\(A \cup B = \{*, \#, !, \div, +, 5, \times\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>6.</strong> Пусть <span class="arithmatex">\(A\)</span> – множество чётных чисел между <span class="arithmatex">\(1\)</span> и <span class="arithmatex">\(20\)</span>, а <span class="arithmatex">\(B\)</span> – множество кратных <span class="arithmatex">\(3\)</span> между <span class="arithmatex">\(1\)</span> и <span class="arithmatex">\(20\)</span>.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(A \cup B\)</span>.</p>
+<p>c) Найдите <span class="arithmatex">\(|A \cup B|\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(A = \{2, 4, 6, 8, 10, 12, 14, 16, 18, 20\}\)</span>.</p>
+<p><span class="arithmatex">\(B = \{3, 6, 9, 12, 15, 18\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(A \cup B = \{2, 3, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(|A \cup B| = 13\)</span>.</p>
+</details>
+</details>
+<h1 id="_5">Дополнение множества</h1>
+<p>При работе с множествами нам бывает полезно использовать:</p>
+<div class="admonition definition">
+<p><strong>Универсальное множество</strong> <span class="arithmatex">\(U\)</span> – это множество всех элементов, которые мы рассматриваем.</p>
+</div>
+<p>Например, если мы рассматриваем буквы английского алфавита, то универсальным множеством будет:</p>
+<div class="arithmatex">\[
+U = \{a,\ b,\ c,\ d,\ e,\ f,\ g,\ h,\ i,\ j,\ k,\ l,\ m,\ n,\ o,\ p,\ q,\ r,\ s,\ t,\ u,\ v,\ w,\ x,\ y,\ z\}.
+\]</div>
+<div class="admonition definition">
+<p><strong>Дополнение</strong> множества <span class="arithmatex">\(A\)</span> – это множество всех элементов <span class="arithmatex">\(U\)</span>, не принадлежащих <span class="arithmatex">\(A\)</span>.</p>
+<p>Дополнение множества <span class="arithmatex">\(A\)</span> обозначается <span class="arithmatex">\(\overline{A}\)</span>.</p>
+</div>
+<p>Например, если </p>
+<p><span class="arithmatex">\(U = \{1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\}\)</span><span class="arithmatex">\(\qquad\)</span> и<span class="arithmatex">\(\qquad\)</span> <span class="arithmatex">\(A = \{2,\ 3,\ 5,\ 7\}\)</span>, </p>
+<p>тогда <span class="arithmatex">\(\qquad\)</span> <span class="arithmatex">\(\overline{A} = \{1,\ 4,\ 6,\ 8,\ 9\}\)</span>.</p>
+<p>Если <span class="arithmatex">\(U\)</span> – множество букв английского алфавита, <span class="arithmatex">\(G\)</span> – множество гласных, а <span class="arithmatex">\(C\)</span> – множество согласных, то <span class="arithmatex">\(G\)</span> является дополнением к <span class="arithmatex">\(C\)</span>, а <span class="arithmatex">\(C\)</span> является дополнением к <span class="arithmatex">\(G\)</span>.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Пусть <span class="arithmatex">\(U = \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6\}\)</span>. </p>
+<p>Найдите <span class="arithmatex">\(\overline{A}\)</span>, если <span class="arithmatex">\(A\)</span> равно:</p>
+<p>a) <span class="arithmatex">\(\{0,\ 2,\ 5,\ 6\}\)</span><span class="arithmatex">\(\qquad\)</span>b) <span class="arithmatex">\(\{\text{делители числа } 6\}\)</span><span class="arithmatex">\(\qquad\)</span>c) <span class="arithmatex">\(\{\text{числа меньше } 3\}\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>a) <span class="arithmatex">\(A = \{0,\ 2,\ 5,\ 6\}\)</span>, следовательно <span class="arithmatex">\(\overline{A} = \{1,\ 3,\ 4\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(A = \{1,\ 2,\ 3,\ 6\}\)</span>, следовательно <span class="arithmatex">\(\overline{A} = \{0,\ 4,\ 5\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(A = \{0,\ 1,\ 2\}\)</span>, следовательно <span class="arithmatex">\(\overline{A} = \{3,\ 4,\ 5,\ 6\}\)</span>.</p>
+</div>
+<p>Можно сделать три простых вывода, касающихся дополнения множества:</p>
+<div class="admonition definition">
+<ul>
+<li>
+<p><span class="arithmatex">\(A \cap \overline{A} = \varnothing\)</span>, так как у множеств <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(\overline{A}\)</span> нет общих элементов.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(A \cup \overline{A} = U\)</span>, так как вместе элементы <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(\overline{A}\)</span> образуют всё универсальное множество <span class="arithmatex">\(U\)</span>.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(|A| + |\overline{A}| = |U|\)</span>, если <span class="arithmatex">\(U\)</span> конечно.</p>
+</li>
+</ul>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Пусть <span class="arithmatex">\(U = \{1,2,3,4,5,6,7,8,9\}\)</span>. Найдите дополнение:</p>
+<p>a) <span class="arithmatex">\(A = \{2,4,6\}\)</span></p>
+<p>b) <span class="arithmatex">\(B = \{1,3,5,7,9\}\)</span></p>
+<p>c) <span class="arithmatex">\(C = \{8,4,7,3\}\)</span></p>
+<p>d) <span class="arithmatex">\(D = \{1,2,3,7,8,9\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\overline{A} = \{1,3,5,7,8,9\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\overline{B} = \{2,4,6,8\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(\overline{C} = \{1,2,5,6,9\}\)</span>.</p>
+<p>d) <span class="arithmatex">\(\overline{D} = \{4,5,6\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Пусть <span class="arithmatex">\(U = \{0,1,2,\dots,20\}\)</span>, <span class="arithmatex">\(P\)</span> – множество делителей числа <span class="arithmatex">\(12\)</span>, а <span class="arithmatex">\(Q\)</span> – множество простых чисел между <span class="arithmatex">\(10\)</span> и <span class="arithmatex">\(20\)</span>.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(P\)</span> и <span class="arithmatex">\(Q\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(\overline{P}\)</span> и <span class="arithmatex">\(\overline{Q}\)</span> (дополнения в универсальном множестве <span class="arithmatex">\(U\)</span>).</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(P = \{1,2,3,4,6,12\}\)</span>.</p>
+<p><span class="arithmatex">\(Q = \{11,13,17,19\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\overline{P} = \{0,5,7,8,9,10,11,13,14,15,16,17,18,19,20\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{Q} = \{0,1,2,3,4,5,6,7,8,9,10,12,14,15,16,18,20\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Рассмотрим буквы английского алфавита. Пусть <span class="arithmatex">\(X\)</span> – множество букв в слове INHABITANT, а <span class="arithmatex">\(Y\)</span> – множество букв в слове MILLION.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(X\)</span> и <span class="arithmatex">\(Y\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(\overline{X}\)</span> и <span class="arithmatex">\(\overline{Y}\)</span> (дополнения в универсальном множестве всех букв английского алфавита).</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(X = \{I, N, H, A, B, T\}\)</span>.</p>
+<p><span class="arithmatex">\(Y = \{M, I, L, O, N\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\overline{X}\)</span> – все буквы английского алфавита, кроме <span class="arithmatex">\(I, N, H, A, B, T\)</span>.</p>
+<p><span class="arithmatex">\(\overline{Y}\)</span> – все буквы английского алфавита, кроме <span class="arithmatex">\(M, I, L, O, N\)</span>.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Пусть <span class="arithmatex">\(U = \{0,1,2,3,4,5,6,7,8,9,10\}\)</span>, <span class="arithmatex">\(A\)</span> – множество положительных чётных чисел меньше <span class="arithmatex">\(10\)</span>, а <span class="arithmatex">\(B\)</span> – множество простых чисел меньше <span class="arithmatex">\(10\)</span>.</p>
+<p>a) Перечислите элементы множеств <span class="arithmatex">\(U\)</span>, <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(\overline{A}\)</span>, <span class="arithmatex">\(B\)</span>, <span class="arithmatex">\(\overline{B}\)</span>.</p>
+<p>b) Найдите <span class="arithmatex">\(|U|\)</span>, <span class="arithmatex">\(|A|\)</span>, <span class="arithmatex">\(|\overline{A}|\)</span>, <span class="arithmatex">\(|B|\)</span>, <span class="arithmatex">\(|\overline{B}|\)</span>.</p>
+<p>c) Заполните пропуск: для любого множества <span class="arithmatex">\(A\)</span> в универсальном множестве <span class="arithmatex">\(U\)</span> верно <span class="arithmatex">\(|A| + |\overline{A}| = |\,\_\,\_\,\_\,|\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(U = \{0,1,2,3,4,5,6,7,8,9,10\}\)</span>.</p>
+<p><span class="arithmatex">\(A = \{2,4,6,8\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{A} = \{0,1,3,5,7,9,10\}\)</span>.</p>
+<p><span class="arithmatex">\(B = \{2,3,5,7\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{B} = \{0,1,4,6,8,9,10\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(|U| = 11\)</span>, <span class="arithmatex">\(|A| = 4\)</span>, <span class="arithmatex">\(|\overline{A}| = 7\)</span>, <span class="arithmatex">\(|B| = 4\)</span>, <span class="arithmatex">\(|\overline{B}| = 7\)</span>.</p>
+<p>c) <span class="arithmatex">\(|A| + |\overline{A}| = |U|\)</span>.</p>
+</details>
+</details>
+<h2 id="_6">Конечные и бесконечные множества</h2>
+<div class="admonition definition">
+<p>Множество называют <strong>конечным</strong>, если число его элементов можно указать некоторым натуральным числом.</p>
+<p>Если у множества бесконечно много элементов, его называют <strong>бесконечным</strong>.</p>
+</div>
+<ul>
+<li>
+<p><span class="arithmatex">\(\{1,2,3,4\}\)</span> – конечное множество, <span class="arithmatex">\(|\{1,2,3,4\}| = 4\)</span>.</p>
+</li>
+<li>
+<p>Множество всех целых чисел <span class="arithmatex">\(\mathbb{Z}\)</span> – бесконечное.</p>
+</li>
+<li>
+<p>Множество всех чётных натуральных чисел <span class="arithmatex">\(\{2,4,6,\dots\}\)</span> – бесконечное.</p>
+</li>
+</ul>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Для каждого множества <span class="arithmatex">\(A\)</span> перечислите его элементы и затем найдите <span class="arithmatex">\(|A|\)</span>:</p>
+<p>a) <span class="arithmatex">\(A = \{\text{делители числа } 8\}\)</span></p>
+<p>b) <span class="arithmatex">\(A = \{\text{составные числа меньше } 20\}\)</span></p>
+<p>c) <span class="arithmatex">\(A = \{\text{буквы в слове AARDVARK}\}\)</span></p>
+<p>d) <span class="arithmatex">\(A = \{\text{простые числа между } 40 \text{ и } 50\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(A = \{1, 2, 4, 8\}\)</span>, <span class="arithmatex">\(|A| = 4\)</span>.</p>
+<p>b) <span class="arithmatex">\(A = \{4, 6, 8, 9, 10, 12, 14, 15, 16, 18\}\)</span>, <span class="arithmatex">\(|A| = 10\)</span>.</p>
+<p>c) <span class="arithmatex">\(A = \{A, R, D, V, K\}\)</span>, <span class="arithmatex">\(|A| = 5\)</span>.</p>
+<p>d) <span class="arithmatex">\(A = \{41, 43, 47\}\)</span>, <span class="arithmatex">\(|A| = 3\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Определите, является ли каждое множество конечным или бесконечным:</p>
+<p>a) <span class="arithmatex">\(\{\text{делители числа } 10\}\)</span></p>
+<p>b) <span class="arithmatex">\(\{\text{кратные } 10\}\)</span></p>
+<p>c) <span class="arithmatex">\(\{\text{полные квадраты}\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Конечное.</p>
+<p>b) Бесконечное.</p>
+<p>c) Бесконечное.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Пусть <span class="arithmatex">\(S = \{1, 2, 4, 5, 9, 12\}\)</span> и <span class="arithmatex">\(T = \{2, 5, 9\}\)</span>.</p>
+<p>a) Найдите:</p>
+<p>i) <span class="arithmatex">\(|S|\)</span></p>
+<p>ii) <span class="arithmatex">\(|T|\)</span></p>
+<p>b) Определите, верно или ложно каждое утверждение:</p>
+<p>i) <span class="arithmatex">\(4 \in S\)</span></p>
+<p>ii) <span class="arithmatex">\(4 \in T\)</span></p>
+<p>iii) <span class="arithmatex">\(1 \notin T\)</span></p>
+<p>iv) <span class="arithmatex">\(T \subseteq S\)</span></p>
+<p>v) <span class="arithmatex">\(T \subset S\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) i) <span class="arithmatex">\(|S| = 6\)</span>. <span class="arithmatex">\(\;\)</span> ii) <span class="arithmatex">\(|T| = 3\)</span>.</p>
+<p>b) i) верно. <span class="arithmatex">\(\;\)</span> ii) ложно. <span class="arithmatex">\(\;\)</span> iii) верно. <span class="arithmatex">\(\;\)</span> iv) верно. <span class="arithmatex">\(\;\)</span> v) верно.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Пусть <span class="arithmatex">\(S = \{1, 2\}\)</span> и <span class="arithmatex">\(T = \{1, 2, 3\}\)</span>.</p>
+<p>a) Перечислите все подмножества <span class="arithmatex">\(S\)</span> и <span class="arithmatex">\(T\)</span>.</p>
+<p>b) Верно ли, что любое подмножество <span class="arithmatex">\(S\)</span> является подмножеством <span class="arithmatex">\(T\)</span>?</p>
+<p>c) Какая доля подмножеств <span class="arithmatex">\(T\)</span> также является дополнениями <span class="arithmatex">\(S\)</span>?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Подмножества <span class="arithmatex">\(S = \{1, 2\}\)</span>:</p>
+<p><span class="arithmatex">\(\varnothing\)</span>, <span class="arithmatex">\(\{1\}\)</span>, <span class="arithmatex">\(\{2\}\)</span>, <span class="arithmatex">\(\{1,2\}\)</span>.</p>
+<p>Подмножества <span class="arithmatex">\(T = \{1, 2, 3\}\)</span>:</p>
+<p><span class="arithmatex">\(\varnothing\)</span>, <span class="arithmatex">\(\{1\}\)</span>, <span class="arithmatex">\(\{2\}\)</span>, <span class="arithmatex">\(\{3\}\)</span>, <span class="arithmatex">\(\{1,2\}\)</span>, <span class="arithmatex">\(\{1,3\}\)</span>, <span class="arithmatex">\(\{2,3\}\)</span>, <span class="arithmatex">\(\{1,2,3\}\)</span>.</p>
+<p>b) Да, потому что <span class="arithmatex">\(S \subseteq T\)</span>.</p>
+<p>c) Таких подмножеств <span class="arithmatex">\(4\)</span> из <span class="arithmatex">\(8\)</span>, то есть <span class="arithmatex">\(\tfrac{1}{2}\)</span>.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Найдите:</p>
+<p>i) <span class="arithmatex">\(A \cap B\)</span><span class="arithmatex">\(\;\)</span> ii) <span class="arithmatex">\(A \cup B\)</span> для:</p>
+<p>a) <span class="arithmatex">\(A = \{6, 7, 9, 11, 12\}\)</span>, <span class="arithmatex">\(B = \{5, 8, 10, 13, 9\}\)</span></p>
+<p>b) <span class="arithmatex">\(A = \{1, 2, 3, 4\}\)</span>, <span class="arithmatex">\(B = \{5, 6, 7, 8\}\)</span></p>
+<p>c) <span class="arithmatex">\(A = \{1, 3, 5, 7\}\)</span>, <span class="arithmatex">\(B = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span></p>
+<p>d) <span class="arithmatex">\(A = \{0, 3, 5, 8, 14\}\)</span>, <span class="arithmatex">\(B = \{1, 4, 5, 8, 11, 13\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(A \cap B = \{9\}\)</span>, <span class="arithmatex">\(A \cup B = \{5, 6, 7, 8, 9, 10, 11, 12, 13\}\)</span>.</p>
+<p>b) <span class="arithmatex">\(A \cap B = \varnothing\)</span>, <span class="arithmatex">\(A \cup B = \{1, 2, 3, 4, 5, 6, 7, 8\}\)</span>.</p>
+<p>c) <span class="arithmatex">\(A \cap B = \{1, 3, 5, 7\}\)</span>, <span class="arithmatex">\(A \cup B = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span>.</p>
+<p>d) <span class="arithmatex">\(A \cap B = \{5, 8\}\)</span>, <span class="arithmatex">\(A \cup B = \{0, 1, 3, 4, 5, 8, 11, 13, 14\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>6.</strong> Укажите, являются ли множества непересекающимися:</p>
+<p>a) <span class="arithmatex">\(A = \{3, 5, 7, 9\}\)</span> и <span class="arithmatex">\(B = \{2, 4, 6, 8\}\)</span></p>
+<p>b) <span class="arithmatex">\(P = \{3, 5, 6, 7, 8, 10\}\)</span> и <span class="arithmatex">\(Q = \{4, 9, 10\}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Да, так как <span class="arithmatex">\(A \cap B = \varnothing\)</span>.</p>
+<p>b) Нет, так как <span class="arithmatex">\(10 \in P\)</span> и <span class="arithmatex">\(10 \in Q\)</span>, значит <span class="arithmatex">\(P \cap Q \ne \varnothing\)</span>.</p>
+</details>
+<hr />
+<p><strong>7.</strong> Определите, верно или ложно каждое утверждение. Поясните.</p>
+<p>a) Если <span class="arithmatex">\(R\)</span> и <span class="arithmatex">\(S\)</span> – два непустых множества и <span class="arithmatex">\(R \cap S = \varnothing\)</span>, то <span class="arithmatex">\(R\)</span> и <span class="arithmatex">\(S\)</span> непересекающиеся.</p>
+<p>b) Для любых множеств <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> верно <span class="arithmatex">\(|A \cap B| \le |A|\)</span> и <span class="arithmatex">\(|A \cap B| \le |B|\)</span>.</p>
+<p>c) Если <span class="arithmatex">\(A \cap B = A \cup B\)</span>, то <span class="arithmatex">\(A = B\)</span>.</p>
+<p>d) Если <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> – бесконечные множества, то <span class="arithmatex">\(A \cap B\)</span> тоже бесконечно.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Верно: это определение непересекающихся множеств.</p>
+<p>b) Верно: <span class="arithmatex">\(A \cap B\)</span> – подмножество и <span class="arithmatex">\(A\)</span>, и <span class="arithmatex">\(B\)</span>.</p>
+<p>c) Верно: из равенства следует <span class="arithmatex">\(A \subseteq B\)</span> и <span class="arithmatex">\(B \subseteq A\)</span>, значит <span class="arithmatex">\(A = B\)</span>.</p>
+<p>d) Ложно: например, <span class="arithmatex">\(A\)</span> – множество чётных целых, <span class="arithmatex">\(B\)</span> – множество нечётных целых, тогда <span class="arithmatex">\(A \cap B = \varnothing\)</span>.</p>
+</details>
+<hr />
+<p><strong>8.</strong> Пусть <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> – непересекающиеся множества, и <span class="arithmatex">\(B\)</span> и <span class="arithmatex">\(C\)</span> – непересекающиеся множества. Обязательно ли <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(C\)</span> непересекающиеся? Поясните.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Не обязательно. Например, <span class="arithmatex">\(A = \{1\}\)</span>, <span class="arithmatex">\(B = \{2\}\)</span>, <span class="arithmatex">\(C = \{1\}\)</span>. Тогда <span class="arithmatex">\(A \cap B = \varnothing\)</span> и <span class="arithmatex">\(B \cap C = \varnothing\)</span>, но <span class="arithmatex">\(A \cap C = \{1\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>9.</strong> Пусть <span class="arithmatex">\(|A| = 8\)</span> и <span class="arithmatex">\(|B| = 11\)</span>. Найдите возможные значения:</p>
+<p>a) <span class="arithmatex">\(|A \cap B|\)</span></p>
+<p>b) <span class="arithmatex">\(|A \cup B|\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(|A \cap B|\)</span> может быть любым целым числом от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(8\)</span>.</p>
+<p>b) <span class="arithmatex">\(|A \cup B| = |A| + |B| - |A \cap B|\)</span>, значит возможные значения от <span class="arithmatex">\(11\)</span> до <span class="arithmatex">\(19\)</span> (включительно).</p>
+</details>
+<hr />
+<p><strong>10.</strong> Докажите, что <span class="arithmatex">\(|A \cup B| \le |A| + |B|\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(|A \cup B| = |A| + |B| - |A \cap B|\)</span>. Поскольку <span class="arithmatex">\(|A \cap B| \ge 0\)</span>, получаем <span class="arithmatex">\(|A \cup B| \le |A| + |B|\)</span>.</p>
+</details>
+<hr />
+<p><strong>11.</strong> Пусть <span class="arithmatex">\(U = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}\)</span>. Найдите <span class="arithmatex">\(\overline{A}\)</span>, если <span class="arithmatex">\(A = \{2, 3, 6, 7, 8\}\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(\overline{A} = \{1, 4, 5, 9\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>12.</strong> Если <span class="arithmatex">\(P\)</span> – множество простых чисел, будет ли <span class="arithmatex">\(\overline{P}\)</span> множеством составных чисел? Поясните.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Это зависит от универсального множества <span class="arithmatex">\(U\)</span>. Например, если <span class="arithmatex">\(U\)</span> – натуральные числа <span class="arithmatex">\(\{1,2,3,\dots\}\)</span>, то <span class="arithmatex">\(\overline{P}\)</span> включает не только составные, но и число <span class="arithmatex">\(1\)</span>. Поэтому <span class="arithmatex">\(\overline{P}\)</span> не совпадает с множеством составных.</p>
+</details>
+<hr />
+<p><strong>13.</strong> Пусть <span class="arithmatex">\(U = \{10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20\}\)</span>, <span class="arithmatex">\(A\)</span> – множество делителей числа <span class="arithmatex">\(120\)</span> из <span class="arithmatex">\(U\)</span>, а <span class="arithmatex">\(B\)</span> – множество кратных <span class="arithmatex">\(3\)</span> из <span class="arithmatex">\(U\)</span>. Перечислите элементы множеств:</p>
+<p>a) <span class="arithmatex">\(A\)</span></p>
+<p>b) <span class="arithmatex">\(B\)</span></p>
+<p>c) <span class="arithmatex">\(\overline{A}\)</span></p>
+<p>d) <span class="arithmatex">\(\overline{B}\)</span></p>
+<p>e) <span class="arithmatex">\(A \cap B\)</span></p>
+<p>f) <span class="arithmatex">\(A \cup B\)</span></p>
+<p>g) <span class="arithmatex">\(\overline{A} \cap B\)</span></p>
+<p>h) <span class="arithmatex">\(\overline{A} \cup B\)</span></p>
+<p>i) <span class="arithmatex">\(A \cap \overline{B}\)</span></p>
+<p>j) <span class="arithmatex">\(A \cup \overline{B}\)</span></p>
+<p>k) <span class="arithmatex">\(\overline{A} \cap \overline{B}\)</span></p>
+<p>l) <span class="arithmatex">\(\overline{A} \cup \overline{B}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(A = \{10, 12, 15, 20\}\)</span>.</p>
+<p><span class="arithmatex">\(B = \{12, 15, 18\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{A} = \{11, 13, 14, 16, 17, 18, 19\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{B} = \{10, 11, 13, 14, 16, 17, 19, 20\}\)</span>.</p>
+<p><span class="arithmatex">\(A \cap B = \{12, 15\}\)</span>.</p>
+<p><span class="arithmatex">\(A \cup B = \{10, 12, 15, 18, 20\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{A} \cap B = \{18\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{A} \cup B = \{11, 12, 13, 14, 15, 16, 17, 18, 19\}\)</span>.</p>
+<p><span class="arithmatex">\(A \cap \overline{B} = \{10, 20\}\)</span>.</p>
+<p><span class="arithmatex">\(A \cup \overline{B} = \{10, 11, 12, 13, 14, 15, 16, 17, 19, 20\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{A} \cap \overline{B} = \{11, 13, 14, 16, 17, 19\}\)</span>.</p>
+<p><span class="arithmatex">\(\overline{A} \cup \overline{B} = \{10, 11, 13, 14, 16, 17, 18, 19, 20\}\)</span>.</p>
+</details>
+<hr />
+<p><strong>14.</strong> Пусть <span class="arithmatex">\(U = \{2, 3, 4, 5, 6, 7, 8\}\)</span>, <span class="arithmatex">\(A = \{3, 5, 7\}\)</span>, <span class="arithmatex">\(B = \{2, 4, 7, 8\}\)</span>. Найдите:</p>
+<p>i) <span class="arithmatex">\(|U|\)</span><span class="arithmatex">\(\;\)</span> ii) <span class="arithmatex">\(|A|\)</span><span class="arithmatex">\(\;\)</span> iii) <span class="arithmatex">\(|\overline{A}|\)</span><span class="arithmatex">\(\;\)</span> iv) <span class="arithmatex">\(|B|\)</span><span class="arithmatex">\(\;\)</span> v) <span class="arithmatex">\(|\overline{B}|\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(|U| = 7\)</span>, <span class="arithmatex">\(|A| = 3\)</span>, <span class="arithmatex">\(|\overline{A}| = 4\)</span>, <span class="arithmatex">\(|B| = 4\)</span>, <span class="arithmatex">\(|\overline{B}| = 3\)</span>.</p>
+</details>
+<hr />
+<p><strong>15.</strong> Заполните пропуск: для любого множества <span class="arithmatex">\(S\)</span> в универсальном множестве <span class="arithmatex">\(U\)</span> верно</p>
+<p><span class="arithmatex">\(|S| + |\overline{S}| = \dots\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(|S| + |\overline{S}| = |U|\)</span>.</p>
+</details>
+<hr />
+<p><strong>16.</strong> Пусть <span class="arithmatex">\(|U| = 15\)</span>, <span class="arithmatex">\(|P| = 6\)</span>, <span class="arithmatex">\(|\overline{Q}| = 4\)</span>. Найдите:</p>
+<p>a) <span class="arithmatex">\(|\overline{P}|\)</span></p>
+<p>b) <span class="arithmatex">\(|Q|\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(|\overline{P}| = |U| - |P| = 9\)</span>.</p>
+<p>b) <span class="arithmatex">\(|Q| = |U| - |\overline{Q}| = 11\)</span>.</p>
+</details>
+<hr />
+<p><strong>17.</strong> Если <span class="arithmatex">\(P \subseteq Q\)</span>, докажите, что <span class="arithmatex">\(\overline{Q} \subseteq \overline{P}\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Возьмём любой элемент <span class="arithmatex">\(x \in \overline{Q}\)</span>. Тогда <span class="arithmatex">\(x \notin Q\)</span>. Из <span class="arithmatex">\(P \subseteq Q\)</span> следует: если бы <span class="arithmatex">\(x \in P\)</span>, то <span class="arithmatex">\(x \in Q\)</span> – противоречие. Значит <span class="arithmatex">\(x \notin P\)</span>, то есть <span class="arithmatex">\(x \in \overline{P}\)</span>. Следовательно, <span class="arithmatex">\(\overline{Q} \subseteq \overline{P}\)</span>.</p>
+</details>
+<hr />
+<p><strong>18.</strong> Пусть <span class="arithmatex">\(U\)</span> и <span class="arithmatex">\(P\)</span> – бесконечные множества. Приведите примеры, когда <span class="arithmatex">\(\overline{P}\)</span> может быть конечным и когда <span class="arithmatex">\(\overline{P}\)</span> может быть бесконечным.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Пример, когда <span class="arithmatex">\(\overline{P}\)</span> конечно: пусть <span class="arithmatex">\(U = \mathbb{Z}\)</span>, а <span class="arithmatex">\(P = \mathbb{Z} \setminus \{0,1\}\)</span>. Тогда <span class="arithmatex">\(\overline{P} = \{0,1\}\)</span> – конечное.</p>
+<p>Пример, когда <span class="arithmatex">\(\overline{P}\)</span> бесконечно: пусть <span class="arithmatex">\(U = \mathbb{Z}\)</span>, а <span class="arithmatex">\(P\)</span> – множество чётных целых. Тогда <span class="arithmatex">\(\overline{P}\)</span> – множество нечётных целых, оно бесконечно.</p>
+</details>
+</details>
+<hr />
+<p><small><em>По материалам:</em><br>
+1. Michael Haese, Sandra Haese, Mark Humphries, Edward Kemp, Pamela Vollmar. Mathematics for the International Student 10E (MYP 5 Extended). Haese Mathematics.</small></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+        
+          
+          <a href="../euler/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Диаграммы Эйлера-Венна">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Диаграммы Эйлера-Венна
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "content.code.copy", "content.tabs.link", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax-config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

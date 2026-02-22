@@ -1,0 +1,2311 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../counting/counting-variants/">
+      
+      
+        <link rel="next" href="../../../programming/concepts/simple-program/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Системы счисления - Учебник (в разработке)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--definition:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20.71%207.04c.39-.39.39-1.04%200-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41%200l-1.84%201.83%203.75%203.75M3%2017.25V21h3.75L17.81%209.93l-3.75-3.75z%22/%3E%3C/svg%3E');--md-admonition-icon--comment:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9%2022a1%201%200%200%201-1-1v-3H4a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h16a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202h-6.1l-3.7%203.71c-.2.19-.45.29-.7.29zm1-6v3.08L13.08%2016H20V4H4v12zM6%207h12v2H6zm0%204h9v2H6z%22/%3E%3C/svg%3E');--md-admonition-icon--question-block:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2018h2v-2h-2zm1-16A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m0-14a4%204%200%200%200-4%204h2a2%202%200%200%201%202-2%202%202%200%200%201%202%202c0%202-3%201.75-3%205h2c0-2.25%203-2.5%203-5a4%204%200%200%200-4-4%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m4.59-12.42L10%2014.17l-2.59-2.58L6%2013l4%204%208-8z%22/%3E%3C/svg%3E');--md-admonition-icon--task:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%203h-4.18C14.4%201.84%2013.3%201%2012%201s-2.4.84-2.82%202H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V5a2%202%200%200%200-2-2m-7%200a1%201%200%200%201%201%201%201%201%200%200%201-1%201%201%201%200%200%201-1-1%201%201%200%200%201%201-1M7%207h10V5h2v14H5V5h2zm.5%206.5L9%2012l2%202%204.5-4.5L17%2011l-6%206z%22/%3E%3C/svg%3E');--md-admonition-icon--code-note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m14.6%2016.6%204.6-4.6-4.6-4.6L16%206l6%206-6%206zm-5.2%200L4.8%2012l4.6-4.6L8%206l-6%206%206%206z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/slides-panel.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-header__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Учебник (в разработке)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Системы счисления
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../sets/sets-intro/" class="md-tabs__link">
+          
+  
+  
+  Информатика+
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../programming/concepts/simple-program/" class="md-tabs__link">
+          
+  
+  
+  Программирование
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-nav__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Учебник (в разработке)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Информатика+
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Информатика+
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Множества
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sets/sets-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sets/euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Диаграммы Эйлера-Венна
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sets/number-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Числовые множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Комбинаторика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/counting-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/product-sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правило произведения и суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/factorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Факториал
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../counting/counting-variants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Коды
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Представление и кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Представление и кодирование информации
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Системы счисления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Программирование
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Программирование
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/simple-program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Простейшая программа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Переменные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Целые числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/doubles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Дробные числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/booleans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические значения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/chars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Символы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/type-conversion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Преобразование типов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ввод и вывод
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ветвления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Циклы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/arrays-1d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/arrays-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Многомерные массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Функции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/scanner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scanner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/system-out/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System.out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/printwriter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PrintWriter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/stringbuilder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StringBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java проекты
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java проекты
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-projects/create-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создание проекта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Системы счисления</h1>
+<figure class="img-float-right" style="width: 17.5%;">
+  <img src="../images/number-systems-intro-inline.png" alt="Палитра с шестнадцатеричными кодами цветов">
+  <figcaption>Шестнадцатеричные коды цветов</figcaption>
+</figure>
+
+<div class="admonition definition">
+<p><strong>Система счисления</strong> — это правила записи чисел с помощью специальных знаков — цифр, а также соответствующие правила выполнения операций с этими числами.</p>
+</div>
+<p>Мы рассмотрим <strong>позиционные</strong> системы счисления, в которых значение каждой цифры зависит от ее позици в числе. Например, в числе 127 цифра 1 обозначает сотни, цифра 2 - десятки, а цифра 7 - единицы.</p>
+<p>Числа, которыми мы пользуемся в повседневной жизни, записываются в системе с основанием <span class="arithmatex">\(10\)</span>. Например, число <span class="arithmatex">\(253\)</span> можно записать так:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+253 &amp;= 200 + 50 + 3 \\
+&amp;= {\color{blue}2} \cdot 100 + {\color{blue}5} \cdot 10 + {\color{blue}3} \cdot 1
+\end{aligned}
+\]</div>
+<p>Используя степени, получаем: <span class="arithmatex">\(100 = 10^2\)</span>, <span class="arithmatex">\(10 = 10^1\)</span>, <span class="arithmatex">\(1 = 10^0\)</span>. Тогда</p>
+<div class="arithmatex">\[
+\begin{aligned}
+253 &amp;= {\color{blue}2} \cdot 100 + {\color{blue}5} \cdot 10 + {\color{blue}3} \cdot 1 \\
+&amp;= {\color{blue}2} \cdot 10^2 + {\color{blue}5} \cdot 10^1 + {\color{blue}3} \cdot 10^0
+\end{aligned}
+\]</div>
+<p>Здесь видно, что каждый разряд равен цифре, умноженной на степень <span class="arithmatex">\(10\)</span>. Поэтому эту запись называют <strong>десятичной системой счисления</strong>. </p>
+<p>Фраза «сотни, десятки и единицы» — это просто степени <span class="arithmatex">\(10\)</span>. </p>
+<p>В десятичной системе 10 цифр: <span class="arithmatex">\(0, 1, 2, 3, 4, 5, 6, 7, 8, 9\)</span>.</p>
+<div class="admonition definition">
+<p><strong>Основание системы счисления</strong> — это количество различных цифр, используемых для записи чисел.</p>
+</div>
+<p>Чтобы явно показать основание системы, к числу добавляют маленький нижний индекс. Например, запись <span class="arithmatex">\(5192_{10}\)</span> читается как «5192 в системе с основанием 10».</p>
+<p>Кроме десятичной наиболее широко применяются ещё две системы счисления.</p>
+<p><strong>Двоичная</strong> — все данные в компьютерных устройствах хранятся и обрабатываются как числа, представленные в двоичной системе счисления.</p>
+<p><strong>Шестнадцатеричная</strong> используется для записи двоичных данных в более компактном виде. Её часто встречают при кодировании цветов и при записи адресов ячеек памяти.</p>
+<div style="clear: both"></div>
+
+<p>В таблице ниже приведены примеры нескольких систем счисления с указанием их основания и алфавита (набора цифр).</p>
+<p><img alt="" src="../images/number-systems-base-alphabet-table-v12.svg" style="display:block; margin:0.6rem auto; max-width:809px; width:100%; height:auto;" /></p>
+<div class="admonition comment">
+<p>В шестнадцатеричной системе после <span class="arithmatex">\(\mathtt{9}\)</span> используют буквы <span class="arithmatex">\(\mathtt{A}\)</span>–<span class="arithmatex">\(\mathtt{F}\)</span>: символов <span class="arithmatex">\(\mathtt{0}\)</span>–<span class="arithmatex">\(\mathtt{9}\)</span> не хватает для 16 разных цифр. Здесь <span class="arithmatex">\(\mathtt{A}\)</span>–<span class="arithmatex">\(\mathtt{F}\)</span> — это тоже цифры (одиночные символы), которые обозначают значения <span class="arithmatex">\(10\)</span>–<span class="arithmatex">\(15\)</span>: <span class="arithmatex">\(\mathtt{A}=10, \mathtt{B}=11, \dots, \mathtt{F}=15\)</span>.</p>
+<p>Важно различать <strong>цифру</strong> и <strong>число</strong>: цифра — один символ в записи, а число — само значение. Например, в записи <span class="arithmatex">\(314_{10}\)</span> число равно <span class="arithmatex">\(314\)</span>, а <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(1\)</span> и <span class="arithmatex">\(4\)</span> — цифры этого числа.</p>
+<p>В позиционной записи каждая цифра должна быть одним символом, иначе запись станет неоднозначной. Поэтому значение <span class="arithmatex">\(15\)</span> обозначают одной цифрой <span class="arithmatex">\(\mathtt{F}\)</span>.</p>
+</div>
+<p>Удобно посмотреть, как одно и то же десятичное число записывается в разных основаниях:</p>
+<div class="pdf-slides-card">
+  <button id="pdfToggle_2" class="pdf-slides-toggle" type="button" aria-label="Слайды: Запись чисел 0–100 в разных системах счисления" title="Открыть слайды" aria-expanded="false">
+    <span aria-hidden="true" class="pdf-slides-toggle__icon">🖥️</span>
+    <span>Слайды: Запись чисел 0–100 в разных системах счисления</span>
+  </button>
+
+  <div id="pdfViewer_2" class="pdf-slides-viewer" style="display:none;">
+    <div class="pdf-slides-nav">
+      <button id="pdfPrev_2" class="pdf-slides-nav__btn" type="button">←</button>
+      <span id="pdfInfo_2" class="pdf-slides-nav__info">1 / 1</span>
+      <button id="pdfNext_2" class="pdf-slides-nav__btn" type="button">→</button>
+    </div>
+
+    <div class="pdf-slides-canvas-wrap">
+      <canvas id="pdfCanvas_2" class="pdf-slides-canvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  const btnToggle = document.getElementById("pdfToggle_2");
+  const viewer = document.getElementById("pdfViewer_2");
+
+  const canvas = document.getElementById("pdfCanvas_2");
+  const ctx = canvas.getContext("2d");
+  const btnPrev = document.getElementById("pdfPrev_2");
+  const btnNext = document.getElementById("pdfNext_2");
+  const info = document.getElementById("pdfInfo_2");
+
+  let inited = false;
+  let pdfjsLib = null;
+
+  let pdfDoc = null;
+  let pageNum = 1;
+  let totalPages = 1;
+  let rendering = false;
+  let pendingPage = null;
+
+  function updateUI() {
+    info.textContent = `${pageNum} / ${totalPages}`;
+    btnPrev.disabled = pageNum <= 1;
+    btnNext.disabled = pageNum >= totalPages;
+  }
+
+  async function renderPage(num) {
+    rendering = true;
+    const page = await pdfDoc.getPage(num);
+
+    // Scale to container width
+    const container = canvas.parentElement;
+    const containerWidth = Math.max(320, container.clientWidth - 2);
+    const vp0 = page.getViewport({ scale: 1 });
+    const scale = containerWidth / vp0.width;
+    const viewport = page.getViewport({ scale });
+
+    canvas.width = Math.floor(viewport.width);
+    canvas.height = Math.floor(viewport.height);
+
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    rendering = false;
+    if (pendingPage !== null) {
+      const next = pendingPage;
+      pendingPage = null;
+      renderPage(next);
+    }
+  }
+
+  function queueRender(num) {
+    if (rendering) pendingPage = num;
+    else renderPage(num);
+  }
+
+  function goPrev() {
+    if (pageNum <= 1) return;
+    pageNum -= 1;
+    updateUI();
+    queueRender(pageNum);
+  }
+
+  function goNext() {
+    if (pageNum >= totalPages) return;
+    pageNum += 1;
+    updateUI();
+    queueRender(pageNum);
+  }
+
+  btnPrev.addEventListener("click", goPrev);
+  btnNext.addEventListener("click", goNext);
+
+  document.addEventListener("keydown", (e) => {
+    if (viewer.style.display === "none") return;
+    if (e.key === "ArrowLeft") goPrev();
+    if (e.key === "ArrowRight") goNext();
+  });
+
+  async function initIfNeeded() {
+    if (inited) return;
+    inited = true;
+
+    // ESM pdf.js (лежит в /assets/pdfjs/pdf.js и /assets/pdfjs/pdf.worker.js)
+    pdfjsLib = await import("/assets/pdfjs/pdf.js");
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "/assets/pdfjs/pdf.worker.js";
+
+    const url = "../slides/slides-number-systems-0-10.pdf";
+
+    const pdf = await pdfjsLib.getDocument(url).promise;
+    pdfDoc = pdf;
+    totalPages = pdf.numPages;
+    pageNum = 1;
+    updateUI();
+    await renderPage(pageNum);
+  }
+
+  btnToggle.addEventListener("click", async () => {
+    const isHidden = viewer.style.display === "none";
+
+    if (isHidden) {
+      viewer.style.display = "block";
+      btnToggle.setAttribute("aria-expanded", "true");
+      btnToggle.title = "Скрыть слайды";
+      btnToggle.setAttribute("aria-label", "Скрыть слайды: Запись чисел 0–100 в разных системах счисления");
+      await initIfNeeded();
+    } else {
+      viewer.style.display = "none";
+      btnToggle.setAttribute("aria-expanded", "false");
+      btnToggle.title = "Открыть слайды";
+      btnToggle.setAttribute("aria-label", "Открыть слайды: Запись чисел 0–100 в разных системах счисления");
+    }
+  });
+</script>
+
+<details class="question-block">
+<summary>Вопросы к слайдам</summary>
+<p><strong>1.</strong> Попробуйте предсказать следующее число в двоичной, пятеричной и шестнадцатеричной системах счисления.</p>
+<p><strong>2.</strong> Найдите числа, у которых в одной системе запись короче минимум на 2 символа, чем в другой. Чем это объясняется?</p>
+<p><strong>3.</strong> Какие числа на слайдах имеют двоичную запись, оканчивающуюся на <span class="arithmatex">\(\mathtt{0}\)</span>? Как это связано с делимостью на <span class="arithmatex">\(2\)</span>?</p>
+<p><strong>4.</strong> В какие моменты в троичной, пятеричной и восьмеричной системах происходит перенос через несколько младших разрядов сразу?</p>
+<p><strong>5.</strong> Почему <span class="arithmatex">\(\mathtt{100}_{10}\)</span> записывается как <span class="arithmatex">\(\mathtt{144}_8\)</span>, <span class="arithmatex">\(\mathtt{64}_{16}\)</span>, <span class="arithmatex">\(\mathtt{1100100}_2\)</span>?</p>
+</details>
+<h1 id="_2">Перевод из любой системы счисления в десятичную</h1>
+<p>Чтобы перевести число из любой системы в десятичную, достаточно разложить его в развёрнутую форму и сложить.</p>
+<div class="admonition definition">
+<p><strong>Развёрнутая форма записи числа</strong> — это представление числа как суммы произведений его цифр на соответствующие степени основания.</p>
+</div>
+<p>Например, для четырёхразрядного числа <span class="arithmatex">\((a_3 a_2 a_1 a_0)_p\)</span> в системе с основанием <span class="arithmatex">\(p\)</span>, где <span class="arithmatex">\(a_3, a_2, a_1, a_0\)</span> — цифры числа:</p>
+<p><img alt="" src="../images/number-systems-ranks-general.svg" style="display:block; margin:0.4rem auto; max-width:450px; width:100%; height:auto;" /></p>
+<p>В десятичной системе это выглядит так:</p>
+<p><img alt="" src="../images/number-systems-ranks-5192.svg" style="display:block; margin:0.4rem auto; max-width:450px; width:100%; height:auto;" /></p>
+<p>Например, чтобы перевести <span class="arithmatex">\(\mathtt{1756}_8\)</span> в десятичную, разложим число по степеням <span class="arithmatex">\(8\)</span> и сложим:</p>
+<div class="arithmatex">\[
+\mathtt{1756}_8 = 1\cdot 8^3 + 7\cdot 8^2 + 5\cdot 8^1 + 6\cdot 8^0 = 512 + 448 + 40 + 6 = \mathtt{1006}_{10}
+\]</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong> переведите из шестнадцатеричной системы в десятичную.</p>
+<p>a) <span class="arithmatex">\(\mathtt{75}_{16}\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{1F}_{16}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{A03}_{16}\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{a) } \mathtt{75}_{16} &amp;= 7\cdot 16^1 + 5\cdot 16^0 = 112 + 5 = \mathtt{117}_{10} \\
+\text{b) } \mathtt{1F}_{16} &amp;= 1\cdot 16^1 + 15\cdot 16^0 = 16 + 15 = \mathtt{31}_{10} \\
+\text{c) } \mathtt{A03}_{16} &amp;= 10\cdot 16^2 + 0\cdot 16^1 + 3\cdot 16^0 = 2560 + 0 + 3 = \mathtt{2563}_{10}
+\end{aligned}
+\]</div>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong> переведите из двоичной системы в десятичную.</p>
+<p>a) <span class="arithmatex">\(\mathtt{1111}_2\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{1010}_2\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{1001}_2\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{a) } \mathtt{1111}_2 &amp;= 1\cdot 2^3 + 1\cdot 2^2 + 1\cdot 2^1 + 1\cdot 2^0 = \mathtt{15}_{10} \\
+\text{b) } \mathtt{1010}_2 &amp;= 1\cdot 2^3 + 0\cdot 2^2 + 1\cdot 2^1 + 0\cdot 2^0 = \mathtt{10}_{10} \\
+\text{c) } \mathtt{1001}_2 &amp;= 1\cdot 2^3 + 0\cdot 2^2 + 0\cdot 2^1 + 1\cdot 2^0 = \mathtt{9}_{10}
+\end{aligned}
+\]</div>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Разложите числа по степеням основания:</p>
+<p>a) <span class="arithmatex">\(\mathtt{534}_7\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{A2}_{16}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{10101}_2\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{534}_7 = 5\cdot 7^2 + 3\cdot 7^1 + 4\cdot 7^0\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{A2}_{16} = 10\cdot 16^1 + 2\cdot 16^0\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{10101}_2 = 1\cdot 2^4 + 0\cdot 2^3 + 1\cdot 2^2 + 0\cdot 2^1 + 1\cdot 2^0\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Переведите в десятичную систему:</p>
+<p>a) <span class="arithmatex">\(\mathtt{642}_8\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{3B}_{16}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{11001}_2\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{642}_8 = 6\cdot 8^2 + 4\cdot 8^1 + 2 = 384 + 32 + 2 = \mathtt{418}_{10}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{3B}_{16} = 3\cdot 16^1 + 11\cdot 16^0 = 48 + 11 = \mathtt{59}_{10}\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{11001}_2 = 1\cdot 2^4 + 1\cdot 2^3 + 0\cdot 2^2 + 0\cdot 2^1 + 1\cdot 2^0 = \mathtt{25}_{10}\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Проверьте корректность записи чисел в указанной системе счисления:</p>
+<p>a) <span class="arithmatex">\(\mathtt{572}_7\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{19}_8\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{G3}_{16}\)</span></p>
+<p>d) <span class="arithmatex">\(\mathtt{10102}_3\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Корректна только d): в системе с основанием <span class="arithmatex">\(3\)</span> допустимы цифры <span class="arithmatex">\(0,1,2\)</span>.</p>
+<p>a) некорректно (цифра <span class="arithmatex">\(7\)</span> недопустима для основания <span class="arithmatex">\(7\)</span>).</p>
+<p>b) некорректно (цифра <span class="arithmatex">\(9\)</span> недопустима для основания <span class="arithmatex">\(8\)</span>).</p>
+<p>c) некорректно (<span class="arithmatex">\(\mathtt{G}\)</span> не является цифрой шестнадцатеричной системы).</p>
+</details>
+<hr />
+<p><strong>4.</strong> Восстановите число по развёрнутой записи:</p>
+<p>a) <span class="arithmatex">\(4\cdot 10^3 + 0\cdot 10^2 + 7\cdot 10^1 + 9\cdot 10^0\)</span></p>
+<p>b) <span class="arithmatex">\(1\cdot 8^3 + 2\cdot 8^2 + 0\cdot 8^1 + 5\cdot 8^0\)</span></p>
+<p>c) <span class="arithmatex">\(1\cdot 2^5 + 0\cdot 2^4 + 1\cdot 2^3 + 1\cdot 2^2 + 0\cdot 2^1 + 1\cdot 2^0\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{4079}_{10}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{1205}_8\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{101101}_2\)</span>.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Ответьте без полного перевода в десятичную систему:</p>
+<p>a) какое из чисел больше: <span class="arithmatex">\(\mathtt{10000}_2\)</span> или <span class="arithmatex">\(\mathtt{777}_8\)</span>?</p>
+<p>b) делится ли <span class="arithmatex">\(\mathtt{A30}_{16}\)</span> на <span class="arithmatex">\(256\)</span>?</p>
+<p>c) почему <span class="arithmatex">\(\mathtt{7000}_8\)</span> и <span class="arithmatex">\(\mathtt{111000000000}_2\)</span> выглядят по-разному, но обозначают одно и то же число?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{777}_8\)</span> больше, так как <span class="arithmatex">\(\mathtt{10000}_2 = 16\)</span>, а <span class="arithmatex">\(\mathtt{777}_8 = 511\)</span>.</p>
+<p>b) Нет: для делимости на <span class="arithmatex">\(256 = 16^2\)</span> последние две шестнадцатеричные цифры должны быть <span class="arithmatex">\(\mathtt{00}\)</span>, а здесь <span class="arithmatex">\(\mathtt{30}\)</span>.</p>
+<p>c) Потому что основание системы разное. <span class="arithmatex">\(\mathtt{7000}_8 = 7\cdot 8^3\)</span>, а <span class="arithmatex">\(\mathtt{111000000000}_2 = 7\cdot 2^9\)</span>, и это одно и то же значение.</p>
+</details>
+</details>
+<h1 id="_3">Перевод из десятичной в любую систему счисления</h1>
+<p>Это обратный процесс к развёрнутой форме: из значения числа восстанавливаем его цифры в системе с основанием <span class="arithmatex">\(p\)</span>.</p>
+<div class="admonition definition">
+<p><strong>Алгоритм извлечения цифр</strong> — это последовательное деление числа на основание <span class="arithmatex">\(p\)</span> с записью остатков.</p>
+</div>
+<p>Остатки и есть цифры числа в системе с основанием <span class="arithmatex">\(p\)</span>, но они получаются от младшего разряда к старшему.</p>
+<p>Поэтому итоговую запись составляем в обратном порядке: от последнего остатка к первому.</p>
+<p>Например, переведём <span class="arithmatex">\(\mathtt{1006}_{10}\)</span> в восьмеричную систему:</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-02-4-divide-8-steps.svg" style="display:block; margin:0.5rem auto; max-width:230px; width:100%; height:auto;" /></p>
+<p>Читаем остатки снизу вверх (то есть в обратном порядке их получения): <span class="arithmatex">\(\mathtt{1006}_{10} = \mathtt{1756}_8\)</span>.</p>
+<p>Если вычислять в тетради, то удобно делить столбиком и также выписывать получившиеся остатки снизу вверх.</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-02-4-divide-8.svg" style="display:block; margin:0.5rem auto; max-width:284px; width:100%; height:auto;" /></p>
+<p>Проверка обратным переводом:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathtt{1756}_8 &amp;= 1\cdot 8^3 + 7\cdot 8^2 + 5\cdot 8^1 + 6\cdot 8^0 \\
+&amp;= 512 + 448 + 40 + 6 = \mathtt{1006}_{10}
+\end{aligned}
+\]</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong> переведите из десятичной системы в двоичную.</p>
+<p>a) <span class="arithmatex">\(\mathtt{15}_{10}\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{10}_{10}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{9}_{10}\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{a) } \mathtt{15}:\mathtt{2} &amp;= \mathtt{7}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}} \\
+\mathtt{7}:\mathtt{2} &amp;= \mathtt{3}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}} \\
+\mathtt{3}:\mathtt{2} &amp;= \mathtt{1}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}} \\
+\mathtt{1}:\mathtt{2} &amp;= \mathtt{0}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}}
+\end{aligned}
+\]</div>
+<p>Читаем остатки снизу вверх: <span class="arithmatex">\(\mathtt{15}_{10} = \mathtt{1111}_2\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{b) } \mathtt{10}:\mathtt{2} &amp;= \mathtt{5}\ \text{остаток}\ \textcolor{blue}{\mathtt{0}} \\
+\mathtt{5}:\mathtt{2} &amp;= \mathtt{2}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}} \\
+\mathtt{2}:\mathtt{2} &amp;= \mathtt{1}\ \text{остаток}\ \textcolor{blue}{\mathtt{0}} \\
+\mathtt{1}:\mathtt{2} &amp;= \mathtt{0}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}}
+\end{aligned}
+\]</div>
+<p>Читаем остатки снизу вверх: <span class="arithmatex">\(\mathtt{10}_{10} = \mathtt{1010}_2\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{c) } \mathtt{9}:\mathtt{2} &amp;= \mathtt{4}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}} \\
+\mathtt{4}:\mathtt{2} &amp;= \mathtt{2}\ \text{остаток}\ \textcolor{blue}{\mathtt{0}} \\
+\mathtt{2}:\mathtt{2} &amp;= \mathtt{1}\ \text{остаток}\ \textcolor{blue}{\mathtt{0}} \\
+\mathtt{1}:\mathtt{2} &amp;= \mathtt{0}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}}
+\end{aligned}
+\]</div>
+<p>Читаем остатки снизу вверх: <span class="arithmatex">\(\mathtt{9}_{10} = \mathtt{1001}_2\)</span>.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong> переведите из десятичной системы в шестнадцатеричную.</p>
+<p>a) <span class="arithmatex">\(\mathtt{117}_{10}\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{31}_{10}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{2563}_{10}\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{a) } \mathtt{117}:\mathtt{16} &amp;= \mathtt{7}\ \text{остаток}\ \textcolor{blue}{\mathtt{5}} \\
+\mathtt{7}:\mathtt{16} &amp;= \mathtt{0}\ \text{остаток}\ \textcolor{blue}{\mathtt{7}}
+\end{aligned}
+\]</div>
+<p>Читаем остатки снизу вверх: <span class="arithmatex">\(\mathtt{117}_{10} = \mathtt{75}_{16}\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{b) } \mathtt{31}:\mathtt{16} &amp;= \mathtt{1}\ \text{остаток}\ \textcolor{blue}{\mathtt{15}} \\
+\mathtt{1}:\mathtt{16} &amp;= \mathtt{0}\ \text{остаток}\ \textcolor{blue}{\mathtt{1}}
+\end{aligned}
+\]</div>
+<p>Так как <span class="arithmatex">\(\mathtt{15} = \mathtt{F}\)</span>, получаем: <span class="arithmatex">\(\mathtt{31}_{10} = \mathtt{1F}_{16}\)</span>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{c) } \mathtt{2563}:\mathtt{16} &amp;= \mathtt{160}\ \text{остаток}\ \textcolor{blue}{\mathtt{3}} \\
+\mathtt{160}:\mathtt{16} &amp;= \mathtt{10}\ \text{остаток}\ \textcolor{blue}{\mathtt{0}} \\
+\mathtt{10}:\mathtt{16} &amp;= \mathtt{0}\ \text{остаток}\ \textcolor{blue}{\mathtt{10}}
+\end{aligned}
+\]</div>
+<p>Так как <span class="arithmatex">\(\mathtt{10} = \mathtt{A}\)</span>, получаем: <span class="arithmatex">\(\mathtt{2563}_{10} = \mathtt{A03}_{16}\)</span>.</p>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Переведите числа:</p>
+<p>a) <span class="arithmatex">\(\mathtt{26}_{10}\to ?_2\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{73}_{10}\to ?_8\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{254}_{10}\to ?_{16}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{11010}_2\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{111}_8\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{FE}_{16}\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Переведите числа через последовательные деления:</p>
+<p>a) <span class="arithmatex">\(\mathtt{45}_{10}\to ?_2\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{130}_{10}\to ?_8\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{170}_{10}\to ?_{16}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{45}:\mathtt{2}=\mathtt{22}\)</span> ост. <span class="arithmatex">\(\mathtt{1}\)</span>, <span class="arithmatex">\(\mathtt{22}:\mathtt{2}=\mathtt{11}\)</span> ост. <span class="arithmatex">\(\mathtt{0}\)</span>, <span class="arithmatex">\(\mathtt{11}:\mathtt{2}=\mathtt{5}\)</span> ост. <span class="arithmatex">\(\mathtt{1}\)</span>, <span class="arithmatex">\(\mathtt{5}:\mathtt{2}=\mathtt{2}\)</span> ост. <span class="arithmatex">\(\mathtt{1}\)</span>, <span class="arithmatex">\(\mathtt{2}:\mathtt{2}=\mathtt{1}\)</span> ост. <span class="arithmatex">\(\mathtt{0}\)</span>, <span class="arithmatex">\(\mathtt{1}:\mathtt{2}=\mathtt{0}\)</span> ост. <span class="arithmatex">\(\mathtt{1}\)</span>. Итого: <span class="arithmatex">\(\mathtt{101101}_2\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{130}:\mathtt{8}=\mathtt{16}\)</span> ост. <span class="arithmatex">\(\mathtt{2}\)</span>, <span class="arithmatex">\(\mathtt{16}:\mathtt{8}=\mathtt{2}\)</span> ост. <span class="arithmatex">\(\mathtt{0}\)</span>, <span class="arithmatex">\(\mathtt{2}:\mathtt{8}=\mathtt{0}\)</span> ост. <span class="arithmatex">\(\mathtt{2}\)</span>. Итого: <span class="arithmatex">\(\mathtt{202}_8\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{170}:\mathtt{16}=\mathtt{10}\)</span> ост. <span class="arithmatex">\(\mathtt{10}\)</span>, <span class="arithmatex">\(\mathtt{10}:\mathtt{16}=\mathtt{0}\)</span> ост. <span class="arithmatex">\(\mathtt{10}\)</span>. Итого: <span class="arithmatex">\(\mathtt{AA}_{16}\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Найдите и исправьте ошибки в переводе:</p>
+<p>a) <span class="arithmatex">\(\mathtt{59}_{10} = \mathtt{3G}_{16}\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{100}_{10} = \mathtt{110010}_2\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{64}_{10} = \mathtt{80}_8\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Неверная цифра <span class="arithmatex">\(\mathtt{G}\)</span>. Правильно: <span class="arithmatex">\(\mathtt{59}_{10} = \mathtt{3B}_{16}\)</span>.</p>
+<p>b) Пропущен один ноль в конце. Правильно: <span class="arithmatex">\(\mathtt{100}_{10} = \mathtt{1100100}_2\)</span>.</p>
+<p>c) В восьмеричной системе нет цифры <span class="arithmatex">\(\mathtt{8}\)</span>. Правильно: <span class="arithmatex">\(\mathtt{64}_{10} = \mathtt{100}_8\)</span>.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Переведите и проверьте обратным переводом:</p>
+<p>a) <span class="arithmatex">\(\mathtt{94}_{10}\to ?_2\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{94}_{10}\to ?_8\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{94}_{10}\to ?_{16}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{94}_{10} = \mathtt{1011110}_2\)</span>, проверка: <span class="arithmatex">\(64+16+8+4+2=94\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{94}_{10} = \mathtt{136}_8\)</span>, проверка: <span class="arithmatex">\(1\cdot 8^2+3\cdot 8+6=64+24+6=94\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{94}_{10} = \mathtt{5E}_{16}\)</span>, проверка: <span class="arithmatex">\(5\cdot 16+14=80+14=94\)</span>.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Объясните, почему остатки при делении на основание <span class="arithmatex">\(p\)</span> можно использовать как цифры системы с основанием <span class="arithmatex">\(p\)</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Потому что при делении на <span class="arithmatex">\(p\)</span> остаток всегда удовлетворяет <span class="arithmatex">\(0 \le r &lt; p\)</span>, а это ровно диапазон допустимых цифр этой системы.</p>
+</details>
+</details>
+<h1 id="_4">Быстрый перевод между двоичной и шестнадцатеричной</h1>
+<p><img align="right" alt="" src="../images/number-systems-binary-hex-table.svg" width="40%" /></p>
+<div class="admonition definition">
+<p><strong>Тетрада</strong> — это группа из четырёх двоичных разрядов.</p>
+</div>
+<p>Если взять тетрады от <span class="arithmatex">\(\mathtt{0000}_2\)</span> до <span class="arithmatex">\(\mathtt{1111}_2\)</span>, то получится ровно 16 разных вариантов — столько же, сколько цифр в шестнадцатеричной системе. Поэтому каждой шестнадцатеричной цифре соответствует одна тетрада (4 двоичных разряда). Это верно потому, что <span class="arithmatex">\(16^1 = 2^4\)</span>.</p>
+<div class="admonition comment">
+<p>В некоторых тетрадах таблицы встречаются <span style="color:#1565C0">ведущие нули</span> — это нули слева в записи числа. Они не меняют значение числа и нужны для удобства: чтобы дополнить запись до длины, кратной 4.</p>
+<p>Например, в записи <span class="arithmatex">\(\mathtt{0011}_2\)</span> два нуля слева — это ведущие нули, так как <span class="arithmatex">\(\mathtt{0011}_2 = \mathtt{11}_2\)</span>; они нужны только, чтобы число состояло из 4 разрядов.</p>
+<p>В строке <span class="arithmatex">\(\mathtt{0000}_2\)</span> синим выделены только три левых нуля: это дополняющие нули. Правый ноль оставляем обычным, потому что это минимальная запись числа <span class="arithmatex">\(\mathtt{0}_2\)</span>.</p>
+</div>
+<div style="clear: both"></div>
+
+<h2 id="_5">Перевод из шестнадцатеричной в двоичную</h2>
+<div class="admonition definition">
+<p><strong>Алгоритм <span class="arithmatex">\(16 \to 2\)</span>:</strong></p>
+<ol>
+<li>Идём по цифрам слева направо и заменяем каждую её тетрадой из таблицы.</li>
+<li>В каждой тетраде сохраняем все 4 разряда, включая ведущие нули.</li>
+<li>Записываем тетрады подряд.</li>
+<li>Если нужно, убираем ведущие нули слева у всей двоичной записи (кроме числа <span class="arithmatex">\(\mathtt{0}\)</span>).</li>
+</ol>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong> переведите из шестнадцатеричной в двоичную.</p>
+<p>a) <span class="arithmatex">\(\mathtt{C50A}_{16}\to ?_2\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{9B}_{16}\to ?_2\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{1AF}_{16}\to ?_2\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>a)</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-05-1-hex-to-binary.svg" style="display:block; margin:0.5rem auto; max-width:332px; width:100%; height:auto;" /></p>
+<p>b)</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-05-2-hex-to-binary-9b.svg" style="display:block; margin:0.5rem auto; max-width:205px; width:100%; height:auto;" /></p>
+<p>c)</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-05-3-hex-to-binary-1af.svg" style="display:block; margin:0.5rem auto; max-width:268px; width:100%; height:auto;" /></p>
+</div>
+<h2 id="_6">Перевод из двоичной в шестнадцатеричную</h2>
+<div class="admonition definition">
+<p><strong>Алгоритм <span class="arithmatex">\(2 \to 16\)</span>:</strong></p>
+<ol>
+<li>Разбиваем двоичную запись <strong>справа налево</strong> на тетрады (группы по 4 разряда).</li>
+<li>Если в левой тетраде меньше 4 разрядов, дополняем её слева нулями.</li>
+<li>Каждую тетраду заменяем одной шестнадцатеричной цифрой по таблице.</li>
+<li>Записываем полученные шестнадцатеричные цифры слева направо.</li>
+<li>Удаляем ведущие нули.</li>
+</ol>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong> переведите из двоичной в шестнадцатеричную.</p>
+<p>a) <span class="arithmatex">\(\mathtt{1010111100101101}_2\to ?_{16}\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{11011010}_2\to ?_{16}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{111010111}_2\to ?_{16}\)</span></p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>a)</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-05-1-binary-to-hex.svg" style="display:block; margin:0.5rem auto; max-width:326px; width:100%; height:auto;" /></p>
+<p>b)</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-05-2-binary-to-hex-da.svg" style="display:block; margin:0.5rem auto; max-width:200px; width:100%; height:auto;" /></p>
+<p>c)</p>
+<p><img alt="" src="../../../../illustrations/images/number-systems/ns-05-3-binary-to-hex-1d7.svg" style="display:block; margin:0.5rem auto; max-width:263px; width:100%; height:auto;" /></p>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Переведите в двоичную систему:</p>
+<p>a) <span class="arithmatex">\(\mathtt{AF}_{16}\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{9B}_{16}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{C5}_{16}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{10101111}_2\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{10011011}_2\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{11000101}_2\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Переведите в шестнадцатеричную систему:</p>
+<p>a) <span class="arithmatex">\(\mathtt{10101100}_2\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{111001}_2\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{110101111}_2\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{AC}_{16}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{39}_{16}\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{1AF}_{16}\)</span>.</p>
+</details>
+</details>
+<hr />
+<p><small><em>По материалам:</em><br>
+1. К. Ю. Поляков, Е. А. Еремин. Учебник информатики для 10–11 классов. Углубленный уровень.<br>
+2. Anthony Croft, Robert Davison. Foundation Maths. Pearson.<br>
+3. ВМК МГУ — школе. Информатика: пособие для подготовки к ЕГЭ.</small></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../../counting/counting-variants/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Коды">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Коды
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../programming/concepts/simple-program/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Простейшая программа">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Простейшая программа
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "content.code.copy", "content.tabs.link", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax-config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
