@@ -1,0 +1,101 @@
+/* Patch styles for pdf_slides panel.
+   Kept in a dedicated file to bypass stale cached extra.css on clients. */
+
+.md-typeset .pdf-slides-card {
+    background: #E3F2FD !important;
+    border: none !important;
+    border-radius: 4px;
+    margin: 0.45rem 0 0.75rem;
+    padding: 0;
+}
+
+.md-typeset .pdf-slides-toggle {
+    width: 100%;
+    border: none !important;
+    background: #E3F2FD !important;
+    color: rgba(0, 0, 0, 0.78) !important;
+    padding: 4px 14px;
+    padding-right: 1.8rem !important;
+    font: inherit;
+    font-weight: 600;
+    line-height: 1.35;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 4px;
+    text-align: left;
+    position: relative;
+}
+
+.md-typeset .pdf-slides-toggle:focus,
+.md-typeset .pdf-slides-toggle:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.md-typeset .pdf-slides-toggle::after {
+    content: "";
+    position: absolute;
+    right: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.25s;
+    width: 0.95rem;
+    height: 0.95rem;
+    display: block;
+    pointer-events: none;
+    background-color: currentcolor;
+    -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
+    mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.md-typeset .pdf-slides-toggle__icon {
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0.82;
+}
+
+.md-typeset .pdf-slides-toggle[aria-expanded="true"]::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.md-typeset .pdf-slides-viewer {
+    margin: 6px 10px 10px;
+}
+
+.md-typeset .pdf-slides-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 6px 0;
+}
+
+.md-typeset .pdf-slides-nav__btn {
+    padding: 6px 10px;
+}
+
+.md-typeset .pdf-slides-nav__info {
+    min-width: 120px;
+    text-align: center;
+}
+
+.md-typeset .pdf-slides-canvas-wrap {
+    width: 100%;
+    overflow: auto;
+    border: 1px solid #c8dff7;
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+.md-typeset .pdf-slides-canvas {
+    display: block;
+    margin: 0 auto;
+}
