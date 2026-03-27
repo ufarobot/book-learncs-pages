@@ -1,0 +1,1022 @@
+/* ==========================================================================
+   Общая структура:
+   0) Tokens
+   1) Layout (grid, фон, контейнеры)
+   2) Header / Tabs
+   3) Navigation
+   4) Код и таблицы
+   5) Типографика
+   6) Admonitions, io-compact и pdf_slides
+   7) Responsive + utilities
+   8) Details/answers
+   9) Images
+   ========================================================================== */
+
+/* --- 0) Tokens ----------------------------------------------------------- */
+/* Базовые CSS‑переменные проекта. Source of truth для UI-палитры сайта. */
+:root {
+    /* Typography */
+    --md-typeset-font-size: 0.75rem;
+
+    /* Core UI palette */
+    --color-book-blue: #095AA6;
+    --color-book-light-blue: #67C6F3;
+    --color-book-red: #96231F;
+
+    --color-page-bg: #e5e5e5;
+    --color-surface: #ffffff;
+    --color-header-bg: #000000;
+    --color-tabs-bg: #2b2b2b;
+    --color-inverse-text: #ffffff;
+    --color-nav-active: #000000;
+    --color-heading-text: #000000;
+    --color-nav-hover-bg: rgba(0, 0, 0, 0.44);
+    --color-inline-code: #1565C0;
+    --color-code-block-bg: rgba(227, 242, 253, 0.21);
+    --color-body-text: #1a1a1a;
+    --color-io-label: #111111;
+    --color-io-pre-bg: #f3f6fa;
+    --color-io-pre-text: #151515;
+    --color-slides-border: #c8dff7;
+    --color-slides-title-text: rgba(0, 0, 0, 0.78);
+    --color-muted-text: #555555;
+    --shadow-content: 0 0 12px rgba(0, 0, 0, 0.10);
+
+    --color-table-accent: var(--color-book-blue);
+
+    /* Admonitions palette (Open edX‑style) */
+    --color-definition-header: #8D23C3;
+    --color-definition-bg: rgba(141, 35, 195, 0.1);
+
+    --color-code-note-header: #1565C0;
+    --color-code-note-bg: #E3F2FD;
+    --color-slides-header: #E3F2FD;
+    --color-slides-bg: #E3F2FD;
+
+    --color-comments-header: var(--color-muted-text);
+    --color-comments-bg: rgba(85, 85, 85, 0.1);
+
+    --color-question-header: rgba(253, 155, 0, 0.15);
+    --color-question-bg: rgba(255, 238, 181, 0.15);
+    --color-question-title-text: rgba(0, 0, 0, 0.75);
+
+    --color-solution-header: #388E3C;
+    --color-solution-bg: rgba(208, 245, 211, 0.3);
+
+    --color-task-header: rgba(91, 195, 185, 0.22);
+    --color-task-bg: rgba(208, 235, 249, 0.18);
+    --color-task-title-text: rgba(0, 0, 0, 0.75);
+
+    --color-answer-chip-bg: rgba(243, 247, 251, 0.98);
+    --color-answer-chip-border: rgba(189, 206, 224, 0.42);
+    --color-answer-chip-text: rgba(0, 0, 0, 0.66);
+    --color-answer-panel-bg: rgba(243, 247, 252, 0.96);
+    --color-answer-panel-border: rgba(200, 217, 235, 0.3);
+    --color-answer-panel-accent: rgba(103, 198, 243, 0.18);
+    --color-answer-code-bg: rgba(249, 252, 255, 0.98);
+    --color-answer-comment-divider: rgba(188, 206, 225, 0.32);
+    --shadow-answer-panel: 0 1px 2px rgba(9, 90, 166, 0.04);
+}
+
+/* Фиксируем базовый rem-уровень: отключаем responsive-скейлинг Material по ширине окна */
+html {
+    font-size: 125% !important;
+}
+
+/* --- 1) Layout ----------------------------------------------------------- */
+/* Ограничение ширины страницы (без поломки шапки/сайдбаров Material) */
+.md-grid {
+    max-width: 1200px !important;
+}
+
+/* Общий светло‑серый фон для страницы и боковых панелей */
+body {
+    background-color: var(--color-page-bg);
+}
+
+.md-sidebar,
+.md-sidebar--primary,
+.md-sidebar--secondary {
+    background-color: var(--color-page-bg);
+}
+
+/* Белый фон только у основного контента */
+.md-main__inner {
+    background: none;
+}
+
+.md-content {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-content);
+    border-radius: 4px;
+}
+
+.md-content__inner {
+    container-type: inline-size;
+}
+
+/* --- 2) Header / Tabs ---------------------------------------------------- */
+/* Фон верхней панели */
+.md-header {
+    background-color: var(--color-header-bg) !important;
+}
+
+/* Фон панели вкладок (tabs) */
+.md-tabs {
+    background-color: var(--color-tabs-bg) !important;
+}
+
+/* На случай, если активность помечается на элементе списка */
+.md-tabs__item--active > .md-tabs__link {
+    font-weight: 700 !important;
+}
+
+.md-tabs__link {
+    color: var(--color-inverse-text) !important;
+}
+
+.md-tabs__link--active {
+    color: var(--color-inverse-text) !important;
+    font-weight: 700 !important;
+}
+
+/* Цвет текста site_name */
+.md-header .md-header__title {
+    color: var(--color-inverse-text) !important;
+}
+
+/* --- 3) Navigation ------------------------------------------------------- */
+/* При наведении на ссылку меню слева — подсветка */
+.md-nav__link:hover {
+    background-color: var(--color-nav-hover-bg) !important;
+    color: var(--color-inverse-text) !important;
+}
+
+/* Активный пункт бокового меню — жирным и чёрным */
+.md-nav__link--active,
+.md-nav__link[aria-current="page"] {
+    font-weight: 700 !important;
+    color: var(--color-nav-active) !important;
+}
+
+/* Убираем заголовок текущей вкладки в левом меню на широких экранах (дублирует вкладку сверху) */
+@media (min-width: 76.25em) {
+    .md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav__link,
+    .md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link {
+        display: none !important;
+    }
+}
+
+/* Мобильное/всплывающее меню — делаем фон таким же, как у шапки */
+.md-nav__source {
+    background-color: var(--color-header-bg) !important;
+}
+.md-nav__source .md-nav__title {
+    color: var(--color-inverse-text) !important;
+}
+/* Заголовок меню (drawer) в мобильном/узком режиме */
+.md-nav--primary .md-nav__title {
+    background-color: var(--color-header-bg) !important;
+    color: var(--color-inverse-text) !important;
+}
+.md-nav--primary .md-nav__title::before,
+.md-nav--primary .md-nav__title a {
+    color: var(--color-inverse-text) !important;
+}
+/* --- 4) Код и таблицы ---------------------------------------------------- */
+/* Убираем «серые плашки» у встроенного кода и делаем его чуть более «текстовым» */
+.md-typeset :not(pre) > code {
+    background-color: transparent !important; /* без серого фона */
+    box-shadow: none !important;
+    padding: 0 0.05em !important;
+    border-radius: 0 !important;
+    color: var(--color-inline-code) !important; /* мягкий синий цвет для команд и литералов */
+    font-size: 1em !important; /* как основной текст */
+    font-weight: 500;
+    font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+/* Фон для блоков кода */
+.md-typeset pre,
+.md-typeset pre > code {
+    background-color: var(--color-code-block-bg) !important; /* светло-голубой фон */
+    font-size: 1em !important; /* как основной текст */
+}
+
+/* Таблицы учебника: API-стиль (как api-table.tex) */
+.md-typeset .md-typeset__table {
+    font-size: 1em; /* как основной текст */
+    margin-bottom: 0 !important;
+}
+
+.md-typeset .md-typeset__scrollwrap {
+    margin-bottom: 0 !important;
+}
+
+.md-typeset table:not([class]) {
+    border-collapse: collapse;
+    border: 0;
+    background: var(--color-surface);
+    font-size: 1em; /* как основной текст */
+    line-height: 1.45; /* arraystretch из NS-00-1 */
+}
+
+@media screen and (min-width: 45em) {
+    .md-typeset .md-typeset__scrollwrap {
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .md-typeset .md-typeset__table {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 0 !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    html .md-typeset__table table {
+        width: auto;
+    }
+
+    .md-typeset table:not([class]) {
+        display: table;
+        width: max-content;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+.md-typeset table:not([class]) th {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-table-accent);
+    color: var(--color-table-accent);
+    font-weight: 700;
+    padding: 0.38rem 1.05rem; /* больше воздуха между колонками глобально */
+    vertical-align: middle;
+}
+
+/* В шапке таблицы inline-code должен быть того же синего тона */
+.md-typeset table:not([class]) th code {
+    color: var(--color-table-accent) !important;
+}
+
+/* В теле таблицы inline-code не выделяем отдельным цветом */
+.md-typeset table:not([class]) td code {
+    color: inherit !important;
+}
+
+.md-typeset table:not([class]) td {
+    background: var(--color-surface);
+    border: 0;
+    color: var(--color-body-text);
+    padding: 0.38rem 1.05rem; /* больше воздуха между колонками глобально */
+    vertical-align: middle;
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(odd),
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+    background: var(--color-surface);
+}
+
+.md-typeset p.table-caption {
+    margin-top: 0 !important;
+    margin-bottom: 0.55rem;
+    text-align: center;
+    font-size: 0.92em;
+    color: var(--color-table-accent);
+    font-style: italic;
+}
+
+.md-typeset .table-comment {
+    color: inherit;
+    font-style: italic;
+}
+
+.md-typeset .md-typeset__scrollwrap + p.table-caption,
+.md-typeset .md-typeset__table + p.table-caption,
+.md-typeset table:not([class]) + p.table-caption {
+    margin-top: 0.12rem !important;
+}
+
+/* --- 5) Типографика ------------------------------------------------------ */
+.md-typeset {
+    font-size: var(--md-typeset-font-size);
+    line-height: 1.55;
+}
+
+/* Заголовки первого уровня в стиле Open edX (как бывший h2) */
+.md-typeset h1 {
+    padding-bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 4px;
+
+    /* Настройки шрифта (без смены семейства) */
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: -0.6px;
+    color: var(--color-heading-text);
+}
+
+/* Заголовки второго уровня в стиле Open edX (как бывший h3) */
+.md-typeset h2 {
+    /* Линию отключили сознательно: визуально перегружает страницу */
+    padding-bottom: 0;
+    margin-top: 45px;
+    margin-bottom: 4px;
+
+    /* Настройки шрифта (без смены семейства) */
+    font-weight: 400;
+    font-size: 1.15rem;
+    letter-spacing: -0.6px;
+    color: var(--color-heading-text);
+}
+
+/* Заголовки третьего уровня: просто жирный текст, без линий */
+.md-typeset h3 {
+    font-weight: 400;
+    border-bottom: none;
+}
+
+/* Скрываем стандартный footer Material (он не используется в учебнике) */
+.md-footer-meta {
+    display: none;
+}
+
+/* --- 6) Admonitions (Open edX‑style) ------------------------------------ */
+
+/* ===== Admonition как на Open edX: светлая шапка + тело, без иконок ===== */
+
+/* Заголовок-плашка (типографика — почти нативная, но заголовок жирнее) */
+.md-typeset .admonition-title,
+.md-typeset summary {
+/*    margin: 0 !important; - нельзя ставить ноль, иначе ломаются отсупы!!!! */
+    padding: 4px 14px !important;
+    /*font-size: 1.0rem;*/
+    font-weight: 600 !important;
+
+}
+
+/* Убираем иконки полностью (включая нативные Material) */
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+    display: none !important;
+}
+
+/* Текст внутри блоков — такой же, как вне блока */
+.md-typeset .admonition,
+.md-typeset details {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.md-typeset .admonition > :not(.admonition-title),
+.md-typeset details > :not(summary) {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+/* ===== Inline blocks (Material): !!! ... inline / inline end ===== */
+.md-typeset .admonition.inline,
+.md-typeset details.inline {
+    width: 16rem;
+    margin: 0.2rem 0 1rem 1rem !important;
+}
+
+.md-typeset .admonition.inline {
+    float: left;
+}
+
+.md-typeset .admonition.inline.end,
+.md-typeset details.inline.end {
+    float: right;
+    margin: 0.2rem 0 1rem 1rem !important;
+}
+
+/* ===== Типы блоков (используются так: !!! definition "..." и т.п.) ===== */
+
+/* Определение */
+.md-typeset .admonition.definition,
+.md-typeset details.definition {
+    background: var(--color-definition-bg) !important;
+    border: none !important;
+}
+.md-typeset .definition > .admonition-title,
+.md-typeset details.definition > summary {
+    background: var(--color-definition-header) !important;
+    color: var(--color-inverse-text) !important;
+}
+
+/* Код/заметка по коду */
+.md-typeset .admonition.code-note,
+.md-typeset details.code-note {
+    background: var(--color-code-note-bg) !important;
+    border: none !important;
+}
+.md-typeset .code-note > .admonition-title,
+.md-typeset details.code-note > summary {
+    background: var(--color-code-note-header) !important;
+    color: var(--color-inverse-text) !important;
+}
+
+/* Комментарий */
+.md-typeset .admonition.comment,
+.md-typeset details.comment {
+    background: var(--color-comments-bg) !important;
+    border: none !important;
+}
+.md-typeset .comment > .admonition-title,
+.md-typeset details.comment > summary {
+    background: var(--color-comments-header) !important;
+    color: var(--color-inverse-text) !important;
+}
+
+/* Вопрос / Подумайте */
+.md-typeset .admonition.question-block,
+.md-typeset details.question-block {
+    background: var(--color-question-bg) !important;
+    border: none !important;
+}
+.md-typeset .question-block > .admonition-title,
+.md-typeset details.question-block > summary {
+    background: var(--color-question-header) !important;
+    color: var(--color-question-title-text) !important;
+}
+/* Выравниваем стрелку раскрытия по центру строки заголовка */
+.md-typeset details.question-block > summary::after {
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+}
+.md-typeset details.question-block[open] > summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Разбор */
+.md-typeset .admonition.solution,
+.md-typeset details.solution {
+    background: var(--color-solution-bg) !important;
+    border: none !important;
+}
+.md-typeset .solution > .admonition-title,
+.md-typeset details.solution > summary {
+    background: var(--color-solution-header) !important;
+    color: var(--color-inverse-text) !important;
+}
+/* В проекте блок solution используется без заголовков */
+.md-typeset .solution > .admonition-title,
+.md-typeset details.solution > summary {
+    display: none !important;
+}
+
+/* Задание */
+.md-typeset .admonition.task,
+.md-typeset details.task {
+    background: var(--color-task-bg) !important;
+    border: none !important;
+}
+.md-typeset .task > .admonition-title,
+.md-typeset details.task > summary {
+    background: var(--color-task-header) !important;
+    color: var(--color-task-title-text) !important;
+}
+/* Держим task-блок визуально в одном поведении с question-block */
+.md-typeset details.task > summary::after {
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+}
+.md-typeset details.task[open] > summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Карточки задач из yandex-contests/previews */
+.md-typeset .preview-problem {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 0 0.75rem;
+    padding: 0.05rem 0 0.05rem;
+    position: relative;
+}
+
+.md-typeset .preview-problem:last-child {
+    margin-bottom: 0;
+}
+
+.md-typeset details.task > p:has(> .preview-problem) {
+    margin: 0 !important;
+}
+
+.md-typeset hr.preview-problem-divider {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.18);
+    margin: 0.85rem 0 0.95rem !important;
+}
+
+.md-typeset .preview-problem::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.md-typeset .preview-problem-tag {
+    background: #f0efee;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    color: rgba(0, 0, 0, 0.72);
+    float: right;
+    font-size: 0.72em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin: 0.1rem 0 0.75rem 0.75rem;
+    padding: 0.3rem 0.52rem;
+}
+
+.md-typeset .problem-statement {
+    font-family: inherit;
+    font-size: 0.96em;
+    line-height: 1.58;
+    margin: 0;
+}
+
+.md-typeset .problem-statement a,
+.md-typeset .problem-statement a:hover,
+.md-typeset .problem-statement a:focus {
+    color: inherit !important;
+    text-decoration: underline;
+}
+
+.md-typeset .problem-statement code,
+.md-typeset .problem-statement td code,
+.md-typeset .problem-statement p code,
+.md-typeset .problem-statement li code {
+    background: rgba(0, 0, 0, 0.045) !important;
+    border-radius: 4px;
+    color: inherit !important;
+    font-size: 0.96em !important;
+    padding: 0.04em 0.22em !important;
+}
+
+.md-typeset .problem-statement p {
+    margin: 0 0 0.5rem;
+}
+
+.md-typeset .problem-statement .header {
+    margin: 0 3rem 0.65rem 0;
+    text-align: left;
+}
+
+.md-typeset .preview-problem:not(:has(.preview-problem-tag)) .problem-statement .header {
+    margin-right: 0;
+}
+
+.md-typeset .problem-statement .header .title {
+    font-family: inherit;
+    font-size: 1.28em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.md-typeset .problem-statement .legend,
+.md-typeset .problem-statement .input-specification,
+.md-typeset .problem-statement .output-specification,
+.md-typeset .problem-statement .sample-tests {
+    margin-top: 0.58rem;
+}
+
+.md-typeset .problem-statement .legend {
+    margin-top: 0;
+}
+
+.md-typeset .problem-statement .section-title {
+    color: var(--color-heading-text);
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 0.28rem;
+    text-transform: none;
+}
+
+.md-typeset .problem-statement .sample-test {
+    display: grid;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.md-typeset .problem-statement .sample-test:last-child {
+    margin-bottom: 0;
+}
+
+.md-typeset .problem-statement .sample-tests .input,
+.md-typeset .problem-statement .sample-tests .output {
+    background: #f3f2f1;
+    border: 0;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.md-typeset .problem-statement .sample-tests .title {
+    background: transparent;
+    border-bottom: 0;
+    color: rgba(0, 0, 0, 0.78);
+    font-family: inherit;
+    font-size: 0.86em;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0.58rem 0.8rem 0.18rem;
+    text-transform: none;
+}
+
+.md-typeset .problem-statement .sample-tests pre {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    color: var(--color-io-pre-text) !important;
+    font-family: var(--md-code-font-family, monospace) !important;
+    font-size: 0.96em !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    padding: 0.02rem 0.8rem 0.65rem !important;
+    white-space: pre;
+    word-break: normal;
+}
+
+@media (min-width: 52em) {
+    .md-typeset .problem-statement .sample-test {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Компактный блок ввода/вывода в стиле черно-белой консоли */
+.md-typeset .io-compact {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    margin: 0.12rem 0 0.32rem;
+    padding: 0;
+}
+
+.md-typeset .io-compact__label {
+    background: transparent;
+    border: 0;
+    border-radius: 2px;
+    color: var(--color-io-label);
+    display: inline-block;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0.05rem 0 0;
+    padding: 0.02rem 0.34rem 0.01rem;
+    text-transform: uppercase;
+}
+
+.md-typeset .io-compact pre + .io-compact__label {
+    margin-top: 0.34rem;
+}
+
+.md-typeset .io-compact pre {
+    background: var(--color-io-pre-bg) !important;
+    border: 0 !important;
+    border-radius: 2px;
+    box-shadow: none !important;
+    color: var(--color-io-pre-text) !important;
+    font-size: 1em !important; /* как основной текст */
+    line-height: 1.28 !important;
+    margin: 0 0 0.08rem !important;
+    padding: 0.18rem 0.34rem 0.16rem !important;
+    white-space: pre;
+}
+
+.md-typeset .io-compact.inline-end {
+    float: right;
+    margin: 0.1rem 0 0.5rem 0.9rem;
+    width: calc(40% - 0.36rem);
+}
+
+/* Основной порядок: код, затем inline-блок справа */
+.md-typeset .highlight:has(+ p > .io-compact.inline-end),
+.md-typeset .highlight:has(+ .io-compact.inline-end),
+.md-typeset .highlight:has(+ p + .io-compact.inline-end),
+.md-typeset .highlight:has(+ p + p > .io-compact.inline-end),
+.md-typeset .highlight:has(+ p + p + .io-compact.inline-end) {
+    float: left;
+    width: calc(60% - 0.54rem);
+}
+
+/* Обратный порядок (legacy): сначала inline-блок, затем код */
+.md-typeset p:has(> .io-compact.inline-end) + .highlight,
+.md-typeset .io-compact.inline-end + .highlight,
+.md-typeset .io-compact.inline-end + p + .highlight {
+    float: left;
+    width: calc(60% - 0.54rem);
+}
+
+@media (max-width: 60em) {
+    .md-typeset .highlight:has(+ p > .io-compact.inline-end),
+    .md-typeset .highlight:has(+ .io-compact.inline-end),
+    .md-typeset .highlight:has(+ p + .io-compact.inline-end),
+    .md-typeset .highlight:has(+ p + p > .io-compact.inline-end),
+    .md-typeset .highlight:has(+ p + p + .io-compact.inline-end),
+    .md-typeset p:has(> .io-compact.inline-end) + .highlight,
+    .md-typeset .io-compact.inline-end + .highlight,
+    .md-typeset .io-compact.inline-end + p + .highlight {
+        float: none;
+        width: auto;
+    }
+
+    .md-typeset .io-compact.inline-end {
+        float: none;
+        margin: 0.25rem 0 0.4rem;
+        width: auto;
+    }
+}
+
+/* Блок слайдов (pdf_slides macro) */
+.md-typeset .pdf-slides-card {
+    background: var(--color-slides-bg) !important;
+    border: none !important;
+    border-radius: 4px;
+    margin: 0.45rem 0 0.75rem;
+    padding: 0;
+}
+
+.md-typeset .pdf-slides-toggle {
+    width: 100%;
+    border: none !important;
+    background: var(--color-slides-header) !important;
+    color: var(--color-slides-title-text) !important;
+    padding: 4px 14px;
+    padding-right: 1.8rem !important;
+    font: inherit;
+    font-weight: 600;
+    line-height: 1.35;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 4px;
+    text-align: left;
+    position: relative;
+}
+
+.md-typeset .pdf-slides-toggle:focus,
+.md-typeset .pdf-slides-toggle:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.md-typeset .pdf-slides-toggle__icon {
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0.82;
+}
+
+.md-typeset .pdf-slides-toggle::after {
+    background-color: currentcolor;
+    content: "";
+    -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
+    mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>');
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    position: absolute;
+    right: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.25s;
+    width: 0.95rem;
+    height: 0.95rem;
+    display: block;
+    pointer-events: none;
+}
+
+.md-typeset .pdf-slides-toggle[aria-expanded="true"]::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.md-typeset .pdf-slides-viewer {
+    margin: 6px 10px 10px;
+}
+
+.md-typeset .pdf-slides-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 6px 0;
+}
+
+.md-typeset .pdf-slides-nav__btn {
+    padding: 6px 10px;
+}
+
+.md-typeset .pdf-slides-nav__info {
+    min-width: 120px;
+    text-align: center;
+}
+
+.md-typeset .pdf-slides-canvas-wrap {
+    width: 100%;
+    overflow: auto;
+    border: 1px solid var(--color-slides-border);
+    border-radius: 6px;
+    background: var(--color-surface);
+}
+
+.md-typeset .pdf-slides-canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+/* ===== Таблицы внутри контентных блоков (admonitions) =====
+   Убираем белый фон таблиц/ячеек, чтобы фон соответствовал фону блока.
+*/
+.md-typeset .admonition table:not([class]),
+.md-typeset details table:not([class]) {
+    background-color: transparent !important;
+}
+
+.md-typeset .admonition table:not([class]) th,
+.md-typeset .admonition table:not([class]) td,
+.md-typeset details table:not([class]) th,
+.md-typeset details table:not([class]) td {
+    background-color: transparent !important;
+}
+
+/* Отключаем «зебру» и hover внутри блоков, чтобы не появлялись чужие подложки */
+.md-typeset .admonition table:not([class]) tbody tr:nth-child(odd),
+.md-typeset details table:not([class]) tbody tr:nth-child(odd) {
+    background-color: transparent !important;
+}
+
+.md-typeset .admonition table:not([class]) tbody tr:hover td,
+.md-typeset details table:not([class]) tbody tr:hover td {
+    background-color: transparent !important;
+}
+
+.md-typeset table.noheader thead {
+    display: none !important;
+}
+
+/* --- 7) Responsive + utilities ------------------------------------------ */
+/* Убираем правую колонку (оглавление / TOC) полностью, без пустого места */
+@media (min-width: 60em) {
+    .md-sidebar--secondary {
+        display: none !important;
+        width: 0 !important;
+        max-width: 0 !important;
+        flex: 0 0 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .md-main__inner {
+        grid-template-columns: auto minmax(0, 100%) !important;
+    }
+}
+
+/* --- 8) Details/answers -------------------------------------------------- */
+.md-typeset details.answer {
+    margin: 0.55rem 0 0.85rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.md-typeset details.answer > summary {
+    cursor: pointer;
+    list-style: none;
+    background: var(--color-answer-chip-bg);
+    border: 1px solid var(--color-answer-chip-border);
+    border-radius: 999px;
+    color: var(--color-answer-chip-text);
+    display: flex;
+    align-items: center;
+    gap: 0.42rem;
+    margin: 0 0 0 auto;
+    padding: 0.26rem 0.78rem 0.26rem 0.86rem !important;
+    position: relative;
+    text-align: left;
+    width: fit-content;
+    font-size: 0.95em;
+}
+
+.md-typeset details.answer[open] > summary {
+    background: var(--color-answer-panel-bg);
+    margin-bottom: 0.65rem;
+}
+
+.md-typeset details.answer > summary::-webkit-details-marker { display: none; }
+
+.md-typeset details.answer > summary::after {
+    content: "▸";
+    position: static;
+    line-height: 1;
+}
+.md-typeset details.answer[open] > summary::after {
+    content: "▾";
+}
+
+.md-typeset details.answer[open] {
+    background:
+        linear-gradient(
+            90deg,
+            var(--color-answer-panel-accent) 0,
+            var(--color-answer-panel-accent) 2px,
+            var(--color-answer-panel-bg) 2px
+        );
+    border-radius: 10px;
+    box-shadow: var(--shadow-answer-panel);
+    padding: 0.75rem 0.9rem 0.85rem;
+}
+
+.md-typeset details.answer[open] > :nth-child(2) {
+    margin-top: 0 !important;
+}
+
+.md-typeset details.answer[open] > .highlight:first-of-type,
+.md-typeset details.answer[open] > p:not(.answer-comment):first-of-type {
+    margin-bottom: 0.35rem !important;
+}
+
+.md-typeset details.answer[open] > p:not(.answer-comment):first-of-type {
+    color: rgba(0, 0, 0, 0.86);
+    font-weight: 600;
+}
+
+.md-typeset details.answer[open] > :last-child {
+    margin-bottom: 0 !important;
+}
+
+.md-typeset details.answer .highlight,
+.md-typeset details.answer pre {
+    background: var(--color-answer-code-bg) !important;
+    border-radius: 8px;
+}
+
+.md-typeset details.answer .answer-comment {
+    border-top: 1px solid var(--color-answer-comment-divider);
+    color: rgba(0, 0, 0, 0.62);
+    font-size: 0.93em;
+    font-style: italic;
+    margin-top: 0.7rem;
+    margin-bottom: 0 !important;
+    padding-top: 0.58rem;
+}
+
+.md-typeset details.answer .answer-comment code {
+    font-style: normal;
+}
+
+/* Убираем серую рамку/обводку при фокусе у collapsible (details/summary) */
+.md-typeset details > summary:focus,
+.md-typeset details > summary:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.md-typeset details:focus,
+.md-typeset details:focus-visible,
+.md-typeset details:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* --- 9) Images ----------------------------------------------------------- */
+/* Класс для правого floating‑рисунка (используется в intro‑блоках) */
+.md-typeset img.img-float-right,
+.md-typeset figure.img-float-right {
+    float: right;
+    width: 35%;
+    margin: 0.2rem 0 1rem 1rem;
+}
+
+.md-typeset img.img-float-right {
+    border-radius: 10px;
+}
+
+.md-typeset figure.img-float-right img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.md-typeset figure.img-float-right figcaption {
+    font-size: 0.69em;
+    color: var(--color-muted-text);
+    text-align: center;
+    margin-top: 0.2rem;
+}
