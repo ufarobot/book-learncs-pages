@@ -89,14 +89,6 @@
   
 
 
-  
-  
-
-<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1WM295NZ74"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1WM295NZ74",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1WM295NZ74",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
-
     
     
   </head>
@@ -264,7 +256,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../informatics/number-systems/number-systems-intro/" class="md-tabs__link">
+        <a href="../../../informatics/logic/logic/" class="md-tabs__link">
           
   
   
@@ -891,7 +883,7 @@
   <span class="md-ellipsis">
     
   
-    Кодирование информации
+    Логика
   
 
     
@@ -904,6 +896,148 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Логика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Алгебра логики
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические элементы и схемы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1868,11 +2002,11 @@
 <tbody>
 <tr>
 <td><code>void sort(int[] a)</code></td>
-<td>Сортирует весь массив <code>a</code> по возрастанию.</td>
+<td><span class="table-comment">Сортирует весь массив <code>a</code> по возрастанию.</span></td>
 </tr>
 <tr>
 <td><code>void sort(int[] a, int from, int to)</code></td>
-<td>Сортирует подмассив <code>a[from] ... a[to - 1]</code>.</td>
+<td><span class="table-comment">Сортирует подмассив <code>a[from] ... a[to - 1]</code>.</span></td>
 </tr>
 </tbody>
 </table>
@@ -1897,7 +2031,7 @@
 <tbody>
 <tr>
 <td><code>int binarySearch(int[] a, int key)</code></td>
-<td>Бинарный поиск <code>key</code> в отсортированном массиве <code>a</code>.</td>
+<td><span class="table-comment">Бинарный поиск <code>key</code> в отсортированном массиве <code>a</code>.</span></td>
 </tr>
 </tbody>
 </table>
@@ -1922,19 +2056,19 @@
 <tbody>
 <tr>
 <td><code>void fill(int[] a, int value)</code></td>
-<td>Заполняет весь массив <code>a</code> значением <code>value</code>.</td>
+<td><span class="table-comment">Заполняет весь массив <code>a</code> значением <code>value</code>.</span></td>
 </tr>
 <tr>
 <td><code>void fill(int[] a, int from, int to, int value)</code></td>
-<td>Заполняет элементы <code>a[from] ... a[to - 1]</code> значением <code>value</code>.</td>
+<td><span class="table-comment">Заполняет элементы <code>a[from] ... a[to - 1]</code> значением <code>value</code>.</span></td>
 </tr>
 <tr>
 <td><code>int[] copyOf(int[] a, int newLength)</code></td>
-<td>Копия массива <code>a</code> длины <code>newLength</code>.</td>
+<td><span class="table-comment">Копия массива <code>a</code> длины <code>newLength</code>.</span></td>
 </tr>
 <tr>
 <td><code>int[] copyOfRange(int[] a, int from, int to)</code></td>
-<td>Копия подмассива <code>a[from] ... a[to - 1]</code>.</td>
+<td><span class="table-comment">Копия подмассива <code>a[from] ... a[to - 1]</code>.</span></td>
 </tr>
 </tbody>
 </table>
@@ -1962,11 +2096,11 @@
 <tbody>
 <tr>
 <td><code>boolean equals(int[] a, int[] b)</code></td>
-<td>Сравнение массивов поэлементно.</td>
+<td><span class="table-comment">Сравнение массивов поэлементно.</span></td>
 </tr>
 <tr>
 <td><code>String toString(int[] a)</code></td>
-<td>Строка с элементами массива <code>a</code>.</td>
+<td><span class="table-comment">Строка с элементами массива <code>a</code>.</span></td>
 </tr>
 </tbody>
 </table>

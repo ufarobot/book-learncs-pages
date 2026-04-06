@@ -89,14 +89,6 @@
   
 
 
-  
-  
-
-<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1WM295NZ74"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1WM295NZ74",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1WM295NZ74",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
-
     
     
   </head>
@@ -264,7 +256,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../informatics/number-systems/number-systems-intro/" class="md-tabs__link">
+        <a href="../../../informatics/logic/logic/" class="md-tabs__link">
           
   
   
@@ -891,7 +883,7 @@
   <span class="md-ellipsis">
     
   
-    Кодирование информации
+    Логика
   
 
     
@@ -904,6 +896,148 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Логика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Алгебра логики
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические элементы и схемы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1983,7 +2117,12 @@
     </div>
 
     <div class="pdf-slides-canvas-wrap">
-      <canvas id="pdfCanvas_3" class="pdf-slides-canvas"></canvas>
+      <div id="pdfStatus_3" class="pdf-slides-status" hidden>
+        <div class="pdf-slides-status__spinner" aria-hidden="true"></div>
+        <div id="pdfStatusTitle_3" class="pdf-slides-status__title">Загружаем слайды…</div>
+        <div id="pdfStatusText_3" class="pdf-slides-status__text">После загрузки здесь появится первый слайд.</div>
+      </div>
+      <canvas id="pdfCanvas_3" class="pdf-slides-canvas" hidden></canvas>
     </div>
   </div>
 </div>
@@ -1995,9 +2134,13 @@
 
   const canvas = document.getElementById("pdfCanvas_3");
   const ctx = canvas.getContext("2d");
+  const status = document.getElementById("pdfStatus_3");
+  const statusTitle = document.getElementById("pdfStatusTitle_3");
+  const statusText = document.getElementById("pdfStatusText_3");
   const btnPrev = document.getElementById("pdfPrev_3");
   const btnNext = document.getElementById("pdfNext_3");
   const info = document.getElementById("pdfInfo_3");
+  const safeTitle = "\u0422\u0440\u0430\u0441\u0441\u0438\u0440\u043e\u0432\u043a\u0430";
 
   let pdfjsLib = null;
   let pdfLoadPromise = null;
@@ -2010,11 +2153,53 @@
   let pendingPage = null;
   let renderCache = new Map();
   let cacheContainerWidth = 0;
+  let hasRenderedPage = false;
 
   function updateUI() {
     info.textContent = `${pageNum} / ${totalPages}`;
     btnPrev.disabled = pageNum <= 1;
     btnNext.disabled = pageNum >= totalPages;
+  }
+
+  function setStatus(state, title, text) {
+    status.hidden = false;
+    status.dataset.state = state;
+    statusTitle.textContent = title;
+    statusText.textContent = text;
+    canvas.hidden = true;
+
+    if (state === "loading") {
+      info.textContent = "Загрузка…";
+    } else if (state === "error") {
+      info.textContent = "Ошибка";
+    }
+
+    btnPrev.disabled = true;
+    btnNext.disabled = true;
+    viewer.setAttribute("aria-busy", state === "loading" ? "true" : "false");
+  }
+
+  function showLoadingStatus() {
+    const isTrace = /трассиров/i.test(safeTitle);
+    const title = isTrace ? "Загружаем трассировку…" : `Загружаем «${safeTitle}»…`;
+    const text = isTrace
+      ? "Первый запуск может занять несколько секунд. После загрузки здесь появится первый кадр трассировки."
+      : "Первый запуск может занять несколько секунд. После загрузки здесь появится первый слайд.";
+    setStatus("loading", title, text);
+  }
+
+  function showErrorStatus() {
+    setStatus(
+      "error",
+      "Не удалось открыть слайды",
+      "Попробуйте открыть блок ещё раз или обновить страницу."
+    );
+  }
+
+  function showCanvas() {
+    status.hidden = true;
+    canvas.hidden = false;
+    viewer.setAttribute("aria-busy", "false");
   }
 
   function getContainerWidth() {
@@ -2088,6 +2273,9 @@
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(scratchCanvas, 0, 0);
+    hasRenderedPage = true;
+    showCanvas();
+    updateUI();
     warmNeighbor(num - 1);
     warmNeighbor(num + 1);
 
@@ -2151,6 +2339,13 @@
   }
 
   async function initIfNeeded() {
+    if (hasRenderedPage) {
+      showCanvas();
+      updateUI();
+      return;
+    }
+
+    showLoadingStatus();
     await loadPdfIfNeeded();
     resetCacheIfNeeded();
     await renderPage(pageNum);
@@ -2189,7 +2384,7 @@
         schedulePreloadWhenIdle();
       }
     }, {
-      rootMargin: "300px 0px",
+      rootMargin: "1200px 0px",
     });
     preloadObserver.observe(card);
   } else {
@@ -2213,7 +2408,12 @@
       btnToggle.setAttribute("aria-expanded", "true");
       btnToggle.title = "Скрыть слайды";
       btnToggle.setAttribute("aria-label", "Скрыть слайды: Трассировка");
-      await initIfNeeded();
+      try {
+        await initIfNeeded();
+      } catch (error) {
+        showErrorStatus();
+        console.error("pdf_slides init failed", error);
+      }
     } else {
       viewer.style.display = "none";
       btnToggle.setAttribute("aria-expanded", "false");
@@ -2343,22 +2543,22 @@
 </thead>
 <tbody>
 <tr>
-<td><span style="color:#2e7d32;">"My "</span> + <span style="color:#2e7d32;">"Precious"</span></td>
+<td><code class="table-expression">"My " + "Precious"</code></td>
 <td><code>"My Precious"</code></td>
 <td><span class="table-comment">пробелы внутри строк важны</span></td>
 </tr>
 <tr>
-<td><span style="color:#2e7d32;">"1234"</span> + <span style="color:#2e7d32;">"99"</span></td>
+<td><code class="table-expression">"1234" + "99"</code></td>
 <td><code>"123499"</code></td>
 <td><span class="table-comment">строки не складываются как числа</span></td>
 </tr>
 <tr>
-<td><span style="color:#2e7d32;">"A"</span> + <span style="color:#2e7d32;">"B"</span> + <span style="color:#2e7d32;">"C"</span></td>
+<td><code class="table-expression">"A" + "B" + "C"</code></td>
 <td><code>"ABC"</code></td>
 <td><span class="table-comment">можно склеивать несколько строк в одном выражении</span></td>
 </tr>
 <tr>
-<td><span style="color:#2e7d32;">"Привет, "</span> + <span style="color:#2e7d32;">"мир!"</span></td>
+<td><code class="table-expression">"Привет, " + "мир!"</code></td>
 <td><code>"Привет, мир!"</code></td>
 <td><span class="table-comment">поддерживается Unicode</span></td>
 </tr>
@@ -2388,7 +2588,12 @@
     </div>
 
     <div class="pdf-slides-canvas-wrap">
-      <canvas id="pdfCanvas_4" class="pdf-slides-canvas"></canvas>
+      <div id="pdfStatus_4" class="pdf-slides-status" hidden>
+        <div class="pdf-slides-status__spinner" aria-hidden="true"></div>
+        <div id="pdfStatusTitle_4" class="pdf-slides-status__title">Загружаем слайды…</div>
+        <div id="pdfStatusText_4" class="pdf-slides-status__text">После загрузки здесь появится первый слайд.</div>
+      </div>
+      <canvas id="pdfCanvas_4" class="pdf-slides-canvas" hidden></canvas>
     </div>
   </div>
 </div>
@@ -2400,9 +2605,13 @@
 
   const canvas = document.getElementById("pdfCanvas_4");
   const ctx = canvas.getContext("2d");
+  const status = document.getElementById("pdfStatus_4");
+  const statusTitle = document.getElementById("pdfStatusTitle_4");
+  const statusText = document.getElementById("pdfStatusText_4");
   const btnPrev = document.getElementById("pdfPrev_4");
   const btnNext = document.getElementById("pdfNext_4");
   const info = document.getElementById("pdfInfo_4");
+  const safeTitle = "\u0422\u0440\u0430\u0441\u0441\u0438\u0440\u043e\u0432\u043a\u0430 \u0441\u043e \u0441\u0442\u0440\u043e\u043a\u0430\u043c\u0438";
 
   let pdfjsLib = null;
   let pdfLoadPromise = null;
@@ -2415,11 +2624,53 @@
   let pendingPage = null;
   let renderCache = new Map();
   let cacheContainerWidth = 0;
+  let hasRenderedPage = false;
 
   function updateUI() {
     info.textContent = `${pageNum} / ${totalPages}`;
     btnPrev.disabled = pageNum <= 1;
     btnNext.disabled = pageNum >= totalPages;
+  }
+
+  function setStatus(state, title, text) {
+    status.hidden = false;
+    status.dataset.state = state;
+    statusTitle.textContent = title;
+    statusText.textContent = text;
+    canvas.hidden = true;
+
+    if (state === "loading") {
+      info.textContent = "Загрузка…";
+    } else if (state === "error") {
+      info.textContent = "Ошибка";
+    }
+
+    btnPrev.disabled = true;
+    btnNext.disabled = true;
+    viewer.setAttribute("aria-busy", state === "loading" ? "true" : "false");
+  }
+
+  function showLoadingStatus() {
+    const isTrace = /трассиров/i.test(safeTitle);
+    const title = isTrace ? "Загружаем трассировку…" : `Загружаем «${safeTitle}»…`;
+    const text = isTrace
+      ? "Первый запуск может занять несколько секунд. После загрузки здесь появится первый кадр трассировки."
+      : "Первый запуск может занять несколько секунд. После загрузки здесь появится первый слайд.";
+    setStatus("loading", title, text);
+  }
+
+  function showErrorStatus() {
+    setStatus(
+      "error",
+      "Не удалось открыть слайды",
+      "Попробуйте открыть блок ещё раз или обновить страницу."
+    );
+  }
+
+  function showCanvas() {
+    status.hidden = true;
+    canvas.hidden = false;
+    viewer.setAttribute("aria-busy", "false");
   }
 
   function getContainerWidth() {
@@ -2493,6 +2744,9 @@
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(scratchCanvas, 0, 0);
+    hasRenderedPage = true;
+    showCanvas();
+    updateUI();
     warmNeighbor(num - 1);
     warmNeighbor(num + 1);
 
@@ -2556,6 +2810,13 @@
   }
 
   async function initIfNeeded() {
+    if (hasRenderedPage) {
+      showCanvas();
+      updateUI();
+      return;
+    }
+
+    showLoadingStatus();
     await loadPdfIfNeeded();
     resetCacheIfNeeded();
     await renderPage(pageNum);
@@ -2594,7 +2855,7 @@
         schedulePreloadWhenIdle();
       }
     }, {
-      rootMargin: "300px 0px",
+      rootMargin: "1200px 0px",
     });
     preloadObserver.observe(card);
   } else {
@@ -2618,7 +2879,12 @@
       btnToggle.setAttribute("aria-expanded", "true");
       btnToggle.title = "Скрыть слайды";
       btnToggle.setAttribute("aria-label", "Скрыть слайды: Трассировка со строками");
-      await initIfNeeded();
+      try {
+        await initIfNeeded();
+      } catch (error) {
+        showErrorStatus();
+        console.error("pdf_slides init failed", error);
+      }
     } else {
       viewer.style.display = "none";
       btnToggle.setAttribute("aria-expanded", "false");
@@ -3024,52 +3290,52 @@
 </thead>
 <tbody>
 <tr>
-<td><code>20 + 3</code></td>
+<td><code class="table-expression">20 + 3</code></td>
 <td><code>23</code></td>
 <td><span class="table-comment">сложение</span></td>
 </tr>
 <tr>
-<td><code>20 - 3</code></td>
+<td><code class="table-expression">20 - 3</code></td>
 <td><code>17</code></td>
 <td><span class="table-comment">вычитание</span></td>
 </tr>
 <tr>
-<td><code>20 * 3</code></td>
+<td><code class="table-expression">20 * 3</code></td>
 <td><code>60</code></td>
 <td><span class="table-comment">умножение</span></td>
 </tr>
 <tr>
-<td><code>20 / 3</code></td>
+<td><code class="table-expression">20 / 3</code></td>
 <td><code>6</code></td>
 <td><span class="table-comment">дробная часть отбрасывается</span></td>
 </tr>
 <tr>
-<td><code>20 % 3</code></td>
+<td><code class="table-expression">20 % 3</code></td>
 <td><code>2</code></td>
 <td><span class="table-comment">остаток от деления</span></td>
 </tr>
 <tr>
-<td><code>21 % 5</code></td>
+<td><code class="table-expression">21 % 5</code></td>
 <td><code>1</code></td>
 <td><span class="table-comment">остаток после деления на 5</span></td>
 </tr>
 <tr>
-<td><code>38 % 10</code></td>
+<td><code class="table-expression">38 % 10</code></td>
 <td><code>8</code></td>
 <td><span class="table-comment">последняя цифра числа</span></td>
 </tr>
 <tr>
-<td><code>24 % 2</code></td>
+<td><code class="table-expression">24 % 2</code></td>
 <td><code>0</code></td>
 <td><span class="table-comment">проверка на чётность</span></td>
 </tr>
 <tr>
-<td><code>20 / 0</code></td>
+<td><code class="table-expression">20 / 0</code></td>
 <td>ошибка</td>
 <td><span class="table-comment">на ноль делить нельзя</span></td>
 </tr>
 <tr>
-<td><code>2147483647 + 1</code></td>
+<td><code class="table-expression">2147483647 + 1</code></td>
 <td><code>-2147483648</code></td>
 <td><span class="table-comment">переполнение типа int</span></td>
 </tr>
@@ -3150,38 +3416,38 @@
 </thead>
 <tbody>
 <tr>
-<td><code>3 * 5 - 2</code></td>
-<td><code>(3 * 5) - 2</code></td>
+<td><code class="table-expression">3 * 5 - 2</code></td>
+<td><code class="table-expression">(3 * 5) - 2</code></td>
 <td><code>13</code></td>
 <td><span class="table-comment"><code>*</code> выполняется раньше <code>-</code></span></td>
 </tr>
 <tr>
-<td><code>20 + 5 / 2</code></td>
-<td><code>20 + (5 / 2)</code></td>
+<td><code class="table-expression">20 + 5 / 2</code></td>
+<td><code class="table-expression">20 + (5 / 2)</code></td>
 <td><code>22</code></td>
 <td><span class="table-comment"><code>/</code> выполняется раньше <code>+</code></span></td>
 </tr>
 <tr>
-<td><code>20 - 17 % 5</code></td>
-<td><code>20 - (17 % 5)</code></td>
+<td><code class="table-expression">20 - 17 % 5</code></td>
+<td><code class="table-expression">20 - (17 % 5)</code></td>
 <td><code>18</code></td>
 <td><span class="table-comment"><code>%</code> выполняется раньше <code>-</code></span></td>
 </tr>
 <tr>
-<td><code>18 / 5 * 2</code></td>
-<td><code>(18 / 5) * 2</code></td>
+<td><code class="table-expression">18 / 5 * 2</code></td>
+<td><code class="table-expression">(18 / 5) * 2</code></td>
 <td><code>6</code></td>
 <td><span class="table-comment"><code>/</code> и <code>*</code> имеют одинаковый приоритет</span></td>
 </tr>
 <tr>
-<td><code>17 % 5 % 3</code></td>
-<td><code>(17 % 5) % 3</code></td>
+<td><code class="table-expression">17 % 5 % 3</code></td>
+<td><code class="table-expression">(17 % 5) % 3</code></td>
 <td><code>2</code></td>
 <td><span class="table-comment"><code>%</code> выполняется слева направо</span></td>
 </tr>
 <tr>
-<td><code>20 % (7 - 3)</code></td>
-<td><code>20 % 4</code></td>
+<td><code class="table-expression">20 % (7 - 3)</code></td>
+<td><code class="table-expression">20 % 4</code></td>
 <td><code>0</code></td>
 <td><span class="table-comment">скобки меняют порядок вычислений</span></td>
 </tr>
@@ -3938,22 +4204,22 @@
 </thead>
 <tbody>
 <tr>
-<td><code>string("My ") + "Precious"</code></td>
+<td><code class="table-expression">string("My ") + "Precious"</code></td>
 <td><code>"My Precious"</code></td>
 <td><span class="table-comment">пробелы внутри строк важны</span></td>
 </tr>
 <tr>
-<td><code>string("1234") + "99"</code></td>
+<td><code class="table-expression">string("1234") + "99"</code></td>
 <td><code>"123499"</code></td>
 <td><span class="table-comment">строки не складываются как числа</span></td>
 </tr>
 <tr>
-<td><code>string("A") + "B" + "C"</code></td>
+<td><code class="table-expression">string("A") + "B" + "C"</code></td>
 <td><code>"ABC"</code></td>
 <td><span class="table-comment">можно склеивать несколько строк в одном выражении</span></td>
 </tr>
 <tr>
-<td><code>string("Привет, ") + "мир!"</code></td>
+<td><code class="table-expression">string("Привет, ") + "мир!"</code></td>
 <td><code>"Привет, мир!"</code></td>
 <td><span class="table-comment">можно работать и с русскими строками</span></td>
 </tr>
@@ -4264,52 +4530,52 @@
 </thead>
 <tbody>
 <tr>
-<td><code>20 + 3</code></td>
+<td><code class="table-expression">20 + 3</code></td>
 <td><code>23</code></td>
 <td><span class="table-comment">сложение</span></td>
 </tr>
 <tr>
-<td><code>20 - 3</code></td>
+<td><code class="table-expression">20 - 3</code></td>
 <td><code>17</code></td>
 <td><span class="table-comment">вычитание</span></td>
 </tr>
 <tr>
-<td><code>20 * 3</code></td>
+<td><code class="table-expression">20 * 3</code></td>
 <td><code>60</code></td>
 <td><span class="table-comment">умножение</span></td>
 </tr>
 <tr>
-<td><code>20 / 3</code></td>
+<td><code class="table-expression">20 / 3</code></td>
 <td><code>6</code></td>
 <td><span class="table-comment">дробная часть отбрасывается</span></td>
 </tr>
 <tr>
-<td><code>20 % 3</code></td>
+<td><code class="table-expression">20 % 3</code></td>
 <td><code>2</code></td>
 <td><span class="table-comment">остаток от деления</span></td>
 </tr>
 <tr>
-<td><code>21 % 5</code></td>
+<td><code class="table-expression">21 % 5</code></td>
 <td><code>1</code></td>
 <td><span class="table-comment">остаток после деления на 5</span></td>
 </tr>
 <tr>
-<td><code>38 % 10</code></td>
+<td><code class="table-expression">38 % 10</code></td>
 <td><code>8</code></td>
 <td><span class="table-comment">последняя цифра числа</span></td>
 </tr>
 <tr>
-<td><code>24 % 2</code></td>
+<td><code class="table-expression">24 % 2</code></td>
 <td><code>0</code></td>
 <td><span class="table-comment">проверка на чётность</span></td>
 </tr>
 <tr>
-<td><code>20 / 0</code></td>
+<td><code class="table-expression">20 / 0</code></td>
 <td>ошибка</td>
 <td><span class="table-comment">на ноль делить нельзя</span></td>
 </tr>
 <tr>
-<td><code>2147483647 + 1</code></td>
+<td><code class="table-expression">2147483647 + 1</code></td>
 <td>не определено</td>
 <td><span class="table-comment">выход за границы signed <code>int</code></span></td>
 </tr>
@@ -4387,38 +4653,38 @@
 </thead>
 <tbody>
 <tr>
-<td><code>3 * 5 - 2</code></td>
-<td><code>(3 * 5) - 2</code></td>
+<td><code class="table-expression">3 * 5 - 2</code></td>
+<td><code class="table-expression">(3 * 5) - 2</code></td>
 <td><code>13</code></td>
 <td><span class="table-comment"><code>*</code> выполняется раньше <code>-</code></span></td>
 </tr>
 <tr>
-<td><code>20 + 5 / 2</code></td>
-<td><code>20 + (5 / 2)</code></td>
+<td><code class="table-expression">20 + 5 / 2</code></td>
+<td><code class="table-expression">20 + (5 / 2)</code></td>
 <td><code>22</code></td>
 <td><span class="table-comment"><code>/</code> выполняется раньше <code>+</code></span></td>
 </tr>
 <tr>
-<td><code>20 - 17 % 5</code></td>
-<td><code>20 - (17 % 5)</code></td>
+<td><code class="table-expression">20 - 17 % 5</code></td>
+<td><code class="table-expression">20 - (17 % 5)</code></td>
 <td><code>18</code></td>
 <td><span class="table-comment"><code>%</code> выполняется раньше <code>-</code></span></td>
 </tr>
 <tr>
-<td><code>18 / 5 * 2</code></td>
-<td><code>(18 / 5) * 2</code></td>
+<td><code class="table-expression">18 / 5 * 2</code></td>
+<td><code class="table-expression">(18 / 5) * 2</code></td>
 <td><code>6</code></td>
 <td><span class="table-comment"><code>/</code> и <code>*</code> имеют одинаковый приоритет</span></td>
 </tr>
 <tr>
-<td><code>17 % 5 % 3</code></td>
-<td><code>(17 % 5) % 3</code></td>
+<td><code class="table-expression">17 % 5 % 3</code></td>
+<td><code class="table-expression">(17 % 5) % 3</code></td>
 <td><code>2</code></td>
 <td><span class="table-comment"><code>%</code> выполняется слева направо</span></td>
 </tr>
 <tr>
-<td><code>20 % (7 - 3)</code></td>
-<td><code>20 % 4</code></td>
+<td><code class="table-expression">20 % (7 - 3)</code></td>
+<td><code class="table-expression">20 % 4</code></td>
 <td><code>0</code></td>
 <td><span class="table-comment">скобки меняют порядок вычислений</span></td>
 </tr>

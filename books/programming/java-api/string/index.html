@@ -89,14 +89,6 @@
   
 
 
-  
-  
-
-<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1WM295NZ74"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1WM295NZ74",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1WM295NZ74",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
-
     
     
   </head>
@@ -264,7 +256,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../informatics/number-systems/number-systems-intro/" class="md-tabs__link">
+        <a href="../../../informatics/logic/logic/" class="md-tabs__link">
           
   
   
@@ -891,7 +883,7 @@
   <span class="md-ellipsis">
     
   
-    Кодирование информации
+    Логика
   
 
     
@@ -904,6 +896,148 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Логика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Алгебра логики
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические элементы и схемы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1880,11 +2014,11 @@
 <tbody>
 <tr>
 <td><code>int length()</code></td>
-<td>Длина строки (количество символов).</td>
+<td><span class="table-comment">Длина строки (количество символов).</span></td>
 </tr>
 <tr>
 <td><code>char charAt(int i)</code></td>
-<td>Символ по индексу <code>i</code> (от 0 до <code>length() - 1</code>).</td>
+<td><span class="table-comment">Символ по индексу <code>i</code> (от 0 до <code>length() - 1</code>).</span></td>
 </tr>
 </tbody>
 </table>
@@ -1907,11 +2041,11 @@
 <tbody>
 <tr>
 <td><code>boolean equals(String other)</code></td>
-<td>Истина, если строки одинаковы посимвольно.</td>
+<td><span class="table-comment">Истина, если строки одинаковы посимвольно.</span></td>
 </tr>
 <tr>
 <td><code>boolean equalsIgnoreCase(String other)</code></td>
-<td>То же, но без учёта регистра.</td>
+<td><span class="table-comment">То же, но без учёта регистра.</span></td>
 </tr>
 </tbody>
 </table>
@@ -1948,11 +2082,11 @@
 <tbody>
 <tr>
 <td><code>String substring(int beginIndex)</code></td>
-<td>Подстрока от <code>beginIndex</code> до конца строки.</td>
+<td><span class="table-comment">Подстрока от <code>beginIndex</code> до конца строки.</span></td>
 </tr>
 <tr>
 <td><code>String substring(int beginIndex, int endIndex)</code></td>
-<td>Подстрока от <code>beginIndex</code> до <code>endIndex - 1</code>.</td>
+<td><span class="table-comment">Подстрока от <code>beginIndex</code> до <code>endIndex - 1</code>.</span></td>
 </tr>
 </tbody>
 </table>
@@ -1975,23 +2109,23 @@
 <tbody>
 <tr>
 <td><code>int indexOf(String str)</code></td>
-<td>Индекс первого вхождения <code>str</code>, либо <code>-1</code>, если нет.</td>
+<td><span class="table-comment">Индекс первого вхождения <code>str</code>, либо <code>-1</code>, если нет.</span></td>
 </tr>
 <tr>
 <td><code>int indexOf(char ch)</code></td>
-<td>Индекс первого вхождения символа <code>ch</code>, либо <code>-1</code>.</td>
+<td><span class="table-comment">Индекс первого вхождения символа <code>ch</code>, либо <code>-1</code>.</span></td>
 </tr>
 <tr>
 <td><code>boolean contains(CharSequence s)</code></td>
-<td>Содержит ли строка подстроку <code>s</code>.</td>
+<td><span class="table-comment">Содержит ли строка подстроку <code>s</code>.</span></td>
 </tr>
 <tr>
 <td><code>boolean startsWith(String prefix)</code></td>
-<td>Начинается ли строка с <code>prefix</code>.</td>
+<td><span class="table-comment">Начинается ли строка с <code>prefix</code>.</span></td>
 </tr>
 <tr>
 <td><code>boolean endsWith(String suffix)</code></td>
-<td>Заканчивается ли строка на <code>suffix</code>.</td>
+<td><span class="table-comment">Заканчивается ли строка на <code>suffix</code>.</span></td>
 </tr>
 </tbody>
 </table>
@@ -2018,15 +2152,15 @@
 <tbody>
 <tr>
 <td><code>String toLowerCase()</code></td>
-<td>Копия строки в нижнем регистре.</td>
+<td><span class="table-comment">Копия строки в нижнем регистре.</span></td>
 </tr>
 <tr>
 <td><code>String toUpperCase()</code></td>
-<td>Копия строки в верхнем регистре.</td>
+<td><span class="table-comment">Копия строки в верхнем регистре.</span></td>
 </tr>
 <tr>
 <td><code>String trim()</code></td>
-<td>Копия строки без пробелов по краям.</td>
+<td><span class="table-comment">Копия строки без пробелов по краям.</span></td>
 </tr>
 </tbody>
 </table>
@@ -2049,7 +2183,7 @@
 <tbody>
 <tr>
 <td><code>String[] split(String regex)</code></td>
-<td>Делит строку по разделителю <code>regex</code>.</td>
+<td><span class="table-comment">Делит строку по разделителю <code>regex</code>.</span></td>
 </tr>
 </tbody>
 </table>

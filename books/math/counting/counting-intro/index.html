@@ -89,14 +89,6 @@
   
 
 
-  
-  
-
-<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1WM295NZ74"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1WM295NZ74",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1WM295NZ74",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
-
     
     
   </head>
@@ -268,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../informatics/number-systems/number-systems-intro/" class="md-tabs__link">
+        <a href="../../../informatics/logic/logic/" class="md-tabs__link">
           
   
   
@@ -906,7 +898,7 @@
   <span class="md-ellipsis">
     
   
-    Кодирование информации
+    Логика
   
 
     
@@ -919,6 +911,148 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Логика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Алгебра логики
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../informatics/logic/logic-circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические элементы и схемы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1958,7 +2092,12 @@
     </div>
 
     <div class="pdf-slides-canvas-wrap">
-      <canvas id="pdfCanvas_2" class="pdf-slides-canvas"></canvas>
+      <div id="pdfStatus_2" class="pdf-slides-status" hidden>
+        <div class="pdf-slides-status__spinner" aria-hidden="true"></div>
+        <div id="pdfStatusTitle_2" class="pdf-slides-status__title">Загружаем слайды…</div>
+        <div id="pdfStatusText_2" class="pdf-slides-status__text">После загрузки здесь появится первый слайд.</div>
+      </div>
+      <canvas id="pdfCanvas_2" class="pdf-slides-canvas" hidden></canvas>
     </div>
   </div>
 </div>
@@ -1970,9 +2109,13 @@
 
   const canvas = document.getElementById("pdfCanvas_2");
   const ctx = canvas.getContext("2d");
+  const status = document.getElementById("pdfStatus_2");
+  const statusTitle = document.getElementById("pdfStatusTitle_2");
+  const statusText = document.getElementById("pdfStatusText_2");
   const btnPrev = document.getElementById("pdfPrev_2");
   const btnNext = document.getElementById("pdfNext_2");
   const info = document.getElementById("pdfInfo_2");
+  const safeTitle = "\u0414\u0435\u0440\u0435\u0432\u043e \u0432\u0430\u0440\u0438\u0430\u043d\u0442\u043e\u0432 \u043f\u043e \u0448\u0430\u0433\u0430\u043c";
 
   let pdfjsLib = null;
   let pdfLoadPromise = null;
@@ -1985,11 +2128,53 @@
   let pendingPage = null;
   let renderCache = new Map();
   let cacheContainerWidth = 0;
+  let hasRenderedPage = false;
 
   function updateUI() {
     info.textContent = `${pageNum} / ${totalPages}`;
     btnPrev.disabled = pageNum <= 1;
     btnNext.disabled = pageNum >= totalPages;
+  }
+
+  function setStatus(state, title, text) {
+    status.hidden = false;
+    status.dataset.state = state;
+    statusTitle.textContent = title;
+    statusText.textContent = text;
+    canvas.hidden = true;
+
+    if (state === "loading") {
+      info.textContent = "Загрузка…";
+    } else if (state === "error") {
+      info.textContent = "Ошибка";
+    }
+
+    btnPrev.disabled = true;
+    btnNext.disabled = true;
+    viewer.setAttribute("aria-busy", state === "loading" ? "true" : "false");
+  }
+
+  function showLoadingStatus() {
+    const isTrace = /трассиров/i.test(safeTitle);
+    const title = isTrace ? "Загружаем трассировку…" : `Загружаем «${safeTitle}»…`;
+    const text = isTrace
+      ? "Первый запуск может занять несколько секунд. После загрузки здесь появится первый кадр трассировки."
+      : "Первый запуск может занять несколько секунд. После загрузки здесь появится первый слайд.";
+    setStatus("loading", title, text);
+  }
+
+  function showErrorStatus() {
+    setStatus(
+      "error",
+      "Не удалось открыть слайды",
+      "Попробуйте открыть блок ещё раз или обновить страницу."
+    );
+  }
+
+  function showCanvas() {
+    status.hidden = true;
+    canvas.hidden = false;
+    viewer.setAttribute("aria-busy", "false");
   }
 
   function getContainerWidth() {
@@ -2063,6 +2248,9 @@
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(scratchCanvas, 0, 0);
+    hasRenderedPage = true;
+    showCanvas();
+    updateUI();
     warmNeighbor(num - 1);
     warmNeighbor(num + 1);
 
@@ -2126,6 +2314,13 @@
   }
 
   async function initIfNeeded() {
+    if (hasRenderedPage) {
+      showCanvas();
+      updateUI();
+      return;
+    }
+
+    showLoadingStatus();
     await loadPdfIfNeeded();
     resetCacheIfNeeded();
     await renderPage(pageNum);
@@ -2164,7 +2359,7 @@
         schedulePreloadWhenIdle();
       }
     }, {
-      rootMargin: "300px 0px",
+      rootMargin: "1200px 0px",
     });
     preloadObserver.observe(card);
   } else {
@@ -2188,7 +2383,12 @@
       btnToggle.setAttribute("aria-expanded", "true");
       btnToggle.title = "Скрыть слайды";
       btnToggle.setAttribute("aria-label", "Скрыть слайды: Дерево вариантов по шагам");
-      await initIfNeeded();
+      try {
+        await initIfNeeded();
+      } catch (error) {
+        showErrorStatus();
+        console.error("pdf_slides init failed", error);
+      }
     } else {
       viewer.style.display = "none";
       btnToggle.setAttribute("aria-expanded", "false");

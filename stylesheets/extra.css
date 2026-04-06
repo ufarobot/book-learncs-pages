@@ -34,6 +34,7 @@
     --color-inline-code: #1565C0;
     --color-code-block-bg: rgba(227, 242, 253, 0.21);
     --color-body-text: #1a1a1a;
+    --color-table-expression: #2e7d32;
     --color-io-label: #111111;
     --color-io-pre-bg: #f3f6fa;
     --color-io-pre-text: #151515;
@@ -67,15 +68,15 @@
     --color-task-bg: rgba(208, 235, 249, 0.18);
     --color-task-title-text: rgba(0, 0, 0, 0.75);
 
-    --color-answer-chip-bg: rgba(243, 247, 251, 0.98);
-    --color-answer-chip-border: rgba(189, 206, 224, 0.42);
-    --color-answer-chip-text: rgba(0, 0, 0, 0.66);
-    --color-answer-panel-bg: rgba(243, 247, 252, 0.96);
-    --color-answer-panel-border: rgba(200, 217, 235, 0.3);
-    --color-answer-panel-accent: rgba(103, 198, 243, 0.18);
-    --color-answer-code-bg: rgba(249, 252, 255, 0.98);
-    --color-answer-comment-divider: rgba(188, 206, 225, 0.32);
-    --shadow-answer-panel: 0 1px 2px rgba(9, 90, 166, 0.04);
+    --color-answer-chip-bg: rgba(255, 243, 212, 0.98);
+    --color-answer-chip-border: rgba(205, 168, 88, 0.5);
+    --color-answer-chip-text: rgba(73, 49, 5, 0.82);
+    --color-answer-panel-bg: rgba(255, 246, 222, 0.97);
+    --color-answer-panel-border: rgba(210, 175, 96, 0.42);
+    --color-answer-panel-accent: rgba(253, 155, 0, 0.16);
+    --color-answer-code-bg: rgba(255, 250, 238, 0.98);
+    --color-answer-comment-divider: rgba(210, 179, 110, 0.38);
+    --shadow-answer-panel: 0 1px 2px rgba(116, 84, 20, 0.08);
 }
 
 /* Фиксируем базовый rem-уровень: отключаем responsive-скейлинг Material по ширине окна */
@@ -298,6 +299,14 @@ body {
 .md-typeset .table-comment {
     color: inherit;
     font-style: italic;
+}
+
+.md-typeset table:not([class]) td code.table-expression {
+    color: var(--color-table-expression) !important;
+}
+
+.md-typeset table:not([class]) td .table-expression:not(code) {
+    color: var(--color-table-expression) !important;
 }
 
 .md-typeset .md-typeset__scrollwrap + p.table-caption,
@@ -837,9 +846,55 @@ body {
     background: var(--color-surface);
 }
 
+.md-typeset .pdf-slides-status {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 1.15rem 1.25rem;
+    text-align: center;
+    color: var(--color-slides-title-text);
+}
+
+.md-typeset .pdf-slides-status__spinner {
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 2px solid rgba(24, 99, 170, 0.18);
+    border-top-color: rgba(24, 99, 170, 0.78);
+    border-radius: 999px;
+    animation: pdf-slides-spin 0.9s linear infinite;
+}
+
+.md-typeset .pdf-slides-status[data-state="error"] .pdf-slides-status__spinner {
+    display: none;
+}
+
+.md-typeset .pdf-slides-status__title {
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.md-typeset .pdf-slides-status__text {
+    max-width: 34rem;
+    font-size: 0.92em;
+    line-height: 1.45;
+    opacity: 0.82;
+}
+
 .md-typeset .pdf-slides-canvas {
     display: block;
     margin: 0 auto;
+}
+
+@keyframes pdf-slides-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ===== Таблицы внутри контентных блоков (admonitions) =====
@@ -931,13 +986,7 @@ body {
 }
 
 .md-typeset details.answer[open] {
-    background:
-        linear-gradient(
-            90deg,
-            var(--color-answer-panel-accent) 0,
-            var(--color-answer-panel-accent) 2px,
-            var(--color-answer-panel-bg) 2px
-        );
+    background: var(--color-answer-panel-bg);
     border-radius: 10px;
     box-shadow: var(--shadow-answer-panel);
     padding: 0.75rem 0.9rem 0.85rem;
