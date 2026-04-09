@@ -2042,12 +2042,13 @@
 </tbody>
 </table>
 <div class="admonition definition">
-<p>Если записывать такие утверждения математическим языком, мы получаем <strong>логические выражения</strong>.</p>
+<p>Если записать логическое высказывание на языке математики, то получим <strong>логическое выражение</strong>.</p>
 </div>
 <p>Например:</p>
 <table>
 <thead>
 <tr>
+<th>Высказывание</th>
 <th>Выражение</th>
 <th>Значение при x = 7</th>
 <th>Значение при x = 4</th>
@@ -2055,21 +2056,25 @@
 </thead>
 <tbody>
 <tr>
+<td><span class="table-expression">x равно 7</span></td>
 <td><code>x == 7</code></td>
 <td><code>true</code></td>
 <td><code>false</code></td>
 </tr>
 <tr>
+<td><span class="table-expression">x больше 5</span></td>
 <td><code>x &gt; 5</code></td>
 <td><code>true</code></td>
 <td><code>false</code></td>
 </tr>
 <tr>
+<td><span class="table-expression">x не равно 7</span></td>
 <td><code>x != 7</code></td>
 <td><code>false</code></td>
 <td><code>true</code></td>
 </tr>
 <tr>
+<td><span class="table-expression">x нечётно</span></td>
 <td><code>x % 2 == 1</code></td>
 <td><code>true</code></td>
 <td><code>false</code></td>
@@ -2083,11 +2088,11 @@
 <li>остаток от деления — %</li>
 <li>истину и ложь будем записывать как true и false</li>
 </ul>
-<h1 id="_2">Операции сравнения</h1>
+<h2 id="_2">Операции сравнения</h2>
+<p>В примерах выше мы использовали операторы сравнения – они помогают записывать условия</p>
 <div class="admonition definition">
-<p>Операторы сравнения сравнивают два значения. Результат такого сравнения — true или false, то есть логическое значение типа boolean.</p>
+<p>Операторы сравнения сравнивают два значения. Результат такого сравнения — true или false.</p>
 </div>
-<p>Самые важные операторы сравнения:</p>
 <table>
 <thead>
 <tr>
@@ -2136,17 +2141,6 @@
 </tr>
 </tbody>
 </table>
-<p>Например:</p>
-<ul>
-<li>x % 2 == 0 — число <span class="arithmatex">\(x\)</span> чётное</li>
-<li>year % 100 == 0 — год оканчивается на два нуля</li>
-<li>x != 7 — число <span class="arithmatex">\(x\)</span> не равно <span class="arithmatex">\(7\)</span></li>
-</ul>
-<p>Две важные особенности:</p>
-<ul>
-<li>Для сравнения на равенство в программировании пишут ==, а не =.</li>
-<li>Запись <span class="arithmatex">\(1 \le x \le 10\)</span> привычна в математике, но в программировании обычно пишут x &gt;= 1 &amp;&amp; x &lt;= 10.</li>
-</ul>
 <h1 id="_3">Составные логические выражения</h1>
 <p>Логические выражения можно объединять с помощью <span style="color: var(--color-book-blue);">И</span>, <span style="color: var(--color-book-blue);">ИЛИ</span>, <span style="color: var(--color-book-blue);">НЕ</span>.</p>
 <p>Например, если нужно проверить, что <span class="arithmatex">\(x\)</span> нечётно и больше <span class="arithmatex">\(5\)</span>, получаем выражение.</p>
@@ -2179,81 +2173,105 @@
 <p><strong>Ответ:</strong> при x = 7 значение выражения x % 2 == 1 И x &gt; 5 равно true.</p>
 </div>
 <p>И, ИЛИ, НЕ — это логические операторы.</p>
-<p>В программировании их обычно обозначают так:</p>
-<div class="admonition definition">
-<ul>
-<li><code>A &amp;&amp; B</code>: логическое И — истинно, если истинны обе части.</li>
-<li><code>A || B</code>: логическое ИЛИ — истинно, если истинна хотя бы одна часть.</li>
-<li><code>!A</code>: логическое НЕ — меняет значение на обратное: если было <code>true</code>, станет <code>false</code>, а <code>false</code> станет <code>true</code>.</li>
-</ul>
-</div>
+<p>В программировании их обычно записывают так: <code>!</code>, <code>&amp;&amp;</code>, <code>||</code>.</p>
 <p>Данные правила проще понять по таблицам, где в левом столбце перебираются все возможные входные значения, а справа записывается результат выполнения логической операции. Такие таблицы называют <strong>таблицами истинности</strong>.</p>
-<table style="margin: 0 auto 0.5rem; border-collapse: separate; border-spacing: 34px 0;">
-  <tbody>
-    <tr>
-      <td style="vertical-align: top; border: none; padding: 0;">
-        <table style="margin: 0 auto; width: auto; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th><code>A</code></th>
-              <th><code>!A</code></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code class="table-expression">true</code></td>
-              <td><code>false</code></td>
-            </tr>
-            <tr>
-              <td><code class="table-expression">false</code></td>
-              <td><code>true</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-      <td style="vertical-align: top; border: none; padding: 0;">
-        <table style="margin: 0 auto; width: auto; border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th><code>A</code></th>
-              <th><code>B</code></th>
-              <th><code>A && B</code></th>
-              <th><code>A || B</code></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code class="table-expression">false</code></td>
-              <td><code class="table-expression">false</code></td>
-              <td><code>false</code></td>
-              <td><code>false</code></td>
-            </tr>
-            <tr>
-              <td><code class="table-expression">false</code></td>
-              <td><code class="table-expression">true</code></td>
-              <td><code>false</code></td>
-              <td><code>true</code></td>
-            </tr>
-            <tr>
-              <td><code class="table-expression">true</code></td>
-              <td><code class="table-expression">false</code></td>
-              <td><code>false</code></td>
-              <td><code>true</code></td>
-            </tr>
-            <tr>
-              <td><code class="table-expression">true</code></td>
-              <td><code class="table-expression">true</code></td>
-              <td><code>true</code></td>
-              <td><code>true</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
+<h2 id="_4">Логическое НЕ</h2>
+<p><code>!A</code> — логическое НЕ.</p>
+<p>Оно меняет значение на противоположное.</p>
+<p>Если <code>A</code> равно <code>true</code>, то <code>!A</code> равно <code>false</code>. Если <code>A</code> равно <code>false</code>, то <code>!A</code> равно <code>true</code>.</p>
+<table>
+<thead>
+<tr>
+<th><code>A</code></th>
+<th><code>!A</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
 </table>
+<p class="table-caption">Таблица истинности для НЕ</p>
 
-<p style="margin: 0 0 1rem; text-align: center; color: var(--color-book-blue); font-style: italic;">Таблицы истинности для логических операций</p>
+<h2 id="_5">Логическое И</h2>
+<p><code>A &amp;&amp; B</code> — логическое И.</p>
+<p>Оно истинно только тогда, когда истинны обе части.</p>
+<p>Если хотя бы одна часть ложна, всё выражение <code>A &amp;&amp; B</code> тоже ложно.</p>
+<table>
+<thead>
+<tr>
+<th><code>A</code></th>
+<th><code>B</code></th>
+<th><code>A &amp;&amp; B</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Таблица истинности для И</p>
+
+<h2 id="_6">Логическое ИЛИ</h2>
+<p><code>A || B</code> — логическое ИЛИ.</p>
+<p>Оно истинно, если истинна хотя бы одна часть.</p>
+<p>Ложным выражение <code>A || B</code> бывает только тогда, когда <code>A</code> и <code>B</code> равны <code>false</code>.</p>
+<table>
+<thead>
+<tr>
+<th><code>A</code></th>
+<th><code>B</code></th>
+<th><code>A || B</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Таблица истинности для ИЛИ</p>
 
 <details class="question-block">
 <summary>Задачи для тренировки</summary>

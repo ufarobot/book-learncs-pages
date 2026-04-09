@@ -2091,18 +2091,140 @@
 </tbody>
 </table>
 <p>Здесь ! обычно не оставляют снаружи, а сразу заменяют сравнение на противоположное. Так запись получается короче и понятнее.</p>
-<p>На числовой оси это особенно хорошо видно:</p>
-<p><img alt="" src="../images/logic-algebra-negation-numberline.svg" style="display:block; margin:0.75rem auto; max-width:900px;" /></p>
-<p>Верхняя пара строк показывает, что отрицание условия x &gt; 3 даёт x &lt;= 3.</p>
-<p>Нижняя пара строк показывает отрицание интервала: если условие 2 &lt; x &lt; 6 ложно, значит число находится слева от интервала или справа от него.</p>
-<p>В программной записи это выглядит так:</p>
-<p>!(x &gt; 2 &amp;&amp; x &lt; 6) = x &lt;= 2 || x &gt;= 6</p>
-<p>Здесь как раз и работает закон де Моргана:</p>
+<h2 id="_6">Логические выражения на числовой прямой</h2>
+<p>Логические выражения часто связаны с числами. Например, нужно понять, при каких значениях <span class="arithmatex">\(x\)</span> выполняются сразу два условия или хотя бы одно из них.</p>
+<p>В таких задачах удобно пользоваться числовой прямой. Она помогает не только вычислить ответ, но и увидеть его: для И мы берём общую часть, для ИЛИ — объединение, для НЕ — дополнение.</p>
+<p>На схемах ниже будем использовать обычную математическую запись: <span class="arithmatex">\(x &gt; 2\)</span>, <span class="arithmatex">\(x \le 7\)</span>, <span class="arithmatex">\(x \ne 4\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-overview.svg" style="display:block; margin:0.75rem auto; max-width:900px;" /></p>
+<h3 id="_7">Простые условия для чисел</h3>
+<p>Высказывание о числе часто задаётся равенством или неравенством.</p>
 <ul>
-<li>отрицание проходит внутрь;</li>
-<li>&amp;&amp; меняется на ||;</li>
-<li>каждое сравнение заменяется на противоположное.</li>
+<li><span class="arithmatex">\(x &gt; 3\)</span></li>
+<li><span class="arithmatex">\(x \le 10\)</span></li>
+<li><span class="arithmatex">\(x = 5\)</span></li>
+<li><span class="arithmatex">\(x \ne 7\)</span></li>
 </ul>
+<p>Каждое такое выражение может быть истинным или ложным в зависимости от значения <span class="arithmatex">\(x\)</span>.</p>
+<p>Например, если <span class="arithmatex">\(x = 6\)</span>, то выражение <span class="arithmatex">\(x &gt; 3\)</span> истинно, а выражение <span class="arithmatex">\(x = 5\)</span> ложно.</p>
+<p>На числовой прямой условию <span class="arithmatex">\(x &gt; 3\)</span> соответствуют все точки правее числа <span class="arithmatex">\(3\)</span>, а условию <span class="arithmatex">\(x \le 10\)</span> — все точки левее <span class="arithmatex">\(10\)</span> и сама точка <span class="arithmatex">\(10\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-simple.svg" style="display:block; margin:0.75rem auto; max-width:900px;" /></p>
+<h3 id="_8">Логическое И на числовой прямой</h3>
+<p>Логическое И означает, что должны одновременно выполняться оба условия. Поэтому на числовой прямой нужно найти их общую часть.</p>
+<p>Рассмотрим выражение:</p>
+<p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">x &gt; 2 <span style="color: var(--color-book-blue);">И</span> x &lt; 7</p>
+
+<p>Первое условие задаёт все числа правее <span class="arithmatex">\(2\)</span>. Второе условие задаёт все числа левее <span class="arithmatex">\(7\)</span>.</p>
+<p>Если оба условия должны выполняться одновременно, подходят только числа между <span class="arithmatex">\(2\)</span> и <span class="arithmatex">\(7\)</span>.</p>
+<p>Ответ: <span class="arithmatex">\(2 &lt; x &lt; 7\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-and.svg" style="display:block; margin:0.75rem auto; max-width:900px;" /></p>
+<p>Ещё пример:</p>
+<div class="arithmatex">\[
+x \ge 1 \text{ И } x \le 4
+\]</div>
+<p>Оба условия одновременно выполняются для чисел от <span class="arithmatex">\(1\)</span> до <span class="arithmatex">\(4\)</span> включительно.</p>
+<p>Ответ: <span class="arithmatex">\(1 \le x \le 4\)</span>.</p>
+<h3 id="_9">Логическое ИЛИ на числовой прямой</h3>
+<p>Логическое ИЛИ означает, что должно выполняться хотя бы одно из условий. Поэтому на числовой прямой нужно объединить все подходящие значения.</p>
+<p>Рассмотрим выражение:</p>
+<p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">x &lt; 0 <span style="color: var(--color-book-blue);">ИЛИ</span> x &gt; 5</p>
+
+<p>Подходят:</p>
+<ul>
+<li>все числа левее <span class="arithmatex">\(0\)</span>;</li>
+<li>все числа правее <span class="arithmatex">\(5\)</span>.</li>
+</ul>
+<p>Ответ состоит из двух частей: <span class="arithmatex">\(x &lt; 0\)</span> или <span class="arithmatex">\(x &gt; 5\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-or.svg" style="display:block; margin:0.75rem auto; max-width:900px;" /></p>
+<p>Ещё пример:</p>
+<div class="arithmatex">\[
+x \le 2 \text{ ИЛИ } x \ge 6
+\]</div>
+<p>Подходят все числа не больше <span class="arithmatex">\(2\)</span> и все числа не меньше <span class="arithmatex">\(6\)</span>.</p>
+<h3 id="_10">Отрицание условия</h3>
+<p>Отрицание меняет условие на противоположное.</p>
+<p>Если дано условие <span class="arithmatex">\(x &gt; 3\)</span>, то его отрицание означает <span class="arithmatex">\(x \le 3\)</span>.</p>
+<p>Если дано условие <span class="arithmatex">\(x &lt; 5\)</span>, то его отрицание означает <span class="arithmatex">\(x \ge 5\)</span>.</p>
+<p>На числовой прямой это удобно понимать так: мы берём все числа, которые не подходят под исходное условие.</p>
+<p><img alt="" src="../images/logic-algebra-negation-numberline.svg" style="display:block; margin:0.75rem auto; max-width:900px;" /></p>
+<p>Верхняя пара строк показывает, что отрицание условия <span class="arithmatex">\(x &gt; 3\)</span> даёт <span class="arithmatex">\(x \le 3\)</span>.</p>
+<p>Нижняя пара строк показывает отрицание интервала: если условие <span class="arithmatex">\(2 &lt; x &lt; 6\)</span> ложно, значит число находится слева от интервала или справа от него.</p>
+<p>Ответ:</p>
+<div class="arithmatex">\[
+x \le 2 \text{ ИЛИ } x \ge 6
+\]</div>
+<p>Здесь как раз работает закон де Моргана: отрицание проходит внутрь, И меняется на ИЛИ, а каждое сравнение заменяется на противоположное.</p>
+<h3 id="_11">Составные условия на числовой прямой</h3>
+<p>Теперь рассмотрим более сложные выражения.</p>
+<p>Пример 1:</p>
+<p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">(x &gt; 1 <span style="color: var(--color-book-blue);">И</span> x &lt; 8) <span style="color: var(--color-book-blue);">И</span> x &ne; 4</p>
+
+<p>Сначала условие <span class="arithmatex">\(x &gt; 1\)</span> и <span class="arithmatex">\(x &lt; 8\)</span> даёт промежуток <span class="arithmatex">\(1 &lt; x &lt; 8\)</span>.</p>
+<p>Но число <span class="arithmatex">\(4\)</span> должно быть исключено.</p>
+<p>Значит, подходят все числа между <span class="arithmatex">\(1\)</span> и <span class="arithmatex">\(8\)</span>, кроме <span class="arithmatex">\(4\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-hole.svg" style="display:block; margin:0.75rem auto; max-width:900px;" /></p>
+<p>Пример 2:</p>
+<div class="arithmatex">\[
+(x &lt; 2) \text{ ИЛИ } (3 \le x &lt; 6)
+\]</div>
+<p>Первая часть даёт все числа левее <span class="arithmatex">\(2\)</span>. Вторая часть даёт промежуток от <span class="arithmatex">\(3\)</span> до <span class="arithmatex">\(6\)</span>, где <span class="arithmatex">\(3\)</span> включается, а <span class="arithmatex">\(6\)</span> нет.</p>
+<p>Ответ состоит из двух частей:</p>
+<ul>
+<li><span class="arithmatex">\(x &lt; 2\)</span></li>
+<li><span class="arithmatex">\(3 \le x &lt; 6\)</span></li>
+</ul>
+<h3 id="_12">Как разбирать такие выражения</h3>
+<p>Удобный порядок такой:</p>
+<ol>
+<li>Разделить выражение на простые условия.</li>
+<li>Для каждого условия отметить подходящие числа на числовой прямой.</li>
+<li>Если стоит И — взять общую часть.</li>
+<li>Если стоит ИЛИ — взять объединение.</li>
+<li>Если есть НЕ — заменить условие на противоположное.</li>
+<li>Записать итог.</li>
+</ol>
+<h3 id="_13">Примеры</h3>
+<h4 id="1">Пример 1</h4>
+<p>Найти все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<div class="arithmatex">\[
+x &gt; 0 \text{ И } x &lt; 5
+\]</div>
+<p>Решение:</p>
+<ul>
+<li>первое условие задаёт все числа правее <span class="arithmatex">\(0\)</span>;</li>
+<li>второе условие задаёт все числа левее <span class="arithmatex">\(5\)</span>;</li>
+<li>берём общую часть.</li>
+</ul>
+<p>Ответ: <span class="arithmatex">\(0 &lt; x &lt; 5\)</span>.</p>
+<h4 id="2">Пример 2</h4>
+<p>Найти все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<div class="arithmatex">\[
+x &lt; -2 \text{ ИЛИ } x \ge 4
+\]</div>
+<p>Решение:</p>
+<ul>
+<li>первое условие задаёт все числа левее <span class="arithmatex">\(-2\)</span>;</li>
+<li>второе условие задаёт все числа от <span class="arithmatex">\(4\)</span> и правее;</li>
+<li>берём объединение.</li>
+</ul>
+<p>Ответ: <span class="arithmatex">\(x &lt; -2\)</span> или <span class="arithmatex">\(x \ge 4\)</span>.</p>
+<h4 id="3">Пример 3</h4>
+<p>Найти все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<div class="arithmatex">\[
+\text{НЕ}(x &lt; 3)
+\]</div>
+<p>Решение: если число не меньше <span class="arithmatex">\(3\)</span>, то оно больше или равно <span class="arithmatex">\(3\)</span>.</p>
+<p>Ответ: <span class="arithmatex">\(x \ge 3\)</span>.</p>
+<h4 id="4">Пример 4</h4>
+<p>Найти все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<div class="arithmatex">\[
+(x \ge 1 \text{ И } x \le 6) \text{ И } x \ne 2
+\]</div>
+<p>Решение:</p>
+<ul>
+<li>сначала получаем отрезок от <span class="arithmatex">\(1\)</span> до <span class="arithmatex">\(6\)</span>;</li>
+<li>затем исключаем число <span class="arithmatex">\(2\)</span>.</li>
+</ul>
+<p>Ответ: все числа от <span class="arithmatex">\(1\)</span> до <span class="arithmatex">\(6\)</span> включительно, кроме <span class="arithmatex">\(2\)</span>.</p>
 <details class="question-block">
 <summary>Задачи для тренировки</summary>
 <p><strong>1.</strong> Расставьте скобки так, чтобы порядок действий стал явным.</p>
@@ -2157,6 +2279,37 @@
 <p><details class="answer">
 <summary>Ответ</summary></p>
 <p>x &lt;= 1 || x &gt;= 9</p>
+</details>
+<hr />
+<p><strong>6.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых одновременно выполняются условия</p>
+<div class="arithmatex">\[
+x &gt; -1 \text{ И } x \le 4
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+-1 &lt; x \le 4
+\]</div>
+</details>
+<hr />
+<p><strong>7.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<div class="arithmatex">\[
+\text{НЕ}(2 &lt; x &lt; 5)
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+x \le 2 \text{ ИЛИ } x \ge 5
+\]</div>
+</details>
+<hr />
+<p><strong>8.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<div class="arithmatex">\[
+(0 \le x &lt; 7) \text{ И } x \ne 3
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Все числа от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(7\)</span>, где <span class="arithmatex">\(0\)</span> включается, <span class="arithmatex">\(7\)</span> не включается, а число <span class="arithmatex">\(3\)</span> исключается.</p>
 </details>
 </details>
 
