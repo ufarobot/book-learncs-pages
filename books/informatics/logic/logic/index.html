@@ -2005,39 +2005,24 @@
 <tr>
 <th>Утверждение</th>
 <th>Значение</th>
-<th>Комментарий</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><span class="table-expression"><span class="arithmatex">\(7\)</span> — простое число</span></td>
 <td>истина</td>
-<td><span class="table-comment">Это логическое высказывание: можно однозначно определить, истинно оно или ложно.</span></td>
 </tr>
 <tr>
 <td><span class="table-expression"><span class="arithmatex">\(8\)</span> — простое число</span></td>
 <td>ложь</td>
-<td><span class="table-comment">Это логическое высказывание: можно однозначно определить, истинно оно или ложно.</span></td>
-</tr>
-<tr>
-<td><span class="table-expression"><span class="arithmatex">\(23\)</span> — нечётное число</span></td>
-<td>истина</td>
-<td><span class="table-comment">Это логическое высказывание: можно однозначно определить, истинно оно или ложно.</span></td>
-</tr>
-<tr>
-<td><span class="table-expression"><span class="arithmatex">\(23\)</span> — чётное число</span></td>
-<td>ложь</td>
-<td><span class="table-comment">Это логическое высказывание: можно однозначно определить, истинно оно или ложно.</span></td>
 </tr>
 <tr>
 <td><span class="table-expression"><span class="arithmatex">\(7 + 5\)</span></span></td>
-<td><span class="arithmatex">\(12\)</span></td>
-<td><span class="table-comment">Это не логическое высказывание: его значение число.</span></td>
+<td>не является логическим высказыванием</td>
 </tr>
 <tr>
 <td><span class="table-expression">Это красивый рисунок</span></td>
-<td>нельзя однозначно определить</td>
-<td><span class="table-comment">Это не логическое высказывание: нельзя точно сказать, истинно оно или ложно.</span></td>
+<td>не является логическим высказыванием</td>
 </tr>
 </tbody>
 </table>
@@ -2050,32 +2035,32 @@
 <tr>
 <th>Высказывание</th>
 <th>Выражение</th>
-<th>Значение при x = 7</th>
-<th>Значение при x = 4</th>
+<th>Значение при <span class="arithmatex">\(x = 7\)</span></th>
+<th>Значение при <span class="arithmatex">\(x = 4\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><span class="table-expression">x равно 7</span></td>
-<td><code>x == 7</code></td>
+<td><code class="table-expression">x == 7</code></td>
 <td><code>true</code></td>
 <td><code>false</code></td>
 </tr>
 <tr>
 <td><span class="table-expression">x больше 5</span></td>
-<td><code>x &gt; 5</code></td>
+<td><code class="table-expression">x &gt; 5</code></td>
 <td><code>true</code></td>
 <td><code>false</code></td>
 </tr>
 <tr>
 <td><span class="table-expression">x не равно 7</span></td>
-<td><code>x != 7</code></td>
+<td><code class="table-expression">x != 7</code></td>
 <td><code>false</code></td>
 <td><code>true</code></td>
 </tr>
 <tr>
 <td><span class="table-expression">x нечётно</span></td>
-<td><code>x % 2 == 1</code></td>
+<td><code class="table-expression">x % 2 != 0</code></td>
 <td><code>true</code></td>
 <td><code>false</code></td>
 </tr>
@@ -2083,23 +2068,20 @@
 </table>
 <p>Далее в логических выражениях мы будем использовать обозначения, принятые в программировании:</p>
 <ul>
-<li>равенство будем записывать как ==</li>
-<li>не равно будем записывать как !=</li>
-<li>остаток от деления — %</li>
-<li>истину и ложь будем записывать как true и false</li>
+<li>равенство будем записывать как <code>==</code></li>
+<li>не равно будем записывать как <code>!=</code></li>
+<li>остаток от деления — <code>%</code></li>
+<li>истину и ложь будем записывать как <code>true</code> и <code>false</code></li>
 </ul>
 <h2 id="_2">Операции сравнения</h2>
-<p>В примерах выше мы использовали операторы сравнения – они помогают записывать условия</p>
-<div class="admonition definition">
-<p>Операторы сравнения сравнивают два значения. Результат такого сравнения — true или false.</p>
-</div>
+<p>Операторы сравнения сравнивают два значения и дают результат <code>true</code> или <code>false</code>.</p>
 <table>
 <thead>
 <tr>
 <th>Оператор</th>
 <th>Смысл</th>
-<th>true</th>
-<th>false</th>
+<th><code>true</code></th>
+<th><code>false</code></th>
 </tr>
 </thead>
 <tbody>
@@ -2141,73 +2123,72 @@
 </tr>
 </tbody>
 </table>
-<h1 id="_3">Составные логические выражения</h1>
-<p>Логические выражения можно объединять с помощью <span style="color: var(--color-book-blue);">И</span>, <span style="color: var(--color-book-blue);">ИЛИ</span>, <span style="color: var(--color-book-blue);">НЕ</span>.</p>
-<p>Например, если нужно проверить, что <span class="arithmatex">\(x\)</span> нечётно и больше <span class="arithmatex">\(5\)</span>, получаем выражение.</p>
-<p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">x % 2 == 1 <span style="color: var(--color-book-blue);">И</span> x > 5</p>
-
-<p>Это составное логическое выражение. Оно состоит из двух простых частей:</p>
+<h2 id="_3">Логические переменные</h2>
+<p>Логическую переменную удобно использовать, когда нужно коротко обозначить логическое выражение.</p>
+<p>Например, пусть</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>A = x % 2 != 0
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>B = x &gt; 5
+</span></code></pre></div>
+<p>Здесь <span class="arithmatex">\(x\)</span> — обычная числовая переменная. При разных значениях <span class="arithmatex">\(x\)</span> выражения <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> могут быть истинными или ложными.</p>
+<p>В этом примере:</p>
 <ul>
-<li>A = x % 2 == 1</li>
-<li>B = x &gt; 5</li>
+<li><span class="arithmatex">\(A\)</span> истинно, если <span class="arithmatex">\(x\)</span> нечётно</li>
+<li><span class="arithmatex">\(B\)</span> истинно, если <span class="arithmatex">\(x\)</span> больше <span class="arithmatex">\(5\)</span></li>
 </ul>
-<p>Где A и B — это логические переменные. Они принимают значения true или false в зависимости от истинности или ложности выражения, к которому привязаны.</p>
-<div class="admonition comment">
-<p>Такие переменные также называют булевыми. В программировании им соответствует тип данных boolean, названный в честь математика Джорджа Буля.</p>
+<p>Значит, при каждом конкретном значении <span class="arithmatex">\(x\)</span> переменные <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> принимают одно из двух значений: <code>true</code> или <code>false</code>.</p>
+<p>В программировании для таких значений используют тип <code>boolean</code>:</p>
+<div class="admonition comment inline end">
+<p>Название <code>boolean</code> происходит от фамилии Джорджа Буля.</p>
 </div>
-<p>Вычислив значения A и B по отдельности, мы можем найти значение A <span style="color: var(--color-book-blue);">И</span> B.</p>
-<div class="admonition solution">
-<p><strong>Задача:</strong> найти значение выражения x % 2 == 1 И x &gt; 5 при x = 7.</p>
-<hr />
-<p><strong>Решение:</strong></p>
-<p>Сначала найдём значение A.</p>
-<p>A = x % 2 == 1</p>
-<p>A = 7 % 2 == 1</p>
-<p>A = true</p>
-<p>Затем найдём значение B.</p>
-<p>B = x &gt; 5</p>
-<p>B = 7 &gt; 5</p>
-<p>B = true</p>
-<p>Теперь объединим результаты.</p>
-<p>A И B = true И true = true</p>
-<p><strong>Ответ:</strong> при x = 7 значение выражения x % 2 == 1 И x &gt; 5 равно true.</p>
-</div>
-<p>И, ИЛИ, НЕ — это логические операторы.</p>
-<p>В программировании их обычно записывают так: <code>!</code>, <code>&amp;&amp;</code>, <code>||</code>.</p>
-<p>Данные правила проще понять по таблицам, где в левом столбце перебираются все возможные входные значения, а справа записывается результат выполнения логической операции. Такие таблицы называют <strong>таблицами истинности</strong>.</p>
-<h2 id="_4">Логическое НЕ</h2>
-<p><code>!A</code> — логическое НЕ.</p>
-<p>Оно меняет значение на противоположное.</p>
-<p>Если <code>A</code> равно <code>true</code>, то <code>!A</code> равно <code>false</code>. Если <code>A</code> равно <code>false</code>, то <code>!A</code> равно <code>true</code>.</p>
-<table>
-<thead>
-<tr>
-<th><code>A</code></th>
-<th><code>!A</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code class="table-expression">true</code></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code class="table-expression">false</code></td>
-<td><code>true</code></td>
-</tr>
-</tbody>
-</table>
-<p class="table-caption">Таблица истинности для НЕ</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">      </span><span class="c1">// true</span>
+</span></code></pre></div>
+<div style="clear: both"></div>
 
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Какие из следующих утверждений являются логическими высказываниями? Для каждого логического высказывания укажите, истинно оно или ложно.</p>
+<p>a) <span class="arithmatex">\(15\)</span> делится на <span class="arithmatex">\(3\)</span></p>
+<p>b) Закройте окно.</p>
+<p>c) <span class="arithmatex">\(21\)</span> — чётное число.</p>
+<p>d) Это интересная задача.</p>
+<p>e) <span class="arithmatex">\(7 &gt; 10\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) Логическое высказывание, истина.</p>
+<p>b) Не логическое высказывание: это команда.</p>
+<p>c) Логическое высказывание, ложь.</p>
+<p>d) Не логическое высказывание: нельзя однозначно определить, истинно оно или ложно.</p>
+<p>e) Логическое высказывание, ложь.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Найдите значения выражений при <span class="arithmatex">\(x = 2\)</span> и при <span class="arithmatex">\(x = 9\)</span>.</p>
+<p>a) <code>x == 2</code></p>
+<p>b) <code>x != 2</code></p>
+<p>c) <code>x &lt; 5</code></p>
+<p>d) <code>x % 2 == 0</code></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) при <span class="arithmatex">\(x = 2\)</span>: <code>true</code>, при <span class="arithmatex">\(x = 9\)</span>: <code>false</code>.</p>
+<p>b) при <span class="arithmatex">\(x = 2\)</span>: <code>false</code>, при <span class="arithmatex">\(x = 9\)</span>: <code>true</code>.</p>
+<p>c) при <span class="arithmatex">\(x = 2\)</span>: <code>true</code>, при <span class="arithmatex">\(x = 9\)</span>: <code>false</code>.</p>
+<p>d) при <span class="arithmatex">\(x = 2\)</span>: <code>true</code>, при <span class="arithmatex">\(x = 9\)</span>: <code>false</code>.</p>
+</details>
+</details>
+<h1 id="_4">Составные логические выражения</h1>
+<p>Логические выражения можно объединять с помощью операторов И, ИЛИ, НЕ. Далее мы будем использовать обозначения из программирования: <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>.</p>
+<p>Работу этих операторов удобно разбирать по <strong>таблицам истинности</strong>. В них перечисляют все возможные значения входных выражений и для каждого случая указывают результат.</p>
 <h2 id="_5">Логическое И</h2>
-<p><code>A &amp;&amp; B</code> — логическое И.</p>
-<p>Оно истинно только тогда, когда истинны обе части.</p>
-<p>Если хотя бы одна часть ложна, всё выражение <code>A &amp;&amp; B</code> тоже ложно.</p>
+<div class="admonition definition">
+<p><code>A &amp;&amp; B</code> истинно, только если истинны оба выражения.</p>
+</div>
 <table>
 <thead>
 <tr>
-<th><code>A</code></th>
-<th><code>B</code></th>
+<th><span class="arithmatex">\(A\)</span></th>
+<th><span class="arithmatex">\(B\)</span></th>
 <th><code>A &amp;&amp; B</code></th>
 </tr>
 </thead>
@@ -2237,15 +2218,15 @@
 <p class="table-caption">Таблица истинности для И</p>
 
 <h2 id="_6">Логическое ИЛИ</h2>
-<p><code>A || B</code> — логическое ИЛИ.</p>
-<p>Оно истинно, если истинна хотя бы одна часть.</p>
-<p>Ложным выражение <code>A || B</code> бывает только тогда, когда <code>A</code> и <code>B</code> равны <code>false</code>.</p>
+<div class="admonition definition">
+<p><code>A || B</code> истинно, если истинно хотя бы одно выражение.</p>
+</div>
 <table>
 <thead>
 <tr>
-<th><code>A</code></th>
-<th><code>B</code></th>
-<th><code>A || B</code></th>
+<th><span class="arithmatex">\(A\)</span></th>
+<th><span class="arithmatex">\(B\)</span></th>
+<th><code>A &#124;&#124; B</code></th>
 </tr>
 </thead>
 <tbody>
@@ -2273,94 +2254,310 @@
 </table>
 <p class="table-caption">Таблица истинности для ИЛИ</p>
 
+<h2 id="_7">Логическое НЕ</h2>
+<div class="admonition definition">
+<p><code>!A</code> меняет истину на ложь, а ложь на истину.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(A\)</span></th>
+<th><code>!A</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Таблица истинности для НЕ</p>
+
 <details class="question-block">
 <summary>Задачи для тренировки</summary>
-<p><strong>1.</strong> Какие из следующих утверждений являются логическими высказываниями? Для каждого логического высказывания укажите, истинно оно или ложно.</p>
-<p>a) <span class="arithmatex">\(15\)</span> делится на <span class="arithmatex">\(3\)</span></p>
-<p>b) Закрой окно.</p>
-<p>c) <span class="arithmatex">\(21\)</span> — чётное число.</p>
-<p>d) Это интересная задача.</p>
-<p>e) <span class="arithmatex">\(7 &gt; 10\)</span></p>
+<p>На вычисление значения выражения и работу с таблицами истинности.</p>
+<p><strong>1.</strong> Пусть</p>
+<p><code>A = x % 3 == 0</code></p>
+<p><code>B = x &lt; 10</code></p>
+<p>Найдите значения <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span>, <code>A &amp;&amp; B</code>, <code>A || B</code>, <code>!A</code> при <span class="arithmatex">\(x = 12\)</span>.</p>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>a) Логическое высказывание, истина.</p>
-<p>b) Не логическое высказывание: это команда.</p>
-<p>c) Логическое высказывание, ложь.</p>
-<p>d) Не логическое высказывание: нельзя однозначно определить, истинно оно или ложно.</p>
-<p>e) Логическое высказывание, ложь.</p>
+<p><code>A = true</code></p>
+<p><code>B = false</code></p>
+<p><code>A &amp;&amp; B = false</code></p>
+<p><code>A || B = true</code></p>
+<p><code>!A = false</code></p>
 </details>
 <hr />
-<p><strong>2.</strong> Найдите значения выражений при <span class="arithmatex">\(x = 2\)</span> и при <span class="arithmatex">\(x = 9\)</span>.</p>
-<p>a) x == 2</p>
-<p>b) x != 2</p>
-<p>c) x &lt; 5</p>
-<p>d) x % 2 == 0</p>
+<p><strong>2.</strong> Запишите логическое выражение для условия: число <span class="arithmatex">\(x\)</span> нечётно и не равно <span class="arithmatex">\(7\)</span>.</p>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>a) при x = 2: true, при x = 9: false.</p>
-<p>b) при x = 2: false, при x = 9: true.</p>
-<p>c) при x = 2: true, при x = 9: false.</p>
-<p>d) при x = 2: true, при x = 9: false.</p>
+<p><code>x % 2 != 0 &amp;&amp; x != 7</code></p>
 </details>
 <hr />
-<p><strong>3.</strong> Пусть</p>
-<p>A = x % 3 == 0</p>
-<p>B = x &lt; 10</p>
-<p>Найдите значения A, B, A &amp;&amp; B, A || B, !A при <span class="arithmatex">\(x = 12\)</span>.</p>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>A = true</p>
-<p>B = false</p>
-<p>A &amp;&amp; B = false</p>
-<p>A || B = true</p>
-<p>!A = false</p>
-</details>
-<hr />
-<p><strong>4.</strong> Запишите логическое выражение для условия: число <span class="arithmatex">\(x\)</span> нечётно и не равно <span class="arithmatex">\(7\)</span>.</p>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>x % 2 == 1 &amp;&amp; x != 7</p>
-</details>
-<hr />
-<p><strong>5.</strong> Постройте таблицу истинности для выражения !A || B.</p>
+<p><strong>3.</strong> Постройте таблицу истинности для выражения <code>!A || B</code>.</p>
 <p><details class="answer">
 <summary>Ответ</summary></p>
 <table>
 <thead>
 <tr>
-<th>A</th>
-<th>B</th>
-<th>!A</th>
-<th>!A || B</th>
+<th><span class="arithmatex">\(A\)</span></th>
+<th><span class="arithmatex">\(B\)</span></th>
+<th><code>!A</code></th>
+<th><code>!A &#124;&#124; B</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>false</td>
-<td>false</td>
-<td>true</td>
-<td>true</td>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>true</code></td>
+<td><code>true</code></td>
 </tr>
 <tr>
-<td>false</td>
-<td>true</td>
-<td>true</td>
-<td>true</td>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>true</code></td>
+<td><code>true</code></td>
 </tr>
 <tr>
-<td>true</td>
-<td>false</td>
-<td>false</td>
-<td>false</td>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>false</code></td>
+<td><code>false</code></td>
 </tr>
 <tr>
-<td>true</td>
-<td>true</td>
-<td>false</td>
-<td>true</td>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>false</code></td>
+<td><code>true</code></td>
 </tr>
 </tbody>
 </table>
+</details>
+</details>
+<h1 id="_8">Логические выражения на числовой прямой</h1>
+<p>Составные условия с числами удобно разбирать на числовой прямой.</p>
+<p>Далее разберём на примерах несколько частых случаев.</p>
+<h2 id="_9">Логическое И на числовой прямой</h2>
+<div class="admonition definition">
+<p>Для логического И берём общую часть на числовой прямой.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите все целые числа, которые ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &gt; 2 &amp;&amp; x &lt; 7</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Сначала построим числовые лучи для двух условий, затем построим интервал зелёным — пересечение этих лучей.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-and.svg" style="display:block; margin:0.5rem auto; width:440px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют: <span class="arithmatex">\(3, 4, 5, 6\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &gt; 5 &amp;&amp; x &gt; 7</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Сначала построим числовые лучи для двух условий. Луч <span class="arithmatex">\(x &gt; 7\)</span> целиком входит в луч <span class="arithmatex">\(x &gt; 5\)</span>, поэтому общая часть — числа правее <span class="arithmatex">\(7\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-and-nested-right.svg" style="display:block; margin:0.5rem auto; width:265px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа больше <span class="arithmatex">\(7\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите все целые числа, которые ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &gt;= 1 &amp;&amp; x &lt;= 4</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Сначала построим два условия на числовой прямой. Их общая часть — отрезок от <span class="arithmatex">\(1\)</span> до <span class="arithmatex">\(4\)</span>, включая границы.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-and-closed-interval.svg" style="display:block; margin:0.5rem auto; width:256px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют: <span class="arithmatex">\(1, 2, 3, 4\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &lt; 0 &amp;&amp; x &gt; 5</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Строим два луча: один левее <span class="arithmatex">\(0\)</span>, другой правее <span class="arithmatex">\(5\)</span>. Эти лучи не пересекаются, поэтому подходящих значений нет.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-and-disjoint.svg" style="display:block; margin:0.5rem auto; width:350px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию не удовлетворяет ни одно число.</p>
+</div>
+<h2 id="_10">Логическое ИЛИ на числовой прямой</h2>
+<div class="admonition definition">
+<p>Для логического ИЛИ берём все точки, которые входят хотя бы в одно из условий.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &lt; 0 || x &gt; 5</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Строим два луча: левее <span class="arithmatex">\(0\)</span> и правее <span class="arithmatex">\(5\)</span>. Для логического ИЛИ берём объединение этих лучей.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-or.svg" style="display:block; margin:0.5rem auto; width:487px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа меньше <span class="arithmatex">\(0\)</span> и все целые числа больше <span class="arithmatex">\(5\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &gt; 5 || x &gt; 7</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Строим два луча для двух условий. Луч <span class="arithmatex">\(x &gt; 7\)</span> целиком входит в луч <span class="arithmatex">\(x &gt; 5\)</span>, поэтому после объединения остаются числа правее <span class="arithmatex">\(5\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-or-nested-right.svg" style="display:block; margin:0.5rem auto; width:265px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа больше <span class="arithmatex">\(5\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &lt;= 2 || x &gt;= 6</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Строим два луча: числа не больше <span class="arithmatex">\(2\)</span> и числа не меньше <span class="arithmatex">\(6\)</span>. При логическом ИЛИ берём оба луча.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-or-split.svg" style="display:block; margin:0.5rem auto; width:445px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа не больше <span class="arithmatex">\(2\)</span> и все целые числа не меньше <span class="arithmatex">\(6\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &lt; 3 || x &gt;= 3</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Любое число либо меньше <span class="arithmatex">\(3\)</span>, либо не меньше <span class="arithmatex">\(3\)</span>, поэтому получается вся числовая прямая.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-or-all.svg" style="display:block; margin:0.5rem auto; width:398px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа.</p>
+</div>
+<h2 id="_11">Логическое НЕ на числовой прямой</h2>
+<div class="admonition definition">
+<p>Если условие задаёт некоторое множество точек на прямой, то отрицание задаёт все остальные точки.</p>
+<p>При отрицании условия на числовой прямой отмечают дополнение к множеству его решений.</p>
+</div>
+<div style="font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+!(x &gt; a)   <span style="font-family: 'STIX Two Text', 'Cambria Math', 'Times New Roman', serif; font-size: 1.15em; vertical-align: -0.02em;">⇔</span>   x &lt;= a<br>
+!(x &gt;= a)  <span style="font-family: 'STIX Two Text', 'Cambria Math', 'Times New Roman', serif; font-size: 1.15em; vertical-align: -0.02em;">⇔</span>   x &lt; a
+</div>
+
+<p><span style="font-family: 'STIX Two Text', 'Cambria Math', 'Times New Roman', serif; font-size: 1.15em; vertical-align: -0.02em;">⇔</span> означает «равносильно», то есть в выражениях одну запись можно заменить другой.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>!(x &gt; 3)</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Сначала отмечаем луч <span class="arithmatex">\(x &gt; 3\)</span>. Затем берём его дополнение: все точки, которые не входят в этот луч, включая <span class="arithmatex">\(3\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-negation-numberline.svg" style="display:block; margin:0.5rem auto; width:440px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа, не превосходящие <span class="arithmatex">\(3\)</span>.</p>
+</div>
+<p>При отрицании неравенства меняется не только направление, но и строгость границы.</p>
+<p>&lt; и &gt; не включают граничное значение, поэтому его отмечают пустым кружком. &lt;= и &gt;= включают граничное значение, поэтому его отмечают закрашенным кружком. &lt; и &gt; называют строгими неравенствами, &lt;= и &gt;= — нестрогими.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>!(x &lt; 5)</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Сначала отмечаем луч <span class="arithmatex">\(x &lt; 5\)</span>. После отрицания остаются все точки, начиная с <span class="arithmatex">\(5\)</span> и правее.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-not-lt5.svg" style="display:block; margin:0.5rem auto; width:350px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа, не меньшие <span class="arithmatex">\(5\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>!!(x &gt; 3)</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Двойное отрицание сокращается, поэтому остаётся условие <span class="arithmatex">\(x &gt; 3\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-not-double.svg" style="display:block; margin:0.5rem auto; width:398px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа больше <span class="arithmatex">\(3\)</span>.</p>
+</div>
+<h2 id="_12">Отрицание И и ИЛИ на числовой прямой</h2>
+<div class="admonition definition">
+<p>Для отрицания составного условия сначала строят множество решений исходного выражения, затем берут его дополнение.</p>
+</div>
+<div class="admonition definition">
+<p>Почему меняется &amp;&amp; на ||?</p>
+<p><div style="font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+!(A &amp;&amp; B)  <span style="font-family: 'STIX Two Text', 'Cambria Math', 'Times New Roman', serif; font-size: 1.15em; vertical-align: -0.02em;">⇔</span>   !A || !B
+</div></p>
+<p>Если условие A &amp;&amp; B ложно, достаточно, чтобы нарушалось хотя бы одно из двух условий. Поэтому после отрицания появляется ||.</p>
+</div>
+<div class="admonition definition">
+<p>Почему меняется || на &amp;&amp;?</p>
+<p><div style="font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+!(A || B)  <span style="font-family: 'STIX Two Text', 'Cambria Math', 'Times New Roman', serif; font-size: 1.15em; vertical-align: -0.02em;">⇔</span>   !A &amp;&amp; !B
+</div></p>
+<p>Если условие A || B ложно, значит не выполнено ни одно из условий. Поэтому после отрицания появляется &amp;&amp;.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>!(x &gt; 2 &amp;&amp; x &lt; 7)</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Сначала строим общую часть для условий <span class="arithmatex">\(x &gt; 2\)</span> и <span class="arithmatex">\(x &lt; 7\)</span>. Затем берём дополнение к этому интервалу: все точки левее или на <span class="arithmatex">\(2\)</span> и все точки правее или на <span class="arithmatex">\(7\)</span>.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-not-and.svg" style="display:block; margin:0.5rem auto; width:398px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют все целые числа, не превосходящие <span class="arithmatex">\(2\)</span>, и все целые числа, не меньшие <span class="arithmatex">\(7\)</span>.</p>
+</div>
+<hr />
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>a) Покажите на числовой прямой множество значений, удовлетворяющих условию.</p>
+<p>b) Укажите, какие целые числа ему удовлетворяют.</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>!(x &lt; 0 || x &gt; 5)</code></p></p>
+<p><strong>Решение:</strong></p>
+<p>a) Сначала строим объединение двух лучей: <span class="arithmatex">\(x &lt; 0\)</span> и <span class="arithmatex">\(x &gt; 5\)</span>. Затем берём дополнение к нему: остаётся отрезок от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(5\)</span> включительно.</p>
+<p><img alt="" src="../images/logic-algebra-numberline-not-or.svg" style="display:block; margin:0.5rem auto; width:350px; max-width:100%; height:auto;" /></p>
+<p>b) Из целых чисел этому условию удовлетворяют: <span class="arithmatex">\(0, 1, 2, 3, 4, 5\)</span>.</p>
+</div>
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p>На поиск всех <span class="arithmatex">\(x\)</span>.</p>
+<p><strong>1.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых одновременно выполняются условия</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &gt; -1 &amp;&amp; x &lt;= 4</code></p></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(-1 &lt; x \le 4\)</span></p>
+</details>
+<hr />
+<p><strong>2.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &lt; 2 || x &gt;= 5</code></p></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(x &lt; 2\)</span> или <span class="arithmatex">\(x \ge 5\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>!(x &gt; 3)</code></p></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(x \le 3\)</span></p>
+<p>Это луч слева от <span class="arithmatex">\(3\)</span> вместе с точкой <span class="arithmatex">\(3\)</span>.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых одновременно выполняются условия</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &lt; 4 &amp;&amp; x &lt; 9</code></p></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(x &lt; 4\)</span></p>
+</details>
+<hr />
+<p><strong>5.</strong> Найдите все значения <span class="arithmatex">\(x\)</span>, для которых истинно выражение</p>
+<p><p style="text-align: center; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;"><code>x &lt; 4 || x &lt; 9</code></p></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(x &lt; 9\)</span></p>
 </details>
 </details>
 
