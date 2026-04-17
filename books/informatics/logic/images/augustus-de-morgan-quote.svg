@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Огастес де Морган с выноской о логике</title>
+  <desc id="desc">Иллюстрация с портретом Огастеса де Моргана и репликой о символах и правилах преобразования.</desc>
+
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.08"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="#978d7f"/>
+  <rect width="1024" height="1024" fill="#000000" opacity="0.08"/>
+  <rect width="1024" height="1024" fill="#ffffff" filter="url(#paper)"/>
+
+  <image href="augustus-de-morgan.jpg" x="330" y="115" width="720" height="888" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="330" y="115" width="720" height="888" fill="#8f755c" opacity="0.16"/>
+
+  <path
+    d="M118 188
+       C70 188, 34 222, 34 270
+       L34 544
+       C34 592, 70 626, 118 626
+       L554 626
+       C602 626, 638 592, 638 544
+       L638 495
+       L700 545
+       L638 571
+       L638 544
+       C638 592, 602 626, 554 626
+       L118 626
+       C70 626, 34 592, 34 544
+       L34 270
+       C34 222, 70 188, 118 188
+       Z"
+    fill="#faf7f0"
+    stroke="#171717"
+    stroke-width="8"
+    stroke-linejoin="round"
+  />
+
+  <text x="96" y="288" fill="#1d1d1d" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">
+    <tspan x="96" dy="0">Логика становится</tspan>
+    <tspan x="96" dy="100">точной тогда, когда</tspan>
+    <tspan x="96" dy="100">использует символы</tspan>
+    <tspan x="96" dy="100">и правила их</tspan>
+    <tspan x="96" dy="100">преобразования.</tspan>
+  </text>
+</svg>
