@@ -2059,10 +2059,14 @@
 
 <p><strong>Закон двойного отрицания</strong> означает, что операция НЕ обратима: если применить её два раза, логическое значение не изменится.</p>
 <p><strong>Закон исключённого третьего</strong> опирается на то, что в классической двузначной логике любое выражение либо истинно, либо ложно. Поэтому <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(\overline A\)</span> не могут быть истинны одновременно, но одно из них обязательно истинно. Значит, <span class="arithmatex">\(A \cdot \overline A = 0\)</span>, а <span class="arithmatex">\(A + \overline A = 1\)</span>. Равенство <span class="arithmatex">\(A \cdot \overline A = 0\)</span> часто также называют <strong>законом противоречия</strong>.</p>
-<p><strong>Операции с константами</strong> и <strong>закон повторения</strong> легко проверить по таблицам истинности.</p>
-<p><strong>Переместительный</strong> и <strong>сочетательный законы</strong> похожи на арифметические. Эта аналогия часто полезна, но в логике нужно помнить: <span class="arithmatex">\(1 + 1 = 1\)</span>, а не <span class="arithmatex">\(2\)</span>.</p>
-<p><strong>Распределительный закон</strong> <span class="arithmatex">\(A \cdot (B + C) = A \cdot B + A \cdot C\)</span> выглядит привычно. Менее привычно равенство <span class="arithmatex">\(A + B \cdot C = (A + B) \cdot (A + C)\)</span>.</p>
-<p>Преобразуем правую часть.</p>
+<p><strong>Операции с константами</strong> и <strong>закон повторения</strong> легко проверяются по таблицам истинности операций И и ИЛИ.</p>
+<p><strong>Переместительный</strong> и <strong>сочетательный законы</strong> выглядят вполне привычно, так же как и в арифметике. Вообще аналогия с обычной алгеброй здесь часто оказывается полезной. Нужно только помнить, что в логике <span class="arithmatex">\(1 + 1 = 1\)</span>, а не <span class="arithmatex">\(2\)</span>.</p>
+<p><strong>Распределительный закон</strong> для операции ИЛИ — это обычное раскрытие скобок:
+<span class="arithmatex">\(A \cdot (B + C) = A \cdot B + A \cdot C\)</span>.
+А вот равенство
+<span class="arithmatex">\(A + B \cdot C = (A + B) \cdot (A + C)\)</span>
+выглядит менее привычно: в алгебре чисел оно вообще неверно. Поэтому полезно отдельно увидеть, как оно доказывается.</p>
+<p>Доказательство удобно начать с правой части.</p>
 <div class="arithmatex">\[
 (A + B)\cdot(A + C)
 = A\cdot A + A\cdot C + B\cdot A + B\cdot C
@@ -2075,27 +2079,884 @@
 <div class="arithmatex">\[
 A + \overline A \cdot B = (A + \overline A)\cdot(A + B) = A + B
 \]</div>
-<p><strong>Законы де Моргана</strong> позволяют раскрывать отрицание сложных выражений.</p>
-<p>Важно, что при таком преобразовании отрицание переходит на отдельные выражения, а сама операция меняется:</p>
+<p>Равенство доказано. По ходу доказательства мы фактически использовали и <strong>закон поглощения</strong>:
+<span class="arithmatex">\(A + A \cdot C = A\)</span> и <span class="arithmatex">\(A + A \cdot B = A\)</span>.</p>
+<p><strong>Законы де Моргана</strong> позволяют раскрывать отрицание сложных выражений. Эти правила названы в честь шотландского математика и логика Огастеса (Августа) де Моргана.</p>
+<p>Важно заметить, что при таком преобразовании не просто «общее» отрицание переходит на отдельные выражения. Одновременно меняется и сама операция:</p>
 <ul>
 <li>И заменяется на ИЛИ;</li>
 <li>ИЛИ заменяется на И.</li>
 </ul>
-<p>Эти законы удобно доказывать по таблицам истинности, а на практике они особенно полезны при упрощении сложных условий.</p>
-<p>В задачах на упрощение можно руководствоваться следующим алгоритмом:</p>
-<ol>
-<li>Заменить все небазовые операции их выражениями через НЕ, И и ИЛИ. Небазовые операции мы разберём ниже: например, исключающее ИЛИ <span class="arithmatex">\(A \oplus B\)</span>, импликацию <span class="arithmatex">\(A \to B\)</span>, эквивалентность <span class="arithmatex">\(A \leftrightarrow B\)</span>, штрих Шеффера <span class="arithmatex">\(A \mid B\)</span>, стрелку Пирса <span class="arithmatex">\(A \downarrow B\)</span>.</li>
-<li>Раскрыть отрицания сложных выражений по <strong>законам де Моргана</strong> так, чтобы отрицание осталось только у отдельных переменных.</li>
-<li>Использовать вынесение общих множителей, раскрытие скобок и другие законы алгебры логики, чтобы упростить выражение.</li>
-</ol>
+<p>С помощью этих законов можно шаг за шагом сокращать сложные логические выражения.</p>
+<h2 id="_2">Доказательство равносильности по таблице истинности</h2>
+<p>Законы выше можно доказать через таблицы истинности.</p>
+<div class="admonition definition">
+<p>Если в таблице истинности у двух выражений совпадают значения во всех строках, то эти выражения <strong>равносильны</strong>.</p>
+</div>
+<p>Разберём это на примере первого закона де Моргана:
+<span class="arithmatex">\(\overline{(A + B)} = \overline A \cdot \overline B\)</span>.</p>
+<p>Для этого нужно для всех возможных комбинаций значений <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> вычислить левую и правую части равенства и сравнить результаты. Чтобы не делать всё сразу в уме, удобно добавить промежуточные столбцы. Сначала вычислим <span class="arithmatex">\(A + B\)</span> и <span class="arithmatex">\(\overline{(A + B)}\)</span>. Затем отдельно найдём <span class="arithmatex">\(\overline A\)</span>, <span class="arithmatex">\(\overline B\)</span> и <span class="arithmatex">\(\overline A \cdot \overline B\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline{(A + B)}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A \cdot \overline B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Нас интересуют именно столбцы <span class="arithmatex">\(\overline{(A + B)}\)</span> и <span class="arithmatex">\(\overline A \cdot \overline B\)</span>. Они совпадают для всех строк. Значит, эти выражения равносильны. Точно так же доказывается и второе равенство:
+<span class="arithmatex">\(\overline{(A \cdot B)} = \overline A + \overline B\)</span>.</p>
+<details class="question-block">
+<summary>Задачи для тренировки: доказательство по таблице истинности</summary>
+<p><strong>1.</strong> Докажите по таблице истинности закон двойного отрицания:</p>
+<div class="arithmatex">\[
+\overline{\overline A} = A
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline{\overline A}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(\overline{\overline A}\)</span> совпадают, значит равенство доказано.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Докажите по таблице истинности закон исключённого третьего:</p>
+<div class="arithmatex">\[
+A \cdot \overline A = 0,
+\qquad
+A + \overline A = 1
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot \overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + \overline A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>В столбце <span class="arithmatex">\(A \cdot \overline A\)</span> во всех строках стоит <span class="arithmatex">\(0\)</span>. Значит, при любых значениях <span class="arithmatex">\(A\)</span> выражение <span class="arithmatex">\(A \cdot \overline A\)</span> равно <span class="arithmatex">\(0\)</span>.</p>
+<p>В столбце <span class="arithmatex">\(A + \overline A\)</span> во всех строках стоит <span class="arithmatex">\(1\)</span>. Значит, при любых значениях <span class="arithmatex">\(A\)</span> выражение <span class="arithmatex">\(A + \overline A\)</span> равно <span class="arithmatex">\(1\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Докажите по таблице истинности законы операций с константами:</p>
+<p>a) <span class="arithmatex">\(A \cdot 1 = A\)</span></p>
+<p>b) <span class="arithmatex">\(A \cdot 0 = 0\)</span></p>
+<p>c) <span class="arithmatex">\(A + 1 = 1\)</span></p>
+<p>d) <span class="arithmatex">\(A + 0 = A\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot 1\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot 0\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + 1\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + 0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>a) Столбцы <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(A \cdot 1\)</span> совпадают.</p>
+<p>b) В столбце <span class="arithmatex">\(A \cdot 0\)</span> во всех строках стоит <span class="arithmatex">\(0\)</span>. Значит, при любом <span class="arithmatex">\(A\)</span> выражение <span class="arithmatex">\(A \cdot 0\)</span> равно <span class="arithmatex">\(0\)</span>.</p>
+<p>c) В столбце <span class="arithmatex">\(A + 1\)</span> во всех строках стоит <span class="arithmatex">\(1\)</span>. Значит, при любом <span class="arithmatex">\(A\)</span> выражение <span class="arithmatex">\(A + 1\)</span> равно <span class="arithmatex">\(1\)</span>.</p>
+<p>d) Столбцы <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(A + 0\)</span> совпадают.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Докажите по таблице истинности закон повторения:</p>
+<div class="arithmatex">\[
+A \cdot A = A,
+\qquad
+A + A = A
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Оба полученных столбца совпадают со столбцом <span class="arithmatex">\(A\)</span>, значит оба равенства доказаны.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Докажите по таблице истинности переместительный закон:</p>
+<div class="arithmatex">\[
+A \cdot B = B \cdot A,
+\qquad
+A + B = B + A
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B \cdot A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B + A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(A \cdot B\)</span> и <span class="arithmatex">\(B \cdot A\)</span> совпадают. Столбцы <span class="arithmatex">\(A + B\)</span> и <span class="arithmatex">\(B + A\)</span> тоже совпадают. Значит, переместительный закон доказан.</p>
+</details>
+<hr />
+<p><strong>6.</strong> Докажите по таблице истинности сочетательный закон:</p>
+<div class="arithmatex">\[
+A \cdot (B \cdot C) = (A \cdot B) \cdot C,
+\qquad
+A + (B + C) = (A + B) + C
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Для операции И:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B \cdot C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot (B \cdot C)\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\((A \cdot B) \cdot C\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(A \cdot (B \cdot C)\)</span> и <span class="arithmatex">\((A \cdot B) \cdot C\)</span> совпадают.</p>
+<p>Для операции ИЛИ:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B + C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + (B + C)\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\((A + B) + C\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(A + (B + C)\)</span> и <span class="arithmatex">\((A + B) + C\)</span> тоже совпадают. Значит, сочетательный закон доказан.</p>
+</details>
+<hr />
+<p><strong>7.</strong> Докажите по таблице истинности распределительный закон:</p>
+<div class="arithmatex">\[
+A \cdot (B + C) = A \cdot B + A \cdot C,
+\qquad
+A + B \cdot C = (A + B) \cdot (A + C)
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Для первого равенства:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B + C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot (B + C)\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot B + A \cdot C\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(A \cdot (B + C)\)</span> и <span class="arithmatex">\(A \cdot B + A \cdot C\)</span> совпадают.</p>
+<p>Для второго равенства:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B \cdot C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B \cdot C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\((A + B) \cdot (A + C)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(A + B \cdot C\)</span> и <span class="arithmatex">\((A + B) \cdot (A + C)\)</span> тоже совпадают. Значит, распределительный закон доказан.</p>
+</details>
+<hr />
+<p><strong>8.</strong> Докажите по таблице истинности закон поглощения:</p>
+<div class="arithmatex">\[
+A + A \cdot B = A,
+\qquad
+A \cdot (A + B) = A
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + A \cdot B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot (A + B)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбец <span class="arithmatex">\(A + A \cdot B\)</span> совпадает со столбцом <span class="arithmatex">\(A\)</span>. Столбец <span class="arithmatex">\(A \cdot (A + B)\)</span> тоже совпадает со столбцом <span class="arithmatex">\(A\)</span>. Значит, закон поглощения доказан.</p>
+</details>
+<hr />
+<p><strong>9.</strong> Докажите по таблице истинности законы де Моргана:</p>
+<div class="arithmatex">\[
+\overline{(A + B)} = \overline A \cdot \overline B,
+\qquad
+\overline{(A \cdot B)} = \overline A + \overline B
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Для первого равенства:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline{(A + B)}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A \cdot \overline B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(\overline{(A + B)}\)</span> и <span class="arithmatex">\(\overline A \cdot \overline B\)</span> совпадают.</p>
+<p>Для второго равенства:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline{(A \cdot B)}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A + \overline B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(\overline{(A \cdot B)}\)</span> и <span class="arithmatex">\(\overline A + \overline B\)</span> тоже совпадают. Значит, законы де Моргана доказаны.</p>
+</details>
+</details>
+<h2 id="_3">Упрощение логических выражений</h2>
+<p>Рассмотрим пример, где, применяя законы алгебры логики, упростим выражение.</p>
 <div class="admonition solution">
-<p><strong>Задача:</strong> упростите это выражение и объясните, какие законы используются на каждом шаге.</p>
+<p><strong>Задача:</strong> упростите выражение.</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B + \overline A \cdot C + \overline B \cdot C
+\]</div>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Заметим, что по закону исключённого третьего <span class="arithmatex">\(B + \overline B = 1\)</span>. Значит, второе слагаемое можно записать так.</p>
+<div class="arithmatex">\[
+\overline A \cdot C
+= \overline A \cdot (B + \overline B)\cdot C
+= \overline A \cdot B \cdot C + \overline A \cdot \overline B \cdot C
+\]</div>
+<p>Подставим это в исходное выражение.</p>
+<div class="arithmatex">\[
+X =
+\overline A \cdot B
++ \overline A \cdot B \cdot C
++ \overline A \cdot \overline B \cdot C
++ \overline B \cdot C
+= \overline A \cdot B \cdot (1 + C)
++ (\overline A + 1)\cdot \overline B \cdot C
+= \overline A \cdot B + \overline B \cdot C
+\]</div>
+<p>Такой приём иногда помогает увидеть более короткую форму выражения.</p>
+</div>
+<p>Для упрощения логических выражений удобно придерживаться такой последовательности действий.</p>
+<div class="admonition definition">
+<ol>
+<li>Если в выражении есть отрицания сложных частей, раскрыть их по законам де Моргана так, чтобы отрицание осталось только у отдельных переменных.</li>
+<li>Вынести общие множители, раскрыть скобки и применить другие законы алгебры логики.</li>
+</ol>
+</div>
+<p>Ниже приведён более подробный пример, в котором последовательно используются несколько разных законов.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong> упростите выражение.</p>
 <div class="arithmatex">\[
 (A + \overline B)\cdot \overline{(A + B)}\cdot(\overline A + C)
 \]</div>
 <hr />
 <p><strong>Решение:</strong></p>
-<p>Сначала раскроем отрицание суммы по <strong>закону де Моргана</strong>.</p>
+<p>Сначала раскроем отрицание суммы по закону де Моргана.</p>
 <div class="arithmatex">\[
 (A + \overline B)\cdot \overline A \cdot \overline B \cdot (\overline A + C)
 \]</div>
@@ -2107,81 +2968,139 @@ A + \overline A \cdot B = (A + \overline A)\cdot(A + B) = A + B
 = \overline A \cdot \overline B \cdot (\overline A + C)
 = \overline A \cdot \overline B
 \]</div>
-<p>Что произошло на каждом шаге.</p>
-<ol>
-<li><strong>Закон де Моргана</strong>: <span class="arithmatex">\(\overline{(A + B)} = \overline A \cdot \overline B\)</span>.</li>
-<li><strong>Распределительный закон</strong>: <span class="arithmatex">\((A + \overline B)\cdot \overline A = A\cdot \overline A + \overline B\cdot \overline A\)</span>.</li>
-<li><strong>Закон противоречия</strong>: <span class="arithmatex">\(A\cdot \overline A = 0\)</span>, поэтому этот член исчезает.</li>
-<li><strong>Переместительный закон</strong> и <strong>закон повторения</strong>: <span class="arithmatex">\(\overline B\cdot \overline A \cdot \overline B = \overline A \cdot \overline B\)</span>.</li>
-<li><strong>Закон поглощения</strong>: <span class="arithmatex">\(\overline A \cdot (\overline A + C) = \overline A\)</span>.</li>
-</ol>
+<p>Здесь последовательно использованы:</p>
+<ul>
+<li>закон де Моргана: <span class="arithmatex">\(\overline{(A + B)} = \overline A \cdot \overline B\)</span>;</li>
+<li>распределительный закон: <span class="arithmatex">\((A + \overline B)\cdot \overline A = A\cdot \overline A + \overline B\cdot \overline A\)</span>;</li>
+<li>закон противоречия: <span class="arithmatex">\(A\cdot \overline A = 0\)</span>, поэтому этот член исчезает;</li>
+<li>переместительный закон и закон повторения: <span class="arithmatex">\(\overline B\cdot \overline A \cdot \overline B = \overline A \cdot \overline B\)</span>;</li>
+<li>закон поглощения: <span class="arithmatex">\(\overline A \cdot (\overline A + C) = \overline A\)</span>.</li>
+</ul>
 </div>
-<h2 id="_2">Задачи для тренировки по законам алгебры логики</h2>
-<p>Эти задачи полезны, чтобы отдельно потренировать сами законы до перехода к длинным преобразованиям.</p>
 <details class="question-block">
-<summary>Задачи для тренировки</summary>
-<p><strong>1.</strong> Упростите выражения и назовите основной закон, который используется на последнем шаге.</p>
-<p>a) <span class="arithmatex">\(\overline{\overline A}\)</span></p>
-<p>b) <span class="arithmatex">\(A + A \cdot B\)</span></p>
-<p>c) <span class="arithmatex">\(A \cdot (A + B)\)</span></p>
-<p>d) <span class="arithmatex">\(A \cdot 1 + B \cdot 0\)</span></p>
-<p>e) <span class="arithmatex">\(\overline{(A + B)} + \overline A \cdot \overline B\)</span></p>
-<p>f) <span class="arithmatex">\((A + B)\cdot(A + C)\)</span></p>
-<p>g) <span class="arithmatex">\(A + (B + A)\)</span></p>
-<p>h) <span class="arithmatex">\((A \cdot B)\cdot C + A \cdot (C \cdot B)\)</span></p>
+<summary>Задачи для тренировки: упрощение логических выражений</summary>
+<p><strong>1.</strong> Упростите выражение:</p>
+<div class="arithmatex">\[
+(A + B)\cdot(\overline A + \overline B)
+\]</div>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>a) <span class="arithmatex">\(A\)</span>. Основной закон: <strong>двойного отрицания</strong>.</p>
-<p>b) <span class="arithmatex">\(A\)</span>. Основной закон: <strong>поглощения</strong>.</p>
-<p>c) <span class="arithmatex">\(A\)</span>. Основной закон: <strong>поглощения</strong>.</p>
-<p>d) <span class="arithmatex">\(A + 0 = A\)</span>. Здесь используются <strong>операции с константами</strong>.</p>
-<p>e) <span class="arithmatex">\(\overline A \cdot \overline B + \overline A \cdot \overline B = \overline A \cdot \overline B\)</span>. Сначала применяется <strong>закон де Моргана</strong>, затем <strong>закон повторения</strong>.</p>
-<p>f) <span class="arithmatex">\(A + B \cdot C\)</span>. Основной закон: <strong>распределительный</strong>.</p>
-<p>g) <span class="arithmatex">\(A + A + B = A + B\)</span>. Используются <strong>переместительный</strong>, <strong>сочетательный</strong> и <strong>закон повторения</strong>.</p>
-<p>h) <span class="arithmatex">\(A \cdot B \cdot C + A \cdot B \cdot C = A \cdot B \cdot C\)</span>. Используются <strong>сочетательный</strong>, <strong>переместительный</strong> и <strong>закон повторения</strong>.</p>
+<div class="arithmatex">\[
+(A + B)\cdot(\overline A + \overline B) = A \cdot \overline A + A \cdot \overline B + \overline A \cdot B + B \cdot \overline B
+\]</div>
+<div class="arithmatex">\[
+= A \cdot \overline B + \overline A \cdot B
+\]</div>
+<p>Слагаемые <span class="arithmatex">\(A \cdot \overline A\)</span> и <span class="arithmatex">\(B \cdot \overline B\)</span> исчезают по закону противоречия.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Упростите выражение:</p>
+<div class="arithmatex">\[
+\overline{(A + \overline B)} + \overline{(A + B)} + A \cdot B
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+\overline{(A + \overline B)} = \overline A \cdot B,
+\qquad
+\overline{(A + B)} = \overline A \cdot \overline B
+\]</div>
+<div class="arithmatex">\[
+\overline A \cdot B + \overline A \cdot \overline B + A \cdot B = \overline A \cdot (B + \overline B) + A \cdot B = \overline A + A \cdot B = \overline A + B
+\]</div>
+<p>Сначала раскрыли отрицания, затем применили закон исключённого третьего и поглощение.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Упростите выражение:</p>
+<div class="arithmatex">\[
+A + \overline{(A + B)} + \overline A \cdot B
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+A + \overline{(A + B)} + \overline A \cdot B = A + \overline A \cdot \overline B + \overline A \cdot B
+\]</div>
+<div class="arithmatex">\[
+= A + \overline A \cdot (\overline B + B) = A + \overline A = 1
+\]</div>
+<p>Здесь использованы закон де Моргана и два раза закон исключённого третьего.</p>
+</details>
+<hr />
+<p><strong>4.</strong> Упростите выражение:</p>
+<div class="arithmatex">\[
+A + \overline A \cdot B + \overline A \cdot C
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+A + \overline A \cdot B + \overline A \cdot C = A + \overline A \cdot (B + C)
+\]</div>
+<div class="arithmatex">\[
+= (A + \overline A)\cdot(A + B + C) = A + B + C
+\]</div>
+<p>Сначала вынесли <span class="arithmatex">\(\overline A\)</span>, затем применили распределительный закон и закон исключённого третьего.</p>
+</details>
+<hr />
+<p><strong>5.</strong> Упростите выражение:</p>
+<div class="arithmatex">\[
+A \cdot B + \overline A \cdot C + B \cdot C
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Представим <span class="arithmatex">\(B \cdot C\)</span> так:</p>
+<div class="arithmatex">\[
+(A + \overline A)\cdot B \cdot C = A \cdot B \cdot C + \overline A \cdot B \cdot C
+\]</div>
+<p>Тогда</p>
+<div class="arithmatex">\[
+A \cdot B + \overline A \cdot C + B \cdot C = A \cdot B + \overline A \cdot C + A \cdot B \cdot C + \overline A \cdot B \cdot C
+\]</div>
+<div class="arithmatex">\[
+= A \cdot B + \overline A \cdot C
+\]</div>
+<p>Здесь пришлось сначала временно сделать запись длиннее, а потом применить поглощение.</p>
 </details>
 </details>
-<h2 id="_3">Синтез логических выражений</h2>
+<h2 id="_4">Синтез логических выражений</h2>
 <p>До этого момента мы в основном разбирали уже готовые логические выражения: строили для них таблицы истинности, упрощали их и преобразовывали. Это задача анализа.</p>
 <p>Обратная задача состоит в том, чтобы по готовой таблице истинности построить логическое выражение. Такая задача называется синтезом. Она возникает, например, при проектировании логических схем и устройств обработки данных.</p>
-<p>Рассмотрим сначала простейший пример: построим выражение, равносильное импликации <span class="arithmatex">\(X = A \to B\)</span>, по её таблице истинности.</p>
+<p>Рассмотрим сначала простейший пример: восстановим формулу для двух переменных по готовой таблице истинности.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong> восстановите формулу по этой таблице истинности.</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
-<p class="table-caption"><em>Таблица истинности для импликации</em></p>
-<div class="admonition solution">
-<p><strong>Задача:</strong> восстановите формулу импликации <span class="arithmatex">\(X = A \to B\)</span> по этой таблице истинности.</p>
 <hr />
 <p><strong>Решение:</strong></p>
-<p><strong>Способ 1. По строкам, где <span class="arithmatex">\(X = 1\)</span>.</strong></p>
+<p><strong>Способ 1.</strong> По строкам, где <span class="arithmatex">\(X = 1\)</span>.</p>
 <p>Выделим все строки, в которых функция равна <span class="arithmatex">\(1\)</span>. Для каждой такой строки составим произведение, истинное только в этом случае:</p>
 <ul>
 <li>если переменная в строке равна <span class="arithmatex">\(0\)</span>, она входит в произведение с отрицанием;</li>
@@ -2204,8 +3123,8 @@ X = \overline A \cdot (\overline B + B) + A \cdot B
 = (\overline A + A)\cdot(\overline A + B)
 = \overline A + B
 \]</div>
-<p>Так мы получили формулу, заменяющую импликацию через НЕ и ИЛИ.</p>
-<p><strong>Способ 2. По строкам, где <span class="arithmatex">\(X = 0\)</span>.</strong></p>
+<p>Так мы получили формулу, заданную этой таблицей истинности.</p>
+<p><strong>Способ 2.</strong> По строкам, где <span class="arithmatex">\(X = 0\)</span>.</p>
 <p>Если в таблице нулей меньше, чем единиц, удобнее сначала построить выражение для <span class="arithmatex">\(\overline X\)</span>, а потом применить отрицание.</p>
 <p>Здесь <span class="arithmatex">\(X = 0\)</span> только в одной строке, при <span class="arithmatex">\(A = 1\)</span> и <span class="arithmatex">\(B = 0\)</span>. Поэтому</p>
 <div class="arithmatex">\[
@@ -2218,72 +3137,71 @@ X = \overline{A \cdot \overline B} = \overline A + B
 <p>Это тот же ответ, но путь оказался короче.</p>
 </div>
 <p>Рассмотрим более сложный пример с тремя переменными.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong> восстановите формулу функции трёх переменных по этой таблице истинности.</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(C\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
-<p class="table-caption"><em>Таблица истинности для примера с тремя переменными</em></p>
-<div class="admonition solution">
-<p><strong>Задача:</strong> восстановите формулу функции трёх переменных по этой таблице истинности.</p>
 <hr />
 <p><strong>Решение:</strong></p>
-<p><strong>Способ 1 для трёх переменных.</strong></p>
+<p><strong>Способ 1.</strong></p>
 <p>По строкам, где <span class="arithmatex">\(X = 1\)</span>, получаем</p>
 <div class="arithmatex">\[
 X =
@@ -2296,17 +3214,19 @@ X =
 \]</div>
 <p>Упростим это выражение.</p>
 <div class="arithmatex">\[
-X =
-\overline A \cdot \overline B \cdot (\overline C + C)
-+ \overline A \cdot B \cdot (\overline C + C)
-+ A \cdot C \cdot (\overline B + B)
-= \overline A \cdot \overline B + \overline A \cdot B + A \cdot C
-= \overline A \cdot (\overline B + B) + A \cdot C
-= \overline A + A \cdot C
-= (\overline A + A)\cdot(\overline A + C)
-= \overline A + C
+\begin{aligned}
+X
+&amp;= \overline A \cdot \overline B \cdot (\overline C + C)
++ \overline A \cdot B \cdot (\overline C + C) \\
+&amp;\quad + A \cdot C \cdot (\overline B + B) \\
+&amp;= \overline A \cdot \overline B + \overline A \cdot B + A \cdot C \\
+&amp;= \overline A \cdot (\overline B + B) + A \cdot C \\
+&amp;= \overline A + A \cdot C \\
+&amp;= (\overline A + A)\cdot(\overline A + C) \\
+&amp;= \overline A + C
+\end{aligned}
 \]</div>
-<p><strong>Способ 2 для трёх переменных.</strong></p>
+<p><strong>Способ 2.</strong></p>
 <p>В этой таблице нулей меньше, чем единиц, поэтому удобно сначала найти <span class="arithmatex">\(\overline X\)</span>.</p>
 <div class="arithmatex">\[
 \overline X = A \cdot \overline B \cdot \overline C + A \cdot B \cdot \overline C
@@ -2318,920 +3238,438 @@ X =
 X = \overline{A \cdot \overline C} = \overline A + C
 \]</div>
 <p>Этот способ проще, потому что в столбце <span class="arithmatex">\(X\)</span> нулей действительно меньше, чем единиц.</p>
-<p><strong>Способ 3. Сразу по строкам, где <span class="arithmatex">\(X = 0\)</span>.</strong></p>
-<p>Можно действовать и по-другому: для каждой строки, где <span class="arithmatex">\(X = 0\)</span>, построить логическую сумму, которая ложна только в этой строке. Если переменная в строке равна <span class="arithmatex">\(1\)</span>, она входит в сумму с отрицанием, а если равна <span class="arithmatex">\(0\)</span>, то без отрицания. Затем все такие суммы перемножают.</p>
-<p>Для нашего примера получаем</p>
+<p>Ответ в обоих способах совпал:</p>
 <div class="arithmatex">\[
-X = (\overline A + B + C)\cdot(\overline A + \overline B + C)
+X = \overline A + C
 \]</div>
-<p>Упростим.</p>
-<div class="arithmatex">\[
-X = \bigl((\overline A + C) + B\bigr)\cdot\bigl((\overline A + C) + \overline B\bigr)
-= (\overline A + C) + B \cdot \overline B
-= \overline A + C
-\]</div>
-<p>Неудивительно, что ответ совпал с предыдущими способами.</p>
-</div>
-<h2 id="_4">Как иногда полезно временно усложнить запись</h2>
-<p>Иногда выражение сначала специально усложняют, чтобы потом упростить его сильнее.</p>
-<div class="admonition solution">
-<p><strong>Задача:</strong> упростите выражение, если для этого нужно временно сделать запись длиннее.</p>
-<div class="arithmatex">\[
-X = \overline A \cdot B + \overline A \cdot C + \overline B \cdot C
-\]</div>
-<hr />
-<p><strong>Решение:</strong></p>
-<p>Заметим, что по <strong>закону исключённого третьего</strong> <span class="arithmatex">\(B + \overline B = 1\)</span>. Значит, второе слагаемое можно записать так.</p>
-<div class="arithmatex">\[
-\overline A \cdot C
-= \overline A \cdot (B + \overline B)\cdot C
-= \overline A \cdot B \cdot C + \overline A \cdot \overline B \cdot C
-\]</div>
-<p>Подставим это в исходное выражение.</p>
-<div class="arithmatex">\[
-X =
-\overline A \cdot B
-+ \overline A \cdot B \cdot C
-+ \overline A \cdot \overline B \cdot C
-+ \overline B \cdot C
-= \overline A \cdot B \cdot (1 + C)
-+ (\overline A + 1)\cdot \overline B \cdot C
-= \overline A \cdot B + \overline B \cdot C
-\]</div>
-<p>Такой приём иногда помогает увидеть более короткую форму выражения.</p>
-</div>
-<h2 id="_5">Задачи для тренировки по временному усложнению записи</h2>
-<p>В этих задачах полезно сначала вставить тождество вида <span class="arithmatex">\(X + \overline X = 1\)</span>, чтобы получить дополнительные слагаемые и затем применить поглощение.</p>
-<details class="question-block">
-<summary>Задачи для тренировки</summary>
-<p><strong>1.</strong> Упростите выражения, временно делая запись длиннее.</p>
-<p>a) <span class="arithmatex">\(A \cdot B + \overline A \cdot C + B \cdot C\)</span></p>
-<p>b) <span class="arithmatex">\(\overline A \cdot B + A \cdot C + B \cdot C\)</span></p>
-<p>c) <span class="arithmatex">\(A \cdot B + \overline A \cdot \overline C + B \cdot \overline C\)</span></p>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>a) Представим <span class="arithmatex">\(B \cdot C\)</span> как <span class="arithmatex">\((A + \overline A)\cdot B \cdot C = A \cdot B \cdot C + \overline A \cdot B \cdot C\)</span>. Тогда
-<span class="arithmatex">\(A \cdot B + \overline A \cdot C + B \cdot C = A \cdot B + \overline A \cdot C + A \cdot B \cdot C + \overline A \cdot B \cdot C = A \cdot B + \overline A \cdot C\)</span>.</p>
-<p>b) Представим <span class="arithmatex">\(B \cdot C\)</span> как <span class="arithmatex">\((A + \overline A)\cdot B \cdot C = A \cdot B \cdot C + \overline A \cdot B \cdot C\)</span>. Тогда
-<span class="arithmatex">\(\overline A \cdot B + A \cdot C + B \cdot C = \overline A \cdot B + A \cdot C + A \cdot B \cdot C + \overline A \cdot B \cdot C = \overline A \cdot B + A \cdot C\)</span>.</p>
-<p>c) Представим <span class="arithmatex">\(B \cdot \overline C\)</span> как <span class="arithmatex">\((A + \overline A)\cdot B \cdot \overline C = A \cdot B \cdot \overline C + \overline A \cdot B \cdot \overline C\)</span>. Тогда
-<span class="arithmatex">\(A \cdot B + \overline A \cdot \overline C + B \cdot \overline C = A \cdot B + \overline A \cdot \overline C + A \cdot B \cdot \overline C + \overline A \cdot B \cdot \overline C = A \cdot B + \overline A \cdot \overline C\)</span>.</p>
-</details>
-</details>
-<h2 id="_6">Задачи для тренировки по синтезу</h2>
-<p>Постройте логические выражения по таблицам истинности. По возможности используйте два подхода:</p>
-<ol>
-<li>по строкам, где функция равна <span class="arithmatex">\(1\)</span>;</li>
-<li>по строкам, где функция равна <span class="arithmatex">\(0\)</span>.</li>
-</ol>
-<p>После построения сравните, какой способ оказался короче.</p>
-<details class="question-block">
-<summary>Задачи для тренировки</summary>
-<p><strong>1.</strong> Постройте выражения для логических функций двух переменных. Используйте разные методы и сравните их.</p>
-<p><strong>a)</strong></p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p><strong>b)</strong></p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p><strong>c)</strong></p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><strong>d)</strong></p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>a) По единицам: <span class="arithmatex">\(X = \overline A \cdot B + A \cdot B = B \cdot (\overline A + A) = B\)</span>. По нулям: <span class="arithmatex">\(X = (A + B)\cdot(\overline A + B) = B\)</span>. Здесь естественнее идти по единицам.</p>
-<p>b) По единицам: <span class="arithmatex">\(X = \overline A \cdot \overline B + A \cdot \overline B + A \cdot B = \overline B + A \cdot B = A + \overline B\)</span>. По нулям нулевая строка одна, <span class="arithmatex">\((0, 1)\)</span>, поэтому сразу получаем <span class="arithmatex">\(X = A + \overline B\)</span>. Здесь короче способ по нулям.</p>
-<p>c) По единицам единичная строка одна, поэтому <span class="arithmatex">\(X = \overline A \cdot B\)</span>. По нулям: <span class="arithmatex">\(X = (A + B)\cdot(\overline A + B)\cdot(\overline A + \overline B) = B\cdot(\overline A + \overline B) = \overline A \cdot B\)</span>. Здесь короче способ по единицам.</p>
-<p>d) По единицам сразу <span class="arithmatex">\(X = A \cdot \overline B\)</span>. По нулям: <span class="arithmatex">\(X = (A + B)\cdot(A + \overline B)\cdot(\overline A + \overline B) = A\cdot(\overline A + \overline B) = A \cdot \overline B\)</span>. Здесь тоже удобнее способ по единицам.</p>
-</details>
-<hr />
-<p><strong>2.</strong> Постройте выражения для логических функций трёх переменных. Используйте разные методы и сравните их.</p>
-<p><strong>a)</strong></p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(C\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><strong>b)</strong></p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(C\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p><strong>c)</strong></p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(C\)</span></th>
-<th><span class="arithmatex">\(X\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>a) По единицам: <span class="arithmatex">\(X = \overline A \cdot \overline B \cdot C + \overline A \cdot B \cdot \overline C + \overline A \cdot B \cdot C + A \cdot B \cdot \overline C\)</span>. После группировки: <span class="arithmatex">\(X = \overline A \cdot B + \overline A \cdot \overline B \cdot C + A \cdot B \cdot \overline C = \overline A \cdot (B + C) + A \cdot B \cdot \overline C\)</span>. По нулям: <span class="arithmatex">\(X = (A + B + C)\cdot(\overline A + B + C)\cdot(\overline A + B + \overline C)\cdot(\overline A + \overline B + \overline C)\)</span>, после упрощения получаем близкую форму <span class="arithmatex">\(X = \overline A \cdot B + \overline A \cdot C + B \cdot \overline C\)</span>. Оба подхода здесь рабочие.</p>
-<p>b) По единицам: <span class="arithmatex">\(X = \overline A \cdot \overline B \cdot \overline C + A \cdot \overline B \cdot \overline C + A \cdot B \cdot \overline C + A \cdot B \cdot C\)</span>. Группировка даёт <span class="arithmatex">\(X = \overline B \cdot \overline C + A \cdot B\)</span>. По нулям: <span class="arithmatex">\(X = (A + B + \overline C)\cdot(A + \overline B + C)\cdot(A + \overline B + \overline C)\cdot(\overline A + B + \overline C)\)</span>, после парного упрощения снова получаем <span class="arithmatex">\(X = A \cdot B + \overline B \cdot \overline C\)</span>. Оба способа одинаково удачны.</p>
-<p>c) По единицам: <span class="arithmatex">\(X = \overline A \cdot \overline B \cdot \overline C + \overline A \cdot \overline B \cdot C + \overline A \cdot B \cdot \overline C + A \cdot B \cdot \overline C\)</span>. Группировка даёт <span class="arithmatex">\(X = \overline A \cdot \overline B + B \cdot \overline C\)</span>. По нулям: <span class="arithmatex">\(X = (A + \overline B + \overline C)\cdot(\overline A + B + C)\cdot(\overline A + B + \overline C)\cdot(\overline A + \overline B + \overline C)\)</span>, после упрощения получается <span class="arithmatex">\(X = \overline A \cdot \overline B + \overline A \cdot \overline C + B \cdot \overline C\)</span>, а затем лишнее слагаемое убирается, и остаётся <span class="arithmatex">\(X = \overline A \cdot \overline B + B \cdot \overline C\)</span>. Здесь способ по единицам короче.</p>
-</details>
-</details>
-<h2 id="_7">Задачи для тренировки</h2>
-<p>В задачах с импликацией перед упрощением удобно сначала заменить её по правилу
-<span class="arithmatex">\(A \to B = \overline A + B\)</span>.</p>
-<details class="question-block">
-<summary>Задачи для тренировки</summary>
-<p><strong>1.</strong> Упростите логические выражения.</p>
-<p>a) <span class="arithmatex">\(A \cdot B \cdot \overline A \cdot B + B\)</span></p>
-<p>b) <span class="arithmatex">\((A + B)\cdot(\overline A + \overline B)\)</span></p>
-<p>c) <span class="arithmatex">\(A + A \cdot B + A \cdot C\)</span></p>
-<p>d) <span class="arithmatex">\(A + \overline A \cdot B + \overline A \cdot C\)</span></p>
-<p>e) <span class="arithmatex">\(A \cdot (A + B + C)\)</span></p>
-<p>f) <span class="arithmatex">\(A \cdot B + \overline B + \overline A \cdot B\)</span></p>
-<p>g) <span class="arithmatex">\((\overline A + B)\cdot \overline C \cdot (C + A \cdot \overline B)\)</span></p>
-<p>h) <span class="arithmatex">\(\overline A \cdot \overline C + A \cdot B + \overline A \cdot C + A \cdot \overline B\)</span></p>
-<p>i) <span class="arithmatex">\(A \cdot (\overline B \cdot \overline C + B \cdot C) + A \cdot (B \cdot \overline C + \overline B \cdot C)\)</span></p>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>a) <span class="arithmatex">\(A \cdot B \cdot \overline A \cdot B + B = (A \cdot \overline A)\cdot B \cdot B + B = 0 + B = B\)</span>.</p>
-<p>b) <span class="arithmatex">\((A + B)\cdot(\overline A + \overline B) = A\cdot\overline B + \overline A\cdot B\)</span>, потому что слагаемые <span class="arithmatex">\(A\cdot\overline A\)</span> и <span class="arithmatex">\(B\cdot\overline B\)</span> равны нулю.</p>
-<p>c) <span class="arithmatex">\(A + A \cdot B + A \cdot C = A \cdot (1 + B + C) = A\)</span>.</p>
-<p>d) <span class="arithmatex">\(A + \overline A \cdot B + \overline A \cdot C = A + \overline A \cdot (B + C) = (A + \overline A)\cdot(A + B + C) = A + B + C\)</span>.</p>
-<p>e) <span class="arithmatex">\(A \cdot (A + B + C) = A\cdot A + A\cdot B + A\cdot C = A + A\cdot B + A\cdot C = A\)</span>.</p>
-<p>f) <span class="arithmatex">\(A \cdot B + \overline B + \overline A \cdot B = B\cdot(A + \overline A) + \overline B = B + \overline B = 1\)</span>.</p>
-<p>g) <span class="arithmatex">\((\overline A + B)\cdot \overline C \cdot (C + A \cdot \overline B) = (\overline A + B)\cdot A \cdot \overline B \cdot \overline C = 0\)</span>, потому что появляются <span class="arithmatex">\(A\cdot\overline A\)</span> и <span class="arithmatex">\(B\cdot\overline B\)</span>.</p>
-<p>h) <span class="arithmatex">\(\overline A \cdot \overline C + A \cdot B + \overline A \cdot C + A \cdot \overline B = \overline A \cdot (\overline C + C) + A \cdot (B + \overline B) = \overline A + A = 1\)</span>.</p>
-<p>i) <span class="arithmatex">\(A \cdot (\overline B \cdot \overline C + B \cdot C) + A \cdot (B \cdot \overline C + \overline B \cdot C) = A \cdot \bigl(\overline C \cdot (\overline B + B) + C \cdot (B + \overline B)\bigr) = A \cdot (\overline C + C) = A\)</span>.</p>
-</details>
-<hr />
-<p><strong>2.</strong> Упростите логические выражения.</p>
-<p>a) <span class="arithmatex">\(A \cdot \overline{(\overline B + C)}\)</span></p>
-<p>b) <span class="arithmatex">\(\overline{(A + \overline B)} + \overline{(A + B)} + A \cdot B\)</span></p>
-<p>c) <span class="arithmatex">\(A + \overline{(A + B)} + \overline A \cdot B\)</span></p>
-<p>d) <span class="arithmatex">\(\overline{(A + \overline B + \overline C)}\)</span></p>
-<p>e) <span class="arithmatex">\(\overline{(A + B)} \cdot A \cdot \overline B\)</span></p>
-<p>f) <span class="arithmatex">\(A + \overline{B \cdot \overline C} + \overline{(\overline A + B + \overline C)}\)</span></p>
-<p>g) <span class="arithmatex">\((A + B + C)\cdot \overline{(\overline A \cdot \overline B)} + C\)</span></p>
-<p>h) <span class="arithmatex">\(A \cdot \overline{(\overline C + \overline B)} + \overline{(A + B)} \cdot C + A \cdot C\)</span></p>
-<p>i) <span class="arithmatex">\((A + B)\cdot(\overline A + B)\cdot(\overline A + \overline B)\)</span></p>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>a) По <strong>закону де Моргана</strong> <span class="arithmatex">\(\overline{(\overline B + C)} = B \cdot \overline C\)</span>, значит <span class="arithmatex">\(A \cdot \overline{(\overline B + C)} = A \cdot B \cdot \overline C\)</span>.</p>
-<p>b) <span class="arithmatex">\(\overline{(A + \overline B)} = \overline A \cdot B\)</span>, <span class="arithmatex">\(\overline{(A + B)} = \overline A \cdot \overline B\)</span>. Тогда <span class="arithmatex">\(\overline A \cdot B + \overline A \cdot \overline B + A \cdot B = \overline A + A \cdot B = \overline A + B\)</span>.</p>
-<p>c) <span class="arithmatex">\(A + \overline{(A + B)} + \overline A \cdot B = A + \overline A \cdot \overline B + \overline A \cdot B = A + \overline A \cdot (\overline B + B) = 1\)</span>.</p>
-<p>d) <span class="arithmatex">\(\overline{(A + \overline B + \overline C)} = \overline A \cdot B \cdot C\)</span>.</p>
-<p>e) <span class="arithmatex">\(\overline{(A + B)} \cdot A \cdot \overline B = \overline A \cdot \overline B \cdot A \cdot \overline B = 0\)</span>, потому что возникает <span class="arithmatex">\(A \cdot \overline A\)</span>.</p>
-<p>f) <span class="arithmatex">\(\overline{B \cdot \overline C} = \overline B + C\)</span>, <span class="arithmatex">\(\overline{(\overline A + B + \overline C)} = A \cdot \overline B \cdot C\)</span>. Тогда <span class="arithmatex">\(A + \overline B + C + A \cdot \overline B \cdot C = A + \overline B + C\)</span>.</p>
-<p>g) <span class="arithmatex">\(\overline{(\overline A \cdot \overline B)} = A + B\)</span>. Тогда <span class="arithmatex">\((A + B + C)\cdot(A + B) + C = A + B + C\)</span>.</p>
-<p>h) <span class="arithmatex">\(A \cdot \overline{(\overline C + \overline B)} + \overline{(A + B)} \cdot C + A \cdot C = A \cdot B \cdot C + \overline A \cdot \overline B \cdot C + A \cdot C = C \cdot (A + \overline B)\)</span>.</p>
-<p>i) <span class="arithmatex">\((A + B)\cdot(\overline A + B) = B\)</span>, значит всё выражение равно <span class="arithmatex">\(B \cdot (\overline A + \overline B) = \overline A \cdot B\)</span>.</p>
-</details>
-<hr />
-<p><strong>3.</strong> Упростите логические выражения.</p>
-<p>a) <span class="arithmatex">\(\overline{(A \to C)} \cdot C\)</span></p>
-<p>b) <span class="arithmatex">\(\overline{(A \to \overline B)} + \overline{(A \to B)} + A \cdot B\)</span></p>
-<p>c) <span class="arithmatex">\(A + \overline{(A \to B)} + \overline{(A + \overline B)}\)</span></p>
-<p>d) <span class="arithmatex">\(\overline{(A \to (B \to \overline C))}\)</span></p>
-<p>e) <span class="arithmatex">\(\overline{(A \to B)} \cdot \overline{(A \to \overline B)}\)</span></p>
-<p>f) <span class="arithmatex">\(A + \overline{B \cdot \overline C} + \overline{(A \to \overline B \cdot C)}\)</span></p>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>a) <span class="arithmatex">\(A \to C = \overline A + C\)</span>, значит <span class="arithmatex">\(\overline{(A \to C)} \cdot C = \overline{(\overline A + C)} \cdot C = A \cdot \overline C \cdot C = 0\)</span>.</p>
-<p>b) <span class="arithmatex">\(\overline{(A \to \overline B)} + \overline{(A \to B)} + A \cdot B = \overline{(\overline A + \overline B)} + \overline{(\overline A + B)} + A \cdot B = A \cdot B + A \cdot \overline B + A \cdot B = A\)</span>.</p>
-<p>c) <span class="arithmatex">\(A + \overline{(A \to B)} + \overline{(A + \overline B)} = A + \overline{(\overline A + B)} + \overline A \cdot B = A + A \cdot \overline B + \overline A \cdot B = A + B\)</span>.</p>
-<p>d) <span class="arithmatex">\(B \to \overline C = \overline B + \overline C\)</span>, поэтому <span class="arithmatex">\(A \to (B \to \overline C) = \overline A + \overline B + \overline C\)</span>, а после отрицания получаем <span class="arithmatex">\(A \cdot B \cdot C\)</span>.</p>
-<p>e) <span class="arithmatex">\(\overline{(A \to B)} \cdot \overline{(A \to \overline B)} = \overline{(\overline A + B)} \cdot \overline{(\overline A + \overline B)} = A \cdot \overline B \cdot A \cdot B = 0\)</span>.</p>
-<p>f) <span class="arithmatex">\(A + \overline{B \cdot \overline C} + \overline{(A \to \overline B \cdot C)} = A + (\overline B + C) + \overline{(\overline A + \overline B \cdot C)}\)</span>. Далее <span class="arithmatex">\(\overline{(\overline A + \overline B \cdot C)} = A \cdot \overline{(\overline B \cdot C)} = A \cdot (B + \overline C)\)</span>, поэтому всё выражение равно <span class="arithmatex">\(A + \overline B + C\)</span>.</p>
-</details>
-</details>
-<h2 id="_8">Небазовые операции двух переменных</h2>
-<p>Выше мы в основном работали с базовыми операциями <strong>НЕ</strong>, <strong>И</strong> и <strong>ИЛИ</strong>. Но для двух входных переменных можно определить и другие логические операции.</p>
-<p>Если строки таблицы истинности идут в порядке <span class="arithmatex">\((0, 0)\)</span>, <span class="arithmatex">\((0, 1)\)</span>, <span class="arithmatex">\((1, 0)\)</span>, <span class="arithmatex">\((1, 1)\)</span>, то любая операция двух переменных полностью задаётся последним столбцом этой таблицы. В нём можно поставить любую комбинацию из четырёх нулей и единиц, поэтому всего существует <span class="arithmatex">\(2^4 = 16\)</span> операций.</p>
-<div class="admonition definition">
-<p>Возможные коды результирующего столбца для двух переменных:</p>
-<ul>
-<li><span class="arithmatex">\(\mathtt{0000}\)</span>, <span class="arithmatex">\(\mathtt{0001}\)</span>, <span class="arithmatex">\(\mathtt{0010}\)</span>, <span class="arithmatex">\(\mathtt{0011}\)</span></li>
-<li><span class="arithmatex">\(\mathtt{0100}\)</span>, <span class="arithmatex">\(\mathtt{0101}\)</span>, <span class="arithmatex">\(\mathtt{0110}\)</span>, <span class="arithmatex">\(\mathtt{0111}\)</span></li>
-<li><span class="arithmatex">\(\mathtt{1000}\)</span>, <span class="arithmatex">\(\mathtt{1001}\)</span>, <span class="arithmatex">\(\mathtt{1010}\)</span>, <span class="arithmatex">\(\mathtt{1011}\)</span></li>
-<li><span class="arithmatex">\(\mathtt{1100}\)</span>, <span class="arithmatex">\(\mathtt{1101}\)</span>, <span class="arithmatex">\(\mathtt{1110}\)</span>, <span class="arithmatex">\(\mathtt{1111}\)</span></li>
-</ul>
-</div>
-<p>Часть этих операций совпадает с уже знакомыми константами, проекциями и базовыми связками. Ниже разберём несколько небазовых операций, которые встречаются особенно часто.</p>
-<div class="admonition comment">
-<p><strong>Эквивалентность</strong> можно рассматривать как отрицание <strong>исключающего ИЛИ</strong>.<br />
-<strong>Штрих Шеффера</strong> и <strong>стрелка Пирса</strong> важны ещё и тем, что каждая из этих операций сама по себе функционально полна: через одну такую операцию можно выразить весь базовый набор.</p>
 </div>
 <details class="question-block">
-<summary>Задачи для тренировки</summary>
-<p>Для каждой операции:</p>
-<ol>
-<li>составьте выражение по таблице истинности через <strong>НЕ</strong>, <strong>И</strong>, <strong>ИЛИ</strong>;</li>
-<li>упростите его;</li>
-<li>проверьте результат через таблицу истинности с промежуточными столбцами.</li>
-</ol>
-<hr />
-<p><strong>1. Исключающее ИЛИ <span class="arithmatex">\(A \oplus B\)</span></strong></p>
-<p>Истинно тогда и только тогда, когда значения <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> различны.</p>
+<summary>Задачи для тренировки: синтез логических выражений</summary>
+<p>1. Постройте выражения для логических функций двух переменных. Используйте разные методы и сравните их.</p>
+<p>a)</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(A \oplus B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единичным строкам получаем:</p>
-<ul>
-<li>для строки <span class="arithmatex">\((0, 1)\)</span>: <span class="arithmatex">\(\overline A \cdot B\)</span>;</li>
-<li>для строки <span class="arithmatex">\((1, 0)\)</span>: <span class="arithmatex">\(A \cdot \overline B\)</span>.</li>
-</ul>
-<p>Значит,
-<span class="arithmatex">\(A \oplus B = \overline A \cdot B + A \cdot \overline B\)</span>.</p>
-<p>Это выражение уже достаточно короткое, поэтому дальше оно не упрощается.</p>
-<p>Проверим результат по таблице истинности с промежуточными столбцами.</p>
+<p>По единицам</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B + A \cdot B = B \cdot (\overline A + A) = B
+\]</div>
+<p>По нулям</p>
+<div class="arithmatex">\[
+X = (A + B)\cdot(\overline A + B) = B
+\]</div>
+<p>Здесь естественнее идти по единицам.</p>
+</details>
+<p>b)</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(\overline A \cdot B\)</span></th>
-<th><span class="arithmatex">\(A \cdot \overline B\)</span></th>
-<th><span class="arithmatex">\(A \oplus B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
-<p>Последний столбец совпадает с исходной таблицей, значит синтез выполнен правильно.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>По единицам</p>
+<div class="arithmatex">\[
+X = \overline A \cdot \overline B + A \cdot \overline B + A \cdot B = \overline B + A \cdot B = A + \overline B
+\]</div>
+<p>По нулям нулевая строка одна, <span class="arithmatex">\((0, 1)\)</span>, поэтому сразу получаем</p>
+<div class="arithmatex">\[
+X = A + \overline B
+\]</div>
+<p>Здесь короче способ по нулям.</p>
+</details>
+<p>c)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>По единицам единичная строка одна, поэтому</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B
+\]</div>
+<p>По нулям</p>
+<div class="arithmatex">\[
+X = (A + B)\cdot(\overline A + B)\cdot(\overline A + \overline B) = B\cdot(\overline A + \overline B) = \overline A \cdot B
+\]</div>
+<p>Здесь короче способ по единицам.</p>
+</details>
+<p>d)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>По единицам сразу</p>
+<div class="arithmatex">\[
+X = A \cdot \overline B
+\]</div>
+<p>По нулям</p>
+<div class="arithmatex">\[
+X = (A + B)\cdot(A + \overline B)\cdot(\overline A + \overline B) = A\cdot(\overline A + \overline B) = A \cdot \overline B
+\]</div>
+<p>Здесь тоже удобнее способ по единицам.</p>
 </details>
 <hr />
-<p><strong>2. Импликация <span class="arithmatex">\(A \to B\)</span></strong></p>
-<p>Высказывание «если <span class="arithmatex">\(A\)</span>, то <span class="arithmatex">\(B\)</span>». Оно ложно только в случае, когда <span class="arithmatex">\(A = 1\)</span>, а <span class="arithmatex">\(B = 0\)</span>.</p>
+<p>2. Постройте выражения для логических функций трёх переменных. Используйте разные методы и сравните их.</p>
+<p>a)</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(A \to B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 </tbody>
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>Здесь удобнее идти не по единицам, а по нулям: импликация ложна только в одной строке, <span class="arithmatex">\((1, 0)\)</span>.</p>
-<p>Поэтому для отрицания функции сразу получаем
-<span class="arithmatex">\(\overline X = A \cdot \overline B\)</span>.</p>
-<p>Тогда
-<span class="arithmatex">\(X = \overline{A \cdot \overline B}\)</span>.</p>
-<p>По <strong>закону де Моргана</strong> получаем <span class="arithmatex">\(X = \overline A + B\)</span>.</p>
-<p>Это и есть стандартная запись импликации через базовые операции.</p>
-<p>Проверим результат по таблице истинности.</p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(\overline A\)</span></th>
-<th><span class="arithmatex">\(\overline A + B\)</span></th>
-<th><span class="arithmatex">\(A \to B\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>Последний столбец совпадает с исходной таблицей.</p>
+<p>По единицам</p>
+<div class="arithmatex">\[
+X = \overline A \cdot \overline B \cdot C + \overline A \cdot B \cdot \overline C + \overline A \cdot B \cdot C + A \cdot B \cdot \overline C
+\]</div>
+<p>После группировки</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B + \overline A \cdot \overline B \cdot C + A \cdot B \cdot \overline C = \overline A \cdot (B + C) + A \cdot B \cdot \overline C
+\]</div>
+<p>По нулям</p>
+<div class="arithmatex">\[
+X = (A + B + C)\cdot(\overline A + B + C)\cdot(\overline A + B + \overline C)\cdot(\overline A + \overline B + \overline C)
+\]</div>
+<p>После упрощения получаем близкую форму</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B + \overline A \cdot C + B \cdot \overline C
+\]</div>
+<p>Оба подхода здесь рабочие.</p>
 </details>
-<hr />
-<p><strong>3. Эквивалентность <span class="arithmatex">\(A \leftrightarrow B\)</span></strong></p>
-<p>Истинна тогда и только тогда, когда значения <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> совпадают.</p>
+<p>b)</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(A \leftrightarrow B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>Единицы стоят в строках <span class="arithmatex">\((0, 0)\)</span> и <span class="arithmatex">\((1, 1)\)</span>.</p>
-<p>Поэтому по синтезу через единичные строки получаем <span class="arithmatex">\(A \leftrightarrow B = \overline A \cdot \overline B + A \cdot B\)</span>.</p>
-<p>Это выражение уже является стандартной сокращённой формой. Кроме того, эквивалентность можно понимать как отрицание исключающего ИЛИ: <span class="arithmatex">\(A \leftrightarrow B = \overline{A \oplus B}\)</span>.</p>
-<p>Проверим первую форму по таблице истинности.</p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(\overline A \cdot \overline B\)</span></th>
-<th><span class="arithmatex">\(A \cdot B\)</span></th>
-<th><span class="arithmatex">\(A \leftrightarrow B\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>Последний столбец совпадает с исходной таблицей.</p>
+<p>По единицам</p>
+<div class="arithmatex">\[
+X = \overline A \cdot \overline B \cdot \overline C + A \cdot \overline B \cdot \overline C + A \cdot B \cdot \overline C + A \cdot B \cdot C
+\]</div>
+<p>Группировка даёт</p>
+<div class="arithmatex">\[
+X = \overline B \cdot \overline C + A \cdot B
+\]</div>
+<p>По нулям</p>
+<div class="arithmatex">\[
+X = (A + B + \overline C)\cdot(A + \overline B + C)\cdot(A + \overline B + \overline C)\cdot(\overline A + B + \overline C)
+\]</div>
+<p>После парного упрощения снова получаем</p>
+<div class="arithmatex">\[
+X = A \cdot B + \overline B \cdot \overline C
+\]</div>
+<p>Оба способа одинаково удачны.</p>
 </details>
-<hr />
-<p><strong>4. Штрих Шеффера <span class="arithmatex">\(A \mid B\)</span></strong></p>
-<p>Это операция <strong>И-НЕ</strong>. Она истинна во всех случаях, кроме <span class="arithmatex">\(A = 1\)</span> и <span class="arithmatex">\(B = 1\)</span>.</p>
+<p>c)</p>
 <table>
 <thead>
 <tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(A \mid B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(C\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
 </tr>
 </tbody>
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>Здесь снова удобнее идти по нулям: функция равна нулю только в строке <span class="arithmatex">\((1, 1)\)</span>.</p>
-<p>Поэтому <span class="arithmatex">\(\overline X = A \cdot B\)</span>.</p>
-<p>Тогда <span class="arithmatex">\(X = \overline{A \cdot B}\)</span>.</p>
-<p>По <strong>закону де Моргана</strong> получаем <span class="arithmatex">\(X = \overline A + \overline B\)</span>.</p>
-<p>Проверим результат по таблице истинности.</p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(A \cdot B\)</span></th>
-<th><span class="arithmatex">\(\overline{A \cdot B}\)</span></th>
-<th><span class="arithmatex">\(A \mid B\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>Последний столбец совпадает с исходной таблицей.</p>
-</details>
-<hr />
-<p><strong>5. Стрелка Пирса <span class="arithmatex">\(A \downarrow B\)</span></strong></p>
-<p>Это операция <strong>ИЛИ-НЕ</strong>. Она истинна только в случае <span class="arithmatex">\(A = 0\)</span> и <span class="arithmatex">\(B = 0\)</span>.</p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(A \downarrow B\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><details class="answer">
-<summary>Ответ</summary></p>
-<p>Здесь функция равна единице только в одной строке, <span class="arithmatex">\((0, 0)\)</span>.</p>
-<p>Поэтому по единичной строке сразу получаем <span class="arithmatex">\(X = \overline A \cdot \overline B\)</span>.</p>
-<p>Это выражение уже задаёт нужную операцию. По <strong>закону де Моргана</strong> его можно переписать ещё и так: <span class="arithmatex">\(X = \overline{A + B}\)</span>.</p>
-<p>Проверим вторую форму по таблице истинности.</p>
-<table>
-<thead>
-<tr>
-<th><span class="arithmatex">\(A\)</span></th>
-<th><span class="arithmatex">\(B\)</span></th>
-<th><span class="arithmatex">\(A + B\)</span></th>
-<th><span class="arithmatex">\(\overline{A + B}\)</span></th>
-<th><span class="arithmatex">\(A \downarrow B\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">0</span></td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td><span class="table-expression">0</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">0</span></td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td><span class="table-expression">1</span></td>
-<td><span class="table-expression">1</span></td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>Последний столбец совпадает с исходной таблицей.</p>
+<p>По единицам</p>
+<div class="arithmatex">\[
+X = \overline A \cdot \overline B \cdot \overline C + \overline A \cdot \overline B \cdot C + \overline A \cdot B \cdot \overline C + A \cdot B \cdot \overline C
+\]</div>
+<p>Группировка даёт</p>
+<div class="arithmatex">\[
+X = \overline A \cdot \overline B + B \cdot \overline C
+\]</div>
+<p>По нулям</p>
+<div class="arithmatex">\[
+X = (A + \overline B + \overline C)\cdot(\overline A + B + C)\cdot(\overline A + B + \overline C)\cdot(\overline A + \overline B + \overline C)
+\]</div>
+<p>После упрощения получается</p>
+<div class="arithmatex">\[
+X = \overline A \cdot \overline B + \overline A \cdot \overline C + B \cdot \overline C
+\]</div>
+<p>а затем лишнее слагаемое убирается, и остаётся</p>
+<div class="arithmatex">\[
+X = \overline A \cdot \overline B + B \cdot \overline C
+\]</div>
+<p>Здесь способ по единицам короче.</p>
 </details>
 </details>
 <hr />
@@ -3331,6 +3769,8 @@ X =
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../javascripts/math-nowrap.js"></script>
       
     
   </body>

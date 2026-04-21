@@ -321,6 +321,10 @@ body {
     line-height: 1.55;
 }
 
+.md-typeset .math-nowrap {
+    white-space: nowrap;
+}
+
 /* Заголовки первого уровня в стиле Open edX (как бывший h2) */
 .md-typeset h1 {
     padding-bottom: 0;
