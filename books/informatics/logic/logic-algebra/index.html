@@ -3245,7 +3245,7 @@ X = \overline A + C
 </div>
 <details class="question-block">
 <summary>Задачи для тренировки: синтез логических выражений</summary>
-<p>1. Постройте выражения для логических функций двух переменных. Используйте разные методы и сравните их.</p>
+<p>1. Постройте выражения для логических функций двух переменных.</p>
 <p>a)</p>
 <table>
 <thead>
@@ -3280,15 +3280,9 @@ X = \overline A + C
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единицам</p>
 <div class="arithmatex">\[
 X = \overline A \cdot B + A \cdot B = B \cdot (\overline A + A) = B
 \]</div>
-<p>По нулям</p>
-<div class="arithmatex">\[
-X = (A + B)\cdot(\overline A + B) = B
-\]</div>
-<p>Здесь естественнее идти по единицам.</p>
 </details>
 <p>b)</p>
 <table>
@@ -3324,15 +3318,9 @@ X = (A + B)\cdot(\overline A + B) = B
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единицам</p>
 <div class="arithmatex">\[
-X = \overline A \cdot \overline B + A \cdot \overline B + A \cdot B = \overline B + A \cdot B = A + \overline B
+X = \overline{\overline A \cdot B} = A + \overline B
 \]</div>
-<p>По нулям нулевая строка одна, <span class="arithmatex">\((0, 1)\)</span>, поэтому сразу получаем</p>
-<div class="arithmatex">\[
-X = A + \overline B
-\]</div>
-<p>Здесь короче способ по нулям.</p>
 </details>
 <p>c)</p>
 <table>
@@ -3368,15 +3356,9 @@ X = A + \overline B
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единицам единичная строка одна, поэтому</p>
 <div class="arithmatex">\[
 X = \overline A \cdot B
 \]</div>
-<p>По нулям</p>
-<div class="arithmatex">\[
-X = (A + B)\cdot(\overline A + B)\cdot(\overline A + \overline B) = B\cdot(\overline A + \overline B) = \overline A \cdot B
-\]</div>
-<p>Здесь короче способ по единицам.</p>
 </details>
 <p>d)</p>
 <table>
@@ -3412,18 +3394,12 @@ X = (A + B)\cdot(\overline A + B)\cdot(\overline A + \overline B) = B\cdot(\over
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единицам сразу</p>
 <div class="arithmatex">\[
 X = A \cdot \overline B
 \]</div>
-<p>По нулям</p>
-<div class="arithmatex">\[
-X = (A + B)\cdot(A + \overline B)\cdot(\overline A + \overline B) = A\cdot(\overline A + \overline B) = A \cdot \overline B
-\]</div>
-<p>Здесь тоже удобнее способ по единицам.</p>
 </details>
 <hr />
-<p>2. Постройте выражения для логических функций трёх переменных. Используйте разные методы и сравните их.</p>
+<p>2. Постройте выражения для логических функций трёх переменных.</p>
 <p>a)</p>
 <table>
 <thead>
@@ -3487,23 +3463,12 @@ X = (A + B)\cdot(A + \overline B)\cdot(\overline A + \overline B) = A\cdot(\over
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единицам</p>
 <div class="arithmatex">\[
 X = \overline A \cdot \overline B \cdot C + \overline A \cdot B \cdot \overline C + \overline A \cdot B \cdot C + A \cdot B \cdot \overline C
 \]</div>
-<p>После группировки</p>
 <div class="arithmatex">\[
 X = \overline A \cdot B + \overline A \cdot \overline B \cdot C + A \cdot B \cdot \overline C = \overline A \cdot (B + C) + A \cdot B \cdot \overline C
 \]</div>
-<p>По нулям</p>
-<div class="arithmatex">\[
-X = (A + B + C)\cdot(\overline A + B + C)\cdot(\overline A + B + \overline C)\cdot(\overline A + \overline B + \overline C)
-\]</div>
-<p>После упрощения получаем близкую форму</p>
-<div class="arithmatex">\[
-X = \overline A \cdot B + \overline A \cdot C + B \cdot \overline C
-\]</div>
-<p>Оба подхода здесь рабочие.</p>
 </details>
 <p>b)</p>
 <table>
@@ -3568,23 +3533,12 @@ X = \overline A \cdot B + \overline A \cdot C + B \cdot \overline C
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единицам</p>
 <div class="arithmatex">\[
 X = \overline A \cdot \overline B \cdot \overline C + A \cdot \overline B \cdot \overline C + A \cdot B \cdot \overline C + A \cdot B \cdot C
 \]</div>
-<p>Группировка даёт</p>
 <div class="arithmatex">\[
 X = \overline B \cdot \overline C + A \cdot B
 \]</div>
-<p>По нулям</p>
-<div class="arithmatex">\[
-X = (A + B + \overline C)\cdot(A + \overline B + C)\cdot(A + \overline B + \overline C)\cdot(\overline A + B + \overline C)
-\]</div>
-<p>После парного упрощения снова получаем</p>
-<div class="arithmatex">\[
-X = A \cdot B + \overline B \cdot \overline C
-\]</div>
-<p>Оба способа одинаково удачны.</p>
 </details>
 <p>c)</p>
 <table>
@@ -3649,27 +3603,12 @@ X = A \cdot B + \overline B \cdot \overline C
 </table>
 <p><details class="answer">
 <summary>Ответ</summary></p>
-<p>По единицам</p>
 <div class="arithmatex">\[
 X = \overline A \cdot \overline B \cdot \overline C + \overline A \cdot \overline B \cdot C + \overline A \cdot B \cdot \overline C + A \cdot B \cdot \overline C
 \]</div>
-<p>Группировка даёт</p>
 <div class="arithmatex">\[
 X = \overline A \cdot \overline B + B \cdot \overline C
 \]</div>
-<p>По нулям</p>
-<div class="arithmatex">\[
-X = (A + \overline B + \overline C)\cdot(\overline A + B + C)\cdot(\overline A + B + \overline C)\cdot(\overline A + \overline B + \overline C)
-\]</div>
-<p>После упрощения получается</p>
-<div class="arithmatex">\[
-X = \overline A \cdot \overline B + \overline A \cdot \overline C + B \cdot \overline C
-\]</div>
-<p>а затем лишнее слагаемое убирается, и остаётся</p>
-<div class="arithmatex">\[
-X = \overline A \cdot \overline B + B \cdot \overline C
-\]</div>
-<p>Здесь способ по единицам короче.</p>
 </details>
 </details>
 <hr />
