@@ -2018,15 +2018,354 @@
 <p>В Logic.ly переключатели отвечают за входные данные, а лампочка — за выход: включено — это true, выключено — false. В логических схемах для обозначения true и false используют <span class="arithmatex">\(1\)</span> и <span class="arithmatex">\(0\)</span>.</p>
 <div style="clear: both"></div>
 
-<h2 id="_2">Основные логические элементы</h2>
+<h1 id="_2">Основные логические элементы</h1>
 <div class="admonition definition">
 <p><strong>Логический элемент</strong> — это схема с одним или несколькими входами и одним выходом, которая выполняет логическую операцию.</p>
 </div>
 <p>Любую логическую функцию можно представить с помощью элементов «НЕ», «И» и «ИЛИ». Такой набор элементов называется полным. Далее разберём эти логические элементы.</p>
 <p><img alt="" src="../images/basic-logic-gates-overview-top-row-fixed-20260425.png" style="display:block; margin:0.5rem auto; max-width:980px; width:100%; height:auto;" /></p>
+<h1 id="_3">Производные логические элементы</h1>
+<p>Производные элементы собирают из базовых элементов НЕ, И и ИЛИ. Они выполняют более сложные правила, но по-прежнему имеют те же входы <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span> и один выход <span class="arithmatex">\(X\)</span>.</p>
+<p>Обратите внимание: NAND и NOR отличаются от AND и OR маленьким пустым кружком на выходе. Этот кружок означает отрицание, то есть НЕ.</p>
+<h3 id="nand-">NAND (НЕ-И)</h3>
+<p>NAND — это элемент И, после которого стоит НЕ. Он выдаёт <span class="arithmatex">\(0\)</span> только в одном случае: когда оба входа равны <span class="arithmatex">\(1\)</span>. Во всех остальных случаях выход равен <span class="arithmatex">\(1\)</span>.</p>
+<p>Алгебраическая запись: <span class="arithmatex">\(X = \overline{A \cdot B}\)</span>.</p>
+<div style="margin:0.5rem 0 1rem;">
+  <div style="display:flex; gap:0.75rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+    <figure style="flex:1 1 301px; max-width:392px; margin:0;">
+      <img src="/books/informatics/logic/images/derived-nand-construction-focus-20260427.png" alt="NAND можно собрать из элемента И, а затем элемента НЕ" style="display:block; max-width:392px; width:100%; height:auto;">
+      <figcaption>NAND можно собрать из элемента И, а затем элемента НЕ.</figcaption>
+    </figure>
+    <figure style="flex:0 1 133px; max-width:133px; margin:0;">
+      <img src="/books/informatics/logic/images/derived-nand-symbol-focus-20260427.png" alt="Обозначение NAND" style="display:block; max-width:133px; width:100%; height:auto;">
+      <figcaption>Обозначение NAND.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Таблица истинности для NAND</p>
+
+<h3 id="nor-">NOR (НЕ-ИЛИ)</h3>
+<p>NOR — это элемент ИЛИ, после которого стоит НЕ. Он выдаёт <span class="arithmatex">\(1\)</span> только тогда, когда оба входа равны <span class="arithmatex">\(0\)</span>. Если хотя бы один вход равен <span class="arithmatex">\(1\)</span>, выход равен <span class="arithmatex">\(0\)</span>.</p>
+<p>Алгебраическая запись: <span class="arithmatex">\(X = \overline{A + B}\)</span>.</p>
+<div style="margin:0.5rem 0 1rem;">
+  <div style="display:flex; gap:0.75rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+    <figure style="flex:1 1 301px; max-width:392px; margin:0;">
+      <img src="/books/informatics/logic/images/derived-nor-construction-focus-20260427.png" alt="NOR можно собрать из элемента ИЛИ, а затем элемента НЕ" style="display:block; max-width:392px; width:100%; height:auto;">
+      <figcaption>NOR можно собрать из элемента ИЛИ, а затем элемента НЕ.</figcaption>
+    </figure>
+    <figure style="flex:0 1 133px; max-width:133px; margin:0;">
+      <img src="/books/informatics/logic/images/derived-nor-symbol-focus-20260427.png" alt="Обозначение NOR" style="display:block; max-width:133px; width:100%; height:auto;">
+      <figcaption>Обозначение NOR.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Таблица истинности для NOR</p>
+
+<p>Элементы NAND и NOR особенно важны в схемотехнике. Используя только NAND или только NOR, можно выразить операции НЕ, И и ИЛИ, а значит, и собрать любую логическую схему.</p>
+<p>Схемы в задачах ниже стройте в <a href="https://logic.ly/demo/">Logic.ly</a>.</p>
+<details class="question-block">
+<summary>Задачи для тренировки: NAND в схемотехнике</summary>
+<p>Используя только элементы NAND, постройте схемы для функций.</p>
+<p><strong>a)</strong></p>
+<div class="arithmatex">\[
+X = \overline A
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+X = \overline{A \cdot A}
+\]</div>
+<p><img alt="" src="../images/nand-only-not-logicly-20260427.png" style="display:block; margin:0.75rem auto 0; max-width:380px; width:100%; height:auto;" /></p>
+</details>
+<hr />
+<p><strong>b)</strong></p>
+<div class="arithmatex">\[
+X = A \cdot B
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+X = \overline{\overline{A \cdot B}}
+\]</div>
+<p><img alt="" src="../images/nand-only-and-logicly-20260427.png" style="display:block; margin:0.75rem auto 0; max-width:520px; width:100%; height:auto;" /></p>
+</details>
+<hr />
+<p><strong>c)</strong></p>
+<div class="arithmatex">\[
+X = A + B
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+X = \overline{\overline A \cdot \overline B}
+= \overline{(\overline{A \cdot A}) \cdot (\overline{B \cdot B})}
+\]</div>
+<p><img alt="" src="../images/nand-only-or-logicly-20260427.png" style="display:block; margin:0.75rem auto 0; max-width:520px; width:100%; height:auto;" /></p>
+</details>
+</details>
+<h3 id="xor">XOR (исключающее ИЛИ)</h3>
+<p>XOR выдаёт <span class="arithmatex">\(1\)</span>, если входы разные. Если оба входа одинаковые — оба <span class="arithmatex">\(0\)</span> или оба <span class="arithmatex">\(1\)</span>, — выход равен <span class="arithmatex">\(0\)</span>.</p>
+<p>Алгебраическая запись: <span class="arithmatex">\(X = A \oplus B\)</span>.</p>
+<div style="margin:0.5rem 0 1rem;">
+  <div style="display:flex; gap:0.75rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+    <figure style="flex:1 1 329px; max-width:448px; margin:0;">
+      <img src="/books/informatics/logic/images/derived-xor-construction-focus-20260427.png" alt="Один из способов собрать XOR из базовых элементов" style="display:block; max-width:448px; width:100%; height:auto;">
+      <figcaption>Один из способов собрать XOR из базовых элементов.</figcaption>
+    </figure>
+    <figure style="flex:0 1 123px; max-width:123px; margin:0;">
+      <img src="/books/informatics/logic/images/derived-xor-symbol-focus-20260427.png" alt="Обозначение XOR" style="display:block; max-width:123px; width:100%; height:auto;">
+      <figcaption>Обозначение XOR.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Таблица истинности для XOR</p>
+
+<p>Сведём в одну таблицу все пройденные элементы.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \cdot B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A + B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline{A \cdot B}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline{A + B}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(A \oplus B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Общая таблица истинности для пройденных логических элементов</p>
+
+<hr />
+<h1 id="_4">Построение логических схем</h1>
+<p>Если логическое выражение уже известно, схему удобно строить с конца: от последней операции к входным переменным.</p>
+<p>Рассмотрим выражение</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B + A \cdot \overline B \cdot \overline C
+\]</div>
+<p>Последняя операция здесь — ИЛИ, поэтому на выходе схемы стоит элемент ИЛИ. Дальше разбираем каждую ветку отдельно. Первая ветка вычисляет <span class="arithmatex">\(\overline A \cdot B\)</span>: сначала из сигнала <span class="arithmatex">\(A\)</span> получают <span class="arithmatex">\(\overline A\)</span>, а затем соединяют <span class="arithmatex">\(\overline A\)</span> и <span class="arithmatex">\(B\)</span> элементом И. Вторая ветка вычисляет <span class="arithmatex">\(A \cdot \overline B \cdot \overline C\)</span>: сигналы <span class="arithmatex">\(B\)</span> и <span class="arithmatex">\(C\)</span> сначала проходят через элементы НЕ, после чего вместе с <span class="arithmatex">\(A\)</span> подаются на элементы И.</p>
+<p>Так постепенно вся схема собирается из более простых частей, пока на входах не останутся только исходные сигналы <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span> и <span class="arithmatex">\(C\)</span>. На рисунке показана уже готовая схема для этого выражения.</p>
+<p><img alt="" src="../images/logic-circuit-construction-example-20260427.png" style="display:block; margin:0.5rem auto; max-width:480px; width:100%; height:auto;" /></p>
+<hr />
+<details class="question-block">
+<summary>Задачи для тренировки: построение логических схем</summary>
+<p>Схемы в задачах ниже стройте в <a href="https://logic.ly/demo/">Logic.ly</a>.</p>
+<p><strong>1.</strong> Постройте схему для выражения</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B + C
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><img alt="" src="../images/logic-construction-task-1-logicly-20260427.png" style="display:block; margin:0.75rem auto 0; max-width:640px; width:100%; height:auto;" /></p>
+</details>
+<hr />
+<p><strong>2.</strong> Постройте схему для выражения</p>
+<div class="arithmatex">\[
+X = (A + B) \cdot \overline C
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><img alt="" src="../images/logic-construction-task-2-logicly-20260427.png" style="display:block; margin:0.75rem auto 0; max-width:640px; width:100%; height:auto;" /></p>
+</details>
+<hr />
+<p><strong>3.</strong> Постройте схему для выражения</p>
+<div class="arithmatex">\[
+X = \overline{A \cdot B} + A \cdot \overline C
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><img alt="" src="../images/logic-construction-task-3-logicly-20260427.png" style="display:block; margin:0.75rem auto 0; max-width:640px; width:100%; height:auto;" /></p>
+</details>
+<hr />
+<p><strong>4.</strong> Постройте схему для выражения</p>
+<div class="arithmatex">\[
+X = \overline A \cdot B + A \cdot \overline B \cdot C
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><img alt="" src="../images/logic-construction-task-4-logicly-20260427.png" style="display:block; margin:0.75rem auto 0; max-width:640px; width:100%; height:auto;" /></p>
+</details>
+<hr />
+<p>Прикладные задачи.</p>
+<p><strong>5.</strong> Соревнования по поднятию тяжестей судит бригада из трёх человек, один из них старший. Лампочка «Вес взят» должна зажигаться, если проголосовали по крайней мере два судьи, причём один из них — старший. Предложите логическую схему, которая решала бы эту задачу.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Пусть <span class="arithmatex">\(A\)</span> — голос старшего судьи, <span class="arithmatex">\(B\)</span> и <span class="arithmatex">\(C\)</span> — голоса двух остальных судей, <span class="arithmatex">\(1\)</span> означает «вес взят».</p>
+<div class="arithmatex">\[
+X = A \cdot (B + C) = A \cdot B + A \cdot C
+\]</div>
+</details>
+<hr />
+<p><strong>6.</strong> В двухэтажном доме есть два выключателя, которые управляют освещением лестницы: один на первом этаже, второй на втором. После каждого нажатия состояние выключателя меняется. Если один человек входит снизу, включает свет первым выключателем, поднимается наверх и выключает свет вторым, схема должна работать правильно и для следующего человека, даже когда положения выключателей уже изменились. Предложите логическую схему, которая решала бы эту задачу.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Пусть <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(B\)</span> — состояния двух выключателей.</p>
+<div class="arithmatex">\[
+X = A \oplus B
+\]</div>
+</details>
+<hr />
+<p><strong>7.</strong> В самолёте есть три бака с горючим. Датчик в каждом баке выдаёт <span class="arithmatex">\(0\)</span>, если горючего достаточно, и <span class="arithmatex">\(1\)</span>, если горючее закончилось. Лампочка «Тревога» должна загораться, когда горючее закончилось хотя бы в двух баках. Предложите логическую схему, которая решала бы эту задачу.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Пусть <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span>, <span class="arithmatex">\(C\)</span> — сигналы датчиков трёх баков, <span class="arithmatex">\(1\)</span> означает «бак пуст».</p>
+<div class="arithmatex">\[
+X = A \cdot B + A \cdot C + B \cdot C
+\]</div>
+</details>
+<hr />
+<p><strong>8.</strong> В парламенте выбирают спикера из трёх кандидатов. Каждый парламентарий должен нажать одну и только одну из трёх кнопок. Если нажата ровно одна кнопка, должна загореться зелёная лампочка. Предложите логическую схему, которая решала бы эту задачу.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Пусть <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span>, <span class="arithmatex">\(C\)</span> — сигналы от трёх кнопок, <span class="arithmatex">\(1\)</span> означает «кнопка нажата».</p>
+<div class="arithmatex">\[
+X = A \cdot \overline B \cdot \overline C + \overline A \cdot B \cdot \overline C + \overline A \cdot \overline B \cdot C
+\]</div>
+</details>
+</details>
 <hr />
 <p><small><em>По материалам:</em><br>
-Paul Baumgarten, Ioana Ganea, Carl Turland. <em>Computer Science for the IB Diploma Programme</em>. 2025. Hachette Learning.</small></p>
+1. Paul Baumgarten, Ioana Ganea, Carl Turland. <em>Computer Science for the IB Diploma Programme</em>. 2025. Hachette Learning.<br>
+2. К. Ю. Поляков, Е. А. Еремин. <em>Учебник информатики для 10–11 классов. Углубленный уровень</em>.</small></p>
 
 
 
