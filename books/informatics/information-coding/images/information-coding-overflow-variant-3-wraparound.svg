@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Переполнение: оборачивание результата</title>
+  <desc id="desc">При сложении 250 и 10 получается 260, но в 8 битах остаются только младшие биты, поэтому хранится 4.</desc>
+  <style>
+    .label{font:600 17px Arial,sans-serif;fill:#1f2933}
+    .small{font:14px Arial,sans-serif;fill:#4b5563}
+    .mono{font:700 19px Consolas,monospace;fill:#1f2933}
+    .card{fill:#fffaf2;stroke:#e1d2bb;stroke-width:1.5;rx:14}
+    .box{fill:#ffffff;stroke:#d8dee7;stroke-width:1.5;rx:10}
+    .keep{fill:#eaf5ea;stroke:#a7c8a7;stroke-width:1.5;rx:8}
+    .drop{fill:#ffe3e3;stroke:#d89a9a;stroke-width:1.5;rx:8}
+    .green{fill:#2e7d32}
+    .red{fill:#c62828}
+    .blue{fill:#095aa6}
+    .arrow{fill:none;stroke:#095aa6;stroke-width:3;marker-end:url(#arrow)}
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#095aa6"/>
+    </marker>
+  </defs>
+  <rect width="760" height="300" fill="#ffffff"/>
+  <rect x="24" y="24" width="712" height="252" class="card"/>
+
+  <text x="48" y="60" class="label">Если переполнение не остановили, результат может «обернуться»</text>
+  <text x="48" y="86" class="small">пример: храним только младшие 8 бит результата</text>
+
+  <rect x="58" y="112" width="248" height="114" class="box"/>
+  <text x="78" y="142" class="mono">250 = 11111010</text>
+  <text x="78" y="174" class="mono"> 10 = 00001010</text>
+  <line x1="78" y1="188" x2="276" y2="188" stroke="#94a3b8" stroke-width="2"/>
+  <text x="78" y="216" class="mono">260 = 100000100</text>
+
+  <path d="M326 170 H396" class="arrow"/>
+
+  <rect x="418" y="112" width="286" height="114" class="box"/>
+  <text x="438" y="142" class="small">9-битный результат:</text>
+  <rect x="438" y="156" width="28" height="34" class="drop"/>
+  <text x="452" y="179" text-anchor="middle" class="mono red">1</text>
+  <rect x="474" y="156" width="170" height="34" class="keep"/>
+  <text x="559" y="179" text-anchor="middle" class="mono green">00000100</text>
+  <text x="438" y="212" class="small red">лишний бит отбрасывается</text>
+
+  <text x="470" y="254" class="mono blue">00000100 = 4</text>
+  <text x="610" y="254" class="small">вместо 260</text>
+</svg>
