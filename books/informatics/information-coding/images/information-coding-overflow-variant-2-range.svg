@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Переполнение: выход за диапазон</title>
+  <desc id="desc">В 8 битах можно записать коды от 0 до 255, а значение 256 находится вне допустимого диапазона.</desc>
+  <style>
+    .label{font:600 17px Arial,sans-serif;fill:#1f2933}
+    .small{font:14px Arial,sans-serif;fill:#4b5563}
+    .mono{font:700 18px Consolas,monospace;fill:#1f2933}
+    .card{fill:#f7fbff;stroke:#c9d8ea;stroke-width:1.5;rx:14}
+    .axis{stroke:#94a3b8;stroke-width:4;stroke-linecap:round}
+    .ok{stroke:#2e7d32;stroke-width:7;stroke-linecap:round}
+    .bad{stroke:#c62828;stroke-width:4}
+    .tick{stroke:#4b5563;stroke-width:2}
+    .bubble-ok{fill:#eaf5ea;stroke:#a7c8a7;rx:10}
+    .bubble-bad{fill:#ffe3e3;stroke:#d89a9a;rx:10}
+    .green{fill:#2e7d32}
+    .red{fill:#c62828}
+  </style>
+  <rect width="760" height="300" fill="#ffffff"/>
+  <rect x="24" y="24" width="712" height="252" class="card"/>
+
+  <text x="48" y="62" class="label">8 бит дают 256 кодов</text>
+  <text x="48" y="88" class="small">для беззнаковых чисел это диапазон от 0 до 255</text>
+
+  <line x1="90" y1="162" x2="628" y2="162" class="axis"/>
+  <line x1="90" y1="162" x2="560" y2="162" class="ok"/>
+  <line x1="90" y1="146" x2="90" y2="184" class="tick"/>
+  <line x1="560" y1="146" x2="560" y2="184" class="tick"/>
+  <line x1="640" y1="140" x2="670" y2="184" class="bad"/>
+  <line x1="670" y1="140" x2="640" y2="184" class="bad"/>
+
+  <text x="90" y="215" text-anchor="middle" class="mono">0</text>
+  <text x="560" y="215" text-anchor="middle" class="mono">255</text>
+  <text x="655" y="215" text-anchor="middle" class="mono red">256</text>
+
+  <rect x="190" y="112" width="270" height="34" class="bubble-ok"/>
+  <text x="325" y="135" text-anchor="middle" class="small green">помещается в один байт</text>
+
+  <rect x="574" y="82" width="128" height="44" class="bubble-bad"/>
+  <text x="638" y="101" text-anchor="middle" class="small red">вне диапазона</text>
+  <text x="638" y="119" text-anchor="middle" class="small red">нужен 9-й бит</text>
+
+  <text x="72" y="258" class="mono">2^8 = 256</text>
+  <text x="190" y="258" class="small">кодов, но последнее значение равно 255, потому что счет начинается с 0</text>
+</svg>

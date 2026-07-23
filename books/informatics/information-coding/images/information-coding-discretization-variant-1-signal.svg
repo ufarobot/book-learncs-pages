@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Дискретизация сигнала по времени</title>
+  <desc id="desc">Непрерывная кривая измеряется через равные интервалы, после чего значения записываются числами.</desc>
+  <style>
+    .label{font:600 16px Arial,sans-serif;fill:#1f2933}
+    .small{font:14px Arial,sans-serif;fill:#4b5563}
+    .mono{font:600 15px Consolas,monospace;fill:#095aa6}
+    .axis{stroke:#94a3b8;stroke-width:2}
+    .grid{stroke:#d8dee7;stroke-width:1}
+    .curve{fill:none;stroke:#095aa6;stroke-width:4;stroke-linecap:round}
+    .sample{stroke:#2e7d32;stroke-width:2;stroke-dasharray:5 5}
+    .dot{fill:#2e7d32;stroke:#ffffff;stroke-width:3}
+    .card{fill:#f7fbff;stroke:#c9d8ea;stroke-width:1.5;rx:14}
+  </style>
+  <rect width="760" height="300" fill="#ffffff"/>
+  <rect x="24" y="24" width="712" height="252" class="card"/>
+
+  <text x="46" y="58" class="label">1. Непрерывный сигнал</text>
+  <text x="46" y="84" class="small">значение меняется плавно</text>
+  <line x1="54" y1="212" x2="330" y2="212" class="axis"/>
+  <line x1="54" y1="92" x2="54" y2="220" class="axis"/>
+  <path d="M58 182 C90 102, 122 104, 150 168 S210 226, 238 156 S292 72, 326 124" class="curve"/>
+
+  <text x="408" y="58" class="label">2. Измерения через интервалы</text>
+  <text x="408" y="84" class="small">оставляем отдельные отсчеты</text>
+  <line x1="416" y1="212" x2="704" y2="212" class="axis"/>
+  <line x1="416" y1="92" x2="416" y2="220" class="axis"/>
+  <path d="M420 182 C452 102, 484 104, 512 168 S572 226, 600 156 S654 72, 688 124" class="curve" opacity="0.28"/>
+
+  <g>
+    <line x1="438" y1="212" x2="438" y2="158" class="sample"/>
+    <line x1="478" y1="212" x2="478" y2="111" class="sample"/>
+    <line x1="518" y1="212" x2="518" y2="176" class="sample"/>
+    <line x1="558" y1="212" x2="558" y2="216" class="sample"/>
+    <line x1="598" y1="212" x2="598" y2="158" class="sample"/>
+    <line x1="638" y1="212" x2="638" y2="96" class="sample"/>
+    <line x1="678" y1="212" x2="678" y2="115" class="sample"/>
+
+    <circle cx="438" cy="158" r="7" class="dot"/>
+    <circle cx="478" cy="111" r="7" class="dot"/>
+    <circle cx="518" cy="176" r="7" class="dot"/>
+    <circle cx="558" cy="216" r="7" class="dot"/>
+    <circle cx="598" cy="158" r="7" class="dot"/>
+    <circle cx="638" cy="96" r="7" class="dot"/>
+    <circle cx="678" cy="115" r="7" class="dot"/>
+  </g>
+
+  <text x="412" y="252" class="mono">5, 8, 4, 1, 5, 9, 8</text>
+  <text x="595" y="252" class="small">числа вместо кривой</text>
+</svg>

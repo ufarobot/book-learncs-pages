@@ -1,0 +1,84 @@
+
+/* Компактный блок ввода/вывода в стиле черно-белой консоли */
+.md-typeset .io-compact {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    margin: 0.12rem 0 0.32rem;
+    padding: 0;
+}
+
+.md-typeset .io-compact__label {
+    background: transparent;
+    border: 0;
+    border-radius: 2px;
+    color: var(--color-io-label);
+    display: inline-block;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0.05rem 0 0;
+    padding: 0.02rem 0.34rem 0.01rem;
+    text-transform: uppercase;
+}
+
+.md-typeset .io-compact pre + .io-compact__label {
+    margin-top: 0.34rem;
+}
+
+.md-typeset .io-compact pre {
+    background: var(--color-io-pre-bg) !important;
+    border: 0 !important;
+    border-radius: 2px;
+    box-shadow: none !important;
+    color: var(--color-io-pre-text) !important;
+    font-size: 1em !important; /* как основной текст */
+    line-height: 1.28 !important;
+    margin: 0 0 0.08rem !important;
+    padding: 0.18rem 0.34rem 0.16rem !important;
+    white-space: pre;
+}
+
+.md-typeset .io-compact.inline-end {
+    float: right;
+    margin: 0.1rem 0 0.5rem 0.9rem;
+    width: calc(40% - 0.36rem);
+}
+
+/* Основной порядок: код, затем inline-блок справа */
+.md-typeset .highlight:has(+ p > .io-compact.inline-end),
+.md-typeset .highlight:has(+ .io-compact.inline-end),
+.md-typeset .highlight:has(+ p + .io-compact.inline-end),
+.md-typeset .highlight:has(+ p + p > .io-compact.inline-end),
+.md-typeset .highlight:has(+ p + p + .io-compact.inline-end) {
+    float: left;
+    width: calc(60% - 0.54rem);
+}
+
+/* Обратный порядок (legacy): сначала inline-блок, затем код */
+.md-typeset p:has(> .io-compact.inline-end) + .highlight,
+.md-typeset .io-compact.inline-end + .highlight,
+.md-typeset .io-compact.inline-end + p + .highlight {
+    float: left;
+    width: calc(60% - 0.54rem);
+}
+
+@media (max-width: 60em) {
+    .md-typeset .highlight:has(+ p > .io-compact.inline-end),
+    .md-typeset .highlight:has(+ .io-compact.inline-end),
+    .md-typeset .highlight:has(+ p + .io-compact.inline-end),
+    .md-typeset .highlight:has(+ p + p > .io-compact.inline-end),
+    .md-typeset .highlight:has(+ p + p + .io-compact.inline-end),
+    .md-typeset p:has(> .io-compact.inline-end) + .highlight,
+    .md-typeset .io-compact.inline-end + .highlight,
+    .md-typeset .io-compact.inline-end + p + .highlight {
+        float: none;
+        width: auto;
+    }
+
+    .md-typeset .io-compact.inline-end {
+        float: none;
+        margin: 0.25rem 0 0.4rem;
+        width: auto;
+    }
+}

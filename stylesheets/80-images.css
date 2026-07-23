@@ -1,0 +1,99 @@
+
+/* --- 9) Images ----------------------------------------------------------- */
+
+/* Центрированная иллюстрация: размер задаётся числовым атрибутом width. */
+.md-typeset img.img-center {
+    display: block;
+    height: auto;
+    margin: 0.5rem auto 1rem;
+    max-width: 100%;
+}
+
+.md-typeset figure.img-center {
+    display: block;
+    margin: 0.5rem auto 1rem;
+    max-width: 100%;
+    width: fit-content;
+}
+
+.md-typeset figure.img-center > img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.md-typeset figure.img-center figcaption {
+    font-size: 1em;
+}
+
+/* Класс для правого floating‑рисунка (используется в intro‑блоках) */
+.md-typeset img.img-float-right,
+.md-typeset figure.img-float-right {
+    float: right;
+    width: 35%;
+    margin: 0.2rem 0 1rem 1rem;
+}
+
+.md-typeset img.img-float-right {
+    border-radius: 10px;
+}
+
+.md-typeset figure.img-float-right img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.md-typeset figure.img-float-right figcaption {
+    font-size: 0.69em;
+    color: var(--color-muted-text);
+    text-align: center;
+    margin-top: 0.2rem;
+}
+
+/* Единая компоновка справа: размер задаётся атрибутом width, класс — положением. */
+.md-typeset img.img-float-end {
+    border-radius: 10px;
+    display: block;
+    float: right;
+    height: auto;
+    margin: 0.5rem 0 1rem 1rem;
+    max-width: 100%;
+}
+
+/* Подписанная иллюстрация справа с размером на дочернем img. */
+.md-typeset figure.img-float-end {
+    float: right;
+    margin: 0.2rem 0 1rem 1rem;
+    max-width: 100%;
+    width: fit-content;
+}
+
+.md-typeset figure.img-float-end > img {
+    border-radius: 10px;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.md-typeset figure.img-float-end figcaption {
+    color: var(--color-muted-text);
+    font-size: 0.69em;
+    margin-top: 0.2rem;
+    text-align: center;
+}
+
+.md-typeset .float-clear {
+    clear: both;
+}
+
+/* В узкой области изображение не должно оставлять тексту нечитаемую колонку. */
+@media (max-width: 45em) {
+    .md-typeset img.img-float-end,
+    .md-typeset figure.img-float-end {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

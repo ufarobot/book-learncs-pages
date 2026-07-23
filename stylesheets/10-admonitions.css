@@ -1,0 +1,133 @@
+
+/* --- 6) Admonitions (Open edX‑style) ------------------------------------ */
+
+/* ===== Admonition как на Open edX: светлая шапка + тело, без иконок ===== */
+
+/* Заголовок-плашка (типографика — почти нативная, но заголовок жирнее) */
+.md-typeset .admonition-title,
+.md-typeset summary {
+/*    margin: 0 !important; - нельзя ставить ноль, иначе ломаются отсупы!!!! */
+    padding: 4px 14px !important;
+    /*font-size: 1.0rem;*/
+    font-weight: 600 !important;
+
+}
+
+/* Убираем иконки полностью (включая нативные Material) */
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+    display: none !important;
+}
+
+/* Текст внутри блоков — такой же, как вне блока */
+.md-typeset .admonition,
+.md-typeset details {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.md-typeset .admonition > :not(.admonition-title),
+.md-typeset details > :not(summary) {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+/* ===== Inline blocks (Material): !!! ... inline / inline end ===== */
+.md-typeset .admonition.inline,
+.md-typeset details.inline {
+    width: 16rem;
+    margin: 0.2rem 0 1rem 1rem !important;
+}
+
+.md-typeset .admonition.inline {
+    float: left;
+}
+
+.md-typeset .admonition.inline.end,
+.md-typeset details.inline.end {
+    float: right;
+    margin: 0.2rem 0 1rem 1rem !important;
+}
+
+/* ===== Типы блоков (используются так: !!! definition "..." и т.п.) ===== */
+
+/* Определение */
+.md-typeset .admonition.definition,
+.md-typeset details.definition {
+    background: var(--color-definition-bg) !important;
+    border: none !important;
+}
+.md-typeset .definition > .admonition-title,
+.md-typeset details.definition > summary {
+    background: var(--color-definition-header) !important;
+    color: var(--color-inverse-text) !important;
+}
+
+/* Комментарий */
+.md-typeset .admonition.comment,
+.md-typeset details.comment {
+    background: var(--color-comments-bg) !important;
+    border: none !important;
+}
+.md-typeset .comment > .admonition-title,
+.md-typeset details.comment > summary {
+    background: var(--color-comments-header) !important;
+    color: var(--color-inverse-text) !important;
+}
+
+/* Вопрос / Подумайте */
+.md-typeset .admonition.question-block,
+.md-typeset details.question-block {
+    background: var(--color-question-bg) !important;
+    border: none !important;
+}
+.md-typeset .question-block > .admonition-title,
+.md-typeset details.question-block > summary {
+    background: var(--color-question-header) !important;
+    color: var(--color-question-title-text) !important;
+}
+/* Выравниваем стрелку раскрытия по центру строки заголовка */
+.md-typeset details.question-block > summary::after {
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+}
+.md-typeset details.question-block[open] > summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Разбор */
+.md-typeset .admonition.solution,
+.md-typeset details.solution {
+    background: var(--color-solution-bg) !important;
+    border: none !important;
+}
+.md-typeset .solution > .admonition-title,
+.md-typeset details.solution > summary {
+    background: var(--color-solution-header) !important;
+    color: var(--color-inverse-text) !important;
+}
+/* В проекте блок solution используется без заголовков */
+.md-typeset .solution > .admonition-title,
+.md-typeset details.solution > summary {
+    display: none !important;
+}
+
+/* Задание */
+.md-typeset .admonition.task,
+.md-typeset details.task {
+    background: var(--color-task-bg) !important;
+    border: none !important;
+}
+.md-typeset .task > .admonition-title,
+.md-typeset details.task > summary {
+    background: var(--color-task-header) !important;
+    color: var(--color-task-title-text) !important;
+}
+/* Держим task-блок визуально в одном поведении с question-block */
+.md-typeset details.task > summary::after {
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+}
+.md-typeset details.task[open] > summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}

@@ -1,0 +1,379 @@
+/* ==========================================================================
+   Общая структура:
+   0) Tokens
+   1) Layout (grid, фон, контейнеры)
+   2) Header / Tabs
+   3) Navigation
+   4) Код и таблицы
+   5) Типографика
+   6) Admonitions, io-compact и pdf_slides
+   7) Responsive + utilities
+   8) Details/answers
+   9) Images
+   10) Главный индекс
+   ========================================================================== */
+
+/* --- 0) Tokens ----------------------------------------------------------- */
+/* Базовые CSS‑переменные проекта. Source of truth для UI-палитры сайта. */
+:root {
+    /* Typography */
+    --md-typeset-font-size: 0.75rem;
+
+    /* Core UI palette */
+    --color-book-blue: #095AA6;
+    --color-book-light-blue: #67C6F3;
+    --color-book-red: #96231F;
+
+    --color-page-bg: #e5e5e5;
+    --color-surface: #ffffff;
+    --color-header-bg: #000000;
+    --color-tabs-bg: #2b2b2b;
+    --color-inverse-text: #ffffff;
+    --color-nav-active: #000000;
+    --color-heading-text: #000000;
+    --color-nav-hover-bg: rgba(0, 0, 0, 0.44);
+    --color-inline-code: #1565C0;
+    --color-code-block-bg: rgba(227, 242, 253, 0.21);
+    --color-body-text: #1a1a1a;
+    --color-table-expression: #2e7d32;
+    --color-data-outline: #b8bec6;
+    --color-morse-bg: #f4f5f7;
+    --color-encode-target-border: #d8b45a;
+    --color-encode-target-bg: #fff6d6;
+    --color-syntax-card-bg: #dbe6f8;
+    --color-syntax-keyword: #7a1d50;
+    --color-syntax-placeholder-bg: #fff0a8;
+    --color-rgb-black: #000000;
+    --color-rgb-white: #ffffff;
+    --color-rgb-red: #ff0000;
+    --color-rgb-green: #00ff00;
+    --color-rgb-blue: #0000ff;
+    --color-io-label: #111111;
+    --color-io-pre-bg: #f3f6fa;
+    --color-io-pre-text: #151515;
+    --color-slides-border: #c8dff7;
+    --color-slides-title-text: rgba(0, 0, 0, 0.78);
+    --color-muted-text: #555555;
+    --shadow-content: 0 0 12px rgba(0, 0, 0, 0.10);
+
+    --color-table-accent: var(--color-book-blue);
+
+    /* Admonitions palette (Open edX‑style) */
+    --color-definition-header: #8D23C3;
+    --color-definition-bg: rgba(141, 35, 195, 0.1);
+
+    --color-slides-header: #E3F2FD;
+    --color-slides-bg: #E3F2FD;
+
+    --color-comments-header: var(--color-muted-text);
+    --color-comments-bg: rgba(85, 85, 85, 0.1);
+
+    --color-question-header: rgba(253, 155, 0, 0.15);
+    --color-question-bg: rgba(255, 238, 181, 0.15);
+    --color-question-title-text: rgba(0, 0, 0, 0.75);
+
+    --color-solution-header: #388E3C;
+    --color-solution-bg: rgba(208, 245, 211, 0.3);
+
+    --color-task-header: rgba(91, 195, 185, 0.22);
+    --color-task-bg: rgba(208, 235, 249, 0.18);
+    --color-task-title-text: rgba(0, 0, 0, 0.75);
+
+    --color-answer-chip-bg: rgba(255, 243, 212, 0.98);
+    --color-answer-chip-border: rgba(205, 168, 88, 0.5);
+    --color-answer-chip-text: rgba(73, 49, 5, 0.82);
+    --color-answer-panel-bg: rgba(255, 246, 222, 0.97);
+    --color-answer-panel-border: rgba(210, 175, 96, 0.42);
+    --color-answer-panel-accent: rgba(253, 155, 0, 0.16);
+    --color-answer-code-bg: rgba(255, 250, 238, 0.98);
+    --color-answer-comment-divider: rgba(210, 179, 110, 0.38);
+    --shadow-answer-panel: 0 1px 2px rgba(116, 84, 20, 0.08);
+}
+
+/* Фиксируем базовый rem-уровень: отключаем responsive-скейлинг Material по ширине окна */
+html {
+    font-size: 125% !important;
+}
+
+/* --- 1) Layout ----------------------------------------------------------- */
+/* Ограничение ширины страницы (без поломки шапки/сайдбаров Material) */
+.md-grid {
+    max-width: 1200px !important;
+}
+
+/* Общий светло‑серый фон для страницы и боковых панелей */
+body {
+    background-color: var(--color-page-bg);
+}
+
+.md-sidebar,
+.md-sidebar--primary,
+.md-sidebar--secondary {
+    background-color: var(--color-page-bg);
+}
+
+/* Белый фон только у основного контента */
+.md-main__inner {
+    background: none;
+}
+
+.md-content {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-content);
+    border-radius: 4px;
+}
+
+.md-content__inner {
+    container-type: inline-size;
+}
+
+/* --- 2) Header / Tabs ---------------------------------------------------- */
+/* Фон верхней панели */
+.md-header {
+    background-color: var(--color-header-bg) !important;
+}
+
+/* Фон панели вкладок (tabs) */
+.md-tabs {
+    background-color: var(--color-tabs-bg) !important;
+}
+
+/* На случай, если активность помечается на элементе списка */
+.md-tabs__item--active > .md-tabs__link {
+    font-weight: 700 !important;
+}
+
+.md-tabs__link {
+    color: var(--color-inverse-text) !important;
+}
+
+.md-tabs__link--active {
+    color: var(--color-inverse-text) !important;
+    font-weight: 700 !important;
+}
+
+/* Цвет текста site_name */
+.md-header .md-header__title {
+    color: var(--color-inverse-text) !important;
+}
+
+/* --- 3) Navigation ------------------------------------------------------- */
+/* При наведении на ссылку меню слева — подсветка */
+.md-nav__link:hover {
+    background-color: var(--color-nav-hover-bg) !important;
+    color: var(--color-inverse-text) !important;
+}
+
+/* Активный пункт бокового меню — жирным и чёрным */
+.md-nav__link--active,
+.md-nav__link[aria-current="page"] {
+    font-weight: 700 !important;
+    color: var(--color-nav-active) !important;
+}
+
+/* Убираем заголовок текущей вкладки в левом меню на широких экранах (дублирует вкладку сверху) */
+@media (min-width: 76.25em) {
+    .md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav__link,
+    .md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link {
+        display: none !important;
+    }
+}
+
+/* Мобильное/всплывающее меню — делаем фон таким же, как у шапки */
+.md-nav__source {
+    background-color: var(--color-header-bg) !important;
+}
+.md-nav__source .md-nav__title {
+    color: var(--color-inverse-text) !important;
+}
+/* Заголовок меню (drawer) в мобильном/узком режиме */
+.md-nav--primary .md-nav__title {
+    background-color: var(--color-header-bg) !important;
+    color: var(--color-inverse-text) !important;
+}
+.md-nav--primary .md-nav__title::before,
+.md-nav--primary .md-nav__title a {
+    color: var(--color-inverse-text) !important;
+}
+/* --- 4) Код и таблицы ---------------------------------------------------- */
+/* Убираем «серые плашки» у встроенного кода и делаем его чуть более «текстовым» */
+.md-typeset :not(pre) > code {
+    background-color: transparent !important; /* без серого фона */
+    box-shadow: none !important;
+    padding: 0 0.05em !important;
+    border-radius: 0 !important;
+    color: var(--color-inline-code) !important; /* мягкий синий цвет для команд и литералов */
+    font-size: 1em !important; /* как основной текст */
+    font-weight: 500;
+    font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+/* Фон для блоков кода */
+.md-typeset pre,
+.md-typeset pre > code {
+    background-color: var(--color-code-block-bg) !important; /* светло-голубой фон */
+    font-size: 1em !important; /* как основной текст */
+}
+
+/* Таблицы учебника: API-стиль (как api-table.tex) */
+.md-typeset .md-typeset__table {
+    font-size: 1em; /* как основной текст */
+    margin-bottom: 0 !important;
+}
+
+.md-typeset .md-typeset__scrollwrap {
+    margin-bottom: 0 !important;
+}
+
+.md-typeset table:not([class]) {
+    border-collapse: collapse;
+    border: 0;
+    background: var(--color-surface);
+    font-size: 1em; /* как основной текст */
+    line-height: 1.45; /* arraystretch из NS-00-1 */
+}
+
+@media screen and (min-width: 45em) {
+    .md-typeset .md-typeset__scrollwrap {
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .md-typeset .md-typeset__table {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 0 !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    html .md-typeset__table table {
+        width: auto;
+    }
+
+    .md-typeset table:not([class]) {
+        display: table;
+        width: max-content;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+.md-typeset table:not([class]) th {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-table-accent);
+    color: var(--color-table-accent);
+    font-weight: 700;
+    padding: 0.38rem 1.05rem; /* больше воздуха между колонками глобально */
+    vertical-align: middle;
+}
+
+/* В шапке таблицы inline-code должен быть того же синего тона */
+.md-typeset table:not([class]) th code {
+    color: var(--color-table-accent) !important;
+}
+
+/* В теле таблицы inline-code не выделяем отдельным цветом */
+.md-typeset table:not([class]) td code {
+    color: inherit !important;
+}
+
+.md-typeset table:not([class]) td {
+    background: var(--color-surface);
+    border: 0;
+    color: var(--color-body-text);
+    padding: 0.38rem 1.05rem; /* больше воздуха между колонками глобально */
+    vertical-align: middle;
+}
+
+.md-typeset table:not([class]) td.table-cell-center {
+    text-align: center;
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(odd),
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+    background: var(--color-surface);
+}
+
+.md-typeset p.table-caption {
+    margin-top: 0 !important;
+    margin-bottom: 0.55rem;
+    text-align: center;
+    font-size: 0.92em;
+    color: var(--color-table-accent);
+    font-style: italic;
+}
+
+.md-typeset .table-comment {
+    color: inherit;
+    font-style: italic;
+}
+
+.md-typeset table:not([class]) td code.table-expression {
+    color: var(--color-table-expression) !important;
+}
+
+.md-typeset table:not([class]) td .table-expression:not(code) {
+    color: var(--color-table-expression) !important;
+}
+
+.md-typeset .md-typeset__scrollwrap + p.table-caption,
+.md-typeset .md-typeset__table + p.table-caption,
+.md-typeset table:not([class]) + p.table-caption {
+    margin-top: 0.12rem !important;
+}
+
+/* --- 5) Типографика ------------------------------------------------------ */
+.md-typeset {
+    font-size: var(--md-typeset-font-size);
+    line-height: 1.55;
+}
+
+.md-typeset .math-nowrap {
+    white-space: nowrap;
+}
+
+/* Заголовки первого уровня в стиле Open edX (как бывший h2) */
+.md-typeset h1 {
+    padding-bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 4px;
+
+    /* Настройки шрифта (без смены семейства) */
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: -0.6px;
+    color: var(--color-heading-text);
+}
+
+/* Заголовки второго уровня в стиле Open edX (как бывший h3) */
+.md-typeset h2 {
+    /* Линию отключили сознательно: визуально перегружает страницу */
+    padding-bottom: 0;
+    margin-top: 45px;
+    margin-bottom: 4px;
+
+    /* Настройки шрифта (без смены семейства) */
+    font-weight: 400;
+    font-size: 1.15rem;
+    letter-spacing: -0.6px;
+    color: var(--color-heading-text);
+}
+
+/* Заголовки третьего уровня: просто жирный текст, без линий */
+.md-typeset h3 {
+    font-weight: 400;
+    border-bottom: none;
+}
+
+/* Скрываем стандартный footer Material (он не используется в учебнике) */
+.md-footer-meta {
+    display: none;
+}

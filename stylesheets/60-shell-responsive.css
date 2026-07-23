@@ -1,0 +1,16 @@
+
+/* --- 7) Responsive + utilities ------------------------------------------ */
+/* Убираем правую колонку (оглавление / TOC) полностью, без пустого места */
+@media (min-width: 60em) {
+    .md-sidebar--secondary {
+        display: none !important;
+        width: 0 !important;
+        max-width: 0 !important;
+        flex: 0 0 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .md-main__inner {
+        grid-template-columns: auto minmax(0, 100%) !important;
+    }
+}

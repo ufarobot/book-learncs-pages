@@ -1,0 +1,100 @@
+
+/* --- 8) Details/answers -------------------------------------------------- */
+.md-typeset details.answer {
+    margin: 0.55rem 0 0.85rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.md-typeset details.answer > summary {
+    cursor: pointer;
+    list-style: none;
+    background: var(--color-answer-chip-bg);
+    border: 1px solid var(--color-answer-chip-border);
+    border-radius: 999px;
+    color: var(--color-answer-chip-text);
+    display: flex;
+    align-items: center;
+    gap: 0.42rem;
+    margin: 0 0 0 auto;
+    padding: 0.26rem 0.78rem 0.26rem 0.86rem !important;
+    position: relative;
+    text-align: left;
+    width: fit-content;
+    font-size: 0.95em;
+}
+
+.md-typeset details.answer[open] > summary {
+    background: var(--color-answer-panel-bg);
+    margin-bottom: 0.65rem;
+}
+
+.md-typeset details.answer > summary::-webkit-details-marker { display: none; }
+
+.md-typeset details.answer > summary::after {
+    content: "▸";
+    position: static;
+    line-height: 1;
+}
+.md-typeset details.answer[open] > summary::after {
+    content: "▾";
+}
+
+.md-typeset details.answer[open] {
+    background: var(--color-answer-panel-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow-answer-panel);
+    padding: 0.75rem 0.9rem 0.85rem;
+}
+
+.md-typeset details.answer[open] > :nth-child(2) {
+    margin-top: 0 !important;
+}
+
+.md-typeset details.answer[open] > .highlight:first-of-type,
+.md-typeset details.answer[open] > p:not(.answer-comment):first-of-type {
+    margin-bottom: 0.35rem !important;
+}
+
+.md-typeset details.answer[open] > p:not(.answer-comment):first-of-type {
+    color: rgba(0, 0, 0, 0.86);
+    font-weight: 600;
+}
+
+.md-typeset details.answer[open] > :last-child {
+    margin-bottom: 0 !important;
+}
+
+.md-typeset details.answer .highlight,
+.md-typeset details.answer pre {
+    background: var(--color-answer-code-bg) !important;
+    border-radius: 8px;
+}
+
+.md-typeset details.answer .answer-comment {
+    border-top: 1px solid var(--color-answer-comment-divider);
+    color: rgba(0, 0, 0, 0.62);
+    font-size: 0.93em;
+    font-style: italic;
+    margin-top: 0.7rem;
+    margin-bottom: 0 !important;
+    padding-top: 0.58rem;
+}
+
+.md-typeset details.answer .answer-comment code {
+    font-style: normal;
+}
+
+/* Убираем серую рамку/обводку при фокусе у collapsible (details/summary) */
+.md-typeset details > summary:focus,
+.md-typeset details > summary:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.md-typeset details:focus,
+.md-typeset details:focus-visible,
+.md-typeset details:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+}

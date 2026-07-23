@@ -1,0 +1,32 @@
+
+/* ===== Таблицы внутри контентных блоков (admonitions) =====
+   Убираем белый фон таблиц/ячеек, чтобы фон соответствовал фону блока.
+*/
+.md-typeset .admonition table:not([class]),
+.md-typeset details table:not([class]) {
+    background-color: transparent !important;
+}
+
+.md-typeset .admonition table:not([class]) th,
+.md-typeset .admonition table:not([class]) td,
+.md-typeset details table:not([class]) th,
+.md-typeset details table:not([class]) td {
+    background-color: transparent !important;
+}
+
+/* Отключаем «зебру» и hover внутри блоков, чтобы не появлялись чужие подложки */
+.md-typeset .admonition table:not([class]) tbody tr:nth-child(odd),
+.md-typeset .admonition table:not([class]) tbody tr:nth-child(even),
+.md-typeset details table:not([class]) tbody tr:nth-child(odd),
+.md-typeset details table:not([class]) tbody tr:nth-child(even) {
+    background-color: transparent !important;
+}
+
+.md-typeset .admonition table:not([class]) tbody tr:hover td,
+.md-typeset details table:not([class]) tbody tr:hover td {
+    background-color: transparent !important;
+}
+
+.md-typeset table.noheader thead {
+    display: none !important;
+}

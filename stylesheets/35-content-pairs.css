@@ -1,0 +1,112 @@
+/* Явные пары связанных материалов: основной объект и пояснение рядом. */
+
+.md-typeset .content-pair {
+    align-items: start;
+    display: grid;
+    gap: 1.4rem;
+    margin: 0.8rem 0 1rem;
+}
+
+.md-typeset .content-pair--aside {
+    grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
+}
+
+.md-typeset .content-pair--visual {
+    grid-template-columns: minmax(0, 3fr) minmax(15rem, 2fr);
+}
+
+.md-typeset .content-pair > * {
+    min-width: 0;
+}
+
+.md-typeset .content-pair > .admonition,
+.md-typeset .content-pair .highlight,
+.md-typeset .content-pair pre {
+    margin-top: 0 !important;
+}
+
+.md-typeset .content-pair > .admonition {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: auto;
+}
+
+.md-typeset .content-pair__main > :first-child,
+.md-typeset .content-pair__side > :first-child {
+    margin-top: 0 !important;
+}
+
+.md-typeset .content-pair__main > :last-child,
+.md-typeset .content-pair__side > :last-child {
+    margin-bottom: 0 !important;
+}
+
+.md-typeset .content-pair--visual img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.md-typeset .key-value-table .md-typeset__scrollwrap,
+.md-typeset .key-value-table .md-typeset__table,
+.md-typeset .key-value-table table:not([class]) {
+    max-width: 100%;
+    width: 100%;
+}
+
+.md-typeset .key-value-table table:not([class]) th[scope="row"] {
+    border-bottom: 0;
+    border-right: 2px solid var(--color-book-blue);
+    color: var(--color-book-blue);
+    font-style: italic;
+    font-weight: 400;
+    padding: 0.18rem 0.95rem 0.18rem 0;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.md-typeset .key-value-table table:not([class]) td {
+    padding: 0.18rem 0 0.18rem 0.95rem;
+    white-space: nowrap;
+}
+
+.md-typeset .key-value-table > p.table-caption {
+    font-size: 1em;
+    margin-bottom: 0;
+    margin-top: 0.45rem !important;
+}
+
+.md-typeset .syntax-card {
+    background: var(--color-syntax-card-bg);
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-family: var(--md-code-font-family, monospace);
+    font-size: 1.02rem;
+    line-height: 1.75;
+    padding: 1rem 1.2rem;
+}
+
+.md-typeset .syntax-card__line {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.md-typeset .syntax-card__keyword {
+    color: var(--color-syntax-keyword);
+}
+
+.md-typeset .syntax-card__placeholder {
+    background: var(--color-syntax-placeholder-bg);
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0 0.18rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 45em) {
+    .md-typeset .content-pair--aside,
+    .md-typeset .content-pair--visual {
+        grid-template-columns: 1fr;
+    }
+}

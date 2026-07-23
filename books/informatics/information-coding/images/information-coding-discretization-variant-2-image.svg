@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Дискретизация изображения</title>
+  <desc id="desc">Изображение разбивается на пиксели, а цвет каждого пикселя записывается числами RGB.</desc>
+  <style>
+    .label{font:600 16px Arial,sans-serif;fill:#1f2933}
+    .small{font:14px Arial,sans-serif;fill:#4b5563}
+    .mono{font:600 13px Consolas,monospace;fill:#095aa6}
+    .card{fill:#fffaf2;stroke:#e1d2bb;stroke-width:1.5;rx:14}
+    .cell{stroke:#ffffff;stroke-width:2}
+    .arrow{fill:none;stroke:#095aa6;stroke-width:3;marker-end:url(#arrow)}
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#095aa6"/>
+    </marker>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#7cc7ff"/>
+      <stop offset="0.55" stop-color="#cdefff"/>
+      <stop offset="0.56" stop-color="#5fbf77"/>
+      <stop offset="1" stop-color="#2e7d32"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="300" fill="#ffffff"/>
+  <rect x="24" y="24" width="712" height="252" class="card"/>
+
+  <text x="54" y="58" class="label">1. Изображение</text>
+  <text x="54" y="84" class="small">картинка выглядит непрерывной</text>
+  <rect x="54" y="104" width="160" height="120" rx="10" fill="url(#sky)"/>
+  <circle cx="98" cy="142" r="22" fill="#ffe07a"/>
+  <path d="M54 194 C88 162, 112 173, 142 150 C168 130, 190 145, 214 124 L214 224 L54 224 Z" fill="#235d3a" opacity="0.9"/>
+
+  <path d="M244 164 H306" class="arrow"/>
+
+  <text x="334" y="58" class="label">2. Пиксели</text>
+  <text x="334" y="84" class="small">оставляем сетку отдельных точек</text>
+  <g transform="translate(334 104)">
+    <rect width="176" height="120" rx="8" fill="#ffffff" stroke="#d8dee7"/>
+    <rect x="8" y="8" width="40" height="32" class="cell" fill="#7cc7ff"/>
+    <rect x="48" y="8" width="40" height="32" class="cell" fill="#95d8ff"/>
+    <rect x="88" y="8" width="40" height="32" class="cell" fill="#ffe07a"/>
+    <rect x="128" y="8" width="40" height="32" class="cell" fill="#bfe9ff"/>
+    <rect x="8" y="40" width="40" height="32" class="cell" fill="#9ad9ff"/>
+    <rect x="48" y="40" width="40" height="32" class="cell" fill="#cdefff"/>
+    <rect x="88" y="40" width="40" height="32" class="cell" fill="#80c983"/>
+    <rect x="128" y="40" width="40" height="32" class="cell" fill="#64b76f"/>
+    <rect x="8" y="72" width="40" height="40" class="cell" fill="#2e7d32"/>
+    <rect x="48" y="72" width="40" height="40" class="cell" fill="#3f9148"/>
+    <rect x="88" y="72" width="40" height="40" class="cell" fill="#235d3a"/>
+    <rect x="128" y="72" width="40" height="40" class="cell" fill="#4aa257"/>
+  </g>
+
+  <path d="M536 164 H598" class="arrow"/>
+
+  <text x="620" y="58" class="label">3. Числа</text>
+  <text x="620" y="84" class="small">цвет пикселя = RGB</text>
+  <g class="mono">
+    <text x="606" y="122">124 199 255</text>
+    <text x="606" y="148">255 224 122</text>
+    <text x="606" y="174">046 125 050</text>
+    <text x="606" y="200">035 093 058</text>
+    <text x="606" y="226">074 162 087</text>
+  </g>
+</svg>

@@ -1,0 +1,2965 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../number-systems/number-systems-intro/">
+      
+      
+        <link rel="next" href="../../../programming/concepts/00-simple-program/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Кодирование информации - Учебник (в разработке)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--definition:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20.71%207.04c.39-.39.39-1.04%200-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41%200l-1.84%201.83%203.75%203.75M3%2017.25V21h3.75L17.81%209.93l-3.75-3.75z%22/%3E%3C/svg%3E');--md-admonition-icon--comment:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9%2022a1%201%200%200%201-1-1v-3H4a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h16a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202h-6.1l-3.7%203.71c-.2.19-.45.29-.7.29zm1-6v3.08L13.08%2016H20V4H4v12zM6%207h12v2H6zm0%204h9v2H6z%22/%3E%3C/svg%3E');--md-admonition-icon--question-block:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2018h2v-2h-2zm1-16A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m0-14a4%204%200%200%200-4%204h2a2%202%200%200%201%202-2%202%202%200%200%201%202%202c0%202-3%201.75-3%205h2c0-2.25%203-2.5%203-5a4%204%200%200%200-4-4%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m4.59-12.42L10%2014.17l-2.59-2.58L6%2013l4%204%208-8z%22/%3E%3C/svg%3E');--md-admonition-icon--task:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%203h-4.18C14.4%201.84%2013.3%201%2012%201s-2.4.84-2.82%202H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V5a2%202%200%200%200-2-2m-7%200a1%201%200%200%201%201%201%201%201%200%200%201-1%201%201%201%200%200%201-1-1%201%201%200%200%201%201-1M7%207h10V5h2v14H5V5h2zm.5%206.5L9%2012l2%202%204.5-4.5L17%2011l-6%206z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/00-foundation.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/10-admonitions.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/20-yandex-preview.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/25-data-display.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/30-io-compact.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/35-content-pairs.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/40-pdf-slides.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/50-nested-tables.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/60-shell-responsive.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/70-answers.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/80-images.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/90-home.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-header__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Учебник (в разработке)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Кодирование информации
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/sets/sets-intro/" class="md-tabs__link">
+          
+  
+  
+  Математика
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../logic/logic/" class="md-tabs__link">
+          
+  
+  
+  Информатика
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../programming/concepts/00-simple-program/" class="md-tabs__link">
+          
+  
+  
+  Программирование
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Учебник (в разработке)" class="md-nav__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Учебник (в разработке)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Математика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Математика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Множества
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/sets/sets-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/sets/euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Диаграммы Эйлера-Венна
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/sets/number-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Числовые множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Комбинаторика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/counting/counting-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/counting/product-sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правило произведения и суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/counting/factorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Факториал
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/counting/counting-variants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Коды
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Информатика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Информатика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Логика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic/logic-algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Алгебра логики
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic/logic-circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические элементы и схемы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Кодирование информации
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../number-systems/number-systems-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Системы счисления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Программирование
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Программирование
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основы
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Основы
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/00-simple-program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Простейшая программа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/01-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Переменные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/02-conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Условный оператор if и логические выражения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/03-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Циклы while / for
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/04-integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Целочисленная арифметика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/05-arrays-1d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/06-strings-chars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строки и символы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/07-doubles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Вещественные числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/08-arrays-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Двумерные массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/concepts/09-recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рекурсия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/scanner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scanner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/system-out/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System.out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/printwriter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PrintWriter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/stringbuilder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StringBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-api/file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java проекты
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java проекты
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-projects/create-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создание проекта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-projects/stddraw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StdDraw
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-projects/stdpicture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StdPicture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming/java-projects/stdaudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StdAudio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Кодирование информации</h1>
+<figure class="img-float-right" style="max-width:320px;">
+  <img src="/books/informatics/information-coding/images/information-coding-binary-inline.png" alt="Двоичный код как основа хранения данных" style="max-width:320px; width:100%; height:auto;">
+  <figcaption>Все данные на компьютере хранятся в двоичном коде</figcaption>
+</figure>
+
+<style>
+.morse {
+  font-size: 1.25em;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.morse-code,
+.encode-target {
+  display: inline-block;
+  padding: 0.02em 0.35em;
+  border-radius: 4px;
+  line-height: 1.35;
+}
+
+.morse-code {
+  border: 1px solid #b8bec6;
+  background: #f4f5f7;
+  font-size: 1.22em;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.morse-aside {
+  float: right;
+  width: min(34%, 360px);
+  min-width: 280px;
+  margin: 0.2rem 0 1rem 1.35rem;
+}
+
+.morse-aside figure {
+  margin: 0 0 0.7rem;
+}
+
+.morse-aside img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.morse-aside figcaption {
+  margin-top: 0.25rem;
+  color: var(--color-muted-text);
+  font-size: 0.69em;
+  text-align: center;
+}
+
+.morse-aside .admonition.comment {
+  margin: 0 !important;
+}
+
+.encode-target {
+  border: 1px solid #d8b45a;
+  background: #fff6d6;
+  font-weight: 600;
+}
+
+.symbol-code-table {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: space-between;
+  gap: 0.8rem 1.35rem;
+  margin: 1rem 0 1.2rem;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: clamp(0.62rem, 0.78vw, 0.82rem);
+  line-height: 1.45;
+}
+
+.symbol-code-col {
+  min-width: max-content;
+}
+
+.symbol-code-row {
+  white-space: nowrap;
+}
+
+.symbol-code-dec,
+.symbol-code-bin,
+.symbol-code-char {
+  display: inline-block;
+}
+
+.symbol-code-dec {
+  min-width: 3ch;
+  margin-right: 0.35ch;
+  text-align: right;
+  color: var(--color-table-expression);
+  font-weight: 600;
+}
+
+.symbol-code-bin {
+  min-width: 8ch;
+  color: var(--color-book-blue);
+}
+
+.symbol-code-char {
+  min-width: 7ch;
+  margin-left: 0.45ch;
+}
+
+.rgb-code-table {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0 1.2rem;
+}
+
+.rgb-code-row {
+  display: grid;
+  grid-template-columns: 2.8rem 6rem 8rem minmax(16rem, 1fr) 5rem;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: clamp(0.72rem, 0.9vw, 0.9rem);
+}
+
+.rgb-code-row--head {
+  color: var(--color-book-blue);
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-book-blue);
+  padding-bottom: 0.25rem;
+}
+
+.rgb-swatch {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #b8bec6;
+  border-radius: 0.25rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.rgb-code-dec {
+  color: var(--color-table-expression);
+  font-weight: 600;
+}
+
+.rgb-code-bin {
+  color: var(--color-book-blue);
+}
+
+@media (max-width: 1100px) {
+  .symbol-code-table {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-around;
+    gap: 0.75rem 1.4rem;
+    font-size: clamp(0.62rem, 1vw, 0.78rem);
+  }
+
+  .rgb-code-row {
+    grid-template-columns: 2.8rem 5.5rem 7.5rem minmax(14rem, 1fr) 4.5rem;
+    gap: 0.55rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .symbol-code-table {
+    grid-template-columns: repeat(1, max-content);
+    justify-content: center;
+    gap: 0.45rem;
+    font-size: 0.76rem;
+  }
+
+  .rgb-code-table {
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .rgb-code-row {
+    grid-template-columns: 2.8rem 5.5rem 7.5rem 18rem 4.5rem;
+    min-width: max-content;
+  }
+
+  .morse-aside {
+    float: none;
+    width: min(100%, 420px);
+    min-width: 0;
+    margin: 0.8rem auto 1rem;
+  }
+}
+</style>
+
+<div class="admonition definition">
+<p><strong>Кодирование</strong> — это представление информации по выбранному правилу.</p>
+</div>
+<p>Когда вы вводите букву A, компьютер не хранит картинку с буквой. Он хранит число <span class="arithmatex">\(65\)</span>, а число записывает битами:</p>
+<div class="arithmatex">\[
+\text{A} \rightarrow 65 \rightarrow \mathtt{01000001}_2
+\]</div>
+<p>Так же устроены текст, изображения, звук и файлы: объект переводят в числа, числа — в биты, а при чтении выполняют обратные шаги.</p>
+<div style="clear: both"></div>
+
+<p>Кодом называют и само правило, и получившуюся запись.</p>
+<p>Обратное действие называют декодированием: по коду восстанавливают исходную информацию.</p>
+<p>Без правила кодирования набор знаков не имеет однозначного смысла. Одна и та же последовательность может обозначать число, символ, цвет пикселя или часть звука.</p>
+<p>Например, байт <span class="arithmatex">\(\mathtt{01000001}_2\)</span> можно прочитать по-разному:</p>
+<p><img alt="Один набор битов читается по-разному" src="../images/information-coding-bit-meanings-table.svg" style="display:block; margin:0.6rem auto; max-width:690px; width:100%; height:auto;" /></p>
+<h2 id="_2">Азбука Морзе</h2>
+<aside class="morse-aside">
+  <figure>
+    <img src="/books/informatics/information-coding/images/information-coding-morse-code.png" alt="Таблица азбуки Морзе">
+    <figcaption>В азбуке Морзе буквы и цифры записываются точками и тире</figcaption>
+  </figure>
+  <div class="admonition comment">
+    <p>Такой код можно использовать там, где проще передать два типа сигналов: короткий и длинный. Например, сообщение можно передать звуком, светом или радиосигналом.</p>
+  </div>
+</aside>
+
+<p>Азбука Морзе — простой пример кода без компьютера. Буквы и цифры в ней заменяются короткими и длинными сигналами: точками и тире.</p>
+<p>Точка означает короткий сигнал, тире — длинный. Паузы тоже часть правила: короткая пауза отделяет сигналы внутри одной буквы, более длинная — соседние буквы, еще более длинная — слова. Без пауз сообщение слилось бы в одну цепочку.</p>
+<p>Слово SOS удобно для первого разбора: в нем только два разных символа. Буква S кодируется тремя короткими сигналами, а буква O — тремя длинными.</p>
+<table>
+<thead>
+<tr>
+<th>Символ</th>
+<th>Код Морзе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S</td>
+<td><span class="morse-code">...</span></td>
+</tr>
+<tr>
+<td>O</td>
+<td><span class="morse-code">---</span></td>
+</tr>
+<tr>
+<td>S</td>
+<td><span class="morse-code">...</span></td>
+</tr>
+</tbody>
+</table>
+<p>Получаем сообщение:</p>
+<div class="arithmatex">\[
+\text{SOS} \rightarrow \class{morse}{\text{... --- ...}}
+\]</div>
+<p>При декодировании используют ту же таблицу в обратную сторону:</p>
+<div class="arithmatex">\[
+\class{morse}{\text{... --- ...}} \rightarrow \text{SOS}
+\]</div>
+<div style="clear: both"></div>
+
+<details class="question-block">
+<summary>Задачи для тренировки: кодирование и декодирование</summary>
+<p><strong>1.</strong> По таблице Морзе закодируйте слово <span class="encode-target">CAT</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="encode-target">CAT</span> → <span class="morse-code">-.-. .- -</span></p>
+</details>
+<hr />
+<p><strong>2.</strong> Декодируйте сообщение <span class="morse-code">.--- .- ...- .-</span>.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="morse-code">.--- .- ...- .-</span> → <span class="encode-target">JAVA</span></p>
+</details>
+<hr />
+<p><strong>3.</strong> Почему для декодирования сообщения <span class="morse-code">... --- ...</span> нужна таблица Морзе?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Потому что точки и тире сами не называют буквы. Таблица задает правило: какая группа сигналов какой букве соответствует.</p>
+</details>
+</details>
+<h2 id="_3">Двоичный код, бит и байт</h2>
+<div class="admonition definition">
+<p><strong>Двоичный код</strong> — это код, состоящий из двух знаков: <span class="arithmatex">\(0\)</span> и <span class="arithmatex">\(1\)</span>.</p>
+</div>
+<p>Цифровому устройству проще надежно различать два состояния: сигнал есть или сигнала нет, напряжение выше порога или ниже порога, участок памяти намагничен одним способом или другим. Поэтому данные хранят как последовательности нулей и единиц.</p>
+<p>Небольшая помеха обычно не меняет смысл данных: если сигнал все равно попал в зону <span class="arithmatex">\(0\)</span> или в зону <span class="arithmatex">\(1\)</span>, схема прочитает его правильно.</p>
+<figure class="img-float-right" style="max-width:320px;">
+  <img src="/books/informatics/information-coding/images/information-coding-byte-8-bits.png" alt="Один байт состоит из восьми битов" style="max-width:320px; width:100%; height:auto;">
+  <figcaption>Один байт состоит из восьми битов</figcaption>
+</figure>
+
+<p>Бит — одна двоичная ячейка данных. Он хранит одно из двух значений: <span class="arithmatex">\(0\)</span> или <span class="arithmatex">\(1\)</span>. Группа из <span class="arithmatex">\(8\)</span>&nbsp;бит называется байтом.</p>
+<p>Если под значение выделено <span class="arithmatex">\(I\)</span>&nbsp;бит, число разных кодов равно</p>
+<div class="arithmatex">\[
+N = 2^I
+\]</div>
+<p>Каждый новый бит удваивает число возможных кодов.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Биты</th>
+<th style="text-align: right;">Число кодов</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(4\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(8\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(16\)</span></td>
+</tr>
+<tr>
+<td style="text-align: right;"><span class="arithmatex">\(8\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(256\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Для одного байта:</p>
+<div class="arithmatex">\[
+2^8 = 256
+\]</div>
+<p>Значит, один байт может хранить один из <span class="arithmatex">\(256\)</span> разных кодов.</p>
+<div style="clear: both"></div>
+
+<h2 id="_4">Кодирование чисел</h2>
+<p>Чтобы записать число в памяти, сначала выбирают, сколько бит под него выделить. Если число беззнаковое, первый код соответствует <span class="arithmatex">\(0\)</span>, следующий — <span class="arithmatex">\(1\)</span>, и так далее.</p>
+<p>Например, в&nbsp;<span class="arithmatex">\(4\)</span>&nbsp;битах можно записать <span class="arithmatex">\(16\)</span> разных кодов:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Двоичный код</th>
+<th style="text-align: right;">Десятичное значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0000}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0001}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0010}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0011}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(3\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0100}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(4\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0101}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(5\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0110}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(6\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{0111}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(7\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1000}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(8\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1001}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(9\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1010}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(10\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1011}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(11\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1100}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(12\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1101}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(13\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1110}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(14\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathtt{1111}_2\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(15\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>В&nbsp;<span class="arithmatex">\(8\)</span>&nbsp;битах можно закодировать <span class="arithmatex">\(2^8 = 256\)</span> беззнаковых значений: от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(255\)</span>. Число <span class="arithmatex">\(65\)</span> в одном байте записывается так:</p>
+<div class="arithmatex">\[
+65 \rightarrow \mathtt{01000001}_2
+\]</div>
+<p>Количество кодов и максимальное значение отличаются на единицу, потому что счет начинается с&nbsp;<span class="arithmatex">\(0\)</span>:</p>
+<div class="arithmatex">\[
+0,\ 1,\ 2,\ \dots,\ 255
+\]</div>
+<h2 id="_5">Кодирование символов</h2>
+<p>Текст хранится через числовые коды символов. При сохранении программа находит код каждого символа и записывает этот код битами. При чтении она получает число и по таблице восстанавливает символ.</p>
+<p>Например, латинской букве B в ASCII соответствует число <span class="arithmatex">\(66\)</span>, поэтому в байте она записывается как <span class="arithmatex">\(\mathtt{01000010}_2\)</span>.</p>
+<p>ASCII — один из первых широко используемых стандартов кодирования символов. Он задает коды от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(127\)</span>, то есть <span class="arithmatex">\(128\)</span> кодов. Эти коды помещаются в&nbsp;<span class="arithmatex">\(7\)</span>&nbsp;бит, а в байте занимают младшую половину диапазона.</p>
+<p>В ASCII входят:</p>
+<ul>
+<li>служебные управляющие символы с кодами от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(31\)</span>;</li>
+<li>пробел с кодом <span class="arithmatex">\(32\)</span>;</li>
+<li>цифры от «0» до «9» с кодами от <span class="arithmatex">\(48\)</span> до <span class="arithmatex">\(57\)</span>;</li>
+<li>латинские заглавные буквы от «A» до «Z» с кодами от <span class="arithmatex">\(65\)</span> до <span class="arithmatex">\(90\)</span>;</li>
+<li>латинские строчные буквы от «a» до «z» с кодами от <span class="arithmatex">\(97\)</span> до <span class="arithmatex">\(122\)</span>;</li>
+<li>знаки препинания, скобки, математические символы и другие служебные знаки.</li>
+</ul>
+<div class="symbol-code-table" aria-label="Коды символов ASCII">
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">0</span> <span class="symbol-code-bin">00000000</span> <span class="symbol-code-char">NUL</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">1</span> <span class="symbol-code-bin">00000001</span> <span class="symbol-code-char">SOH</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">2</span> <span class="symbol-code-bin">00000010</span> <span class="symbol-code-char">STX</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">3</span> <span class="symbol-code-bin">00000011</span> <span class="symbol-code-char">ETX</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">4</span> <span class="symbol-code-bin">00000100</span> <span class="symbol-code-char">EOT</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">5</span> <span class="symbol-code-bin">00000101</span> <span class="symbol-code-char">ENQ</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">6</span> <span class="symbol-code-bin">00000110</span> <span class="symbol-code-char">ACK</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">7</span> <span class="symbol-code-bin">00000111</span> <span class="symbol-code-char">BEL</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">8</span> <span class="symbol-code-bin">00001000</span> <span class="symbol-code-char">BS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">9</span> <span class="symbol-code-bin">00001001</span> <span class="symbol-code-char">TAB</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">10</span> <span class="symbol-code-bin">00001010</span> <span class="symbol-code-char">LF</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">11</span> <span class="symbol-code-bin">00001011</span> <span class="symbol-code-char">VT</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">12</span> <span class="symbol-code-bin">00001100</span> <span class="symbol-code-char">FF</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">13</span> <span class="symbol-code-bin">00001101</span> <span class="symbol-code-char">CR</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">14</span> <span class="symbol-code-bin">00001110</span> <span class="symbol-code-char">SO</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">15</span> <span class="symbol-code-bin">00001111</span> <span class="symbol-code-char">SI</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">16</span> <span class="symbol-code-bin">00010000</span> <span class="symbol-code-char">DLE</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">17</span> <span class="symbol-code-bin">00010001</span> <span class="symbol-code-char">DC1</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">18</span> <span class="symbol-code-bin">00010010</span> <span class="symbol-code-char">DC2</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">19</span> <span class="symbol-code-bin">00010011</span> <span class="symbol-code-char">DC3</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">20</span> <span class="symbol-code-bin">00010100</span> <span class="symbol-code-char">DC4</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">21</span> <span class="symbol-code-bin">00010101</span> <span class="symbol-code-char">NAK</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">22</span> <span class="symbol-code-bin">00010110</span> <span class="symbol-code-char">SYN</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">23</span> <span class="symbol-code-bin">00010111</span> <span class="symbol-code-char">ETB</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">24</span> <span class="symbol-code-bin">00011000</span> <span class="symbol-code-char">CAN</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">25</span> <span class="symbol-code-bin">00011001</span> <span class="symbol-code-char">EM</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">26</span> <span class="symbol-code-bin">00011010</span> <span class="symbol-code-char">SUB</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">27</span> <span class="symbol-code-bin">00011011</span> <span class="symbol-code-char">ESC</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">28</span> <span class="symbol-code-bin">00011100</span> <span class="symbol-code-char">FS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">29</span> <span class="symbol-code-bin">00011101</span> <span class="symbol-code-char">GS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">30</span> <span class="symbol-code-bin">00011110</span> <span class="symbol-code-char">RS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">31</span> <span class="symbol-code-bin">00011111</span> <span class="symbol-code-char">US</span></div>
+  </div>
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">32</span> <span class="symbol-code-bin">00100000</span> <span class="symbol-code-char">пробел</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">33</span> <span class="symbol-code-bin">00100001</span> <span class="symbol-code-char">!</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">34</span> <span class="symbol-code-bin">00100010</span> <span class="symbol-code-char">&#34;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">35</span> <span class="symbol-code-bin">00100011</span> <span class="symbol-code-char">#</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">36</span> <span class="symbol-code-bin">00100100</span> <span class="symbol-code-char">$</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">37</span> <span class="symbol-code-bin">00100101</span> <span class="symbol-code-char">%</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">38</span> <span class="symbol-code-bin">00100110</span> <span class="symbol-code-char">&amp;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">39</span> <span class="symbol-code-bin">00100111</span> <span class="symbol-code-char">&#39;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">40</span> <span class="symbol-code-bin">00101000</span> <span class="symbol-code-char">(</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">41</span> <span class="symbol-code-bin">00101001</span> <span class="symbol-code-char">)</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">42</span> <span class="symbol-code-bin">00101010</span> <span class="symbol-code-char">*</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">43</span> <span class="symbol-code-bin">00101011</span> <span class="symbol-code-char">+</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">44</span> <span class="symbol-code-bin">00101100</span> <span class="symbol-code-char">,</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">45</span> <span class="symbol-code-bin">00101101</span> <span class="symbol-code-char">-</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">46</span> <span class="symbol-code-bin">00101110</span> <span class="symbol-code-char">.</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">47</span> <span class="symbol-code-bin">00101111</span> <span class="symbol-code-char">/</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">48</span> <span class="symbol-code-bin">00110000</span> <span class="symbol-code-char">0</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">49</span> <span class="symbol-code-bin">00110001</span> <span class="symbol-code-char">1</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">50</span> <span class="symbol-code-bin">00110010</span> <span class="symbol-code-char">2</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">51</span> <span class="symbol-code-bin">00110011</span> <span class="symbol-code-char">3</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">52</span> <span class="symbol-code-bin">00110100</span> <span class="symbol-code-char">4</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">53</span> <span class="symbol-code-bin">00110101</span> <span class="symbol-code-char">5</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">54</span> <span class="symbol-code-bin">00110110</span> <span class="symbol-code-char">6</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">55</span> <span class="symbol-code-bin">00110111</span> <span class="symbol-code-char">7</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">56</span> <span class="symbol-code-bin">00111000</span> <span class="symbol-code-char">8</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">57</span> <span class="symbol-code-bin">00111001</span> <span class="symbol-code-char">9</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">58</span> <span class="symbol-code-bin">00111010</span> <span class="symbol-code-char">:</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">59</span> <span class="symbol-code-bin">00111011</span> <span class="symbol-code-char">;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">60</span> <span class="symbol-code-bin">00111100</span> <span class="symbol-code-char">&lt;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">61</span> <span class="symbol-code-bin">00111101</span> <span class="symbol-code-char">=</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">62</span> <span class="symbol-code-bin">00111110</span> <span class="symbol-code-char">&gt;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">63</span> <span class="symbol-code-bin">00111111</span> <span class="symbol-code-char">?</span></div>
+  </div>
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">64</span> <span class="symbol-code-bin">01000000</span> <span class="symbol-code-char">@</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">65</span> <span class="symbol-code-bin">01000001</span> <span class="symbol-code-char">A</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">66</span> <span class="symbol-code-bin">01000010</span> <span class="symbol-code-char">B</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">67</span> <span class="symbol-code-bin">01000011</span> <span class="symbol-code-char">C</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">68</span> <span class="symbol-code-bin">01000100</span> <span class="symbol-code-char">D</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">69</span> <span class="symbol-code-bin">01000101</span> <span class="symbol-code-char">E</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">70</span> <span class="symbol-code-bin">01000110</span> <span class="symbol-code-char">F</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">71</span> <span class="symbol-code-bin">01000111</span> <span class="symbol-code-char">G</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">72</span> <span class="symbol-code-bin">01001000</span> <span class="symbol-code-char">H</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">73</span> <span class="symbol-code-bin">01001001</span> <span class="symbol-code-char">I</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">74</span> <span class="symbol-code-bin">01001010</span> <span class="symbol-code-char">J</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">75</span> <span class="symbol-code-bin">01001011</span> <span class="symbol-code-char">K</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">76</span> <span class="symbol-code-bin">01001100</span> <span class="symbol-code-char">L</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">77</span> <span class="symbol-code-bin">01001101</span> <span class="symbol-code-char">M</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">78</span> <span class="symbol-code-bin">01001110</span> <span class="symbol-code-char">N</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">79</span> <span class="symbol-code-bin">01001111</span> <span class="symbol-code-char">O</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">80</span> <span class="symbol-code-bin">01010000</span> <span class="symbol-code-char">P</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">81</span> <span class="symbol-code-bin">01010001</span> <span class="symbol-code-char">Q</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">82</span> <span class="symbol-code-bin">01010010</span> <span class="symbol-code-char">R</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">83</span> <span class="symbol-code-bin">01010011</span> <span class="symbol-code-char">S</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">84</span> <span class="symbol-code-bin">01010100</span> <span class="symbol-code-char">T</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">85</span> <span class="symbol-code-bin">01010101</span> <span class="symbol-code-char">U</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">86</span> <span class="symbol-code-bin">01010110</span> <span class="symbol-code-char">V</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">87</span> <span class="symbol-code-bin">01010111</span> <span class="symbol-code-char">W</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">88</span> <span class="symbol-code-bin">01011000</span> <span class="symbol-code-char">X</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">89</span> <span class="symbol-code-bin">01011001</span> <span class="symbol-code-char">Y</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">90</span> <span class="symbol-code-bin">01011010</span> <span class="symbol-code-char">Z</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">91</span> <span class="symbol-code-bin">01011011</span> <span class="symbol-code-char">[</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">92</span> <span class="symbol-code-bin">01011100</span> <span class="symbol-code-char">\</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">93</span> <span class="symbol-code-bin">01011101</span> <span class="symbol-code-char">]</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">94</span> <span class="symbol-code-bin">01011110</span> <span class="symbol-code-char">^</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">95</span> <span class="symbol-code-bin">01011111</span> <span class="symbol-code-char">_</span></div>
+  </div>
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">96</span> <span class="symbol-code-bin">01100000</span> <span class="symbol-code-char">`</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">97</span> <span class="symbol-code-bin">01100001</span> <span class="symbol-code-char">a</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">98</span> <span class="symbol-code-bin">01100010</span> <span class="symbol-code-char">b</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">99</span> <span class="symbol-code-bin">01100011</span> <span class="symbol-code-char">c</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">100</span> <span class="symbol-code-bin">01100100</span> <span class="symbol-code-char">d</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">101</span> <span class="symbol-code-bin">01100101</span> <span class="symbol-code-char">e</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">102</span> <span class="symbol-code-bin">01100110</span> <span class="symbol-code-char">f</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">103</span> <span class="symbol-code-bin">01100111</span> <span class="symbol-code-char">g</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">104</span> <span class="symbol-code-bin">01101000</span> <span class="symbol-code-char">h</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">105</span> <span class="symbol-code-bin">01101001</span> <span class="symbol-code-char">i</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">106</span> <span class="symbol-code-bin">01101010</span> <span class="symbol-code-char">j</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">107</span> <span class="symbol-code-bin">01101011</span> <span class="symbol-code-char">k</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">108</span> <span class="symbol-code-bin">01101100</span> <span class="symbol-code-char">l</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">109</span> <span class="symbol-code-bin">01101101</span> <span class="symbol-code-char">m</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">110</span> <span class="symbol-code-bin">01101110</span> <span class="symbol-code-char">n</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">111</span> <span class="symbol-code-bin">01101111</span> <span class="symbol-code-char">o</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">112</span> <span class="symbol-code-bin">01110000</span> <span class="symbol-code-char">p</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">113</span> <span class="symbol-code-bin">01110001</span> <span class="symbol-code-char">q</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">114</span> <span class="symbol-code-bin">01110010</span> <span class="symbol-code-char">r</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">115</span> <span class="symbol-code-bin">01110011</span> <span class="symbol-code-char">s</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">116</span> <span class="symbol-code-bin">01110100</span> <span class="symbol-code-char">t</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">117</span> <span class="symbol-code-bin">01110101</span> <span class="symbol-code-char">u</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">118</span> <span class="symbol-code-bin">01110110</span> <span class="symbol-code-char">v</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">119</span> <span class="symbol-code-bin">01110111</span> <span class="symbol-code-char">w</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">120</span> <span class="symbol-code-bin">01111000</span> <span class="symbol-code-char">x</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">121</span> <span class="symbol-code-bin">01111001</span> <span class="symbol-code-char">y</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">122</span> <span class="symbol-code-bin">01111010</span> <span class="symbol-code-char">z</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">123</span> <span class="symbol-code-bin">01111011</span> <span class="symbol-code-char">{</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">124</span> <span class="symbol-code-bin">01111100</span> <span class="symbol-code-char">|</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">125</span> <span class="symbol-code-bin">01111101</span> <span class="symbol-code-char">}</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">126</span> <span class="symbol-code-bin">01111110</span> <span class="symbol-code-char">~</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">127</span> <span class="symbol-code-bin">01111111</span> <span class="symbol-code-char">DEL</span></div>
+  </div>
+</div>
+
+<p style="margin-top:-0.4rem; text-align:center; color:var(--color-muted-text); font-size:0.92em;"><em>Фрагмент ASCII-таблицы</em></p>
+
+<p>Кириллицы в базовом ASCII нет. В старых однобайтовых кодировках старшую половину байта, коды <span class="arithmatex">\(128\)</span>–<span class="arithmatex">\(255\)</span>, использовали для национальных алфавитов. В современных системах обычно применяют Unicode и UTF-8: они позволяют кодировать символы разных языков в едином наборе правил.</p>
+<h2 id="_6">Как данные превращаются в числа</h2>
+<p>Символ удобно заменить числом из таблицы. Со звуком, изображением, температурой или яркостью сложнее: такие данные могут меняться непрерывно, а компьютер хранит конечные коды.</p>
+<p>Переход от непрерывных данных к отдельным значениям называют дискретизацией. Например, звук измеряют в отдельные моменты времени, а изображение разбивают на отдельные пиксели.</p>
+<p>Цифровое представление строится так:</p>
+<ol>
+<li>исходные данные разбивают на отдельные элементы;</li>
+<li>каждому элементу ставят в соответствие число;</li>
+<li>число записывают в двоичном виде;</li>
+<li>при чтении выполняют обратные шаги.</li>
+</ol>
+<figure style="max-width:900px; margin:0.8rem auto;">
+  <img src="/books/informatics/information-coding/images/information-coding-data-flow-table-20260513.png" alt="Звук, изображение и символ кодируются числами и битами" style="max-width:900px; width:100%; height:auto;">
+  <figcaption>Данные разных типов переводятся в дискретные числовые значения, а затем записываются последовательностью битов</figcaption>
+</figure>
+
+<p>Примеры дискретизации:</p>
+<p><img alt="Примеры дискретизации данных" src="../images/information-coding-discretization-table.svg" style="display:block; margin:0.6rem auto; max-width:670px; width:100%; height:auto;" /></p>
+<p>Непрерывность и дискретность относятся к представлению. Температура тела меняется непрерывно, а запись <span class="arithmatex">\(36{,}6\)</span> уже дискретна: значение округлено и записано конечным числом цифр.</p>
+<h3 id="_7">Кодирование изображений</h3>
+<p>Изображение представляют как прямоугольную сетку пикселей. Цвет каждого пикселя кодируется отдельно, поэтому объем изображения без сжатия зависит от разрешения и глубины цвета.</p>
+<p><img alt="Кодирование изображения: пиксели, разрешение, глубина цвета и RGB" src="../images/information-coding-image-pixels-resolution-rgb.png" style="display:block; margin:0.6rem auto 1.1rem; max-width:960px; width:100%; height:auto;" /></p>
+<p>Если каждый пиксель хранит <span class="arithmatex">\(24\)</span>&nbsp;бита цвета, по <span class="arithmatex">\(8\)</span>&nbsp;бит обычно выделяют на красный, зеленый и синий каналы.</p>
+<p>Цвет часто записывают в HEX-формате. После знака # идут три пары шестнадцатеричных цифр: для красного, зеленого и синего каналов. Например, #FF0000 означает красный цвет: <span class="arithmatex">\(R = 255\)</span>, <span class="arithmatex">\(G = 0\)</span>, <span class="arithmatex">\(B = 0\)</span>.</p>
+<div class="rgb-code-table">
+  <div class="rgb-code-row rgb-code-row--head">
+    <span>Цвет</span>
+    <span>Название</span>
+    <span>R G B</span>
+    <span>Байты</span>
+    <span>HEX</span>
+  </div>
+  <div class="rgb-code-row">
+    <span class="rgb-swatch" style="background:#000000;"></span>
+    <span>черный</span>
+    <span class="rgb-code-dec">0 0 0</span>
+    <span class="rgb-code-bin">00000000 00000000 00000000</span>
+    <span>#000000</span>
+  </div>
+  <div class="rgb-code-row">
+    <span class="rgb-swatch" style="background:#ffffff;"></span>
+    <span>белый</span>
+    <span class="rgb-code-dec">255 255 255</span>
+    <span class="rgb-code-bin">11111111 11111111 11111111</span>
+    <span>#FFFFFF</span>
+  </div>
+  <div class="rgb-code-row">
+    <span class="rgb-swatch" style="background:#ff0000;"></span>
+    <span>красный</span>
+    <span class="rgb-code-dec">255 0 0</span>
+    <span class="rgb-code-bin">11111111 00000000 00000000</span>
+    <span>#FF0000</span>
+  </div>
+  <div class="rgb-code-row">
+    <span class="rgb-swatch" style="background:#00ff00;"></span>
+    <span>зеленый</span>
+    <span class="rgb-code-dec">0 255 0</span>
+    <span class="rgb-code-bin">00000000 11111111 00000000</span>
+    <span>#00FF00</span>
+  </div>
+  <div class="rgb-code-row">
+    <span class="rgb-swatch" style="background:#0000ff;"></span>
+    <span>синий</span>
+    <span class="rgb-code-dec">0 0 255</span>
+    <span class="rgb-code-bin">00000000 00000000 11111111</span>
+    <span>#0000FF</span>
+  </div>
+</div>
+
+<h3 id="_8">Кодирование звука</h3>
+<p>При цифровой записи звук представляют как последовательность измерений. Микрофон превращает колебания воздуха в электрический сигнал, а устройство записи через равные промежутки времени снимает его значение.</p>
+<p>Одно измеренное значение сигнала называют отсчетом. Частота дискретизации показывает, сколько отсчетов записывают за одну секунду. Например, частота <span class="arithmatex">\(44{,}1\)</span>&nbsp;кГц означает <span class="arithmatex">\(44\,100\)</span>&nbsp;отсчетов в секунду.</p>
+<p>Каждый отсчет округляют до одного из доступных уровней и записывают битами. Если на один отсчет выделено <span class="arithmatex">\(24\)</span>&nbsp;бита, можно различить <span class="arithmatex">\(2^{24}\)</span> уровней амплитуды.</p>
+<p>Для одного канала без сжатия объем записи длительностью <span class="arithmatex">\(t\)</span>&nbsp;секунд считают так:</p>
+<div class="arithmatex">\[
+\text{объем в битах} =
+\text{частота дискретизации} \cdot t \cdot \text{бит на отсчет}
+\]</div>
+<p>Для стереозвука хранят два канала, левый и правый, поэтому объем умножается на <span class="arithmatex">\(2\)</span>.</p>
+<details class="question-block">
+<summary>Задачи для тренировки: дискретизация</summary>
+<p><strong>1.</strong> В изображении <span class="arithmatex">\(100 \times 100\)</span>&nbsp;пикселей. На каждый пиксель выделено <span class="arithmatex">\(24\)</span>&nbsp;бита. Найдите объем изображения без сжатия в битах.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+100 \cdot 100 \cdot 24 = 240000\text{ бит}
+\]</div>
+</details>
+<hr />
+<p><strong>2.</strong> Монофонический звук записан с частотой <span class="arithmatex">\(8000\)</span>&nbsp;отсчетов в секунду. На один отсчет выделено <span class="arithmatex">\(8\)</span>&nbsp;бит. Найдите объем <span class="arithmatex">\(10\)</span>&nbsp;секунд записи без сжатия.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+8000 \cdot 10 \cdot 8 = 640000\text{ бит}
+\]</div>
+<div class="arithmatex">\[
+640000 : 8 = 80000\text{ байт}
+\]</div>
+</details>
+<hr />
+<p><strong>3.</strong> Почему увеличение глубины цвета обычно увеличивает объем изображения?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Потому что на каждый пиксель выделяется больше бит. Количество пикселей остается тем же, но объем одного пикселя растет.</p>
+</details>
+</details>
+<h2 id="_9">Как программа читает файл</h2>
+<p>До этого мы рассматривали данные как элементы со смыслом: символы, пиксели, отсчеты звука. На диске смысловых элементов уже нет — там лежит последовательность байтов.</p>
+<p>Чтобы байты снова стали изображением, звуком или текстом, программе нужно знать формат файла. Формат задает, как читать байты: где искать размеры изображения, глубину цвета, частоту звука, число каналов, имя автора и другие параметры.</p>
+<p>Расширение файла помогает понять, какой формат ожидается. Например, в имени <code>photo.png</code> расширение <code>.png</code> подсказывает, что файл должен быть изображением PNG.</p>
+<p><img alt="Расширения файлов и тип данных" src="../images/information-coding-file-extensions-table.svg" style="display:block; margin:0.6rem auto; max-width:660px; width:100%; height:auto;" /></p>
+<p>Расширение не меняет данные само по себе. Если переименовать <code>image.png</code> в&nbsp;<code>image.jpg</code>, байты внутри файла не станут JPEG-изображением. Для настоящего изменения формата нужна программа, которая прочитает старый формат и запишет данные по правилам нового формата.</p>
+<p>Формат отвечает за то, как прочитать байты. Размер файла отвечает на другой вопрос: сколько места занимает эта последовательность байтов. Для расчета нужны биты, байты и более крупные единицы.</p>
+<h2 id="_10">Как считать объем данных</h2>
+<p>Размеры файлов обычно записывают в байтах. Формулы кодирования часто дают результат в битах: например, «количество пикселей умножить на бит на пиксель». Поэтому в задачах приходится следить за единицами измерения: когда результат в битах, когда в байтах, когда нужно делить или умножать на <span class="arithmatex">\(8\)</span>.</p>
+<p>Основные единицы объема данных:</p>
+<p><img alt="Единицы объема данных" src="../images/information-coding-units-table.svg" style="display:block; margin:0.6rem auto; max-width:620px; width:100%; height:auto;" /></p>
+<figure class="img-float-right" style="max-width:230px;">
+  <img src="/books/informatics/information-coding/images/information-coding-units-ladder-byte-word.png" alt="Единицы объема данных от бита до терабайта" style="max-width:230px; width:100%; height:auto;">
+  <figcaption>1&nbsp;байт = 8&nbsp;бит, дальше каждая единица в 1024 раза крупнее предыдущей</figcaption>
+</figure>
+
+<p>В задачах этой главы используются двоичные кратные единицы:</p>
+<div class="arithmatex">\[
+1\text{ КБ} = 1024\text{ байта} = 2^{10}\text{ байт}
+\]</div>
+<div class="arithmatex">\[
+1\text{ МБ} = 1024\text{ КБ} = 2^{20}\text{ байт}
+\]</div>
+<p>Для множителя <span class="arithmatex">\(1024\)</span> в стандартах есть отдельные названия: кибибайт, мебибайт, гибибайт. В учебных задачах чаще пишут привычные обозначения КБ, МБ, ГБ. Здесь КБ означает <span class="arithmatex">\(1024\)</span>&nbsp;байта.</p>
+<p>В характеристиках накопителей и сетевых скоростей иногда используют десятичный счет по <span class="arithmatex">\(1000\)</span>. Из-за этого числа в рекламных спецификациях и в учебных задачах могут отличаться.</p>
+<div style="clear: both"></div>
+
+<h3 id="_11">Если данные хранятся без сжатия</h3>
+<p>Теперь можно вернуться к самим данным. Без сжатия каждый элемент хранится отдельно: символ текста, пиксель изображения или отсчет звука. Поэтому расчет идет в два шага: сначала находят количество элементов, затем умножают на число бит для одного элемента:</p>
+<div class="arithmatex">\[
+\text{объем в битах} = \text{количество элементов} \cdot \text{бит на один элемент}
+\]</div>
+<p>Для текста элементом может быть символ, для изображения — пиксель, для звука — отсчет.</p>
+<p>Если сообщение кодируется кодом фиксированной длины, сначала находят, сколько бит требуется на один символ. Для алфавита из <span class="arithmatex">\(N\)</span> символов выбирают минимальное число бит <span class="arithmatex">\(i\)</span>, для которого выполняется</p>
+<div class="arithmatex">\[
+N \le 2^i
+\]</div>
+<p>Тогда сообщение длины <span class="arithmatex">\(L\)</span> символов занимает</p>
+<div class="arithmatex">\[
+I = L \cdot i
+\]</div>
+<p>бит.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Робот понимает четыре команды: вверх, вниз, влево и вправо. Сообщение состоит из <span class="arithmatex">\(11\)</span> команд. Найдите его объем.</p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Для четырех команд нужно <span class="arithmatex">\(2\)</span>&nbsp;бита на одну команду:</p>
+<div class="arithmatex">\[
+4 = 2^2
+\]</div>
+<p>Тогда полный объем сообщения:</p>
+<div class="arithmatex">\[
+11 \cdot 2 = 22\text{ бита}
+\]</div>
+<p>Ответ: <span class="arithmatex">\(22\)</span>&nbsp;бита.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Цветное изображение имеет размер <span class="arithmatex">\(640 \times 480\)</span>&nbsp;пикселей. На каждый пиксель выделено <span class="arithmatex">\(24\)</span>&nbsp;бита. Найдите объем изображения без сжатия.</p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Количество пикселей:</p>
+<div class="arithmatex">\[
+640 \cdot 480 = 307200
+\]</div>
+<p>Общий объем в битах:</p>
+<div class="arithmatex">\[
+307200 \cdot 24 = 7372800\text{ бит}
+\]</div>
+<p>Переведем в байты:</p>
+<div class="arithmatex">\[
+7372800 : 8 = 921600\text{ байт}
+\]</div>
+<p>Переведем в килобайты:</p>
+<div class="arithmatex">\[
+921600 : 1024 = 900\text{ КБ}
+\]</div>
+<p>Ответ: <span class="arithmatex">\(900\)</span>&nbsp;КБ.</p>
+</div>
+<p>Такая оценка показывает объем основных данных. Реальный файл может быть больше из-за служебных данных формата или меньше из-за сжатия.</p>
+<details class="question-block">
+<summary>Задачи для тренировки: измерение информации</summary>
+<p><strong>1.</strong> Сколько бит в&nbsp;<span class="arithmatex">\(5\)</span>&nbsp;КБ?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+5 \cdot 1024 \cdot 8 = 40960\text{ бит}
+\]</div>
+</details>
+<hr />
+<p><strong>2.</strong> Переведите <span class="arithmatex">\(4096\)</span>&nbsp;байт в килобайты.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+4096 : 1024 = 4\text{ КБ}
+\]</div>
+</details>
+<hr />
+<p><strong>3.</strong> Сообщение содержит <span class="arithmatex">\(3500\)</span> символов. На каждый символ выделен <span class="arithmatex">\(1\)</span>&nbsp;байт. Найдите объем сообщения в байтах и битах.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p><span class="arithmatex">\(3500\)</span>&nbsp;байт.</p>
+<div class="arithmatex">\[
+3500 \cdot 8 = 28000\text{ бит}
+\]</div>
+</details>
+<hr />
+<p><strong>4.</strong> Изображение <span class="arithmatex">\(320 \times 200\)</span>&nbsp;пикселей хранится с глубиной <span class="arithmatex">\(8\)</span>&nbsp;бит на пиксель. Найдите объем без сжатия.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+320 \cdot 200 \cdot 8 = 512000\text{ бит}
+\]</div>
+<div class="arithmatex">\[
+512000 : 8 = 64000\text{ байт} = 62{,}5\text{ КБ}
+\]</div>
+</details>
+</details>
+<h2 id="_12">Когда числу не хватает бит</h2>
+<p>До этого мы подбирали количество бит так, чтобы данных хватило. У вычислений есть обратная сторона: иногда число бит уже фиксировано, и результат может в него не поместиться.</p>
+<p>Фиксированное число бит для значения называют разрядной сеткой. Если в разрядной сетке <span class="arithmatex">\(I\)</span>&nbsp;бит, можно записать <span class="arithmatex">\(2^I\)</span> разных кодов. Для беззнаковых целых чисел диапазон начинается с&nbsp;<span class="arithmatex">\(0\)</span> и заканчивается числом <span class="arithmatex">\(2^I - 1\)</span>.</p>
+<p>Например, в&nbsp;<span class="arithmatex">\(4\)</span>&nbsp;битах можно записать</p>
+<div class="arithmatex">\[
+N = 2^4 = 16
+\]</div>
+<p>разных беззнаковых значений: от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(15\)</span>.</p>
+<p><img alt="Диапазон беззнаковых чисел в 4 битах" src="../images/information-coding-overflow-table.svg" style="display:block; margin:0.6rem auto; max-width:470px; width:100%; height:auto;" /></p>
+<p>Следующее число, <span class="arithmatex">\(16\)</span>, уже требует пятого бита:</p>
+<div class="arithmatex">\[
+15 + 1 = 16,
+\qquad
+\mathtt{1111}_2 + \mathtt{0001}_2 = \mathtt{10000}_2
+\]</div>
+<p>Если хранить можно только <span class="arithmatex">\(4\)</span>&nbsp;бита, старший пятый бит не помещается. В системах, где переполнение не проверяется отдельно, может остаться только младшая часть:</p>
+<div class="arithmatex">\[
+\mathtt{10000}_2 \rightarrow \mathtt{0000}_2
+\]</div>
+<p>Если результат операции выходит за диапазон разрядной сетки, возникает переполнение.</p>
+<p>Переполнение — не единственная причина потери данных. Если непрерывное значение записывают конечным числом кодов, часть точности теряется. Поэтому вещественные числа обычно хранятся приближенно: значение вроде <span class="arithmatex">\(0{,}1\)</span> не всегда представимо в памяти абсолютно точно.</p>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Сколько бит нужно, чтобы хранить беззнаковые целые числа от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(1000\)</span>?</p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Нужно не меньше <span class="arithmatex">\(1001\)</span> разных значений: от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(1000\)</span>.</p>
+<p>Проверим степени двойки:</p>
+<div class="arithmatex">\[
+2^9 = 512,\qquad 2^{10} = 1024
+\]</div>
+<p><span class="arithmatex">\(9\)</span>&nbsp;бит не хватает, <span class="arithmatex">\(10\)</span>&nbsp;бит хватает.</p>
+<p>Ответ: <span class="arithmatex">\(10\)</span>&nbsp;бит.</p>
+</div>
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>В беззнаковой <span class="arithmatex">\(8\)</span>-битной разрядной сетке хранится число <span class="arithmatex">\(250\)</span>. Что произойдет при прибавлении <span class="arithmatex">\(10\)</span>, если оставить только младшие <span class="arithmatex">\(8\)</span>&nbsp;бит?</p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Точный результат:</p>
+<div class="arithmatex">\[
+250 + 10 = 260
+\]</div>
+<p>В&nbsp;<span class="arithmatex">\(8\)</span>&nbsp;битах можно хранить значения от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(255\)</span>, поэтому <span class="arithmatex">\(260\)</span> не помещается.</p>
+<p>Если оставить только остаток по <span class="arithmatex">\(256\)</span>, получится:</p>
+<div class="arithmatex">\[
+260 - 256 = 4
+\]</div>
+<p>Ответ: произойдет переполнение, останется значение <span class="arithmatex">\(4\)</span>.</p>
+</div>
+<h3 id="java">Какие значения помещаются в типы Java</h3>
+<p>В Java размер основных числовых типов фиксирован, поэтому тип сразу задает разрядную сетку, диапазон и точность.</p>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th style="text-align: right;">Размер</th>
+<th>Что хранит</th>
+<th>Диапазон или точность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td style="text-align: right;"><span class="arithmatex">\(4\)</span>&nbsp;байта</td>
+<td>целые числа</td>
+<td>от <span class="arithmatex">\(-2^{31}\)</span> до <span class="arithmatex">\(2^{31} - 1\)</span></td>
+</tr>
+<tr>
+<td>long</td>
+<td style="text-align: right;"><span class="arithmatex">\(8\)</span>&nbsp;байт</td>
+<td>большие целые числа</td>
+<td>от <span class="arithmatex">\(-2^{63}\)</span> до <span class="arithmatex">\(2^{63} - 1\)</span></td>
+</tr>
+<tr>
+<td>double</td>
+<td style="text-align: right;"><span class="arithmatex">\(8\)</span>&nbsp;байт</td>
+<td>вещественные числа</td>
+<td>примерно <span class="arithmatex">\(15\)</span>–<span class="arithmatex">\(17\)</span> значащих десятичных цифр</td>
+</tr>
+</tbody>
+</table>
+<p>Если значение выходит за диапазон int или long, возникает переполнение. Если значение хранится в double, оно может быть записано приближенно: диапазон большой, но точность конечна.</p>
+<details class="question-block">
+<summary>Задачи для тренировки: диапазоны и переполнение</summary>
+<p><strong>1.</strong> Сколько разных значений можно закодировать в&nbsp;<span class="arithmatex">\(6\)</span>&nbsp;битах?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+2^6 = 64
+\]</div>
+</details>
+<hr />
+<p><strong>2.</strong> Какой диапазон беззнаковых целых чисел можно хранить в&nbsp;<span class="arithmatex">\(6\)</span>&nbsp;битах?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>От <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(63\)</span>.</p>
+</details>
+<hr />
+<p><strong>3.</strong> Сколько бит нужно, чтобы хранить беззнаковые числа от <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(255\)</span>?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Нужно <span class="arithmatex">\(256\)</span> разных значений.</p>
+<div class="arithmatex">\[
+2^8 = 256
+\]</div>
+<p>Ответ: <span class="arithmatex">\(8\)</span>&nbsp;бит.</p>
+</details>
+<hr />
+<p><strong>4.</strong> В&nbsp;<span class="arithmatex">\(4\)</span>-битной беззнаковой разрядной сетке хранится число <span class="arithmatex">\(14\)</span>. Что останется после прибавления <span class="arithmatex">\(5\)</span>, если оставить только младшие <span class="arithmatex">\(4\)</span>&nbsp;бита?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>Точный результат:</p>
+<div class="arithmatex">\[
+14 + 5 = 19
+\]</div>
+<p>В&nbsp;<span class="arithmatex">\(4\)</span>&nbsp;битах есть <span class="arithmatex">\(16\)</span> кодов, поэтому останется</p>
+<div class="arithmatex">\[
+19 - 16 = 3
+\]</div>
+</details>
+<hr />
+<p><strong>5.</strong> Какой тип Java выбрать для значения <span class="arithmatex">\(3000000000\)</span>: int или long?</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>long.</p>
+<p>Число <span class="arithmatex">\(3000000000\)</span> больше максимального значения int.</p>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../../number-systems/number-systems-intro/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Системы счисления">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Системы счисления
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../programming/concepts/00-simple-program/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Простейшая программа">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Простейшая программа
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "content.code.copy", "content.tabs.link", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../javascripts/math-nowrap.js"></script>
+      
+        <script src="../../../../javascripts/pdf-slides.js"></script>
+      
+    
+  </body>
+</html>

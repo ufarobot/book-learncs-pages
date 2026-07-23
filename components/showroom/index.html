@@ -1,0 +1,2839 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Витрина каноничных компонентов - Учебник (в разработке)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--definition:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20.71%207.04c.39-.39.39-1.04%200-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41%200l-1.84%201.83%203.75%203.75M3%2017.25V21h3.75L17.81%209.93l-3.75-3.75z%22/%3E%3C/svg%3E');--md-admonition-icon--comment:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M9%2022a1%201%200%200%201-1-1v-3H4a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2h16a2%202%200%200%201%202%202v12a2%202%200%200%201-2%202h-6.1l-3.7%203.71c-.2.19-.45.29-.7.29zm1-6v3.08L13.08%2016H20V4H4v12zM6%207h12v2H6zm0%204h9v2H6z%22/%3E%3C/svg%3E');--md-admonition-icon--question-block:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2018h2v-2h-2zm1-16A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m0-14a4%204%200%200%200-4%204h2a2%202%200%200%201%202-2%202%202%200%200%201%202%202c0%202-3%201.75-3%205h2c0-2.25%203-2.5%203-5a4%204%200%200%200-4-4%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.5%202%202%206.5%202%2012s4.5%2010%2010%2010%2010-4.5%2010-10S17.5%202%2012%202m0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m4.59-12.42L10%2014.17l-2.59-2.58L6%2013l4%204%208-8z%22/%3E%3C/svg%3E');--md-admonition-icon--task:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%203h-4.18C14.4%201.84%2013.3%201%2012%201s-2.4.84-2.82%202H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V5a2%202%200%200%200-2-2m-7%200a1%201%200%200%201%201%201%201%201%200%200%201-1%201%201%201%200%200%201-1-1%201%201%200%200%201%201-1M7%207h10V5h2v14H5V5h2zm.5%206.5L9%2012l2%202%204.5-4.5L17%2011l-6%206z%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/00-foundation.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/10-admonitions.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/20-yandex-preview.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/25-data-display.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/30-io-compact.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/35-content-pairs.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/40-pdf-slides.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/50-nested-tables.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/60-shell-responsive.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/70-answers.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/80-images.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/90-home.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Учебник (в разработке)" class="md-header__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Учебник (в разработке)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Витрина каноничных компонентов
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/math/sets/sets-intro/" class="md-tabs__link">
+          
+  
+  
+  Математика
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/informatics/logic/logic/" class="md-tabs__link">
+          
+  
+  
+  Информатика
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/programming/concepts/00-simple-program/" class="md-tabs__link">
+          
+  
+  
+  Программирование
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Учебник (в разработке)" class="md-nav__button md-logo" aria-label="Учебник (в разработке)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Учебник (в разработке)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://learncs.ru/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg>
+  </div>
+  <div class="md-source__repository">
+    learncs.ru
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Математика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Математика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Множества
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/math/sets/sets-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/math/sets/euler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Диаграммы Эйлера-Венна
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/math/sets/number-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Числовые множества
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Комбинаторика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/math/counting/counting-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Комбинаторика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/math/counting/product-sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правило произведения и суммы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/math/counting/factorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Факториал
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/math/counting/counting-variants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Коды
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Информатика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Информатика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Логика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/informatics/logic/logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/informatics/logic/logic-algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Алгебра логики
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/informatics/logic/logic-circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Логические элементы и схемы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Кодирование информации
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/informatics/number-systems/number-systems-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Системы счисления
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/informatics/information-coding/information-coding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Кодирование информации
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Программирование
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Программирование
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основы
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Основы
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/00-simple-program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Простейшая программа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/01-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Переменные
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/02-conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Условный оператор if и логические выражения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/03-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Циклы while / for
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/04-integers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Целочисленная арифметика
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/05-arrays-1d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/06-strings-chars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Строки и символы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/07-doubles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Вещественные числа
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/08-arrays-2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Двумерные массивы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/concepts/09-recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Рекурсия
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/scanner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scanner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/system-out/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System.out
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/printwriter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PrintWriter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/stringbuilder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StringBuilder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-api/file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java проекты
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java проекты
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-projects/create-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создание проекта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-projects/stddraw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StdDraw
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-projects/stdpicture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StdPicture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/programming/java-projects/stdaudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StdAudio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Витрина каноничных компонентов</h1>
+<p>Это принятый дизайн-бук учебника. Он показывает, как оформлять новые главы и как сохранять визуальную логику утверждённых глав при редактировании.</p>
+<p>Первая часть хранит реальные фрагменты глав для регрессионной проверки. Вторая часть содержит короткие рецепты с постоянными якорями <code>component-*</code>. Пример, помеченный как legacy regression, нужен только для защиты старых глав. Его не используют в новом материале.</p>
+<h2 id="_2">Контрольные компоненты</h2>
+<h2 id="_3">Обычная таблица</h2>
+<!-- source: docs/books/informatics/logic/logic.md:22-27 -->
+
+<table>
+<thead>
+<tr>
+<th>Утверждение</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="table-expression"><span class="arithmatex">\(7\)</span> — простое число</span></td>
+<td>истина</td>
+</tr>
+<tr>
+<td><span class="table-expression"><span class="arithmatex">\(8\)</span> — простое число</span></td>
+<td>ложь</td>
+</tr>
+<tr>
+<td><span class="table-expression"><span class="arithmatex">\(7 + 5\)</span></span></td>
+<td>не является логическим высказыванием</td>
+</tr>
+<tr>
+<td><span class="table-expression">Это красивый рисунок</span></td>
+<td>не является логическим высказыванием</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">Таблица с короткими комментариями и подписью</h2>
+<!-- source: docs/books/programming/concepts/01-variables.md:419-426 -->
+
+<table>
+<thead>
+<tr>
+<th>Вызов</th>
+<th>Что делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>System.out.print(x)</code></td>
+<td><span class="table-comment">Печатает <code>x</code> без перевода строки</span></td>
+</tr>
+<tr>
+<td><code>System.out.println(x)</code></td>
+<td><span class="table-comment">Печатает <code>x</code> и переводит строку</span></td>
+</tr>
+<tr>
+<td><code>System.out.println()</code></td>
+<td><span class="table-comment">Просто переводит строку</span></td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Основные способы вывода строк</p>
+
+<h2 id="_5">Комментарий без заголовка</h2>
+<!-- source: docs/books/informatics/number-systems/number-systems-intro.md:58-62 -->
+
+<div class="admonition comment">
+<p>В шестнадцатеричной системе после <span class="arithmatex">\(\mathtt{9}\)</span> используют буквы <span class="arithmatex">\(\mathtt{A}\)</span>–<span class="arithmatex">\(\mathtt{F}\)</span>: символов <span class="arithmatex">\(\mathtt{0}\)</span>–<span class="arithmatex">\(\mathtt{9}\)</span> не хватает для 16 разных цифр. Здесь <span class="arithmatex">\(\mathtt{A}\)</span>–<span class="arithmatex">\(\mathtt{F}\)</span> — это тоже цифры (одиночные символы), которые обозначают значения <span class="arithmatex">\(10\)</span>–<span class="arithmatex">\(15\)</span>: <span class="arithmatex">\(\mathtt{A}=10, \mathtt{B}=11, \dots, \mathtt{F}=15\)</span>.</p>
+<p>Важно различать <strong>цифру</strong> и <strong>число</strong>: цифра — один символ в записи, а число — само значение. Например, в записи <span class="arithmatex">\(314_{10}\)</span> число равно <span class="arithmatex">\(314\)</span>, а <span class="arithmatex">\(3\)</span>, <span class="arithmatex">\(1\)</span> и <span class="arithmatex">\(4\)</span> — цифры этого числа.</p>
+</div>
+<h2 id="_6">Задача с развёрнутым решением</h2>
+<!-- source: docs/books/math/counting/counting-intro.md:26-51 -->
+
+<div class="admonition solution">
+<p><strong>Задача:</strong></p>
+<p>Маша собирается съесть яблоко, сливу и мандарин, но порядок еще не выбрала.
+Сколькими способами это можно сделать?</p>
+<hr />
+<p><strong>Решение:</strong></p>
+<p>Обозначим:</p>
+<ul>
+<li>Я — яблоко</li>
+<li>С — слива</li>
+<li>М — мандарин</li>
+</ul>
+<p>Например, <code>СМЯ</code> означает: сначала слива, потом мандарин, потом яблоко.</p>
+<p>Выпишем варианты в лексикографическом порядке:</p>
+<div class="arithmatex">\[
+\text{МСЯ},\ \text{МЯС},\ \text{СМЯ},\ \text{СЯМ},\ \text{ЯМС},\ \text{ЯСМ}
+\]</div>
+<p>Получаем <span class="arithmatex">\(6\)</span> вариантов.</p>
+</div>
+<h2 id="_7">Решение с вложенной таблицей</h2>
+<!-- source: docs/books/informatics/logic/logic-algebra.md:630-650 -->
+
+<div class="admonition solution">
+<p><strong>Задача:</strong> восстановите формулу по этой таблице истинности.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(B\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">0</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;"><span class="table-expression">1</span></td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Решение:</strong></p>
+<p><strong>Способ 1.</strong> По строкам, где <span class="arithmatex">\(X = 1\)</span>.</p>
+<p>Выделим все строки, в которых функция равна <span class="arithmatex">\(1\)</span>. Для каждой такой строки составим произведение, истинное только в этом случае:</p>
+<ul>
+<li>если переменная в строке равна <span class="arithmatex">\(0\)</span>, она входит в произведение с отрицанием;</li>
+<li>если переменная равна <span class="arithmatex">\(1\)</span>, она входит без отрицания.</li>
+</ul>
+</div>
+<h2 id="-">Тренировочная задача с ответом-таблицей</h2>
+<!-- source: docs/books/informatics/logic/logic-algebra.md:142-160 -->
+
+<details class="question-block">
+<summary>Задачи для тренировки: доказательство по таблице истинности</summary>
+<p><strong>1.</strong> Докажите по таблице истинности закон двойного отрицания:</p>
+<div class="arithmatex">\[
+\overline{\overline A} = A
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline A\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\overline{\overline A}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Столбцы <span class="arithmatex">\(A\)</span> и <span class="arithmatex">\(\overline{\overline A}\)</span> совпадают, значит равенство доказано.</p>
+</details>
+</details>
+<h2 id="_8">Тренировочная задача с пояснением к коду</h2>
+<!-- source: docs/books/programming/concepts/02-conditions.md:638-651 -->
+
+<details class="question-block">
+<summary>Задачи для тренировки: логические выражения и boolean</summary>
+<p><strong>1.</strong> Запишите логическое выражение, которое истинно, если целые <code>a</code> и <code>b</code> равны.</p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</span></code></pre></div>
+<p><p class="answer-comment">Это сравнение на равенство. Один знак <code>=</code> здесь не подойдёт: он делает присваивание.</p></p>
+</details>
+</details>
+<h2 id="_9">Несколько задач с разделителем</h2>
+<!-- source: docs/books/informatics/number-systems/number-systems-intro.md:567-608 -->
+
+<details class="question-block">
+<summary>Задачи для тренировки</summary>
+<p><strong>1.</strong> Переведите в двоичную систему:</p>
+<p>a) <span class="arithmatex">\(\mathtt{AF}_{16}\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{9B}_{16}\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{C5}_{16}\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{10101111}_2\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{10011011}_2\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{11000101}_2\)</span>.</p>
+</details>
+<hr />
+<p><strong>2.</strong> Переведите в шестнадцатеричную систему:</p>
+<p>a) <span class="arithmatex">\(\mathtt{10101100}_2\)</span></p>
+<p>b) <span class="arithmatex">\(\mathtt{111001}_2\)</span></p>
+<p>c) <span class="arithmatex">\(\mathtt{110101111}_2\)</span></p>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<p>a) <span class="arithmatex">\(\mathtt{AC}_{16}\)</span>.</p>
+<p>b) <span class="arithmatex">\(\mathtt{39}_{16}\)</span>.</p>
+<p>c) <span class="arithmatex">\(\mathtt{1AF}_{16}\)</span>.</p>
+</details>
+</details>
+<h2 id="_10">Ответ с блочной формулой</h2>
+<!-- source: docs/books/informatics/logic/logic-algebra.md:497-518 -->
+
+<details class="question-block">
+<summary>Задачи для тренировки: упрощение логических выражений</summary>
+<p><strong>1.</strong> Упростите выражение:</p>
+<div class="arithmatex">\[
+(A + B)\cdot(\overline A + \overline B)
+\]</div>
+<p><details class="answer">
+<summary>Ответ</summary></p>
+<div class="arithmatex">\[
+(A + B)\cdot(\overline A + \overline B) = A \cdot \overline A + A \cdot \overline B + \overline A \cdot B + B \cdot \overline B
+\]</div>
+<div class="arithmatex">\[
+= A \cdot \overline B + \overline A \cdot B
+\]</div>
+<p>Слагаемые <span class="arithmatex">\(A \cdot \overline A\)</span> и <span class="arithmatex">\(B \cdot \overline B\)</span> исчезают по закону противоречия.</p>
+</details>
+</details>
+<h2 id="_11">Код и вывод внутри языковых вкладок</h2>
+<!-- sources: docs/books/programming/concepts/02-conditions.md:598-615, 1952-1969; tab shells: 5, 1616 -->
+
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">C++</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Результат логического выражения можно сохранить в переменную типа boolean.</p>
+<p>Имена таких переменных обычно начинаются с is, has, can и читаются как ответ на вопрос «да или нет»: isSummerMonth, isCorrectMonth, hasError.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">isSummerMonth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">month</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">month</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">month</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isSummerMonth</span><span class="p">);</span>
+</span></code></pre></div>
+<p><div class="io-compact">
+<div class="io-compact__label">Вывод</div>
+<pre>true</pre>
+</div></p>
+<p>Здесь переменная isSummerMonth хранит ответ на вопрос: «месяц летний или нет?»</p>
+</div>
+<div class="tabbed-block">
+<p>Результат логического выражения можно сохранить в переменную типа <code>bool</code>.</p>
+<p>Имена таких переменных обычно начинаются с <code>is</code>, <code>has</code>, <code>can</code> и читаются как ответ на вопрос «да или нет»: <code>isSummerMonth</code>, <code>isCorrectMonth</code>, <code>hasError</code>.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">bool</span><span class="w"> </span><span class="n">isSummerMonth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">month</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">month</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">month</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">boolalpha</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">isSummerMonth</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</span></code></pre></div>
+<p><div class="io-compact">
+<div class="io-compact__label">Вывод</div>
+<pre>true</pre>
+</div></p>
+<p>Здесь переменная <code>isSummerMonth</code> хранит ответ на вопрос: «месяц летний или нет?»</p>
+</div>
+</div>
+</div>
+<h2 id="_12">Код с вводом и выводом</h2>
+<!-- source: docs/books/programming/concepts/00-simple-program.md:5-28 -->
+
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Простейшая программа на Java: читаем два целых числа из ввода и выводим их сумму.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SumAB</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><div class="io-compact">
+<div class="io-compact__label">Ввод</div>
+<pre>2 5</pre>
+<div class="io-compact__label">Вывод</div>
+<pre>7</pre>
+</div></p>
+</div>
+</div>
+</div>
+<h2 id="_13">Текстовая трассировка</h2>
+<!-- source: docs/books/programming/concepts/01-variables.md:402-409 -->
+
+<p>Та же трассировка в текстовом виде:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. first = &quot;мама&quot;, second = &quot;кот&quot;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>2. second = &quot;котик&quot;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>3. first = &quot;супермама&quot;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>4. second = &quot;супермамакотик&quot;
+</span></code></pre></div>
+<h2 id="_14">Задачи Яндекс Контеста</h2>
+<!-- source: docs/books/programming/concepts/01-variables.md:1774-1828 -->
+
+<details class="task">
+<summary>Яндекс Контест: «01. Переменные» (задачи N-O)</summary>
+<p>Ссылка на контест: <a href="https://new.contest.yandex.ru/contests/92456/start">01. Переменные</a> (только для зарегистрированных учеников курса learncs.ru)</p>
+<p><div class="preview-problem">
+<div class="problem-statement">
+<div class="header"><div class="title">N. Число из трех строк</div></div>
+<div class="legend">
+<p>Даны три строки, каждая из которых состоит только из цифр. Склейте их в одну строку, преобразуйте результат в число, прибавьте 1 и выведите ответ.</p>
+</div>
+<div class="input-specification"><div class="section-title">Входные данные</div>
+<p>В первой, второй и третьей строках записаны строки из цифр. Гарантируется, что после склейки получается целое число, не превосходящее <code>10^9</code>.</p>
+</div>
+<div class="output-specification"><div class="section-title">Выходные данные</div>
+<p>Выведите одно целое число — результат описанных действий.</p>
+</div>
+<div class="sample-tests"><div class="section-title">Примеры</div>
+<div class="sample-test">
+<div class="input"><div class="title">Ввод</div><pre>12&#10;34&#10;5</pre></div>
+<div class="output"><div class="title">Вывод</div><pre>12346</pre></div>
+</div>
+<div class="sample-test">
+<div class="input"><div class="title">Ввод</div><pre>0&#10;0&#10;0</pre></div>
+<div class="output"><div class="title">Вывод</div><pre>1</pre></div>
+</div>
+</div>
+</div>
+</div></p>
+<hr class="preview-problem-divider" />
+<p><div class="preview-problem">
+<div class="problem-statement">
+<div class="header"><div class="title">O. Большое число из пяти строк</div></div>
+<div class="legend">
+<p>Даны пять строк, каждая из которых состоит только из цифр. Склейте их в одну строку, преобразуйте результат в число типа <code>long</code>, прибавьте 1 и выведите ответ.</p>
+</div>
+<div class="input-specification"><div class="section-title">Входные данные</div>
+<p>В пяти строках записаны строки из цифр. Гарантируется, что после склейки получается целое число, не превосходящее <code>10^18</code>.</p>
+</div>
+<div class="output-specification"><div class="section-title">Выходные данные</div>
+<p>Выведите одно целое число — результат описанных действий.</p>
+</div>
+<div class="sample-tests"><div class="section-title">Примеры</div>
+<div class="sample-test">
+<div class="input"><div class="title">Ввод</div><pre>12&#10;34&#10;56&#10;78&#10;9</pre></div>
+<div class="output"><div class="title">Вывод</div><pre>123456790</pre></div>
+</div>
+<div class="sample-test">
+<div class="input"><div class="title">Ввод</div><pre>0&#10;0&#10;0&#10;0&#10;0</pre></div>
+<div class="output"><div class="title">Вывод</div><pre>1</pre></div>
+</div>
+</div>
+</div>
+</div></p>
+</details>
+<h2 id="component-pdf-slides">Слайды</h2>
+<!-- source: docs/books/informatics/number-systems/number-systems-intro.md:68 -->
+
+
+<div class="pdf-slides-card" data-pdf-url="../../books/informatics/number-systems/slides/slides-number-systems-0-10.pdf" data-pdf-title="Запись чисел 0–100 в разных системах счисления">
+  <button class="pdf-slides-toggle" type="button" aria-label="Слайды: Запись чисел 0–100 в разных системах счисления" title="Открыть слайды" aria-expanded="false" aria-controls="pdfViewer_5">
+    <span aria-hidden="true" class="pdf-slides-toggle__icon">🖥️</span>
+    <span>Слайды: Запись чисел 0–100 в разных системах счисления</span>
+  </button>
+
+  <div id="pdfViewer_5" class="pdf-slides-viewer" hidden>
+    <div class="pdf-slides-nav">
+      <button class="pdf-slides-nav__btn" type="button" data-pdf-action="prev" aria-label="Предыдущий слайд">←</button>
+      <span class="pdf-slides-nav__info">1 / 1</span>
+      <button class="pdf-slides-nav__btn" type="button" data-pdf-action="next" aria-label="Следующий слайд">→</button>
+    </div>
+
+    <div class="pdf-slides-canvas-wrap">
+      <div class="pdf-slides-status" role="status" aria-live="polite" hidden>
+        <div class="pdf-slides-status__spinner" aria-hidden="true"></div>
+        <div class="pdf-slides-status__title">Загружаем слайды…</div>
+        <div class="pdf-slides-status__text">После загрузки здесь появится первый слайд.</div>
+      </div>
+      <canvas class="pdf-slides-canvas" hidden></canvas>
+    </div>
+  </div>
+</div>
+
+
+<h2 id="legacy-regression">Плавающее изображение и определение: legacy regression</h2>
+<p>Этот образец защищает старые главы от случайной поломки. Для нового материала используют принятые рецепты ниже.</p>
+<!-- source: docs/books/math/sets/sets-intro.md:3-28; legacy inline clear from line 29 is not duplicated -->
+
+<figure class="img-float-right">
+  <img src="../../books/math/sets/images/sets-intro-inline.png" alt="Множество как группа объектов">
+  <figcaption>Девочка играет с множеством фигурок</figcaption>
+</figure>
+
+<p>В информатике и математике часто бывает удобно говорить о группе чисел или о группе объектов. Такие группы мы называем <strong>множествами</strong>.</p>
+<div class="admonition definition">
+<p><strong>Множество</strong> – это набор чётко определённых объектов.</p>
+<p>Объекты, входящие в множество, называют <strong>элементами</strong>.</p>
+</div>
+<p>Мы используем заглавную букву, например <span class="arithmatex">\(A\)</span>, чтобы обозначить множество.</p>
+<p>Когда мы перечисляем элементы множества, мы записываем их в фигурных скобках.</p>
+<h2 id="_15">Примеры множеств</h2>
+<ul>
+<li><span class="arithmatex">\(A = \{2, 3, 5, 7, 11\}\)</span> – множество простых чисел, которые меньше 13.</li>
+<li><span class="arithmatex">\(B = \{a, e, i, o, u\}\)</span> – множество всех гласных английского алфавита.</li>
+<li><span class="arithmatex">\(C = \{\text{голубой}, \text{серый}, \text{карий}, \text{коричневый}, \text{зелёный}\}\)</span> – множество цветов глаз учеников в классе.</li>
+</ul>
+<h2 id="_16">Нумерованный алгоритм</h2>
+<!-- source: docs/books/informatics/information-coding/information-coding.md:395-400 -->
+
+<p>Цифровое представление строится так:</p>
+<ol>
+<li>исходные данные разбивают на отдельные элементы;</li>
+<li>каждому элементу ставят в соответствие число;</li>
+<li>число записывают в двоичном виде;</li>
+<li>при чтении выполняют обратные шаги.</li>
+</ol>
+<h2 id="_17">Составные формулы</h2>
+<!-- source: docs/books/informatics/number-systems/number-systems-intro.md:14-21 -->
+
+<p>Числа, которыми мы пользуемся в повседневной жизни, записываются в системе с основанием <span class="arithmatex">\(10\)</span>. Например, число <span class="arithmatex">\(253\)</span> можно записать так:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+253 &amp;= 200 + 50 + 3 \\
+&amp;= {\color{blue}2} \cdot 100 + {\color{blue}5} \cdot 10 + {\color{blue}3} \cdot 1
+\end{aligned}
+\]</div>
+<!-- source: docs/books/math/sets/number-sets.md:79-87 -->
+
+<p>Функция модуля <span class="arithmatex">\(|x|\)</span> преобразует любое целое число в неотрицательное:</p>
+<div class="arithmatex">\[
+|x| =
+\begin{cases}
+x, &amp; \text{если } x \ge 0, \\
+-x, &amp; \text{если } x &lt; 0.
+\end{cases}
+\]</div>
+<!-- source: docs/books/informatics/logic/logic-algebra.md:728-742 -->
+
+<p>Упростим это выражение.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+X
+&amp;= \overline A \cdot \overline B \cdot (\overline C + C)
++ \overline A \cdot B \cdot (\overline C + C) \\
+&amp;\quad + A \cdot C \cdot (\overline B + B) \\
+&amp;= \overline A \cdot \overline B + \overline A \cdot B + A \cdot C \\
+&amp;= \overline A \cdot (\overline B + B) + A \cdot C \\
+&amp;= \overline A + A \cdot C \\
+&amp;= (\overline A + A)\cdot(\overline A + C) \\
+&amp;= \overline A + C
+\end{aligned}
+\]</div>
+<h2 id="_18">Изображение без локальной компоновки</h2>
+<!-- source: docs/books/programming/java-api/system-out.md:97 -->
+
+<p><img alt="Шаблон sout в IDE" src="../../books/programming/java-api/images/ide-sout.png" /></p>
+<h2 id="_19">Скачивание файла</h2>
+<!-- source: docs/books/programming/java-projects/stddraw.md:3 -->
+
+<p><a href="/books/programming/java-projects/files/StdDraw.java" download="StdDraw.java">Скачать StdDraw.java</a></p>
+<h2 id="_20">Блок источников</h2>
+<!-- source: docs/books/informatics/number-systems/number-systems-intro.md:609-614 -->
+
+<hr />
+<p><small><em>По материалам:</em><br>
+1. К. Ю. Поляков, Е. А. Еремин. Учебник информатики для 10–11 классов. Углубленный уровень.<br>
+2. Anthony Croft, Robert Davison. Foundation Maths. Pearson.<br>
+3. ВМК МГУ — школе. Информатика: пособие для подготовки к ЕГЭ.</small></p>
+<h2 id="_21">Каноническая подпись таблицы</h2>
+<!-- source: docs/books/informatics/logic/logic.md:163-170 -->
+
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(A\)</span></th>
+<th><span class="arithmatex">\(B\)</span></th>
+<th><code>A &amp;&amp; B</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">false</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">false</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code class="table-expression">true</code></td>
+<td><code class="table-expression">true</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Таблица истинности для И</p>
+
+<h2 id="_22">Принятые рецепты</h2>
+<p>Эти примеры используют в новом материале. При редактировании старой главы сначала сохраняют её учебную композицию, затем заменяют локальную разметку ближайшим подходящим рецептом.</p>
+<h3 id="component-heading-h3">Суммы по строкам</h3>
+<p>Заголовок третьего уровня нужен, когда внутри раздела появляется самостоятельный небольшой вопрос, но материала недостаточно для новой подглавы.</p>
+<p>Чтобы найти сумму строки двумерного массива, перебирают её элементы и накапливают результат в отдельной переменной.</p>
+<h3 id="component-formula-standalone">Формула как самостоятельный объект</h3>
+<p>Если формула показывает значения, сравнение или отдельную конструкцию и не продолжает предложение, знаки препинания в конце строк не добавляют.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+1! &amp;= 1 \\
+2! &amp;= 2 \times 1 = 2 \\
+3! &amp;= 3 \times 2 \times 1 = 6
+\end{aligned}
+\]</div>
+<h3 id="component-formula-sentence">Формула как часть предложения</h3>
+<p>Если текст продолжается после формулы, знак препинания связывает части одного предложения. Например, площадь прямоугольника вычисляют по формуле</p>
+<div class="arithmatex">\[
+S = ab,
+\]</div>
+<p>где <span class="arithmatex">\(a\)</span> и <span class="arithmatex">\(b\)</span> обозначают длины его сторон.</p>
+<h3 id="component-notation-map">Сопоставление частей записи</h3>
+<p>Цвет связывает одинаковые смысловые части словесного чтения и формулы. Его не используют как самостоятельное выделение.</p>
+<p class="notation-map">Мы читаем это как: <span class="notation-map__domain"><i>множество всех целых чисел \(x\)</i></span> <span class="notation-map__separator"><i>таких, что</i></span> <span class="notation-map__condition"><i>\(x\) лежит между \(-3\) и \(5\)</i></span></p>
+
+<div class="arithmatex">\[
+\class{notation-map}{
+\{\class{notation-map__domain}{x \in \mathbb{Z}}\;
+\class{notation-map__separator}{\mid}\;
+\class{notation-map__condition}{-3 &lt; x &lt; 5}\}
+}
+\]</div>
+<h3 id="component-image-center">Центрированное изображение без подписи</h3>
+<p><img alt="" class="img-center" src="/books/math/sets/images/numberline-natural.svg" width="527" /></p>
+<h3 id="component-figure-center">Центрированное изображение с содержательной подписью</h3>
+<p>У схемы или таблицы подпись является частью объяснения и сохраняет обычный размер текста.</p>
+<figure class="img-center">
+  <img src="/books/informatics/information-coding/images/information-coding-data-flow-table-20260513.png" alt="Звук, изображение и символ кодируются числами и битами" width="900">
+  <figcaption>Данные разных типов переводятся в дискретные числовые значения, а затем записываются последовательностью битов</figcaption>
+</figure>
+
+<h3 id="component-figure-float-end">Небольшая иллюстрация справа</h3>
+<p>У дополнительной иллюстрации справа подпись компактнее основного текста. После связанного текста обтекание завершают явно. В узкой области иллюстрация становится отдельным центрированным блоком, чтобы текст не сжимался в нечитаемую колонку.</p>
+<figure class="img-float-end">
+  <img src="/books/math/sets/images/sets-intro-inline.png" alt="Множество как группа объектов" width="320">
+  <figcaption>Девочка играет с множеством фигурок</figcaption>
+</figure>
+
+<p>В информатике и математике часто бывает удобно говорить о группе чисел или объектов. Такие группы называют множествами.</p>
+<div class="float-clear"></div>
+
+<h3 id="component-image-float-end">Небольшое изображение справа без подписи</h3>
+<p>Без подписи действует то же правило: на обычной ширине изображение находится справа и отделяется от текста общим отступом. В узкой области оно становится отдельным центрированным блоком.</p>
+<p><img alt="" class="img-float-end" src="/books/programming/java-projects/images/stddraw-example-triangle.png" width="292" /></p>
+<p>Методы <code>point</code> и <code>line</code> рисуют точки и отрезки. Координаты должны находиться в области рисования.</p>
+<div class="float-clear"></div>
+
+<h3 id="component-io-inline-end">Короткий вывод справа</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Нечётное&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="io-compact inline-end">
+<div class="io-compact__label">Вывод</div>
+<pre>Нечётное</pre>
+</div>
+
+<div class="float-clear"></div>
+
+<h3 id="component-content-pair-aside">Пояснение рядом с основным материалом</h3>
+<p>Связанные материалы сохраняют рядом в паре <code>2:1</code>: основной объект слева, короткое пояснение справа.</p>
+<div class="content-pair content-pair--aside">
+<div class="content-pair__main">
+<div class="arithmatex">\(n! = n \times (n-1)!\)</div>
+</div>
+<div class="admonition definition content-pair__side">
+<p><strong>Рекуррентная формула</strong> – это формула, где значение для <span class="arithmatex">\(n\)</span> выражено через значение для меньшего числа.</p>
+</div>
+</div>
+
+<h3 id="component-content-pair-key-value">Текст и краткая справка</h3>
+<p>Если первый столбец называет поля, таблице не нужна искусственная строка заголовков.</p>
+<div class="content-pair content-pair--aside">
+<div class="content-pair__main">
+<p>Тип <code>boolean</code> хранит логические значения. У него только два значения: <code>true</code> и <code>false</code>.</p>
+<p>Результат любой логической операции тоже имеет тип <code>boolean</code>.</p>
+</div>
+<div class="content-pair__side key-value-table">
+<table>
+<tbody>
+<tr><th scope="row">значения</th><td><code>true</code> или <code>false</code></td></tr>
+<tr><th scope="row">операторы</th><td><code>&amp;&amp;</code>&nbsp;&nbsp; <code>||</code>&nbsp;&nbsp; <code>!</code></td></tr>
+</tbody>
+</table>
+<p class="table-caption">Встроенный тип boolean в Java</p>
+</div>
+</div>
+
+<h3 id="component-content-pair-visual">Схема и связанный с ней синтаксис</h3>
+<p>Схему и код читают параллельно в паре <code>60:40</code>.</p>
+<div class="content-pair content-pair--visual">
+<div class="content-pair__main">
+<img src="/books/programming/concepts/images/if-simple-flow-tight.png" alt="Схема выполнения if" width="209">
+</div>
+<div class="content-pair__side syntax-card">
+<span class="syntax-card__line"><span class="syntax-card__keyword">if</span> (<span class="syntax-card__placeholder">логическое выражение</span>) {</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;команда 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;команда 2;<br>
+}
+</div>
+</div>
+
+<h3 id="component-table-colspan">Объединённая ячейка таблицы</h3>
+<p>HTML используют, когда смысловая структура не выражается Markdown-разметкой. Формула двойного отрицания относится к обеим операциям, поэтому ячейка занимает два столбца.</p>
+<table>
+<thead>
+<tr><th>Закон</th><th>Для операции И</th><th>Для операции ИЛИ</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Двойного отрицания</td>
+<td colspan="2" class="table-cell-center"><span class="arithmatex">\(\overline{\overline A} = A\)</span></td>
+</tr>
+<tr>
+<td>Исключённого третьего</td>
+<td><span class="arithmatex">\(A \cdot \overline A = 0\)</span></td>
+<td><span class="arithmatex">\(A + \overline A = 1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Законы алгебры логики</p>
+
+<h3 id="component-problem-empty-input">Карточка задачи с формулой и пустым вводом</h3>
+<p>Пустой блок «Ввод» сохраняют: он явно показывает, что входных данных нет. Формулу внутри условия оформляют классом <code>problem-math</code>.</p>
+<details class="task">
+<summary>Яндекс Контест: задача E «Фигура из звёздочек»</summary>
+<p><div class="preview-problem">
+<div class="problem-statement">
+<div class="header"><div class="title">E. Фигура из звёздочек</div></div>
+<div class="legend"><p>Выведите <span class="problem-math">n</span> строк указанной фигуры.</p></div>
+<div class="sample-tests"><div class="section-title">Примеры</div>
+<div class="sample-test">
+<div class="input"><div class="title">Ввод</div><pre></pre></div>
+<div class="output"><div class="title">Вывод</div><pre>&#160;&#160;&#42;&#10;&#160;&#42;&#42;&#42;&#10;&#42;&#42;&#42;&#42;&#42;</pre></div>
+</div>
+</div>
+</div>
+</div></p>
+</details>
+<h3 id="component-morse-code">Азбука Морзе и кодируемый текст</h3>
+<table>
+<thead>
+<tr>
+<th>Символ</th>
+<th>Код Морзе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S</td>
+<td><span class="morse-code">...</span></td>
+</tr>
+<tr>
+<td>O</td>
+<td><span class="morse-code">---</span></td>
+</tr>
+</tbody>
+</table>
+<p>Закодируйте слово <span class="encode-target">CAT</span>: <span class="morse-code">-.-. .- -</span>.</p>
+<h3 id="component-symbol-code-table">Таблица кодов символов</h3>
+<div class="symbol-code-table" aria-label="Коды символов ASCII">
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">0</span> <span class="symbol-code-bin">00000000</span> <span class="symbol-code-char">NUL</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">1</span> <span class="symbol-code-bin">00000001</span> <span class="symbol-code-char">SOH</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">2</span> <span class="symbol-code-bin">00000010</span> <span class="symbol-code-char">STX</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">3</span> <span class="symbol-code-bin">00000011</span> <span class="symbol-code-char">ETX</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">4</span> <span class="symbol-code-bin">00000100</span> <span class="symbol-code-char">EOT</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">5</span> <span class="symbol-code-bin">00000101</span> <span class="symbol-code-char">ENQ</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">6</span> <span class="symbol-code-bin">00000110</span> <span class="symbol-code-char">ACK</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">7</span> <span class="symbol-code-bin">00000111</span> <span class="symbol-code-char">BEL</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">8</span> <span class="symbol-code-bin">00001000</span> <span class="symbol-code-char">BS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">9</span> <span class="symbol-code-bin">00001001</span> <span class="symbol-code-char">TAB</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">10</span> <span class="symbol-code-bin">00001010</span> <span class="symbol-code-char">LF</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">11</span> <span class="symbol-code-bin">00001011</span> <span class="symbol-code-char">VT</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">12</span> <span class="symbol-code-bin">00001100</span> <span class="symbol-code-char">FF</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">13</span> <span class="symbol-code-bin">00001101</span> <span class="symbol-code-char">CR</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">14</span> <span class="symbol-code-bin">00001110</span> <span class="symbol-code-char">SO</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">15</span> <span class="symbol-code-bin">00001111</span> <span class="symbol-code-char">SI</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">16</span> <span class="symbol-code-bin">00010000</span> <span class="symbol-code-char">DLE</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">17</span> <span class="symbol-code-bin">00010001</span> <span class="symbol-code-char">DC1</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">18</span> <span class="symbol-code-bin">00010010</span> <span class="symbol-code-char">DC2</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">19</span> <span class="symbol-code-bin">00010011</span> <span class="symbol-code-char">DC3</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">20</span> <span class="symbol-code-bin">00010100</span> <span class="symbol-code-char">DC4</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">21</span> <span class="symbol-code-bin">00010101</span> <span class="symbol-code-char">NAK</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">22</span> <span class="symbol-code-bin">00010110</span> <span class="symbol-code-char">SYN</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">23</span> <span class="symbol-code-bin">00010111</span> <span class="symbol-code-char">ETB</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">24</span> <span class="symbol-code-bin">00011000</span> <span class="symbol-code-char">CAN</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">25</span> <span class="symbol-code-bin">00011001</span> <span class="symbol-code-char">EM</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">26</span> <span class="symbol-code-bin">00011010</span> <span class="symbol-code-char">SUB</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">27</span> <span class="symbol-code-bin">00011011</span> <span class="symbol-code-char">ESC</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">28</span> <span class="symbol-code-bin">00011100</span> <span class="symbol-code-char">FS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">29</span> <span class="symbol-code-bin">00011101</span> <span class="symbol-code-char">GS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">30</span> <span class="symbol-code-bin">00011110</span> <span class="symbol-code-char">RS</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">31</span> <span class="symbol-code-bin">00011111</span> <span class="symbol-code-char">US</span></div>
+  </div>
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">32</span> <span class="symbol-code-bin">00100000</span> <span class="symbol-code-char">пробел</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">33</span> <span class="symbol-code-bin">00100001</span> <span class="symbol-code-char">!</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">34</span> <span class="symbol-code-bin">00100010</span> <span class="symbol-code-char">&#34;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">35</span> <span class="symbol-code-bin">00100011</span> <span class="symbol-code-char">#</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">36</span> <span class="symbol-code-bin">00100100</span> <span class="symbol-code-char">$</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">37</span> <span class="symbol-code-bin">00100101</span> <span class="symbol-code-char">%</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">38</span> <span class="symbol-code-bin">00100110</span> <span class="symbol-code-char">&amp;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">39</span> <span class="symbol-code-bin">00100111</span> <span class="symbol-code-char">&#39;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">40</span> <span class="symbol-code-bin">00101000</span> <span class="symbol-code-char">(</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">41</span> <span class="symbol-code-bin">00101001</span> <span class="symbol-code-char">)</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">42</span> <span class="symbol-code-bin">00101010</span> <span class="symbol-code-char">*</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">43</span> <span class="symbol-code-bin">00101011</span> <span class="symbol-code-char">+</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">44</span> <span class="symbol-code-bin">00101100</span> <span class="symbol-code-char">,</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">45</span> <span class="symbol-code-bin">00101101</span> <span class="symbol-code-char">-</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">46</span> <span class="symbol-code-bin">00101110</span> <span class="symbol-code-char">.</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">47</span> <span class="symbol-code-bin">00101111</span> <span class="symbol-code-char">/</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">48</span> <span class="symbol-code-bin">00110000</span> <span class="symbol-code-char">0</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">49</span> <span class="symbol-code-bin">00110001</span> <span class="symbol-code-char">1</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">50</span> <span class="symbol-code-bin">00110010</span> <span class="symbol-code-char">2</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">51</span> <span class="symbol-code-bin">00110011</span> <span class="symbol-code-char">3</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">52</span> <span class="symbol-code-bin">00110100</span> <span class="symbol-code-char">4</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">53</span> <span class="symbol-code-bin">00110101</span> <span class="symbol-code-char">5</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">54</span> <span class="symbol-code-bin">00110110</span> <span class="symbol-code-char">6</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">55</span> <span class="symbol-code-bin">00110111</span> <span class="symbol-code-char">7</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">56</span> <span class="symbol-code-bin">00111000</span> <span class="symbol-code-char">8</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">57</span> <span class="symbol-code-bin">00111001</span> <span class="symbol-code-char">9</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">58</span> <span class="symbol-code-bin">00111010</span> <span class="symbol-code-char">:</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">59</span> <span class="symbol-code-bin">00111011</span> <span class="symbol-code-char">;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">60</span> <span class="symbol-code-bin">00111100</span> <span class="symbol-code-char">&lt;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">61</span> <span class="symbol-code-bin">00111101</span> <span class="symbol-code-char">=</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">62</span> <span class="symbol-code-bin">00111110</span> <span class="symbol-code-char">&gt;</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">63</span> <span class="symbol-code-bin">00111111</span> <span class="symbol-code-char">?</span></div>
+  </div>
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">64</span> <span class="symbol-code-bin">01000000</span> <span class="symbol-code-char">@</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">65</span> <span class="symbol-code-bin">01000001</span> <span class="symbol-code-char">A</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">66</span> <span class="symbol-code-bin">01000010</span> <span class="symbol-code-char">B</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">67</span> <span class="symbol-code-bin">01000011</span> <span class="symbol-code-char">C</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">68</span> <span class="symbol-code-bin">01000100</span> <span class="symbol-code-char">D</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">69</span> <span class="symbol-code-bin">01000101</span> <span class="symbol-code-char">E</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">70</span> <span class="symbol-code-bin">01000110</span> <span class="symbol-code-char">F</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">71</span> <span class="symbol-code-bin">01000111</span> <span class="symbol-code-char">G</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">72</span> <span class="symbol-code-bin">01001000</span> <span class="symbol-code-char">H</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">73</span> <span class="symbol-code-bin">01001001</span> <span class="symbol-code-char">I</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">74</span> <span class="symbol-code-bin">01001010</span> <span class="symbol-code-char">J</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">75</span> <span class="symbol-code-bin">01001011</span> <span class="symbol-code-char">K</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">76</span> <span class="symbol-code-bin">01001100</span> <span class="symbol-code-char">L</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">77</span> <span class="symbol-code-bin">01001101</span> <span class="symbol-code-char">M</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">78</span> <span class="symbol-code-bin">01001110</span> <span class="symbol-code-char">N</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">79</span> <span class="symbol-code-bin">01001111</span> <span class="symbol-code-char">O</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">80</span> <span class="symbol-code-bin">01010000</span> <span class="symbol-code-char">P</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">81</span> <span class="symbol-code-bin">01010001</span> <span class="symbol-code-char">Q</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">82</span> <span class="symbol-code-bin">01010010</span> <span class="symbol-code-char">R</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">83</span> <span class="symbol-code-bin">01010011</span> <span class="symbol-code-char">S</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">84</span> <span class="symbol-code-bin">01010100</span> <span class="symbol-code-char">T</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">85</span> <span class="symbol-code-bin">01010101</span> <span class="symbol-code-char">U</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">86</span> <span class="symbol-code-bin">01010110</span> <span class="symbol-code-char">V</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">87</span> <span class="symbol-code-bin">01010111</span> <span class="symbol-code-char">W</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">88</span> <span class="symbol-code-bin">01011000</span> <span class="symbol-code-char">X</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">89</span> <span class="symbol-code-bin">01011001</span> <span class="symbol-code-char">Y</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">90</span> <span class="symbol-code-bin">01011010</span> <span class="symbol-code-char">Z</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">91</span> <span class="symbol-code-bin">01011011</span> <span class="symbol-code-char">[</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">92</span> <span class="symbol-code-bin">01011100</span> <span class="symbol-code-char">\</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">93</span> <span class="symbol-code-bin">01011101</span> <span class="symbol-code-char">]</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">94</span> <span class="symbol-code-bin">01011110</span> <span class="symbol-code-char">^</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">95</span> <span class="symbol-code-bin">01011111</span> <span class="symbol-code-char">_</span></div>
+  </div>
+  <div class="symbol-code-col">
+    <div class="symbol-code-row"><span class="symbol-code-dec">96</span> <span class="symbol-code-bin">01100000</span> <span class="symbol-code-char">`</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">97</span> <span class="symbol-code-bin">01100001</span> <span class="symbol-code-char">a</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">98</span> <span class="symbol-code-bin">01100010</span> <span class="symbol-code-char">b</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">99</span> <span class="symbol-code-bin">01100011</span> <span class="symbol-code-char">c</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">100</span> <span class="symbol-code-bin">01100100</span> <span class="symbol-code-char">d</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">101</span> <span class="symbol-code-bin">01100101</span> <span class="symbol-code-char">e</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">102</span> <span class="symbol-code-bin">01100110</span> <span class="symbol-code-char">f</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">103</span> <span class="symbol-code-bin">01100111</span> <span class="symbol-code-char">g</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">104</span> <span class="symbol-code-bin">01101000</span> <span class="symbol-code-char">h</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">105</span> <span class="symbol-code-bin">01101001</span> <span class="symbol-code-char">i</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">106</span> <span class="symbol-code-bin">01101010</span> <span class="symbol-code-char">j</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">107</span> <span class="symbol-code-bin">01101011</span> <span class="symbol-code-char">k</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">108</span> <span class="symbol-code-bin">01101100</span> <span class="symbol-code-char">l</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">109</span> <span class="symbol-code-bin">01101101</span> <span class="symbol-code-char">m</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">110</span> <span class="symbol-code-bin">01101110</span> <span class="symbol-code-char">n</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">111</span> <span class="symbol-code-bin">01101111</span> <span class="symbol-code-char">o</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">112</span> <span class="symbol-code-bin">01110000</span> <span class="symbol-code-char">p</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">113</span> <span class="symbol-code-bin">01110001</span> <span class="symbol-code-char">q</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">114</span> <span class="symbol-code-bin">01110010</span> <span class="symbol-code-char">r</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">115</span> <span class="symbol-code-bin">01110011</span> <span class="symbol-code-char">s</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">116</span> <span class="symbol-code-bin">01110100</span> <span class="symbol-code-char">t</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">117</span> <span class="symbol-code-bin">01110101</span> <span class="symbol-code-char">u</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">118</span> <span class="symbol-code-bin">01110110</span> <span class="symbol-code-char">v</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">119</span> <span class="symbol-code-bin">01110111</span> <span class="symbol-code-char">w</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">120</span> <span class="symbol-code-bin">01111000</span> <span class="symbol-code-char">x</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">121</span> <span class="symbol-code-bin">01111001</span> <span class="symbol-code-char">y</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">122</span> <span class="symbol-code-bin">01111010</span> <span class="symbol-code-char">z</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">123</span> <span class="symbol-code-bin">01111011</span> <span class="symbol-code-char">{</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">124</span> <span class="symbol-code-bin">01111100</span> <span class="symbol-code-char">|</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">125</span> <span class="symbol-code-bin">01111101</span> <span class="symbol-code-char">}</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">126</span> <span class="symbol-code-bin">01111110</span> <span class="symbol-code-char">~</span></div>
+    <div class="symbol-code-row"><span class="symbol-code-dec">127</span> <span class="symbol-code-bin">01111111</span> <span class="symbol-code-char">DEL</span></div>
+  </div>
+</div>
+
+<h3 id="component-rgb-table">Таблица цветов RGB</h3>
+<table>
+<thead>
+<tr>
+<th>Цвет</th>
+<th>Название</th>
+<th>R G B</th>
+<th>Байты</th>
+<th>HEX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="rgb-swatch rgb-swatch--black" aria-hidden="true"></span></td>
+<td>чёрный</td>
+<td>0 0 0</td>
+<td><code>00000000 00000000 00000000</code></td>
+<td><code>#000000</code></td>
+</tr>
+<tr>
+<td><span class="rgb-swatch rgb-swatch--white" aria-hidden="true"></span></td>
+<td>белый</td>
+<td>255 255 255</td>
+<td><code>11111111 11111111 11111111</code></td>
+<td><code>#FFFFFF</code></td>
+</tr>
+<tr>
+<td><span class="rgb-swatch rgb-swatch--red" aria-hidden="true"></span></td>
+<td>красный</td>
+<td>255 0 0</td>
+<td><code>11111111 00000000 00000000</code></td>
+<td><code>#FF0000</code></td>
+</tr>
+</tbody>
+</table>
+<p class="table-caption">Кодирование основных цветов</p>
+
+<p>Подробные типы TikZ-иллюстраций остаются в <a href="../../illustrations/showroom/">отдельной витрине иллюстраций</a>.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "content.code.copy", "content.tabs.link", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/math-nowrap.js"></script>
+      
+        <script src="../../javascripts/pdf-slides.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,134 @@
+/* Семантическое представление кодов, символов и цветовых значений. */
+
+:where(.md-typeset) .notation-map__domain {
+    color: var(--color-book-blue);
+}
+
+:where(.md-typeset) .notation-map__separator {
+    color: var(--color-book-red);
+}
+
+:where(.md-typeset) .notation-map__condition {
+    color: var(--color-table-expression);
+}
+
+:where(.md-typeset) .morse {
+    font-size: 1.25em;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+:where(.md-typeset) .morse-code,
+:where(.md-typeset) .encode-target {
+    border-radius: 4px;
+    display: inline-block;
+    line-height: 1.35;
+    padding: 0.02em 0.35em;
+}
+
+:where(.md-typeset) .morse-code {
+    background: var(--color-morse-bg);
+    border: 1px solid var(--color-data-outline);
+    font-size: 1.22em;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+:where(.md-typeset) .encode-target {
+    background: var(--color-encode-target-bg);
+    border: 1px solid var(--color-encode-target-border);
+    font-weight: 600;
+}
+
+:where(.md-typeset) .symbol-code-table {
+    display: grid;
+    font-family: var(--md-code-font-family, monospace);
+    font-size: clamp(0.62rem, 0.78vw, 0.82rem);
+    gap: 0.8rem 1.35rem;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: space-between;
+    line-height: 1.45;
+    margin: 1rem 0 1.2rem;
+}
+
+:where(.md-typeset) .symbol-code-col {
+    min-width: max-content;
+}
+
+:where(.md-typeset) .symbol-code-row {
+    white-space: nowrap;
+}
+
+:where(.md-typeset) .symbol-code-dec,
+:where(.md-typeset) .symbol-code-bin,
+:where(.md-typeset) .symbol-code-char {
+    display: inline-block;
+}
+
+:where(.md-typeset) .symbol-code-dec {
+    color: var(--color-table-expression);
+    font-weight: 600;
+    margin-right: 0.35ch;
+    min-width: 3ch;
+    text-align: right;
+}
+
+:where(.md-typeset) .symbol-code-bin {
+    color: var(--color-book-blue);
+    min-width: 8ch;
+}
+
+:where(.md-typeset) .symbol-code-char {
+    margin-left: 0.45ch;
+    min-width: 7ch;
+}
+
+:where(.md-typeset) .rgb-swatch {
+    border: 1px solid var(--color-data-outline);
+    border-radius: 0.25rem;
+    display: inline-block;
+    height: 1.15rem;
+    width: 1.15rem;
+}
+
+:where(.md-typeset) table .rgb-swatch {
+    vertical-align: middle;
+}
+
+:where(.md-typeset) .rgb-swatch--black {
+    background: var(--color-rgb-black);
+}
+
+:where(.md-typeset) .rgb-swatch--white {
+    background: var(--color-rgb-white);
+}
+
+:where(.md-typeset) .rgb-swatch--red {
+    background: var(--color-rgb-red);
+}
+
+:where(.md-typeset) .rgb-swatch--green {
+    background: var(--color-rgb-green);
+}
+
+:where(.md-typeset) .rgb-swatch--blue {
+    background: var(--color-rgb-blue);
+}
+
+@media (max-width: 1100px) {
+    :where(.md-typeset) .symbol-code-table {
+        font-size: clamp(0.62rem, 1vw, 0.78rem);
+        gap: 0.75rem 1.4rem;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 700px) {
+    :where(.md-typeset) .symbol-code-table {
+        font-size: 0.76rem;
+        gap: 0.45rem;
+        grid-template-columns: repeat(1, max-content);
+        justify-content: center;
+    }
+}
